@@ -1,0 +1,27 @@
+\begin{thm}[Nullstellensatz]
+    \label{Nullstellensatz}
+    Let $k$ be an algebraically closed field. If $I\subset k[x_1,\ldots,x_n]$ is an ideal, then
+    $$I(Z(I))=\sqrt{I}.$$
+    Thus the correspondences $I\mapsto Z(I)$ and $X\mapsto I(X)$ induces a bijection between the collection of algebraic
+    subsets of $\mathbf{A}^n_k$ and radical ideals of $k[x_1,\ldots,x_n]$.
+\end{thm}
+
+\begin{cor}
+    A system of polynomial equations $\{f_1=0,\ldots, f_m=0\}$ over an algebraically closed field $k$ has no solutions
+    in $k^n$ iff $1$ can be expressed as a linear combination $1=\sum{p_if_i}$ with polynomial coefficients $p_i$.
+\end{cor}
+
+\begin{cor}
+    If $k$ is an algebraically closed field and $A$ is a $k$-algebra, then $A=A(X)$ for some algebraic set $X$ iff $A$
+    is reduced and finitely generated as $k$-algebra.
+\end{cor}
+
+\begin{cor}
+    Let $k$ be an algebraically closed field and let $X\subset \mathbf{A}^n$ be an algebraic set. Every maximal ideal
+    of $A(X)$ is of the form $\maxm_p:=(x_1-a_1,\ldots,x_n-a_n)/I(X)$ for some $p=(a_1,\ldots,a_n)\in X$.
+\end{cor}
+
+\begin{cor}
+    The category of affine algebraic sets and morphisms (over an algebraically closed field $k$) is equivalent to the
+    affine $k$-algebras with the arrows reversed.
+\end{cor}

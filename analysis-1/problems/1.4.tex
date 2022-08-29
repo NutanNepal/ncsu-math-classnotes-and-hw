@@ -1,0 +1,43 @@
+\question{
+    \textbf{Minkowski's inequality :} Let $p\geq 1$ and
+    $x=\{x_{i}\}_{1}^{\infty} \in l^p$ and
+    $y=\{y_{i}\}_{1}^{\infty} \in l^p$. Then
+
+    \begin{enumerate}
+        \item[a.]
+              $x+y =
+              \{x_{i} + y_{i}\}_{1}^{\infty} \in l^{p}$ and
+        \item[b.]
+              $(\sum_{1}^{\infty}{|x_{i} + y_{i}|^p})^
+              \frac{1}{p}\leq
+              (\sum_{1}^{\infty}{|x_{i}|^{p}})^{\frac{1}{p}}
+              +
+              (\sum_{1}^{\infty}{|y_{i}|^{p}})^{\frac{1}{p}}.$
+    \end{enumerate}
+}
+\begin{proof}
+    If $p=1$ then the Minkowski inequality follows from the
+    triangle inequality. Let $p>1$ then
+    \begin{align}\sum_{1}^{\infty}{\left(|x_{i} + y_{i}|^p\right)}=
+    \sum_{1}^{\infty}{\left(|x_i+y_1||x_{i} + y_{i}|^{p-1}\right)}
+    &\leq\sum_{1}^{\infty}{\left(|x_i||x_{i} + y_{i}|^{p-1}
+    +|y_i||x_{i} + y_{i}|^{p-1}\right)}\\
+    &=\sum_{1}^{\infty}{\left(|x_i||x_{i} + y_{i}|^{p-1}\right)}
+    +\sum_{1}^{\infty}{\left(|y_i||x_{i} + y_{i}|^{p-1}\right)}
+    \label{line2}
+    \end{align}
+    Now let $q$ be the conjugate exponent of $p$, then we have
+    $\frac{1}{p}+\frac{1}{q}=1 \iff p+q=pq \iff p=p(q-1)$. Then,
+    from
+    \ref{line2}
+
+    $$\left(\sum_{1}^{\infty}{|x_i+y_i|^{(p-1)q}}\right)^{1/q}
+    =\left(\sum_{1}^{\infty}{|x_i+y_i|^{p}}\right)^{1/q}
+    <\infty$$
+
+    $$\sum_{1}^{\infty}{|x_i||x_{i} + y_{i}|^{p-1}}
+    \leq \left(\sum_{1}^{\infty}{|x_i|^p}\right)^{1/p}\cdot
+    \left(\sum_{1}^{\infty}{|x_i+y_i|^{(p-1)q}}\right)^{1/q}
+    =\left(\sum_{1}^{\infty}{|x_i|^p}\right)^{1/p}\cdot
+    \left(\sum_{1}^{\infty}{|x_i+y_i|^{p}}\right)^{1/q}$$
+\end{proof}

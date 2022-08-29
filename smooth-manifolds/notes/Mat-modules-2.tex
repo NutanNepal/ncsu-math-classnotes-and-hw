@@ -1,0 +1,67 @@
+\begin{notes}
+      Basic properties of modules (Matsumura 2)
+\end{notes}
+\hrule
+
+\begin{enumerate}
+      \item
+            If $N,N'$ are two submodules of an $A$-module $M$, the set $N:N'=\{a\in A: aN'\in N \}$ is an
+            ideal of $A$ and we can consider $M$ as a module over $A/\text{ann}(M)$ where ann$(M)=0:M$.
+            \input{theorems/M2-modules-th.tex}
+      \item (NAK.)
+            Let $M$ be a finite $A$-module and $I$ an ideal of $A$. If $M=IM$ then there exists $a\in A$ such that
+            $aM=0$ and $a\equiv 1\mod{I}.$ If in addition $I\subset \rad{A}$ then $M=0$.
+      \item
+            Let $A$ be a ring and $I\subset \rad{A}$ an ideal. If $M$ is an $A$-module, $N\subset M$ a submodule such
+            that $M/N$ is finite over $A$. Then $M=N+IM$ implies $M=N$.
+      \item
+            Let $(A,\maxm,k)$ be a local ring and $M$ a finite $A$-module. $\overbar{M}=M/\mathfrak{m}M$ is a
+            finite $n$-dimensional vector space over $k$.
+            \begin{enumerate}
+                  \item[(i)]
+                        If $\{\bar{u}_1,\ldots,\bar{u}_n\}$ is a basis of $\overbar{M}$ then $\{u_1,\ldots,u_n\}$
+                        is a minimal basis of $M$, where $u_i\in M$ is the inverse image of each $\bar{u}_i\in\overbar{M}$.
+                        Every minimal basis of $M$ is obtained this way and has $n$ elements. (If $A$ is not a local ring,
+                        then minimal bases of $M$ do not necessarily have same number of elements.)
+                  \item[(ii)]
+                        If $\{u_1,\ldots,u_n\}$ and $\{v_1,\ldots,v_n\}$ are both minimal bases of $M$, and
+                        $v_i=\sum{a_{ij}u_j}$ with $a_{ij}\in A$ then $\det{(a_{ij})}$ is a unit of A, so that $(a_{ij})$ is an
+                        invertible matrix.
+            \end{enumerate}
+      \item
+            If $f:M \to M$ is an $A$-linear map and $f$ is surjective, then $f$ is also injective. (thus an automorphism)
+      \item
+            If $(A,\maxm)$ is a local ring $A$, then a projective module $M$ (finite or not) over $A$ is free. Any projective
+            module is a direct sum of countably generated projective modules.
+      \item
+            Let $M$ be a projective module over a local ring $A$, and $x\in M$. Then there exists a direct summand of $M$
+            containing $x$ which is a free module.
+      \item
+            A simple $A$-module $M\neq 0$ has no submodules other than $0$ and itself; $M\simeq A/\maxm$ with $\maxm$ a
+            maximal ideal of $A$. A composition series of $M$ is a chain $M=M_0\supset M_1\supset M_2 \ldots\supset M_r=0$
+            where every $M_i/M_{i+1}$ is a simple module. If a composition series exist then $r$ is called the length and is
+            an invariant (independent of the composition series chosen).
+      \item
+            If $0\longrightarrow M_1\longrightarrow M_2\longrightarrow\cdots\longrightarrow M_n\longrightarrow 0$ is an
+            exact sequence of $A$-modules and each $M_i$ has finite length $l(M_i)$ then
+            $$\sum_{i=1}^n{(-1)^{i}l(M_i)}=0.$$
+      \item
+            An $A$-module $M$ is of \textbf{finite presentation} if there exists an exact sequence of the form\\
+            \hspace*{10mm}$A^p\longrightarrow A^q\longrightarrow M \longrightarrow 0.$\\
+            If $0\longrightarrow K\longrightarrow N\longrightarrow M\longrightarrow 0$ is an exact sequence, $M$ is of
+            finite presentation and $N$ is finitely generated, then $K$ is also finitely generated.
+            \begin{equation*}
+                  \begin{tikzcd}
+                        &[-1.5em] A^p \arrow[r, "g"] \arrow[d, "\beta"]
+                        & A^q \arrow[d, "\alpha"] \arrow[r,"f"]
+                        & M \ar[d,equal] \rar &[-1.5em] 0\\
+                        0 \rar
+                        & K \arrow[r, "\psi"]
+                        & N \arrow[r,"\varphi"]
+                        & M \rar & 0
+                  \end{tikzcd}
+            \end{equation*}
+            %This result follows after we show $K=\beta(A^p)+\sum{A\eta_i}$ with each $\eta_i$ satisfying $\psi(\eta_i)=\xi_i-
+            %      \alpha(\nu_i), \nu_i\in A^q$ such that $f(\nu_i)=\varphi(\xi_i)$ and $N=\sum{A\xi_i}$.
+
+\end{enumerate}

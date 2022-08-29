@@ -1,0 +1,18 @@
+\question{
+    \textbf{Young's inequality:} Let $p>1$ and $q$ its conjugate
+    $(\text{i.e. }\frac{1}{p}+\frac{1}{q}=1)$. Then
+    $$u\cdot v \leq \frac{u^p}{p}+\frac{v^q}{q} \hspace*{10mm}
+    \forall u,v\geq 0.$$
+}
+\begin{proof}
+    If either $u$ or $v$ equals $0$, then the inequality
+    follows immediately. Suppose $u>0$, $v>0$ and let
+    $f(x) = e^x$. Since $f$ is a $convex$ function,
+    \begin{align*}
+        u\cdot v &= \exp\left({\log{u}+\log{v}}\right)\\
+        &= f\left(\frac{1}{p}\log{u^p} +\frac{1}{q}
+        \log{v^q}\right)\\
+        &\leq \frac{1}{p}f(\log{u^p})+\frac{1}{q}f(\log{v^q})\\
+        &= \frac{u^p}{p}+\frac{v^q}{q}.
+    \end{align*}
+\end{proof}

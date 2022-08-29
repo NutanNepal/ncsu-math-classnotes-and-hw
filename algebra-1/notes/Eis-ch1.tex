@@ -1,0 +1,88 @@
+\begin{notes}
+      Story of Commutative Algebra. (Eisenbud 1)
+\end{notes}
+\hrule
+
+\begin{enumerate}
+      \item
+            Gauss proved that $\mathbb{Z}[i]$ is a UFD and used this on 1928 paper on biquadratic residues to prove
+            results about ordinary numbers.
+      \item
+            Euler, Gauss, Dirichlet, and Kummer, then, used this idea for $\mathbb{Z}
+                  [\zeta]$, with $\zeta$ a $nth$ root of unity,
+            to prove some special cases of Fermat's last theorem. The idea required factorization
+            of $x^n+y^n$ over $\mathbb{Z}[\zeta]$.
+      \item
+            $\mathbb{Z}[\zeta]$ doesn't always have unique factorization. (first example
+            $n$=23) The search for generalization of unique factorization birthed Dedekind's
+            idea of ideals of a ring.
+      \item
+            This search culminated in two major theories:
+            Dedekind's unique factorization of ideals into prime ideals (Dedekind
+            domains); and Kronecker's theory of polynomial rings and Lasker's theory
+            of primary decomposition in them.
+            \begin{enumerate}
+                  \item[a.]
+                        Dedekind represented an element $r\in R$ by the ideal $(r)$ and found conditions
+                        under which a ring has unique factorization of ideals into prime ideals. (the ring
+                        of all integers in any number field)
+                  \item[b.]
+                        Kronecker put the notion of adjoining the root of polynomial to a field $k$ on firm footing
+                        by introducing the ring $k[x]$, with the desired ring being $k[x]/f(x)$. There is no way to
+                        factorize ideals in a polynomial rings but Lasker later showed how to generalize unique
+                        factorization into "primary decomposition".
+            \end{enumerate}
+      \item
+            $[$Algebraic Curves and Function Theory]
+            Around 1860, Abel, Jacobi and Riemann made entirely new view of algebraic curves possible.
+            From 1875-1882, Kronecker, Wierstrass, Dedekind, and Weber discovered that algebraic techniques
+            that were developed to handle number fields could be applied to geometrically defined fields, thus
+            pioneering the "arithmetic approach to function theory."
+      \item
+            $[$Invariant Theory]
+                  After Pl$\ddot{\text{u}}$cker introduced projective coordinates around 1830, people were
+            interested in the geometric invariant properties under certain classes of transformations. One way to
+            express such an invariant property leads to finding an associative number which is invariant under
+            choice of coordinates.
+            \begin{enumerate}
+                  \item[a.]
+                        Mathematicians realized that the invariance under choice of coordinates was the invariance
+                        under an action of a group (GL$_n(k)$ or SL$_n(k)$).
+                  \item[b.]
+                        The general problem, then, became finding the set of invariants (a subalgebra of $S$) $S^G$ under
+                        "nice" action of a group $G$ of automorphisms of polynomial ring $S=k[x_1,\ldots,x_n]$.
+                        The \textbf{fundamental problem of invariant theory} was the problem of existence of
+                        finite systems of generators of $S^G$.
+                  \item[c.]
+                        In a series of papers from 1888 to 1893, Hilbert showed that the ring of invariants is finitely
+                        generated in a wide range of cases. Aside from this, Hilbert proved four major results (the basis
+                        theorem, the Nullstellensatz, the polynomial nature of the Hilbert function and the syzygy theorem),
+                        all of which played enormous role in development of commutative algebra.
+            \end{enumerate}
+      \item
+            A graded ring is a ring $R$ together with the direct sum decomposition
+            $$R=R_0\oplus R_1 \oplus R_2\oplus\cdots \text{ as abelian groups},$$
+            such that $R_iR_j \subset R_{i+j}$ for $i,j\geq 0$.
+            \begin{mybox}{The Basis Theorem \& Finite Generation of Invariants}
+                  \input{theorems/Eis1-thb1-hilbert-basis.tex}
+                  \input{theorems/Eis1-thb2.tex}
+                  Hilbert's finiteness result follows by taking $R=S^G$ above.
+            \end{mybox}
+
+      \item
+            Given a subset $I\subset k[x_1,\ldots,x_n]$, the algebraic subset of $k^n$
+            $$Z(I)=\{(a_1,\ldots,a_n)\in k^n | f(a_1,\ldots,a_n)=0\text{ for all }f\in I\}$$
+            is called \textbf{algebraic variety} if it is \textbf{irreducible} (not the union of two smaller
+            algebraic subsets). Taking algebraic sets as closed sets, we obtain \textbf{Zariski topology} on $k^n$.
+            Given a set $X\subset k^n$, $$I(X) =\{f\in k[x_1,\ldots,x_n]|f(a_1,\ldots,a_n)=0\text{ for all }
+                  (a_1,\ldots,a_n)\in X\}$$ is an ideal of $k[x_1,\ldots,x_n]$. Identifying polynomial functions that
+            agree at all points of a set $X$, we get the \textbf{coordinate ring} $A(X)=k[x_1,\ldots,x_n]/I(X)$ of X
+            which is reduced. The ideals $I(X)$ are all radical ideals, but not all radical ideals can appear as $I(X)$
+            (but in an algebraically closed field, all radical ideals appear as such).
+
+            \begin{mybox}{The Nullstellensatz}
+                  \input{theorems/Eis1-thb3-null.tex}
+            \end{mybox}
+
+      \item
+\end{enumerate}

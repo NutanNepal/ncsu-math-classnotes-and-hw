@@ -1,0 +1,21 @@
+\question{
+    Prove the following inequality:
+    $$(a+b)^p \leq 2^{p-1}(a^p+b^p) \hspace{10mm}
+    \forall a,b \geq 0,\hspace{2mm} p\geq 1$$
+}
+\begin{proof}
+    Let $f(x)=x^p$, $f:[0, \infty)\to \rl$ and
+    $p\geq 1$. Since $f$ is a $convex$ function, we have
+    $$f(\alpha x +(1-\alpha)y)\leq\alpha f(x)+(1-\alpha)
+    f(y)\hspace{8mm}\text{for } \alpha\in [0,1].$$
+    For $\alpha=1/2$, we have
+    \begin{align*}
+        f\left(\frac{a}{2}+\frac{b}{2}\right)
+        &\leq \frac{f(a)}{2}+\frac{f(b)}{2}\\
+        \text{or, }\hspace{3mm}
+        \frac{1}{2^p}f\left(a+b\right)
+        &\leq \frac{1}{2}\left(f(a)+f(b)\right)\\
+        \text{or, }\hspace{9.5mm} a^p +b^p
+        &\leq 2^{p-1}\left(a^p+b^p\right).
+    \end{align*}
+\end{proof}
