@@ -1,0 +1,322 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\pagestyle{empty}
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Introduction to Manifold Theory \\
+\large Homework 1
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+ \underline{}\hrulefill
+\vspace{.1in}
+
+\begin{enumerate}
+
+\item Prove that the open disks $D_r(p)$ are 
+open subsets of $\rl^n$.
+
+\begin{mybox}
+
+  To prove that the open disks $D_r(p)$
+  are open subsets of $\rl^n$, we show that
+  for every point $x\in D_r(p)$ we have another
+  open disk $D_{\epsilon}(x)$, $\epsilon>0$ such that
+  $D_{\epsilon}(x)\subset D_r(p)$.
+
+  \setlength{\parskip}{3mm}
+  For any $x\in D_r(p)$ such that $\delta=d(x,p)<r$,
+  we take $0<\epsilon<r-\delta$. Then we see that
+  for all $y\in D_{\epsilon}(x)$
+  $$d(p,y)\leq d(p,x)+d(x,y)<\delta+\epsilon<
+  \delta+r-\delta=r.$$
+  Hence, $y\in D_r(p)$ for all $y\in D_{\epsilon}(x)$
+  which implies that $D_{\epsilon}(x)\subset D_r(p)$.
+  So, $D_r(p)$ is an open subset.
+\end{mybox}
+
+
+\item Prove the second part of Proposition 2.17
+ (a function $f : \rl^n\to \rl^m$ is continuous
+ everywhere if and only if for all open subsets
+ $V$ of $\rl^m$, the preimage $f^{-1}(V)$ of $V$
+ under $f$ is open in $\rl^n$).
+ 
+\begin{mybox}
+
+  We prove for $\Leftarrow$ : If for all open subsets
+  $V$ of $\rl^m$ the preimage $f^{-1}(V)$ of $V$
+  under $f$ is open in $\rl^n$, then $f$ is continuous.
+
+  \setlength{\parskip}{3mm}
+  Let $V\subset \rl^m$ be an open subset such that
+  $f(x)\in V$. Then we have an open disk
+  $D_{\epsilon}(f(x)) \subset V$.
+  As the disk $D_{\epsilon}(f(x))$ is open
+  in $\rl^m$, we have an open set
+  $f^{-1}(D_{\epsilon}(f(x)))
+  \subset \rl^n$ which contains $x$. Then we can find
+  a $\delta>0$ such that
+  $D_{\delta}(x)\subset f^{-1}(D_{\epsilon}(f(x)))$.
+  That is, for every $\epsilon$-ball around $f(x)$,
+  we can find a $\delta$-ball around $x$ such that
+  $$y\in D_{\delta}(x)\implies f(y)\in D_{\epsilon}(f(x))$$
+  for some $y$. Hence $f$ is continuous.
+\end{mybox}
+  
+\item  Show that a composition of continuous functions
+$\rl^n\xrightarrow{f}\rl^m\xrightarrow{g}\rl^k$ is continuous.
+
+\begin{mybox}
+
+  Since $g$ is continuous, we have $g^{-1}(V)$ open for
+  all open set $V\subset \rl^k$. Similarly we have $f$
+  continuous, so $f^{-1}(U)$ is open for all open sets
+  $U\subset \rl^m$. Then, $f^{-1}(g^{-1}(V))=
+  (g\circ f)^{-1}(V)$ is open for all open sets $V$ in
+  $\rl^k$. Hence the composition is continuous.
+\end{mybox}
+ 
+ 
+\item Show that a function $f : X \to Y$ between sets is
+invertible if and only if it is bijective.
+
+\begin{mybox}
+
+  A function $f:X\to Y$ is invertible if there exists a
+  function $g:Y\to X$ such that $f\circ g= \id_Y$ and
+  $g\circ f=\id_X$.
+  \begin{enumerate}
+    \item[i.]
+      $f$ invertible $\implies$ $f$ bijective\\
+      Note that since $\id_Y$ is surjective, $f$ must be
+      surjective. Now for injectivity, we observe that
+      if $f(x) =f(y)$ then $$x=(g\circ f)(x)
+      =g(f(x))=g(f(y))=(g\circ f)(y)=y.$$
+      Hence, $f$ is bijective.
+    \item[ii.]
+      $f$ bijective $\implies$ $f$ invertible\\
+      Since $f$ is both injective and surjective,
+      we define a function $g:Y\to X$ by
+      $g(y)=x$ whenever $f(x)=y$. Note that $g$ is 
+      well-defined since there exists only one $y$ for
+      each $x$. Then, for all
+      $x\in X$,
+      $g(f(x)) = g(y)=x \implies g\circ f=\id_X$.
+      Similarly, for all $y\in Y$, $f(g(y))=f(x)=y
+      \implies f\circ g=\id_Y$. So, $f$ is invertible.
+  \end{enumerate}
+\end{mybox}
+
+
+\item Show that the product topology on a product
+$X \times Y$ of topological spaces is a valid
+topology.
+
+\begin{mybox}
+
+  $X$ and $Y$ are topological spaces.
+  We define a set $U\subset X\times Y$ to be open if
+  for all $(x,y)\in U$ we have open neighborhoods $U_x
+  \subset X$ and $U_y\subset Y$ such that
+  $U_x\times U_y\subset U$.
+
+  \setlength{\parskip}{3mm}
+  \begin{enumerate}
+    \item[i.] Clearly the null set $\phi$ and the whole set
+      $X\times Y$ are open since $X$ is open in $X$ and
+      $Y$ is open in $Y$.
+
+    \item[ii.] Arbitrary union $\bigcup
+    {U_\alpha}$ of open sets is open.
+    
+    \setlength{\parskip}{2mm}
+    Let $(x,y)$ be an
+    arbitrary point in $\bigcup{U_\alpha}$, then
+    $(x,y)\in U_i$ for some $i$. Then, by definition,
+    there are open neighborhoods $U_x
+    \subset X$ and $U_y\subset Y$ such that
+    $U_x\times U_y\subset U_i \subset \bigcup{U_\alpha}$.
+
+    \item[iii.] Finite intersection $U_i\cap U_j$ of
+      open sets is open.
+      
+      \setlength{\parskip}{2mm}
+      Let $(x,y)$ be an arbitrary
+      point of $U_i\cap U_j$, then $(x,y)\in U_i$ and
+      $(x,y)\in U_j$. Then, by definition,
+      there are open neighborhoods $U_{ix}, U_{jx}
+      \subset X$ and $U_{iy}, U_{jy}\subset Y$ such that
+      $U_{ix}\times U_{iy}\subset U_i$ and
+      $U_{jx}\times U_{jy}\subset U_j$. Then
+      $$U_i\cap U_j
+      \supset \left(U_{ix}\times U_{iy}\right)
+      \cap\left(U_{jx}\times U_{jy}\right)
+      =\left(U_{ix}\cap U_{jx}\right)
+      \times\left(U_{iy}\cap U_{jy}\right)
+      \ni (x,y).$$
+      Since $\left(U_{ix}\times U_{jx}\right)$
+      and $\left(U_{iy}\times U_{jy}\right)$ are open
+      in $X$ and $Y$ respectively, we see that
+      $U_i \cap U_j$ is open.
+
+  \end{enumerate}
+\end{mybox}
+
+    
+\item Verify the three basic properties of closed sets
+that correspond to the three axioms for open sets.
+  
+\begin{mybox}
+  
+  We define a set $V\subset X$ to be closed if its
+  complement $V^c$ is open in $X$.
+
+  \setlength{\parskip}{2mm}
+  \begin{enumerate}
+    \item[i.] The null set $\phi$ and the whole set
+      $X$ are closed.
+
+      \setlength{\parskip}{2mm}
+      $\phi^c=X$ and $X^c=\phi$ which are open in $X$.
+    \item[ii.] Arbitrary intersection $\bigcap{V_\alpha}$
+      of closed sets is closed.
+
+      \setlength{\parskip}{2mm}
+      Here we use the set-theoretic fact that
+      \begin{equation}
+        \left(\bigcup U_\beta\right)^c=
+      \bigcap U_\beta^c \label{setfact}
+      \end{equation}
+      where $\{U_\beta\}$ is the collection of
+      indexed sets. Since each sets $V_\alpha$
+      are closed, we write $V_\alpha$ as $U_\alpha^c$
+      where $U_\alpha$ is an open set of $X$.
+      Then from \ref{setfact} we have
+      \begin{equation}
+        \bigcap V_\alpha=\bigcap U_\alpha^c=
+        \left(\bigcup U_\alpha\right)^c
+      \end{equation}
+      Hence, since $\bigcup U_\alpha$ is open in $X$,
+      $\bigcap V_\alpha$ must be closed.
+
+      \item[iii.] Finite union $V_i\cup V_j$ of closed sets
+        is closed.
+
+        \setlength{\parskip}{3mm}
+         We have $V_i\cup V_j=U_i^c\cup U_j^c=(U_i\cap U_j)
+         ^c$. Since finite intersection of open sets are
+         open, we observe that $V_i\cup V_j$ is the complement
+         of an open set. Hence $V_i\cup V_j$ is closed.
+  \end{enumerate}
+\end{mybox}
+
+
+\item Show that if we have
+$X^{\prime\prime}\subset X^{\prime}\subset X$,
+then the “subspace of a subspace” topology on
+$X^{\prime\prime}$ is the same as the “subspace of the biggest space”
+topology on $X^{\prime\prime}$.
+
+\begin{mybox}
+  
+Suppose $(X,\tau)$ is a topological space.
+The subspace topology on $X^{\prime}$ is given by
+$$\tau^{\prime}=\{U^{\prime}\subset X^{\prime}:
+U^\prime = U\cap X^\prime\text{ for some }U\in\tau\}$$
+and the subspace topology on $X^{\prime\prime}$
+induced by $\tau^\prime$ is given by
+$$\tau^{\prime\prime}=\{U^{\prime\prime}\subset
+X^{\prime\prime}:U^{\prime\prime} = U^\prime\cap
+X^{\prime\prime}\text{ for some }U^\prime\in\tau^\prime\}.$$
+We need to show that $\tau^{\prime\prime}$ is equal to the
+the subspace topology on $X^{\prime\prime}$ induced by
+$\tau$
+$$T=\{U^{\prime\prime}\subset
+X^{\prime\prime}:U^{\prime\prime} = U\cap
+X^{\prime\prime}\text{ for some }U\in\tau\}.$$
+
+Let $A\in \tau^{\prime\prime}$, then $A=U^\prime\cap
+X^{\dprime}$ for some $U^\prime\in\tau^\prime$. Since
+$U^\prime=U\cap X^\prime$ for some $U\in\tau$ we have,
+$A=U\cap X^\prime\cap X^\dprime=U\cap X^\dprime
+\in T$. Hence $\tau^\dprime\subset T$. Similarly,
+let $B\in T$, then $B=U\cap X^\dprime$ for some $U\in
+\tau$. Since we can write $X^\dprime$ as $X^\prime\cap
+X^\dprime$ we have $B=U\cap X^\prime\cap X^\dprime=
+U^\prime\cap X^\dprime\in \tau^\dprime$ for some $U^\prime
+$ in $\tau^\prime$. Hence $T\subset \tau^\dprime$ which
+gives $T=\tau^\dprime$ ending our proof.
+\end{mybox}
+  
+
+\item Prove the characterization of closed sets of a subspace
+as intersections with closed sets of the larger space:
+Let $X$ be a topological space and let $X^\prime\subset
+X$ be a subspace. Show that a subset $E\subset X^\prime$
+is closed if and only if $E = F\cap X^\prime$ for some
+closed subset $F$ of $X$.
+\begin{mybox}
+  
+If $E\subset\xprime$ is closed, then $\xprime\char`\\E$ is open
+in $\xprime$. Since all open sets of $\xprime$ are in
+the form of $U\cap\xprime$ for some open set $U$ of $X$
+we have, $\xprime\char`\\E=U\cap\xprime$.
+$$E=\xprime\char`\\(\xprime\char`\\E)=\xprime
+\char`\\(U\cap\xprime)=\xprime\char`\\U=\xprime\cap U^c
+=\xprime\cap F$$
+for a closed subset $F$ of $X$.
+
+\setlength{\parskip}{3mm}
+If $E = F\cap X^\prime$ for some closed subset $F$
+of $X$, then for the open set $U=F^c$ of $X$,
+$E=(X\char`\\U)\cap \xprime=(X\cap\xprime)
+\char`\\(U\cap\xprime)=\xprime\char`\\(U\cap\xprime)$.
+Since $U\cap \xprime$ is an open set of $\xprime$, we see
+that $E=\xprime\char`\\(U\cap\xprime)$
+is closed in $\xprime$.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

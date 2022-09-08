@@ -3,10 +3,12 @@
 \usepackage[letterpaper, total{216mm, 279mm}]{}
 \usepackage{amssymb,amsmath,amsfonts,verbatim}
 \usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
 
 \newtcolorbox{mybox}[2][]{
     arc=0mm, enhanced, frame hidden, breakable
 }
+\newcommand{\qed}{$\hfill\blacksquare$}
 
 \setcounter{MaxMatrixCols}{10}
 
@@ -14,7 +16,7 @@
 \setlength{\topmargin}{-.65in}
 \setlength{\textwidth}{190mm} 
 \setlength{\textheight}{240mm}
-\setlength{\oddsidemargin}{-12mm} 
+\setlength{\oddsidemargin}{-15mm} 
 \setlength{\evensidemargin}{-15mm}
 \parindent=0pt
 
@@ -26,8 +28,9 @@
 \begin{document}
 
 {\large \textbf{MA 515 - Analysis I}}\hfill
-\textbf{Hw 1} \\
-{\bf Pack Pledge:} \\
+\textbf{Homework 1} \\
+{\bf Pack Pledge:} I have neither given nor received unauthorized aid on this
+test or assignment.\\
 {\bf Name:} Nutan Nepal\hfill \\
  \underline{}\hrulefill
 \vspace{.1in}
@@ -36,17 +39,81 @@
 
 \item Choose either $d_1$ or $d_2$ below and show that it is a metric on $\mathbb{R}^n$. 
  $$d_1(x,y) = max\{|x_i-y_i|\} \ \ \text{and} \ \ d_2(x,y) = \sum_{i=1}^n |x_i - y_i| \ \ \text{(taxicab metric)}.$$
- \begin{mybox}
-  
- \end{mybox}
+\begin{mybox}
+
+  \begin{enumerate}
+    \item[i.]
+      Since $d_2$ is a finite sum of positive numbers,
+      $0\leq d_2(x,y)<\infty$.
+    \item[ii.]
+      $d_2(x,y)=d_2(y,x)$ since $|x_i-y_i|=|y_i-x_i|$
+      for all $i$.
+    \item[iii.]
+      $d_2(x,x)=0$ since it is the sum of zeros.
+    \item[iv.]
+      Since we have $|x_i-z_i|=|(x_i-y_i)+(y_i-z_i)|
+      \leq |x_i-y_i|+|y_i-z_i|$ (using triangle inequality
+      for each $x_i, y_i, z_i \in \mathbf{R}$), we get
+      $$d_2(x,z)=\sum_{i=1}^n |x_i - z_i|\leq
+      \sum_{i=1}^n{\left(|x_i - y_i|+|y_i-z_i|\right)}
+      =d_2(x,y)+d_2(y,z).$$
+      Hence, $d_2$ also satisfies the triangle inequality
+      for $x,y,z\in \mathbb{R}^n$.   
+  \end{enumerate}
+  Thus, $d_2$ is a metric in $\mathbb{R}^n$.\qed
+\end{mybox}
+
  \item Let $C[0,1]$ be the space of continuous functions on $[0,1]$. \\
  Show that $\ds d(f,g) = \int_0^1|f(x) - g(x)| dx$ is a metric on $C[0,1]$
- 
+ \begin{mybox}
+
+For all $f\in C[0,1]$, $f$ is bounded. Let $|f(x)|<M$ and
+$|g(x)|<N$ for $x\in[0,1]$.
+  \begin{enumerate}
+    \item[i.]
+      Then $0\leq\int_0^1{|f(x)-g(x)| dx}\leq
+      \int_0^1{|f(x)|+|g(x)| dx}\leq (M+N)(1-0)<\infty$.
+      Hence
+      $0\leq d(f,g)<\infty$.
+    \item[ii.]
+      $d(f,g)=d(g,f)$ since $|f(x)-g(x)|=|g(x)-f(x)|$
+      for all $x\in[0,1]$.
+    \item[iii.]
+      $d(f,f)=0$ since it is the integration of zero function.
+    \item[iv.]
+      For each $x\in [0,1]$ and $f,g,h\in C[0,1]$, we have
+      $|f(x)-h(x)|=|(f(x)-g(x))+(g(x)-h(x))|
+      \leq |f(x)-g(x)|+|g(x)-h(x)|$ (using triangle inequality
+      for real numbers). Then
+      $$d(f,h)=\int_{0}^1{ |f(x) - h(x)| dx}\leq
+      \int_{0}^1{\left(|f(x) - g(x)|+|g(x)-h(x)|\right) dx}
+      =d(f,g)+d(g,h).$$
+      Hence, $d$ satisfies the triangle inequality
+      for $f,g,h\in C[0,1]$.
+  \end{enumerate}
+  Thus, $d$ is a metric on $C[0,1] $.\qed
+\end{mybox}
   
 \item   Let $x = \{x_n\}_1^{\infty}$ be a sequence. 
 \begin{enumerate} 
-\item True or False: If $x_n \in l^p$ for some $1 \leq p < \infty$, then  $x_n \to 0$ as $n \to \infty$. Justify your answer.
+\item True or False: If $x \in l^p$ for some $1 \leq p < \infty$, then  $x_n \to 0$ as $n \to \infty$. Justify your answer.
+\begin{mybox}
+
+  True. If $x\in l^p$ for some $1\leq p<\infty$, then
+  $\left(\sum_1^{\infty}{|x_i|^p}\right)^{1/p}<\infty$.
+  Hence $\sum_i^{\infty}{|x_i|^p}$ is a convergent series
+  and $|x_i|^p\to 0$ as $i\to \infty$ which implies that
+  $x_i\to 0$ as $i\to\infty$.
+\end{mybox}
 \item True or False: If $x_n \to 0$ as $n \to \infty$, then $x_n \in l^p$, for some $1 \leq p < \infty$. Justify your answer.
+\begin{mybox}
+
+  False. The sequence given by $x= \{x_i=\frac{1}{\log (i+1)}\}_1^{\infty}
+  \to 0$ as $i\to \infty$ but the sum $\sum_2^{\infty}{
+    |x_i|^p
+  }$ does not converge for any $1\leq p<\infty$.
+  So, $x\notin l^p$ for any $1\leq p<\infty$.
+\end{mybox}
  \end{enumerate}
  
  
@@ -60,7 +127,7 @@
     $p\geq 1$. Since $f$ is a $convex$ function, we have
     $$f(\alpha x +(1-\alpha)y)\leq\alpha f(x)+(1-\alpha)
     f(y)\hspace{8mm}\text{for } \alpha\in [0,1].$$
-    For $\alpha=1/2$, we have
+    Taking $\alpha=1/2$, we get
     \begin{align*}
         f\left(\frac{a}{2}+\frac{b}{2}\right)
         &\leq \frac{f(a)}{2}+\frac{f(b)}{2}\\
@@ -69,7 +136,7 @@
         &\leq \frac{1}{2}\left(f(a)+f(b)\right)\\
         \text{or, }\hspace{9.5mm} (a+b)^p
         &\leq 2^{p-1}\left(a^p+b^p\right).
-    \end{align*}
+    \end{align*}\qed
   \end{mybox}
 
 \item For $p >1$, let $q$ be its conjugate, i.e. $\ds \frac{1}{p} + \frac{1}{q} = 1$. Prove the following inequality:
@@ -87,6 +154,7 @@
         &\leq \frac{1}{p}f(\log{u^p})+\frac{1}{q}f(\log{v^q})\\
         &= \frac{u^p}{p}+\frac{v^q}{q}.
     \end{align*}
+    \qed
 \end{mybox}
 
     
@@ -142,7 +210,7 @@
     \left(\sum_{1}^{\infty}{|x_i|^{p}}\right)^{1/p}\cdot
     \left(\sum_{1}^{\infty}{|y_i|^{q}}\right)^{1/q}$ which proves
     (b). Since $0\leq\sum_{1}^{\infty}{|x_{i}y_{i}|}<\infty$, we also
-    have (a) by definition.
+    have (a) by definition.\qed
   \end{mybox}
   \item Prove Minkowski's Inequality for Sums.  Use the hints from class. 
   
@@ -157,11 +225,11 @@
               $x+y =
               \{x_{i} + y_{i}\}_{1}^{\infty} \in l^{p}$ and
         \item[b.]
-              $(\sum_{1}^{\infty}{|x_{i} + y_{i}|^p})^
-              \frac{1}{p}\leq
-              (\sum_{1}^{\infty}{|x_{i}|^{p}})^{\frac{1}{p}}
-              +
-              (\sum_{1}^{\infty}{|y_{i}|^{p}})^{\frac{1}{p}}.$
+        $\left(\sum_{1}^{\infty}{|x_{i} + y_{i}|^p}\right)^
+        \frac{1}{p}\leq
+        \left(\sum_{1}^{\infty}{|x_{i}|^{p}}\right)^{\frac{1}{p}}
+        +
+        \left(\sum_{1}^{\infty}{|y_{i}|^{p}}\right)^{\frac{1}{p}}.$
     \end{enumerate}
     First we show that $x+y\in l^p$ by showing that
     $$\left(\sum_{1}^{\infty}{|x_{i} + y_{i}|^p}\right)^{1/p}
@@ -174,9 +242,9 @@
 
     Now, since $x,y\in l^p$, $d_p(x,y)<\infty$.
     If $p=1$ then the Minkowski inequality follows from the
-    triangle inequality. Let $p>1$ then
+    triangle inequality of real numbers. Let $p>1$ then
     \begin{align}\sum_{1}^{\infty}{|x_{i} + y_{i}|^p}=
-    \sum_{1}^{\infty}{\left(|x_i+y_1||x_{i} + y_{i}|^{p-1}\right)}
+    \sum_{1}^{\infty}{|x_i+y_1||x_{i} + y_{i}|^{p-1}}
     &\leq\sum_{1}^{\infty}{\left(|x_i||x_{i} + y_{i}|^{p-1}
     +|y_i||x_{i} + y_{i}|^{p-1}\right)}\label{line1}\\
     &=\sum_{1}^{\infty}{\left(|x_i||x_{i} + y_{i}|^{p-1}\right)}
@@ -206,11 +274,11 @@
     Using the results from line \ref{line2} and line \ref{line4} on line
     \ref{line1},
     \begin{align}
-      \sum_{1}^{\infty}{\left(|x_{i} + y_{i}|^p\right)}
+      \sum_{1}^{\infty}{|x_{i} + y_{i}|^p}
       &\leq \sum_{1}^{\infty}{\left(|x_i||x_{i} + y_{i}|^{p-1}\right)}
       +\sum_{1}^{\infty}{\left(|y_i||x_{i} + y_{i}|^{p-1}\right)}\\
       \text{or,}\hspace*{5mm}
-      \sum_{1}^{\infty}{\left(|x_{i} + y_{i}|^p\right)}
+      \sum_{1}^{\infty}{|x_{i} + y_{i}|^p}
       &\leq\left(\sum_{1}^{\infty}{|x_i+y_i|^{p}}\right)^{1/q}
       \cdot\left(\left(\sum_{1}^{\infty}{|x_i|^p}\right)^{1/p}
       +\left(\sum_{1}^{\infty}{|y_i|^p}\right)^{1/p}\right)
@@ -218,7 +286,8 @@
     Dividing both sides by
     $\left(\sum_{1}^{\infty}{|x_i+y_i|^{p}}\right)^{1/q}$,
     we get the Minkowski's inequality (since $1-\frac{1}{q}=\frac{1}{p}$).
-
+    
+    \qed
   \end{mybox}
   \item For $1 \leq p < \infty$, let $\ds l^p = \{x = \{x_i\}_1^{\infty} \ | \ \sum_1^{\infty}|x_i|^p < \infty \}$. For any $x, y \in l^p$, define 
   $$d_p(x,y) = \Big( \sum_1^{\infty}|x_i - y_i|^p \Big)^{1/p}$$
@@ -233,17 +302,88 @@
               we have $d_p<\infty$.
               
         \item[ii.]
-              
-        \item[] 
-              
+              $d_p(x,y)=d_p(y,x)$ since $|x_i-y_i| = |y_i-x_i|$
+              for all $i$.
+        \item[iii.] 
+              $d_p(x,x)=0$ since $|x_i-x_i|=0$ for all $i$.
+        \item[iv.]
+              The triangle inequality for $d_p$ follows from the Minkowski
+              inequality (b.)
+              \begin{align*}
+                \left(\sum_{1}^{\infty}{|x_{i} - z_{i}|^p}\right)^
+              \frac{1}{p}&\leq
+              \left(\sum_{1}^{\infty}{|x_{i}-y_i|^{p}}\right)^{\frac{1}{p}}
+              +
+              \left(\sum_{1}^{\infty}{|y_{i}-z_i|^{p}}\right)^{\frac{1}{p}}\\
+              \text{or, }\ \ d_p(x,z)&\leq d_p(x,y)+d_p(y,z)
+              \end{align*}\qed
     \end{enumerate}
+    
   \end{mybox}
   
   \item Prove Jensen's Inequality for Sums. Use the hints from class. 
+  \begin{mybox}
+    
+    $$\left(\sum_{i=1}^{\infty}{|x_i|^{p_2}}\right)^{1/{p_2}}
+    \leq\left(\sum_{i=1}^{\infty}{|x_i|^{p_1}}\right)^
+    {1/{p_1}}\hspace*{10mm}\forall 1\leq p_1<p_2<\infty$$
   
-   \item Show that $l^1 \subset l^2$ without using Jensen's inequality. Then show that inclusion is strict, i.e., find an element in $l^2$ that is not in $l^1$. 
-  
+    
+    Let $|y_i|=|x_i|^{p_1}$. Then we need to show that
+    $\left(\sum_{i=1}^{\infty}{|y_i|^{p_2/p_1}}\right)
+    ^{{p_1/p_2}}
+    \leq\sum_{i=1}^{\infty}{|y_i|}$. First we show that
+    this is true for a finite sequence $\{x_i\}_1^{n}$
+    using induction on $n$. Then we take the limit as
+    $n\to \infty$ to prove Jensen's inequality.
 
+    \setlength{\parskip}{3mm}
+    When $n=1$, $(|y_1|^{p_2/p_1})^{p_1/p_2}=y_1$.
+    (True)
+
+    \setlength{\parskip}{3mm}
+    Let $H(k):\left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}\right)^{p_1/{p_2}}
+    \leq\sum_{i=1}^{k}{|y_i|}$ be true for some integer
+    $k>1$. Then
+    \begin{align*}
+      \left(\sum_{i=1}^{k+1}{|y_i|^{p_2/p_1}}\right)^{p_1/{p_2}}
+      &=\left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}
+      +|y_{k+1}|^{p_2/p_1}\right)^{p_1/{p_2}}&\\
+      &\leq \left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}\right)
+      ^{p_1/p_2}
+      +\left(|y_{k+1}|^{p_2/p_1}\right)^{p_1/{p_2}}
+      &\text{[by Minkowski inequality]}\\
+      &\leq \sum_{i=1}^{k}{|y_i|}+|y_{k+1}|
+      &\text{[by induction hypothesis]}\\
+      &=\sum_{i=1}^{k+1}{|y_i|}
+    \end{align*}
+    Hence $H(k)\implies H(k+1)$ which proves that $H(n)$ is
+    true for all $n\in \mathbb{Z}$. Taking the limit
+    as $n\to\infty$ we get the required Jensen's inequality.
+  \qed
+\end{mybox}
+  \item Show that $l^1 \subset l^2$ without using Jensen's inequality. Then show that inclusion is strict, i.e., find an element in $l^2$ that is not in $l^1$. 
+  \begin{mybox}
+
+    Let $x\in l^1$ then $0\leq\sum_1^\infty{|x_1|}<\infty$
+    which implies that the sequence $x$ converges to $0$. Let $N\in\mathbb{Z}$
+    such that $x_i<1$ for all $i>N$. Then for $i>N$, we have
+    $|x_i|^2<|x_i|$. Hence,
+    $$0\leq \sum_{i=1}^{\infty}{|x_i|^2}
+    \leq \sum_{i=1}^{N}{|x_i|^2}+
+    \sum_{i=N+1}^{\infty}{|x_i|^2}<\sum_{i=1}^{N}{|x_i|^2}+
+    \sum_{i=N+1}^{\infty}{|x_i|}<\infty.$$
+    So, $l^1\subset l^2$.
+
+    \setlength{\parskip}{3mm}
+    The harmonic series given by the sequence
+    $x=\{x_i=\frac{1}{i}\}_1^{\infty}$ does not converge.
+    However $$\sum_{i=1}^{\infty}{\frac{1}{i^2}}
+    =\frac{\pi^2}{6}<\infty.$$
+    Here we see that $x\notin l^1$ but $x\in l^2$. Hence,
+    the inclusion is strict.
+    \qed
+  \end{mybox}
  
   \end{enumerate}
 

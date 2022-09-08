@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\pagestyle{empty}
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{\textbf{Introduction to Manifold Theory} \\
+\large Homework 2
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 2.6 (show that for topological spaces
+    $X$, $Y$, $Z$, the “rearrange-the-parentheses” map
+    from $(X\times Y)\times Z$ to $X\times(Y\times Z)$
+    is a homeomorphism).
+
+\begin{mybox}
+
+\vspace{30mm}
+\end{mybox}
+
+
+\item Do Exercise 2.7 (show that the product topology
+    and the usual topology on $\mathbb{R}^n$ agree).
+ 
+\begin{mybox}
+
+\vspace*{30mm}
+\end{mybox}
+ 
+ 
+\item The following exercises are about the
+“line with two origins” of Example 2.44, which we will
+call $X$.
+\begin{enumerate}
+    \item[(a)] Show that the construction in Example 2.44
+        defines a topology on $X$.
+        \begin{mybox}
+
+            \vspace*{30mm}
+        \end{mybox}
+
+    \item[(b)] Show that with this topology, $X$ is locally
+        homeomorphic to $R$.
+        \begin{mybox}
+
+            \vspace*{30mm}
+        \end{mybox}
+
+    \item[(c)] Show that $X$ is not Hausdorff.
+        \begin{mybox}
+
+            \vspace*{30mm}
+        \end{mybox}
+
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
