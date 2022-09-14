@@ -28,6 +28,9 @@
     arc=0mm, enhanced, frame hidden, breakable
 }
 \newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{%
+  \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
 
 \setlength{\topmargin}{-.65in}
 \setlength{\textwidth}{180mm} 
@@ -54,6 +57,26 @@
 
 \begin{mybox}
 
+    $(\Longrightarrow)$
+    Let $x\in S_n,\ n>1$ be an element that has order
+    2. If $x(i)=j$ for some $i$, $j\in
+    \{1,\ldots,n\}$. then since $x^2=1$ and we have $x(j)=i$.
+    We see that $(i\ j)$ is a cycle in the cycle
+    decomposition of the permutation $x$ and we can do
+    the same for every other elements of $\{1,\ldots,n\}$.
+    Then the cycle decomposition of $x$ is a product of
+    disjoint 2-cycles. Since the disjoint cycles are also
+    commuting, we have our proof.
+
+    \vspace*{2mm}
+    $(\Longleftarrow)$
+    Let $x=\sigma_1\cdot\sigma_2\cdots\sigma_k \in S_n$
+    where
+    each $\sigma_i$ is a commuting 2-cycle. Then
+    $$x^2=(\sigma_1\cdot\sigma_2\cdots\sigma_k)^2
+    =\sigma_1^2\cdot\sigma_2^2\cdots\sigma_k^2
+    =1\cdots 1=1$$
+    Hence $x$ has order 2 in $S_n$.
 \end{mybox}
 
 
@@ -234,53 +257,108 @@
             $H(\mathbb{Z}/2\mathbb{Z})$ which are given
             below with their orders:
             \begin{align*}
-                &e=\left(\begin{array}{ccc}
-                    1 & 0 & 0\\
-                    0 & 1 & 0\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ |e|=1\\
-                &x_1=\left(\begin{array}{ccc}
-                    1 & 0 & 0\\
-                    0 & 1 & 1\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_1^2=e\Longrightarrow |x_1|=2\\
-                &x_2=\left(\begin{array}{ccc}
-                    1 & 1 & 0\\
-                    0 & 1 & 0\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_2^2=e\Longrightarrow |x_2|=2\\
-                &x_3=\left(\begin{array}{ccc}
-                    1 & 0 & 1\\
-                    0 & 1 & 0\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_3^2=e\Longrightarrow |x_3|=2\\
-                &x_4=\left(\begin{array}{ccc}
-                    1 & 1 & 1\\
-                    0 & 1 & 0\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_4^2=e\Longrightarrow |x_4|=2\\
-                &x_5=\left(\begin{array}{ccc}
-                    1 & 0 & 1\\
-                    0 & 1 & 1\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_5^2=e\Longrightarrow |x_5|=2\\
-                &x_6=\left(\begin{array}{ccc}
-                    1 & 1 & 0\\
-                    0 & 1 & 1\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_6^4=e\Longrightarrow |x_6|=4\\
-                &x_7=\left(\begin{array}{ccc}
-                    1 & 1 & 1\\
-                    0 & 1 & 1\\
-                    0 & 0 & 1 \end{array}
-                \right),\ \ x_7^4=e\Longrightarrow |x_7|=4\\
+                e=&\left(\begin{array}{ccc}
+                        1 & 0 & 0\\
+                        0 & 1 & 0\\
+                        0 & 0 & 1 \end{array}
+                    \right),\ \ |e|=1\\
+                x_1=&\left(\begin{array}{ccc}
+                        1 & 0 & 0\\
+                        0 & 1 & 1\\
+                        0 & 0 & 1 \end{array}
+                    \right),\ \ x_1^2=e\Longrightarrow |x_1|=2
             \end{align*}
+            $$x_2=\left(\begin{array}{ccc}
+                    1 & 1 & 0\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_2^2=e\Longrightarrow |x_2|=2$$
+            
+            $$x_3=\left(\begin{array}{ccc}
+                    1 & 0 & 1\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_3^2=e\Longrightarrow |x_3|=2$$
+            $$x_4=\left(\begin{array}{ccc}
+                    1 & 1 & 1\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_4^2=e\Longrightarrow |x_4|=2$$
+            
+            $$x_5=\left(\begin{array}{ccc}
+                    1 & 0 & 1\\
+                    0 & 1 & 1\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_5^2=e\Longrightarrow |x_5|=2$$
+            
+            $$x_6=\left(\begin{array}{ccc}
+                    1 & 1 & 0\\
+                    0 & 1 & 1\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_6^4=e\Longrightarrow |x_6|=4$$
+            $$x_7=\left(\begin{array}{ccc}
+                    1 & 1 & 1\\
+                    0 & 1 & 1\\
+                    0 & 0 & 1 \end{array}
+                \right),\ \ x_7^4=e\Longrightarrow |x_7|=4$$
         \end{mybox}
 
         \item[(e)] Prove that every nonidentity element of the
         group $H(\mathbb{R})$ has infinite order.
         \begin{mybox}
             
+            First, we show that any n-$th$ power of an
+            element in $H(\mathbb{R})$ is given by
+            $$X^n=\left(\begin{array}{ccc}
+                1 & a & b\\
+                0 & 1 & c\\
+                0 & 0 & 1 \end{array}
+            \right)^n=\left(\begin{array}{ccc}
+                1 & na & \frac{n(n-1)}{2}ac+nb\\
+                0 & 1 & nc\\
+                0 & 0 & 1 \end{array}
+            \right)$$
+
+            We can prove this by mathematical induction.
+            The statement
+            $$S(k):\ X^k=\left(\begin{array}{ccc}
+                1 & ka & \frac{k(k-1)}{2}ac+kb\\
+                0 & 1 & kc\\
+                0 & 0 & 1 \end{array}
+            \right)$$
+            is trivial for the base case $k=1$. Let
+            $S(k)$ be true for some positive integer
+            $>1$. Then
+                \begin{align*}
+                S(k+1):\ X^{k+1}=&\left(\begin{array}{ccc}
+                    1 & ka & \frac{k(k-1)}{2}ac+kb\\
+                    0 & 1 & kc\\
+                    0 & 0 & 1 \end{array}
+                \right)\cdot
+                \left(\begin{array}{ccc}
+                    1 & a & b\\
+                    0 & 1 & c\\
+                    0 & 0 & 1 \end{array}
+                \right)\\
+                =&\left(\begin{array}{ccc}
+                    1 & ka+a & b+kac+\frac{k(k-1)}{2}ac+kb\\
+                    0 & 1 & c+kc\\
+                    0 & 0 & 1 \end{array}
+                \right)\\
+                =&\left(\begin{array}{ccc}
+                    1 & (k+1)a & \frac{k(k+1)}{2}ac+(k+1)b\\
+                    0 & 1 & (k+1)c\\
+                    0 & 0 & 1 \end{array}
+                \right)
+                \end{align*}
+            Since $S(k)\implies S(k+1)$, the statement
+            $S(k)$ is true for all positive integers.
+            
+            \vspace*{2mm}
+            If $a,\ b,\ c \in \mathbb{R}$ are not all
+            zero then $X^n$ cannot be the identity matrix
+            for any $n$. Hence every nonidentity element
+            of the group $H(\mathbb{R})$ has infinite order.
         \end{mybox}
     \end{enumerate}
   
@@ -291,11 +369,33 @@
         \item[(a)] $S_1=\left\{a^n : \ a\in A\right\}$
         \begin{mybox}
             
+            We can prove that $S_1\neq \phi$ and if $x,y\in S_1$ then
+            $xy^{-1}\in S_1$.
+
+            \vspace*{2mm}
+            Clearly, $S_1\neq \phi$ since $1^n=1\in S_1$.
+            Let $x=a^n$ and $y=b^n$ are in $S_1$ for some
+            $a$, $b \in A$. We have $y^{-1}=(b^n)^{-1}=(b^{-1})^n$.
+            Then since $A$ is an abelian group,
+            $xy^{-1}=a^n (b^{-1})^n=(ab^{-1})^n$. The last step here
+            is justified by $A$ being an abelian group. Hence
+            $xy^{-1}\in S_1$ and $S_1$ is a subgroup of $A$.
         \end{mybox}
 
         \item[(b)] $S_2=\left\{a\in A: \ a^n=1\right\}$
         \begin{mybox}
             
+            Clearly $S_2\neq \phi$ since $1\in S_2$.
+            If $x$, $y\in S_2$, then 
+            \begin{align}
+                (xy^{-1})^n=&x^n\cdot (y^{-1})^n\\
+                =&x^n\cdot (y^n)^{-1}\\
+                =& 1\cdot 1=1
+            \end{align}
+
+            Line 1 here is justified by the fact that $A$
+            is an abelian group. Hence $xy^{-1}\in S_2$ and
+            $S_2$ is subgroup.
         \end{mybox}
     \end{enumerate}
 
@@ -306,6 +406,18 @@
 
 \begin{mybox}
 
+    Let $H=\{1,x\}$ is a subgroup of order 2 in $G$.
+    Then for any $g\in N_G(H)$, $gH=Hg$ by definition.
+    Since $gH=\{g,gx\}$ and $Hg=\{g,xg\}$, we must have
+    $xg=gx$ for all $g\in N_G(H)$. So $N_G(H)\subset
+    C_G(H)$. Now, suppose $g\in C_G(H)$, then $g1g^{-1}
+    =1$ and $gx=xg\implies gxg^{-1}=x$. So $C_G(H)
+    \subset N_G(H)$. Hence $N_G(H)=C_G(H)$.
+
+    \vspace*{2mm}
+    If $N_G(H)=G$ then $C_G(H)=G$ which means that
+    that every elements of $G$ commutes with the
+    elements of $H$. Hence $H\leq Z(G)$.
 \end{mybox}
 
 
@@ -318,7 +430,28 @@
     equal to the least common multiple of $|x|$ and $|y|$.
 
 \begin{mybox}
+    
+    Let $p$ be the least common multiple of $m$ and
+    $n$. Then
+    \begin{align*}
+        (xy)^p  &=x^p\cdot y^p\ \ \text{(since $xy=yx$)}\\
+                &=1\cdot 1\ \ \text{(since $m$, $n$ both divide $p$)}\\
+                &=1
+    \end{align*}
+    So the order of $xy$ must divide the lease common
+    multiple $p$.
 
+    \vspace*{2mm}
+    This need not be true if $x$ and $y$ do not commute.
+    In $S_3$, we see that the order of $(1\ 2)$ and
+    $(2\ 3)$ are 2. But $(1\ 2)(2\ 3)=(1\ 2\ 3)$ has order
+    3 which is not the l.c.m of 2 and 2.
+
+    \vspace*{2mm}
+    In the abelian group
+    $\mathbb{Z}_{12}$, the order of 2 is 6 and the order
+    of 3 is 4. Here l.c.m of 4 and 6 is 12 but the order
+    of the product $2\cdot 3=6$ is just 2.
 \end{mybox}
 
     
@@ -329,6 +462,28 @@
   
 \begin{mybox}
   
+    If we show that there exists two distinct subgroups
+    of $(\mathbb{Z}/2^n\mathbb{Z})^
+    {\times}$ of order 2, then it is enough to prove
+    that $(\mathbb{Z}/2^n\mathbb{Z})^
+    {\times}$ is not cyclic.
+    
+    \vspace*{2mm}
+    First, we note that in a group
+    $(\mathbb{Z}/2^n\mathbb{Z})^{\times}$ where $n\geq 3$,
+    $2^n-1$ and $2^{n-1}-1$ are distinct elements. Then
+    $$\left(2^n-1\right)^2=2^{2n}-2\cdot2^n+1
+    \equiv 1 \mod{2^n}$$
+    and
+    $$\left(2^{n-1}-1\right)^2=2^{2n-2}-2\cdot2^{n-1}+1
+    \equiv 1 \mod{2^n}$$
+    So we see that $2^n-1$ and $2^{n-1}-1$ both have
+    order two in $(\mathbb{Z}/2^n\mathbb{Z})^{\times}$
+    and $\{1,2^{n-1}-1\}$ and $\{1,2^n-1\}$
+    are two distinct subgroups of
+    $(\mathbb{Z}/2^n\mathbb{Z})^{\times}$. Hence the
+    group $(\mathbb{Z}/2^n\mathbb{Z})^{\times}$ is
+    not cyclic.
 \end{mybox}
 
 
@@ -346,7 +501,82 @@ determinant 1. You may assume this subgroup has order 24
 - this will be an exercise in Section 3.2.]
 
 \begin{mybox}
-  
+
+    We need to show that the subgroup generated by
+    $X=\left(\begin{array}{cc}
+        1 & 1\\
+        0 & 1
+    \end{array}\right)$ and
+    $Y=\left(\begin{array}{cc}
+        1 & 0\\
+        1 & 1
+    \end{array}\right)$ is equal to the subgroup
+    $SL_2(\mathbb{F}_3)$ of
+    $GL_2(\mathbb{F}_3)$. Clearly,
+    $X$, $Y\in SL_2(\mathbb{F}_3)$, so 
+    $\langle X,Y\rangle \leq SL_2(\mathbb{F}_3)$.
+    Since we can assume that the
+    order of $SL_2(\mathbb{F}_3)$ is 24, we need to
+    only show that $\langle X,Y \rangle$ has more than
+    12 distinct elements as this would prove that the
+    order of $\langle X,Y \rangle$ is 24 by Lagrange's
+    theorem. We list 13 distinct elements of
+    $\langle X,Y \rangle$ below:
+    \begin{align*}
+        &X=\left(\begin{array}{cc}
+            1 & 1\\
+            0 & 1
+        \end{array}\right)
+        &Y=\left(\begin{array}{cc}
+            1 & 0\\
+            1 & 1
+        \end{array}\right)\hspace*{10mm}
+        &X^2=\left(\begin{array}{cc}
+            1 & 2\\
+            0 & 1
+        \end{array}\right)
+        &Y^2=\left(\begin{array}{cc}
+            1 & 0\\
+            2 & 1
+        \end{array}\right)\\
+        &XY=\left(\begin{array}{cc}
+            2 & 1\\
+            1 & 1
+        \end{array}\right)
+        &YX=\left(\begin{array}{cc}
+            1 & 1\\
+            1 & 2
+        \end{array}\right)\hspace*{10mm}
+        &XYX=\left(\begin{array}{cc}
+            2 & 0\\
+            1 & 2
+        \end{array}\right)
+        &YXY=\left(\begin{array}{cc}
+            2 & 1\\
+            0 & 2
+        \end{array}\right)\\
+        &(XY)^2=\left(\begin{array}{cc}
+            2 & 0\\
+            0 & 2
+        \end{array}\right)
+        &(XY)^3=\left(\begin{array}{cc}
+            1 & 2\\
+            2 & 2
+        \end{array}\right)\hspace*{10mm}
+        &X^2Y^2=\left(\begin{array}{cc}
+            2 & 2\\
+            2 & 1
+        \end{array}\right)
+        &X^2Y=\left(\begin{array}{cc}
+            0 & 2\\
+            1 & 1
+        \end{array}\right)\\
+        &I=\left(\begin{array}{cc}
+            1 & 0\\
+            0 & 1
+        \end{array}\right)
+    \end{align*}
+    Hence $\langle X,Y\rangle=SL_2(\mathbb{F}_3)$.
 \end{mybox}
   
 
@@ -374,9 +604,9 @@ $\overline{s}^a\overline{r}^b$, for some integers $a$ and $b$.
     The elements of $\overline{G}$ are
     $\overline{1}$,  $\overline{r}$, $\overline{r}^2$,
     $\overline{r}^3$,  $\overline{s}$,
-    $\overline{s}.\overline{r}$,
-    $\overline{s}.\overline{r}^2$,
-    $\overline{s}.\overline{r}^3$.
+    $\noverline{s}\noverline{r}$,
+    $\noverline{s}\noverline{r}^2$,
+    $\noverline{s}\noverline{r}^3$.
 \end{mybox}
 
 \item[(c)] Find the order of each of the elements of
@@ -384,6 +614,12 @@ $\overline{G}$
 exhibited in (b).
 \begin{mybox}
     
+    $|\overline{1}|=1$, $|\overline{r}|=4$,
+    $|\overline{r}^2|=2$,
+    $|\overline{r}^3|=4$,  $|\overline{s}|=2$,
+    $|\noverline{s}\noverline{r}|=2$,
+    $|\noverline{s}\noverline{r}^2|=2$,
+    $|\noverline{s}\noverline{r}^3|=2$
 \end{mybox}
 
 \item[(d)] Write each of the following elements of
@@ -394,6 +630,15 @@ $b$ as in (b): $\overline{rs}, \overline{sr^{-2}s},
 \overline{s^{-1}r^{-1}sr}$.
 \begin{mybox}
     
+    \begin{enumerate}
+        \item[i.] $\overline{rs}=\overline{sr^{-1}}
+            =\overline{sr^7}=\overline{sr^3}$
+        \item[ii.] $\overline{sr^{-2}s} =
+            \overline{ss(r^{-2})^{-1}} =
+            \overline{s^2r^2} = \overline{r^2}$
+        \item[iii.] $\overline{s^{-1}r^{-1}sr} =
+            \overline{ssrr}=\overline{r^2}$.
+    \end{enumerate}
 \end{mybox}
 
 \item[(e)] Prove that $\overline{H} = \langle\bar{s},
@@ -403,14 +648,78 @@ isomorphic to the Klein
 4-group. Describe the isomorphism type of the complete preimage
 of $\overline{H}$ in $G$.
 \begin{mybox}
+
+    Since $\overline{H}$ is generated by the elements of
+    $\overline{G}$, it is a subgroup of $\overline{G}$.
+    We show that, for any $g\in \overline{G}$,
+    $g\overline{H}g^{-1}\subset H$ to prove that
+    $\overline{H}$ is a normal subgroup of $\overline{G}$.
+    It is enough to show that the conjugate
+    of the generators $\{\overline{s},\overline{r^2}\}$
+    belong to $\overline{H}$.
+    If $g=\overline{r^k}\in \overline{G}$ for some integer
+    $0\leq k\leq 3$ then
+
     
+        $$g\overline{s}g^{-1}=\overline{r^ksr^{-k}}=
+        \overline{r^{2k}s}=\overline{(r^2)^ks}\in
+        \overline{H}$$
+        and  $$g\overline{r^2}g^{-1}=\overline{r^kr^2r^{-k}}=
+        \overline{r^{2}}\in
+        \overline{H}.$$
+        
+        and if $g=\overline{sr^k}$ then
+
+        $$g\overline{s}g^{-1}=\overline{sr^ks(sr^k)^{-1}}=
+        \overline{s^2r^{-k}r^{-k}s^{-1}}=
+        \overline{(r^2)^{-k}s}\in \overline{H}$$
+        and
+        $$g\overline{r^2}g^{-1}=
+        \overline{sr^kr^2(sr^k)^{-1}}=
+        \overline{sr^kr^2r^{-k}s^{-1}}=\overline{1}\in
+        \overline{H}.$$
+        Hence $\overline{H}$ is a normal subgroup.
+
+        \vspace*{2mm}
+    We see that all nonidentity elements of $\overline{H}
+    =\{\overline{1}, \overline{r^2},
+    \overline{s}, \overline{sr^2}\}$ have order 2.
+    The Klein 4-group is given by
+    $$V_4=\langle a,b:\ a^2=b^2=(ab)^2=1\rangle.$$
+    We define a homeomorphism $\varphi:\overline{H}
+    \to V_4$ by $\varphi(\overline{s})=a$ and
+    $\varphi(\overline{r^2})=b$. Then we see that
+    $\varphi$ is an isomorphism.
+
+    \vspace*{3mm}
+    The complete preimage of $\overline{H}$ are
+    $$P= \{1, r^2, r^4, r^6, r^8, s, sr^2, sr^4, sr^8\}$$
+    If we define a homeomorphism
+    $\varphi:P\to D_8$ by
+    $\varphi(r^2)=r$ and $\varphi(s)=s$, we see that it
+    is bijective and hence an isomorphism.
+
 \end{mybox}
 
 \item[(f)] Find the center of $\overline{G}$ and describe
 the isomorphism type
-of $\overline{G}\char`\\Z(\overline{G})$.
+of $\overline{G}/Z(\overline{G})$.
 \begin{mybox}
     
+    The only element that commutes with $\overline{s}$
+    is $\overline{r^2}$. We see that $\overline{r^2}$
+    also commutes with all other elements of
+    $\overline{G}$. So $Z(\overline{G})=\{ 1,
+    \overline{r^2}\}$.
+
+    \vspace*{3mm}
+    The elements of $\overline{G}/Z(\overline{G})$ are
+    $\{\overline{1}, \overline{\overline{r}},
+    \overline{\overline{s}},\overline{\overline{sr}}\}$.
+    We see that all the nonidentity elements have order
+    2 and $|\overline{G}/Z(\overline{G})|=4$. Hence,
+    $\overline{G}/Z(\overline{G})$ is isomorphic to
+    the Klein 4-group.
 \end{mybox}
 
 \end{enumerate}
@@ -421,6 +730,31 @@ $p$ and $q$ (not necessarily distinct) then either
 $G$ is abelian or $Z(G) = 1$. [See Exercise 36 in Section 1.]
 \begin{mybox}
     
+    If $G$ is abelian, we are done. Suppose that $G$ is not
+    abelian. Since $Z(G)$ is a subgroup and $G$ is not
+    abelian, the order of $Z(G)$ must be either 1, $p$
+    or $q$.
+    
+    \vspace*{2mm}
+    We assume that $|Z(G|\neq 1$ and prove that this
+    contradicts with our assumption. Suppose that the
+    order of the center is $p$. Then since $Z(G)$ is
+    normal, we take $G/Z(G)$ that has the order
+    $|G|/|Z(G)|=pq/p=q$ which is prime. So, $G/Z(G)$ is
+    cyclic.
+
+    \vspace*{2mm}
+    Let $gZ(G)$ be a generator of the group $G/Z(G)$.
+    Then every coset of $Z(G)$ can be written in the form
+    $g^kZ(G)$ for some integer $k$.
+    We know that every element of $G$ belongs
+    to some coset of $Z(G)$. Let $x$, $y\in G$ be written
+    as $g^iz_1$ and $g^jz_2$ for
+    $z_1$, $z_2\in Z(G)$. Then
+    $xy=g^iz_1g^jz_2=g^jz_1g^iz_1=yx$. This shows that
+    $G$ is an abelian group which contradicts our initial
+    assumption.
+    Hence $G$ is abelian or $Z(G)=1$.
 \end{mybox}
 
 
@@ -430,8 +764,17 @@ if $p$ is a prime then $a^p \equiv a\mod{p}$ for all $a\in\mathbb{Z}$.
 \begin{mybox}
     
     We first note that
-    $|(\mathbb{Z}/p\mathbb{Z})|=p-1$ by Euler's totient
-    function.
+    $|(\mathbb{Z}/p\mathbb{Z})^\times|=p-1$ by
+    Euler's totient function.
+    Let $p\nmid a$ then
+    $\overline{a}\in (\mathbb{Z}/p\mathbb{Z})^\times$ and
+    by Lagrange's theorem, $|\overline{a}|^{p-1}=0$. So,
+    $$a^{p-1}\equiv 0\mod{p}.$$
+    Multiplying both sides by $a$ gives us the desired
+    result.
+    Now, if $p|a$ then $\overline{a}=0$ and
+    $\overline{a}^p=0$. So again,
+    $$a^p\equiv 0\equiv a \mod{p}.$$
 \end{mybox}
 \end{enumerate}
 \end{document}

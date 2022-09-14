@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\pagestyle{empty}
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{\textbf{Introduction to Manifold Theory} \\
+\large Homework 3
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 3.1 (show that if
+    $U\subset \rl^n$ and $V\subset \rl^m$
+    are open, then a function $f:U\to V$
+    is smooth if
+    and only if each of its component
+    functions $f_i : U\to R$ are smooth).
+
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+
+\item Check that Definition 3.6 gives an
+    equivalence relation (a binary relation
+    that is reflexive, symmetric,
+    and transitive) on the set of smooth
+    atlases on a given topological manifold
+    $X$.
+ 
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+ 
+\item Do Exercise 3.2 (show that a product
+    of smooth atlases is a smooth atlas on
+    the product manifold).
+
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+\item Define $f:\rl^2\to\rl^3$ by
+$$f(u,v) =\left(\cos(u^2v)-e^{u-v},\ 
+    \frac{u^2-3}{u^2+v^2},\ e^{e^{uv}}\right)$$
+Compute the Jacobian matrix of $f$.
+        
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+\end{enumerate}
+\end{document}

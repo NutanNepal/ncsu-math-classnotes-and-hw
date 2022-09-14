@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\setcounter{MaxMatrixCols}{10}
+
+\pagestyle{empty}
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{\textbf{Analysis I} \\
+\large Homework 2
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Let $(X, \rho)$ and $(Y, \sigma)$ be metric spaces,
+    and let $f: (X, \rho) \to (Y, \sigma)$ be a map
+    such that $f^{-1}(V)$ is open in $X$, for all
+    $V$ open in $Y$. Show that $f$ is continuous on $X$. 
+
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+
+\item ({\bf Continuous mapping}) Show that a
+    mapping $T: X\to Y$ is continuous
+    if and only if the inverse image of any closed
+    set $M\subset Y$ is a closed
+    set in $X$.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+ 
+\item Assume that $f : (\mR^2, d_1 =  \
+    \text{Euclidean metric}) \to \mR$ is continuous at
+    $x \in \mR^2$. Show that
+    $f : (\mR^2, d_2 =  \ \text{taxicab metric})
+    \to \mR$ is also continuous at $x$.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+\item Show that the discrete metric space $(X,d)$ is
+    separable iff $X$ is countable. 
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Show that $l^p$, with $1 \leq p <
+    \infty$ is separable.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Show that $l^{\infty}$ is not separable.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Let $\{x_n\}_{n \geq 1}$ be a sequence in a m.s.
+    $(X, d)$ which converges to $x$. Show that
+    $\{x_n\}_{n \geq 1}$ is a bounded sequence.
+    Then let $\{y_n\}_{n \geq 1}$ be a sequence in
+    $(X, d)$ which converges to $y$. Show that
+    $\lim_{n \to \infty} d(x_n, y_n) = d(x,y)$. 
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Show that any nonempty set $A\subset (X, d)$
+    is open if and only if it is a
+    union of open balls.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+
+\item Let $(X, \rho)$ be a metric space, $E \subset X$, and $x \in X$. Prove that the following are equivalent:
+\begin{enumerate}
+\item $x \in \overline{E}$
+\item $B(x,r) \cap E \neq \emptyset$, $\forall r > 0$
+\item $\exists \ \{x_n\} \in E$ s.t. $x_n \to x$
+\end{enumerate}  
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+
+ 
+\item If $d_1$ and $d_2$ are metrics on the same set
+    $X$ and there are positive
+    numbers $a$ and $b$ such that for all $x$, $y\in X$,
+    $$ad_1(x, y)\leq d_2(x,y)\leq bd_1(x,y),$$
+    show that the Cauchy sequences in $(X,d_1)$
+    and $(X,d_2)$ are the same.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Show that $l^p$, with $1 \leq p < \infty$ is
+    complete.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Prove that $(\mR, d(x,y) = |x-y|)$ is complete.\\ 
+    Hint: Follow the steps provided in class.
+    You can use Bolzano-Weierstrass Theorem without
+    proving it.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Prove that $(\mQ, d(x,y) = |x-y|)$ is incomplete.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Prove that $\Big(\text{C}[-1,1], d(f,g) =
+    \int_{-1}^1|f(t) - g(t)| \ dt\Big)$ is incomplete. \\
+    Hint: Follow the steps provided in class.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Determine whether or not the discrete metric
+    space is complete. Justify your answer.
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+\item Prove the Completion of a Metric Space Theorem. 
+\begin{mybox}
+
+    \vspace*{15mm}
+\end{mybox}
+ 
+ 
+\end{enumerate}
+\end{document}
