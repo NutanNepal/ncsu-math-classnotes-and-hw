@@ -59,11 +59,53 @@
     are open, then a function $f:U\to V$
     is smooth if
     and only if each of its component
-    functions $f_i : U\to R$ are smooth).
+    functions $f^i : U\to R$ are smooth).
 
 \begin{mybox}
 
-    \vspace*{15mm}
+    If $f(x_1,\ldots,x_n)=
+    (f^1(x_1,\ldots,x_n),\ldots,f^m(x_1,\ldots,x_n)))$
+    then for $i\in \{1,2,\ldots,n\}$, the first-order
+    partial derivative at $p$ is given by the limit
+    \begin{equation}
+        \lim_{t\to 0}{\frac{f(p+te_i)-f(p)}{t}}
+        =\lim_{t\to 0}{\frac{
+            (0,\ldots,0,f^i(p_1,\ldots,p_i+t,\ldots,p_n)
+            -f^i(p_1,\ldots,p_n)
+            ,0,\ldots,0)
+        }{t}}
+    \end{equation}
+    Then for each $i\in \{1,2,\ldots,n\}$,
+    the partial derivative exists at
+    $p\in U$ iff the
+    limit
+    \begin{equation}
+        \lim_{t\to 0}{\frac{
+            f^i(p_1,\ldots,p_i+t,\ldots,p_n)
+            -f^i(p_1,\ldots,p_n)
+        }{t}}
+    \end{equation}
+    exists at $p$. But the limit on equation (2)
+    is the derivative of the component function
+    $f^i$. Hence, the derivative of $f$ exists at
+    $p$ iff each of its component functions
+    are differentiable. The partial derivative at
+    a point $p$ is a function $g:U\to \rl^m$.
+    Then, as above, we see that the partial
+    derivatives of $g$ exist iff each of its
+    component functions are differentiable.
+
+    \vspace*{3mm}
+    If $f:U\to V$ is smooth then all $k^{th}$-order
+    partial derivatives exist on $U$ for all $k$.
+    Then, inductively, from above,
+    all $k^{th}$-order
+    partial derivatives of each component functions
+    also exist on $U$ for all $k$.
+    Similarly, if all $k^{th}$-order
+    partial derivatives of each component functions
+     exist on $U$ for all $k$,
+    then $f$ is also smooth.
 \end{mybox}
 
 
@@ -76,17 +118,182 @@
  
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $\mathcal{A}=\{(U_\alpha,\varphi_\alpha):
+    \alpha\in A\}$ and 
+    $\mathcal{B}=\{(V_\beta,\psi_\beta):
+    \beta\in B\}$ be smooth atlases on the
+    topological manifold $X$ for some indexed
+    set $A$ and $B$. We say that $\mathcal{A}
+    \sim\mathcal{B}$ if their union is a smooth
+    atlas on $X$. The reflexive ($\mathcal{A}
+    \sim\mathcal{A}$) and symmetric
+    ($\mathcal{A}
+    \sim\mathcal{B}\implies\mathcal{B}
+    \sim\mathcal{A}$) properties are obvious.
+    We now prove for the transitivity of the
+    relation $\sim$.
+
+    \vspace*{3mm}
+    If $\mathcal{A}\sim\mathcal{B}$ and $\mathcal{B}
+    \sim\mathcal{C}$, with
+    $\mathcal{C}=\{(W_\gamma,\zeta_\gamma):
+    \gamma\in C\}$ for some indexed set $C$, then
+    for all $\alpha\in A$ and $\beta
+        \in B$ such that $U_\alpha\cap V_\beta$
+        is non-empty, the map
+        \begin{equation}
+            \psi_\beta\circ\varphi_\alpha^{-1}:
+            \varphi_\alpha(U_\alpha\cap V_\beta)
+            \to \psi_\beta(
+                U_\alpha\cap V_\beta
+            )
+        \end{equation} is smooth, and
+        for all $\gamma\in C$ and $\beta
+        \in B$ such that $W_\gamma\cap V_\beta$
+        is non-empty, the map
+        \begin{equation}
+            \zeta_\gamma\circ\psi_\beta^{-1}:
+            \psi_\beta(W_\gamma\cap V_\beta)
+            \to \zeta_\gamma(
+                W_\gamma\cap V_\beta
+            )
+        \end{equation} is smooth.
+        Then, we take all $\alpha\in A$ and
+        $\gamma\in C$ such that $U_\alpha\cap
+        W_\gamma$ is non-empty.
+        For each $x\in U_\alpha\cap
+        W_\gamma$, we take a chart $(V,\psi)\in
+        \mathcal{B}$ that contains $x\in X$.
+        Then from (3) and (4), we get the composition
+        of smooth maps
+        $$\zeta_\gamma\circ\psi^{-1}
+        \circ \psi\circ\varphi_\alpha^{-1}
+        =\zeta_\gamma\circ\varphi_\alpha^{-1}$$
+        from $\varphi_\alpha(U_\alpha\cap
+        W_\gamma)\to \zeta_\gamma(U_\alpha\cap
+        W_\gamma)$ which is smooth. Analogously,
+        we can show that the inverse map
+        $$\varphi_\alpha\circ\zeta_\gamma^{-1}:
+        \zeta_\gamma(U_\alpha\cap
+        W_\gamma)
+        \to \varphi_\alpha(
+            U_\alpha\cap W_\gamma
+        )$$ is also smooth. Hence, this proves
+        transitivity and that $\sim$ is an
+        equivalence relation.
+
 \end{mybox}
  
  
-\item Do Exercise 3.2 (show that a product
-    of smooth atlases is a smooth atlas on
-    the product manifold).
+\item Do Exercise 3.2 (Let $X$ and $Y$ be
+topological manifolds equipped with smooth
+atlases $\mathcal{A}$ and $\mathcal{B}$
+respectively.
+Show that $\{U\times V: U\in \mathcal{A},
+V\in\mathcal{B}\}$ is a smooth
+atlas on the topological manifold
+$X\times Y$).
 
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $\mathcal{A}=\{(U_\alpha,\varphi_\alpha):
+    \alpha\in A\}$ and 
+    $\mathcal{B}=\{(V_\beta,\psi_\beta):
+    \beta\in B\}$ be smooth atlases on the
+    topological
+    manifolds $X$ and $Y$ respectively
+    for some indexed set
+    $A$ and $B$. Then the product of the smooth
+    atlases is defined by
+    $$\mathcal{A\times B}=\{(U_\alpha\times
+    V_\beta,\varphi_\alpha\times \psi_\beta):
+    \alpha\in A, \ \beta\in B\}.$$
+    
+    \begin{enumerate}
+        \item If $X$ is $m$-manifold and $Y$ is $n$-manifold,
+        then $\varphi_\alpha\times \psi_\beta:
+        U_\alpha\times V_\beta\to \rl^{m+n}$ is
+        given by $$(\varphi_\alpha\times \psi_\beta)
+        (x,y)=(\varphi_\alpha^1(x),\ldots,
+        \varphi_\alpha^m(x),
+        \psi_\beta^1(y),\ldots,\psi_\beta^n(y))$$
+        for all $x\in U_\alpha$ and $y\in V_\beta$.
+        Since, each component functions are smooth,
+        we see that $\varphi_\alpha\times \psi_\beta$
+        is a smooth function on the product
+        topology.
+
+        \vspace*{3mm}
+        \item Each $\varphi_\alpha$ is a
+        homeomorphism from $U_\alpha$ to an open
+        disk $D_\alpha\subset\rl^m$ and 
+        $\psi_\beta$ is a
+        homeomorphism from $V_\beta$ to an open
+        disk $D_\beta\subset\rl^n$. Clearly,
+        $D_\alpha\times D_\beta$ is an open
+        disk in $\rl^{m+n}$. We define
+        $\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1}:D_\alpha\times D_\beta\to
+        U_\alpha\times V_\beta$ by
+        $$(\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1})(z_1,\ldots,z_m,z_{m+1},\ldots,z_{m+n})
+        =(\varphi^{-1}(z_1,\ldots,z_m,z_{m+1}),
+        \psi_\beta^{-1}(z_{m+1},\ldots,z_{m+n}))$$
+        Since each component functions are
+        continuous, we see that
+        $\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1}$ is the continuous inverse of the
+        map $\varphi_\alpha\times \psi_\beta$.
+        Hence $\varphi_\alpha\times \psi_\beta$
+        is a homeomorphism from
+        $U_\alpha\times V_\beta$ to an open
+        disk in $\rl^{m+n}$.
+
+        \vspace*{3mm}
+        \item Since every point of $X$ is in
+        at least one $U_\alpha$ and every point
+        of $Y$ is in $V_\beta$, every point of
+        $X\times Y$ is in some $U_\alpha\times
+        V_\beta$ (by defnition of the product
+        topology).
+
+        \vspace*{3mm}
+        \item If $(U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime})$ is non-empty,
+        then the transition map
+        $(\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        \circ(\varphi_\alpha\times\psi_\beta)
+        ^{-1}:(\varphi_\alpha\times\psi_\beta)
+        ((U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime}))\to 
+        (\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        ((U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime}))$ is given by
+        $(\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        \circ(\varphi_\alpha\times\psi_\beta)
+        ^{-1}(z_1,\ldots,z_m,z_{m+1},\ldots,
+        z_{m+n})=$ 
+        
+        $$(\varphi_{\alpha^\prime}\circ
+        \varphi_\alpha^{-1}(z_1),\ldots,
+        \varphi_{\alpha^\prime}\circ
+        \varphi_\alpha^{-1}(z_{m}),
+        \psi_{\beta^\prime}\circ
+        \psi_\beta^{-1}(z_{m+1}),\ldots
+        \psi_{\beta^\prime}\circ
+        \psi_\beta^{-1}(z_{m+n}))$$
+        Since each component functions are smooth,
+        we see that the transition map is smooth.
+        
+    \end{enumerate}
+    Hence the product of atlases is an atlas
+    in the product of topological manifolds.
 \end{mybox}
 
 \item Define $f:\rl^2\to\rl^3$ by
@@ -96,7 +303,16 @@ Compute the Jacobian matrix of $f$.
         
 \begin{mybox}
 
-    \vspace*{15mm}
+    $$(Jf)_{(u,v)}=\left[
+        \begin{array}{cc}
+            -2uv\sin(u^2v)-e^{u-v}
+            &u^2\sin(u^2v)+e^{u-v}\\
+            \frac{2uv^2-6u}{(u^2+v^2)^2}
+            &\frac{2v(3-u^2)}{u^2+v^2}\\
+            ve^{e^{uv}+uv}
+            &ue^{e^{uv}+uv} 
+        \end{array}
+    \right].$$
 \end{mybox}
 
 \end{enumerate}

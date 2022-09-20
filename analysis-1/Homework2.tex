@@ -13,7 +13,7 @@
 
 \newtheorem{notes}{Notes}[section]
 \newtheorem{prob}[notes]{Problems}
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{defn}[notes]{Definition}
@@ -35,7 +35,6 @@
 
 \setcounter{MaxMatrixCols}{10}
 
-\pagestyle{empty}
 \setlength{\topmargin}{-.65in}
 \setlength{\textwidth}{190mm} 
 \setlength{\textheight}{240mm}
@@ -43,7 +42,7 @@
 \setlength{\evensidemargin}{-15mm}
 \parindent=0pt
 
-\title{\textbf{Analysis I} \\
+\title{Analysis I \\
 \large Homework 2
 }
 \author{Nutan Nepal}
@@ -67,7 +66,22 @@
 
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $V$ be the open set around the image $f(x)$ of a
+    point $x\in X$. Then there exists an open set $f^{-1}
+    (V)\in X$ such that $x\in f^{-1}(V)$.
+    Let $V$ be the open ball
+    $B_{x,\varepsilon}(f(x))$ around the point $f(x)$
+    for some given $\varepsilon>0$.
+    Then $f^{-1}(B_{x,\varepsilon}(f(x)))$ is also open in
+    $X$. Since $x$ is in the open set
+    $f^{-1}(B_{x,\varepsilon}(f(x)))$, we can find a
+    $\delta>0$ such that $x\in B_\delta(x)\subset
+    f^{-1}(B_{x,\varepsilon}(f(x)))$. This means that
+    for all $z\in X$ such that
+    $d(z,x)<\delta$ we have $d(f(z),f(x))<\varepsilon$.
+    Hence $f$ is continuous a4 $x$. Since we can
+    do this at every point $x\in X$, we see that $f$ is
+    continuous on $X$.
 \end{mybox}
 
 
@@ -78,7 +92,27 @@
     set in $X$.
 \begin{mybox}
 
-    \vspace*{15mm}
+    We first note that for any set $A\subset Y$,
+    $f^{-1}(A)=\{x\in X:\ f(x)\in A\}$ and
+    $f^{-1}(Y\char`\\A)=\{x\in X:\ f(x) \notin A\}$.
+    Then clearly, $f^{-1}(A)$ and $f^{-1}(Y\char`\\A)$
+    are disjoint sets of $X$. Particularly,
+    $$f^{-1}(Y\char`\\A)=X\char`\\f^{-1}(A).$$
+
+    \vspace*{3mm}
+    ($\Longleftarrow$)
+    Let $V$ be a closed set of $Y$. Then there exists
+    a closed set $f^{-1}(V)$ in  $X$. Since all open
+    sets can be written as a complement of closed set,
+    we see that for any open set $Y\char`\\V$ in $Y$
+    there exists an open set $X\char`\\f^{-1}(V)$ in
+    $X$. Since $X\char`\\f^{-1}(V)=f^{-1}(Y\char`\\A)$,
+    the preimage of any open set of $Y$ is open in
+    $X$. Hence $f$ is continuous.
+
+    \vspace*{3mm}
+    ($\Longrightarrow$)
+
 \end{mybox}
  
  
@@ -89,27 +123,119 @@
     \to \mR$ is also continuous at $x$.
 \begin{mybox}
 
-    \vspace*{15mm}
+    Since $f : (\mR^2, d_1 =  \
+    \text{Euclidean metric}) \to \mR$ is continuous,
+    we know that $f^{-1}(V)$ is open in $\rl^2$, for all
+    $V$ open in $\rl$. Our proof will be complete if we
+    can show that every open set $U$ in $(\rl^2,d_1)$
+    is also
+    open with respect to the taxicab metric.
+
+    \vspace*{3mm}
+    Let $V$ be open in $(\mR^2, d_1)$. Then for
+    every point $(p,q)\in X$ there exists an open ball
+    $B_\delta((p,q))\subset V$ containing $(p,q)$.
+    $$B_\delta((p,q))=\{(x,y)\in\mR^2:
+    \ (x-p)^2+(y-q)^2<\delta^2\}$$
 \end{mybox}
 
 \item Show that the discrete metric space $(X,d)$ is
     separable iff $X$ is countable. 
 \begin{mybox}
 
-    \vspace*{15mm}
+    If $X$ is countable, then $X$ is the countable
+    dense subset in $X$. So, it is separable.
+
+    \vspace*{3mm}
+    Now, we show that if $(X,d)$ is separable, then
+    it is countable. Let $Y\subset X$ be
+    the countable dense subset of $X$.
+    Then every open set of $X$ must contain a point
+    from $Y$. We note that all the singleton sets of
+    $X$ are open in $X$ and so Y must contain all the
+    points from the singleton sets. Hence we get
+    $X\subset Y\implies X=Y$. So, $X$ is countable.
 \end{mybox}
  
 \item Show that $l^p$, with $1 \leq p <
     \infty$ is separable.
 \begin{mybox}
 
-    \vspace*{15mm}
+    We will show that the set $M$ of sequences in $l^p$
+    with finite non-zero rational terms is
+    the countable dense
+    subset of $l^p$ with $1\leq p<\infty$. That is
+    $M$ has all the sequences $x$ of the form
+    $$(x_1,x_2,\ldots,x_n,0,0,\ldots)$$
+    with each $x_i\in\mQ$.
+    First, we show
+    that $M$ is countable. Note that for a fixed $n$, the
+    set of sequences in $l^p$ with rational terms
+    and all but the first $n$
+    terms zero is countable. Then $M$ is the countable
+    union of countable sets and, hence, is countable.
+
+    \vspace*{3mm}
+    Now, we show that the set $M$ is dense in $l^p$
+    with $1 \leq p <\infty$. Let $x=\{x_i\}_1^\infty
+    \in l^p$. Then $\sum_1^\infty{|x_i|^p}$ is
+    convergent and so for every
+    $\varepsilon>0$, there exists $N\in\mathbb{N}$ such
+    that,
+    $$\sum_{N+1}^\infty{|x_i|^p}<\varepsilon^p/2.$$
+    Then, for the first $N$ terms, since rational numbers
+    are dense in $\mR$, we can choose rational numbers
+    $y_i$ such that $|x_i-y_i|^p<\varepsilon^p/2N$.
+    So $(y_1,\ldots,y_N,0,0,\ldots)$ is a point in $M$ and
+    we see that
+    $$d(x,y)=\left(\sum_{i=1}^\infty{|x_i-y_i|^p}\right)
+    ^{1/p}=\left(\sum_{i=1}^N{|x_i-y_i|^p}
+    +\sum_{i=N+1}^\infty{|x_i-y_i|^p}\right)
+    ^{1/p}<(\varepsilon^p/2+\varepsilon^p/2)^{1/p}
+    =\varepsilon$$
+    So, for every $\varepsilon>0$, we can find a point
+    of $M$ in the $\varepsilon$-neighborhood of every
+    point $x\in l^p$. Hence $l^p$ with
+    $1 \leq p <\infty$ is separable.
 \end{mybox}
  
 \item Show that $l^{\infty}$ is not separable.
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $x=\{x_i\}_{i=0}^\infty$ be the sequence
+    of zeros and ones. Then since the sequence
+    is bounded, it is in $l^\infty$. Now we
+    will show that the set of such sequences $x$
+    are uncountably many and have disjoint
+    open neighborhoods for some radius.
+
+    \vspace*{3mm}
+    For each sequence $x$ we associate a real
+    number $y$ whose binary
+    representation is
+    $$\sum_1^{\infty}{\frac{x_i}{2^i}}.$$
+    Then for each $y\in [0,1]$, there exists
+    a unique sequence of zeros and ones as each
+    $y$ has a unique binary representation. Since
+    there are uncountably many $y$, the sequences
+    associated with them are also uncountable.
+    The metric on $l^\infty$ given by
+    $$d(x,y)=\sup_{i\in \mathbb{N}}{|x_i-y_i|}$$
+    implies that any two distict binary sequences
+    $\{x_i\}_{i=0}^\infty$ must be 1 distance
+    apart. Then we can take $r=1/2$ to get the
+    disjoint neighborhoods in $l^\infty$
+    associated with each sequence
+    $\{x_i\}_{i=0}^\infty$.
+
+    \vspace*{3mm}
+    Now, if $M$ is any dense set in $l^\infty$,
+    then every open set in $l^\infty$ must contain
+    a point of $M$. So, for each disjoint
+    open neighborhood constructed above, $M$
+    contains a point in the neighborhood. Hence,
+    any dense set $M$ is uncountable in $l^\infty$
+    and $l^\infty$ is not separable.
 \end{mybox}
  
 \item Let $\{x_n\}_{n \geq 1}$ be a sequence in a m.s.
@@ -120,7 +246,26 @@
     $\lim_{n \to \infty} d(x_n, y_n) = d(x,y)$. 
 \begin{mybox}
 
-    \vspace*{15mm}
+    Since the sequence $\{x_n\}_{n \geq 1}$ is converges
+    to x,
+    for every $\varepsilon>0$, we can find a $N$ such that
+    $d(x_n,x)<\varepsilon$ for all $n\geq N$. If we take
+    $\varepsilon=1$, we see $x_n\leq|x|+1$ for all
+    $n\geq N$. Let $M=\max\{x_1,\ldots,x_{N-1}\}$. Then
+    $$x_n\leq \max\{M,|x|+1\}\ \ \text{for all }n\in
+    \mathbb{Z}.$$
+    Hence, $\{x_n\}_{n \geq 1}$ is bounded.
+
+    \vspace*{3mm}
+    If $\{x_n\}_{n \geq 1}$ converges to $x$ and
+    $\{y_n\}_{n \geq 1}$ converges to $y$, then for every
+    $\varepsilon>0$, there exists $N_1$ and $N_2$ such
+    that $d(x,x_n)<\varepsilon/2$ for $n>N_1$ and
+    $d(y,y_n)<\varepsilon/2$ for $n>N_2$. Then
+    for $n>\max\{N_1, N_2\}$,
+    $$d(x_n,y_n)\leq d(x,x_n)+d(x,y_n)\leq
+    d(x,x_n)+d(y,y_n)+d(x,y)\leq\varepsilon+d(x,y).$$
+    As $n\to\infty$, $d(x_n,y_n)\to d(x,y)$.
 \end{mybox}
  
 \item Show that any nonempty set $A\subset (X, d)$
@@ -128,7 +273,22 @@
     union of open balls.
 \begin{mybox}
 
-    \vspace*{15mm}
+    If $A$ is open in $X$ then for all $x\in A$ we exists
+    an open ball $B_{\delta_x}(x)$ such that
+    $x\in B_{\delta_x}(x)\subset A$.
+    Let $$B=\bigcup_{x\in A}{B_{\delta_x}(x)}.$$
+    Clearly, $B\subset A$ since each $B_{\delta_x}(x)$
+    is contained in $A$. Also, since $B$ contains all the
+    points of $A$, we have $A=B$. So, $A$ is a union
+    of open balls.
+    
+    \vspace*{3mm}
+    Now, if $A=\bigcup{B_\alpha}$ is a union of open
+    balls $B_\alpha$ then
+    for each $x\in A$, we have $x \in B_\alpha$ for some
+    $B_\alpha$. That means that for every $x\in A$ we have
+    some open ball $B_\alpha$ such that
+    $x\in B_\alpha\subset A$. Hence $A$ is open in $X$.
 \end{mybox}
 
 
@@ -140,7 +300,33 @@
 \end{enumerate}  
 \begin{mybox}
 
-    \vspace*{15mm}
+    (a) $\implies$ (b).
+    Let $x\in \overline{E}=X\char`\\(X\char`\\E)^\circ$.
+    Then $x\notin (X\char`\\E)^\circ$. Negating this
+    statement, we see that for all $r>0$,
+    $B(x,r)\cap E\neq \emptyset$.
+    
+    \vspace*{3mm}
+    (b) $\implies$ (c).
+    We first define the radii $r_n=1/n$ of the open balls
+    around the point $x\in X$. Since
+    $B(x,r) \cap E \neq \emptyset$, $\forall r > 0$,
+    we can take a sequences of points 
+    $\{x_i\}_1^\infty$ in $E$ such that
+    $x_i\in B(x,r_i)$ for each $i$.
+    Then this is the sequence in $E$
+    which converges to the point $x$.
+
+    \vspace*{3mm}
+    (c) $\implies$ (a). Since $x_n\to x$, for
+    every $\varepsilon>0$
+    we can find a $N$ such that $d(x,x_n)<\varepsilon$
+    all $n>N$. That is, every open ball around
+    $x$ contains a point of $E$. So $x\notin 
+    (X\char`\\E)^\circ\implies x\in
+    X\char`\\(X\char`\\E)^\circ$. Thus $x$ is in the
+    closure $\overline{E}$.
+
 \end{mybox}
 
  
@@ -152,14 +338,67 @@
     and $(X,d_2)$ are the same.
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $\{x_n\}_1^\infty$ be a Cauchy sequence
+    in $(X,d_1)$, then for every $\varepsilon'>0$,
+    we can find an integer $N$ such that
+    $d_1(x_m,x_n)<\varepsilon'$ for all $m$, $n>N$.
+    Then taking $\varepsilon=\varepsilon'/b$ we
+    have $d_2(x_m,x_n)\leq\varepsilon$. Hence
+    the sequence $\{x_n\}_1^\infty$ is Cauchy in
+    $(X,d_2)$.
+
+    \vspace*{3mm}
+    Now, let $\{y_n\}_1^\infty$ be a Cauchy sequence
+    in $(X,d_2)$, then for every $\varepsilon'>0$,
+    we can find an integer $N$ such that
+    $d_2(y_m,y_n)<\varepsilon'$ for all $m$, $n>N$.
+    Then taking $\varepsilon=a\varepsilon'$ we
+    have $ad_1(y_m,y_n)\leq a\varepsilon
+    \implies d_1(y_m,y_n)\leq \varepsilon$. Hence
+    the sequence $\{y_n\}_1^\infty$ is Cauchy in
+    $(X,d_1)$.
 \end{mybox}
  
 \item Show that $l^p$, with $1 \leq p < \infty$ is
     complete.
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $\{\{x_i^n\}_{i=1}^\infty\}_{n=1}^\infty$
+    be a Cauchy sequence in
+    the space $l^p$ where for each $n$,
+    $\{x_i^n\}_{i=1}^\infty$ is a convergent
+    sequence in $\rl$. Then for every $\varepsilon>0$,
+    there exists an $N$ such that
+    $$d(x_i^m,x_i^n)
+    =\left(\sum_{i=1}^\infty{
+        |x_i^m-x_i^n|^p
+    }\right)^{1/p}<\varepsilon$$
+    for all $m$, $n>N$. Then for each fixed $i$,
+    the term
+    $|x_i^m-x_i^n|^p<\varepsilon^p\implies
+    |x_i^m-x_i^n|<\varepsilon$. So 
+    $\{x_i^j\}_1^\infty$ is a Cauchy
+    sequence of real
+    numbers for each fixed $i$ and it converges
+    to some number that we can call $x_i$.
+    We define $x=\{x_i\}_{i=1}^\infty$ and show that
+    this is the limit of our sequence
+    $\{\{x_i^n\}_{i=1}^\infty\}_{n=1}^\infty$ in
+    $l^p$.
+
+    From above, we have
+    $$\sum_{i=1}^k{
+        |x_i^m-x_i^n|^p
+    }<\varepsilon^p$$ for all $m$, $n>N$. Then as 
+    $n\to \infty$, we have (by definition) for $m>N$
+    $$\sum_{i=1}^k{
+        |x_i^m-x_i|^p
+    }\leq\varepsilon^p.$$
+    Then as $k\to \infty$, we have
+    $$\sum_{i=1}^\infty{
+        |x_i^m-x_i^n|^p
+    }\leq\varepsilon^p$$
+
 \end{mybox}
  
 \item Prove that $(\mR, d(x,y) = |x-y|)$ is complete.\\ 
@@ -168,13 +407,57 @@
     proving it.
 \begin{mybox}
 
-    \vspace*{15mm}
+    First, we show that every Cauchy sequence in 
+    $(\rl,d)$ is bounded.
+    Let $\{x_n\}_1^\infty$ be a Cauchy sequence
+    in $(\rl,d)$, then for every $\varepsilon>0$,
+    we can find an integer $N$ such that
+    $d(x_m,x_n)=|x_m-x_n|<\varepsilon$ 
+    for all $m$, $n>N$. Then when $m=N+1$
+    and $\varepsilon=1$, we see
+    that $|x_m|-|x_{N+1}|\leq|x_m-x_{N+1}|
+    <\varepsilon$. So $|x_m|\leq |x_{N+1}| +1$
+    for all $m>N$. Hence the sequence
+    $\{x_n\}_1^\infty$ is bounded by $M$ where
+    $M=\max\{|x_1|,\ldots,|x_N|, |x_{N+1}|+1\}$.
+    Then, since $\{x_n\}_1^\infty$ is bounded,
+    by Bolzano-Weierstrass Theorem, we know that
+    $\{x_n\}_1^\infty$ has a convergent
+    subsequence $\{x_{n_i}\}_{i=1}^\infty$.
+    Let $\{x_{n_i}\}_{i=1}^\infty\to x$ in $\rl$.
+
+    \vspace*{3mm}
+    Now, we show that our sequence
+    $\{x_n\}_1^\infty$ itself converges to the
+    point $x\in \rl$. In the Cauchy sequence
+    $\{x_n\}_1^\infty$, we have, for all
+    $\varepsilon>0$, there exists
+    $N\in \mathbb{N}$ such that
+    $|x_m-x_n|<\varepsilon/2$ for all $m$, $n>N$.
+    Similarly, in the convergent subsequence
+    $\{x_{n_i}\}_{i=1}^\infty$, there exists
+    $N'\in \mathbb{N}$ such that
+    $|x_{n_i}-x|<\varepsilon/2$ for all
+    $i>N'$. Then for all $\varepsilon>0$, there
+    exists $N,N'\in \mathbb{N}$ such that,
+    for all $n>N$ and $i>N'$ with $n_i>N$, we have
+    $$|x_n-x|\leq |x_n-x_{n_i}|+|x_{n_i}-x|
+    <\varepsilon/2+\varepsilon/2=\varepsilon.$$
+    Hence $\{x_{n}\}_{n=1}^\infty$ converges in
+    $(\rl,d)$ and $\rl$ is complete.
+    
 \end{mybox}
  
 \item Prove that $(\mQ, d(x,y) = |x-y|)$ is incomplete.
 \begin{mybox}
 
-    \vspace*{15mm}
+    We take the sequence $\{x_n\}_1^\infty$ of rational
+    numbers given by
+    $x_n=\left(1+\frac{1}{n}\right)^n$. Note that this
+    is a convergent sequence in $\rl$ with the same
+    metric and hence it is
+    Cauchy in $\mQ$ too. However, it does not converge
+    to any number in $\mQ$. So, $\mQ$ is not complete.
 \end{mybox}
  
 \item Prove that $\Big(\text{C}[-1,1], d(f,g) =
@@ -182,20 +465,267 @@
     Hint: Follow the steps provided in class.
 \begin{mybox}
 
-    \vspace*{15mm}
+    We take the sequence $\{f_n\}_1^\infty$
+    of piecewise defined functions in $\text{C}[-1,1]$
+    such that
+    $$f_n(x)=
+    \begin{dcases}
+        1,   & x>\frac{1}{n}\\
+        nx,  & -\frac{1}{n}\leq x\leq \frac{1}{n}\\
+        -1,  & x<\frac{1}{n}
+    \end{dcases}$$
+
+    We  first observe that
+    $d(f_m,f_n)=2 \times$ area of the
+    triangle with base $\left|\frac{1}{m}-
+    \frac{1}{n}\right|$ and height 1
+    =$\left|1/m-1/n\right|$. Then,
+    the sequence is Cauchy
+    since for every $\varepsilon>0$ we have
+    an integer $N>1/\varepsilon$ such that
+    for all $m$, $n>N$,
+    $d(f_m,f_n)<\varepsilon$.
+
+    \vspace*{3mm}
+    Now, for every $g\in C[0,1]$, we have
+    $$d(f_n,g)=\int_{-1}^1{|f_n(t) - g(t)|} dt
+    = \int_{-1}^{-\frac{1}{n}}{|-1-g(t)|dt}
+    + \int_{-\frac{1}{n}}^{\frac{1}{n}}
+    {|f_n(t)-g(t)|dt}
+    + \int_{{\frac{1}{n}}}^1{|1-g(t)|dt}$$
+    Since $d\geq 0$ for all $g\in C[0,1]$,
+    $d(f_n,g)\to 0$ implies that each
+    integral on the right should also approach
+    0. Then we should have
+    $$g(t)=-1\ \ \text{ for }t\in [-1,0)
+    \ \ \text{ and }\ \
+    g(t)=1\ \ \text{ for }t\in (0,1].$$
+    But then $g$ cannot be continuous so we have
+    a contradiction. So, the Cauchy sequence
+    $\{f_n\}_1^\infty$ does not converge in
+    $C[0,1]$ and the space is not complete.
 \end{mybox}
  
 \item Determine whether or not the discrete metric
     space is complete. Justify your answer.
 \begin{mybox}
 
-    \vspace*{15mm}
+    Let $\{x_i\}_{i=0}^\infty$ be a Cauchy
+    sequence in the discrete metric space. Then
+    for every $\varepsilon>0$ there exists an $N$
+    such that for all $m$, $n>N$, we have
+    $$d(x_m,x_n)<\varepsilon.$$
+    If we take $\varepsilon<1$ then we see that
+    $x_m=x_n=x$ for all $m$, $n>N$ for some $N$.
+    So the sequence $\{x_i\}_{i=0}^\infty$
+    converges to $x$ and the space is
+    complete.
 \end{mybox}
  
 \item Prove the Completion of a Metric Space Theorem. 
 \begin{mybox}
 
-    \vspace*{15mm}
+    \begin{thm}[Completion of a Metric Space]
+
+    For a metric space $X = (X, d)$ there
+    exists a complete metric space $X^\prime
+    =(X^\prime, d^\prime)$
+    which has a subspace $W$ that is
+    isometric with $X$ and is dense in $X^\prime$.
+    This space $X^\prime$ is unique except for
+    isometries, that is, if $\tilde{X}$ is
+    any complete metric space having a dense
+    subspace $\tilde{W}$ isometric with $X$,
+    then $X^\prime$ and
+    $\tilde{X}$ are isometric.
+    \end{thm}
+
+    \begin{proof}
+        We prove the theorem in the following steps.
+
+        \vspace*{2mm}
+        \begin{enumerate}
+            \item We first define a relation $\sim$ on Cauchy
+            sequences of $X$ and show that it is a
+            well-defined equivalence relation. For 
+            the Cauchy sequences
+            $x= \{x_i\}_1^\infty$,
+            $y= \{y_i\}_1^\infty$ in $X$, we
+            say that $x \sim y$ if
+            $$\lim_{n\to\infty}{d(x_n,y_n)}=0.$$
+            Clearly, this relation is symmetric and
+            reflexive. For transitivity we see that
+            if $x\sim y$ and $y\sim z$ then
+            $$0\leq\lim_{n\to\infty}{d(x_n,z_n)}\leq
+            \lim_{n\to\infty}{d(x_n,z_n) +d(y_n,z_n)}
+            =0.$$
+            Hence $\sim$ is an equivalence relation on the
+            Cauchy sequences of $X$. Now, let $\xprime$ be the
+            set of all equivalence classes of Cauchy
+            sequences on $X$ and define the function
+            $d^\prime:\xprime\to \rl$ by 
+            $$d^\prime(x^\prime,y^\prime)=
+            \lim_{n\to\infty}{d(x_n,y_n)}$$
+            where $x^\prime$ and $y^\prime$ are the equivalence
+            classes of $x$ and $y$ respectively. We show that this
+            limit exists and the function $d^\prime$ is well
+            defined. We have,
+            \begin{align*}
+                d(x_n,y_n)&\leq d(x_n,x_m)+d(x_m,y_m)
+                +d(y_n,y_m)\\
+                \text{or, }\ |d(x_n,y_n)-d(x_m,y_m)|
+                &\leq d(x_n,x_m)+d(y_n,y_m).
+            \end{align*}
+            Taking limit as $m$, $n$ go to $\infty$
+            on both sides we obtain,
+            $$\lim_{n\to\infty}{|d(x_n,y_n)-d(x_m,y_m)|}
+            \leq \lim_{n\to\infty}{\left[d(x_n,x_m)+
+            d(y_n,y_m)\right]}=0$$
+            Hence the limit $d^\prime(x^\prime,y^\prime)=
+            \lim_{n\to\infty}{d(x_n,y_n)}$ exists.
+    
+            \vspace*{3mm}
+            Now, if $x\sim x^\prime$ and $y\sim y^\prime$, then
+            $$d(x_n,y_n)\leq d(x_n,x^\prime_n)+
+            d(x_n^\prime,y_n^\prime)
+            +d(y_n,y_n^\prime)$$
+            And as before,
+            $$0\leq \lim_{n\to\infty}{|d(x_n,y_n)-
+            d(x_n^\prime,y_n^\prime)|}
+            \leq \lim_{n\to\infty}{\left[d(x_n,x^\prime_n)+
+            (y_n,y_n^\prime)\right]}=0$$
+            which implies that $\lim_{n\to\infty}{d(x_n,y_n)}
+            =\lim_{n\to\infty}{d(x_n^\prime,y_n^\prime)}$.
+            Hence $d^\prime$ is a well-defined function on
+            $\xprime$.
+    
+            \vspace*{3mm}
+            We now show that $d^\prime$ is a metric on
+            $\xprime$. Clearly $0\leq d^\prime<\infty$ since
+            the limit exists and $d^\prime(x^\prime,
+            x^\prime)=0$. Furthermore,
+            $$d^\prime(x^\prime,
+            y^\prime)=0\implies x\sim y\implies x^\prime
+            \sim y^\prime.$$
+            And,
+            $$d^\prime(x^\prime,z^\prime)=
+            \lim_{n\to\infty}{d(x_n,z_n)}\leq
+            \lim_{n\to\infty}{d(x_n,y_n)}+
+            \lim_{n\to\infty}{d(y_n,z_n)}
+            =d^\prime(x^\prime,y^\prime)+
+            d^\prime(y^\prime,z^\prime).$$
+            So, $d^\prime$ satisfies the definition of a metric.
+    
+            \vspace*{3mm}
+            \item Now, we construct an isometry
+            $T:X\to W$ where $W$ is a dense subset of
+            $\xprime$. Let $T$ be a function that takes
+            each element to the
+            equivalence
+            class $x^\prime$ in $\xprime$ of the
+            Cauchy sequence $\{x\}_1^\infty=
+            (x,x,x,\ldots)$ associated with that element.
+            Then $T$ is an isometry since for each
+            $x$, $y\in X$,
+            $$d^\prime(T(x),T(y))=\lim_{n\to\infty}
+            {d(x_n,y_n)}=d(x,y).$$
+            We note that isometry is injective map and
+            if $W=T(X)$, then $T:X\to W$ is surjective. So,
+            $W$ and $X$ are isometric.
+    
+            \vspace*{3mm}
+            We need to show that $W$ is dense in $\xprime$.
+            Let $x^\prime\in \xprime$ be the equivalence
+            class of the Cauchy sequence $\{y_i\}_1^\infty$.
+            Then for every $\varepsilon>0$, there exists $N
+            \in \mathbb{N}$ such that
+            $d(y_n,y_m)<\varepsilon$ for all $m$, $n>N$.
+            Let $z=y_{N+1}$. Then, if $z^\prime$ is the image
+            of $z$ under $T$,
+            $$d^\prime(y^\prime,z^\prime)=
+            \lim_{n\to\infty}{d(y_n-z)}<\varepsilon.$$
+            Thus we see that every open neighborhood
+            around the point $x^\prime$ in $\xprime$
+            contains a point $z^\prime$ of $W$ and so,
+            $W$ is dense in $\xprime$.
+
+            \vspace*{3mm}
+            \item We now show that $\xprime$ is a complete
+            metric space. Let $\{x_i^\prime\}_1^\infty$
+            be a Cauchy sequence in $\xprime$. Since
+            $W$ is dense in $\xprime$, every open
+            neighborhood in $\xprime$ contains a point of $W$.
+            So, for each $i$,
+            there exists $z_i^\prime\in W$ such that
+            $$d^\prime(x_i^\prime,z_i^\prime)<1/n$$
+            Then
+            $$d^\prime(z_j^\prime,z_i^\prime)\leq
+            d^\prime(z_j^\prime,x_j^\prime)+
+            d^\prime(x_j^\prime,x_i^\prime)+
+            d^\prime(x_i^\prime,z_i^\prime)<
+            1/j+1/i+
+            d^\prime(x_j^\prime,x_i^\prime)$$
+            So, since $\{x_i^\prime\}_1^\infty$
+            is Cauchy, as $i$, $j\to \infty$,
+            $d^\prime(z_j^\prime,z_i^\prime)\to
+            0$. So the sequence
+            $\{z_i^\prime\}_1^\infty$ is Cauchy in $\xprime$.
+            Since $T$ is an isometry,
+            we see that the sequence
+            $T^{-1}(\{z_i^\prime\}_1^\infty)=(
+                T^{-1}(z_1^\prime),T^{-1}(z_2^\prime),
+                T^{-1}(z_3^\prime),
+                \ldots
+            )=(z_1,z_2,z_3,\ldots)$ is Cauchy in $X$.
+            Let $x^\prime$ be the equivalence class of
+            the Cauchy sequence $(z_1,z_2,z_3,\ldots)$.
+            We now show that $x^\prime$ is the limit
+            of our Cauchy sequence
+            $\{x_i^\prime\}_1^\infty$ in $\xprime$.
+            We have
+            $$d^\prime(x_i^\prime,x^\prime)
+            \leq d^\prime(x_i^\prime,z_i^\prime)+
+            d^\prime(x^\prime,z_i^\prime)
+            <1/n+d^\prime(x^\prime,z_i^\prime)$$
+            for $z_i^\prime\in W$. Then, since
+            $x^\prime$ is the equivalence class of
+            the Cauchy sequence $(z_1,z_2,z_3,\ldots)$
+            and $z_i^\prime$ is the equivalence
+            class of $(z_i,z_i,z_i,\ldots)$,
+            $d^\prime(x^\prime,z_i^\prime)=
+            \lim_{n\to\infty}{d(z_n,z_i)}$. Then
+
+            $$d^\prime(x_i^\prime,x^\prime)<
+            1/n+\lim_{n\to\infty}{d(z_n,z_i)}.$$
+            The right hand side goes to zero as $n,i\to
+            \infty$. So the Cauchy sequence
+            $\{x_i^\prime\}_1^\infty$ is convergent in
+            $\xprime$ and $\xprime$ is complete.
+
+            \vspace*{3mm}
+            \item Now, we show that the space $\xprime$ is
+            unique upto isometry. If $(\tilde{X},\tilde{d})$
+            is another space that contains a dense
+            subset $\tilde{W}$ isometric to $X$, then
+            for any $\tilde{x}$, $\tilde{y}\in
+            \tilde{X}$, we have sequences $\{\tilde{x}_n\}
+            _1^\infty$
+            and $\{\tilde{y}_n\}
+            _1^\infty$ in $\tilde{W}$ such that
+            $\tilde{x}_n\to \tilde{x}$ and 
+            $\tilde{y}_n\to \tilde{y}$ with
+            $$\tilde{d}(\tilde{x},\tilde{y})=
+            \lim_{n\to\infty}
+            {\tilde{d}(\tilde{x}_n,\tilde{y}_n)}.$$
+            Since $W$ and $\tilde{W}$ are isometric
+            and the closure of $W$ in $\xprime$ is
+            $\xprime$ itself, $\xprime$ and $\tilde{X}$
+            must be isometric.
+            
+
+        \end{enumerate}
+    \end{proof}
+
 \end{mybox}
  
  
