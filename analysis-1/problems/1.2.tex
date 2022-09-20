@@ -1,18 +1,33 @@
 \question{
-    \textbf{Young's inequality:} Let $p>1$ and $q$ its conjugate
-    $(\text{i.e. }\frac{1}{p}+\frac{1}{q}=1)$. Then
-    $$u\cdot v \leq \frac{u^p}{p}+\frac{v^q}{q} \hspace*{10mm}
-    \forall u,v\geq 0.$$
+    Let $C[0,1]$ be the space of continuous
+    functions on $[0,1]$. \\
+    Show that $\ds d(f,g) = \int_0^1|f(x) - g(x)| dx$
+    is a metric on $C[0,1]$
 }
-\begin{proof}
-    If either $u$ or $v$ equals $0$, then the inequality
-    follows immediately. Suppose $u>0$, $v>0$ and let
-    $f(x) = e^x$. Since $f$ is a $convex$ function,
-    \begin{align*}
-        u\cdot v &= \exp\left({\log{u}+\log{v}}\right)\\
-        &= f\left(\frac{1}{p}\log{u^p} +\frac{1}{q}
-        \log{v^q}\right)\\
-        &\leq \frac{1}{p}f(\log{u^p})+\frac{1}{q}f(\log{v^q})\\
-        &= \frac{u^p}{p}+\frac{v^q}{q}.
-    \end{align*}
-\end{proof}
+\begin{solution}
+    For all $f\in C[0,1]$, $f$ is bounded. Let $|f(x)|<M$ and
+$|g(x)|<N$ for $x\in[0,1]$.
+  \begin{enumerate}
+    \item[i.]
+      Then $0\leq\int_0^1{|f(x)-g(x)| dx}\leq
+      \int_0^1{|f(x)|+|g(x)| dx}\leq (M+N)(1-0)<\infty$.
+      Hence
+      $0\leq d(f,g)<\infty$.
+    \item[ii.]
+      $d(f,g)=d(g,f)$ since $|f(x)-g(x)|=|g(x)-f(x)|$
+      for all $x\in[0,1]$.
+    \item[iii.]
+      $d(f,f)=0$ since it is the integration of zero function.
+    \item[iv.]
+      For each $x\in [0,1]$ and $f,g,h\in C[0,1]$, we have
+      $|f(x)-h(x)|=|(f(x)-g(x))+(g(x)-h(x))|
+      \leq |f(x)-g(x)|+|g(x)-h(x)|$ (using triangle inequality
+      for real numbers). Then
+      $$d(f,h)=\int_{0}^1{ |f(x) - h(x)| dx}\leq
+      \int_{0}^1{\left(|f(x) - g(x)|+|g(x)-h(x)|\right) dx}
+      =d(f,g)+d(g,h).$$
+      Hence, $d$ satisfies the triangle inequality
+      for $f,g,h\in C[0,1]$.
+  \end{enumerate}
+  Thus, $d$ is a metric on $C[0,1] $.\qed
+\end{solution}

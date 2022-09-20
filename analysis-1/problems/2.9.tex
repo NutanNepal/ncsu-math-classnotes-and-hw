@@ -1,0 +1,37 @@
+\question{
+    Let $(X, \rho)$ be a metric space, $E \subset X$, and $x \in X$. Prove that the following are equivalent:
+\begin{enumerate}
+\item[(a)] $x \in \overline{E}$
+\item[(b)] $B(x,r) \cap E \neq \emptyset$, $\forall r > 0$
+\item[(c)] $\exists \ \{x_n\} \in E$ s.t. $x_n \to x$
+\end{enumerate} 
+}
+
+\begin{solution}
+    (a) $\implies$ (b).
+    Let $x\in \overline{E}=X\char`\\(X\char`\\E)^\circ$.
+    Then $x\notin (X\char`\\E)^\circ$. Negating this
+    statement, we see that for all $r>0$,
+    $B(x,r)\cap E\neq \emptyset$.
+    
+    \vspace*{3mm}
+    (b) $\implies$ (c).
+    We first define the radii $r_n=1/n$ of the open balls
+    around the point $x\in X$. Since
+    $B(x,r) \cap E \neq \emptyset$, $\forall r > 0$,
+    we can take a sequences of points 
+    $\{x_i\}_1^\infty$ in $E$ such that
+    $x_i\in B(x,r_i)$ for each $i$.
+    Then this is the sequence in $E$
+    which converges to the point $x$.
+
+    \vspace*{3mm}
+    (c) $\implies$ (a). Since $x_n\to x$, for
+    every $\varepsilon>0$
+    we can find a $N$ such that $d(x,x_n)<\varepsilon$
+    all $n>N$. That is, every open ball around
+    $x$ contains a point of $E$. So $x\notin 
+    (X\char`\\E)^\circ\implies x\in
+    X\char`\\(X\char`\\E)^\circ$. Thus $x$ is in the
+    closure $\overline{E}$.
+\end{solution}

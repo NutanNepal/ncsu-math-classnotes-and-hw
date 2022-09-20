@@ -1,0 +1,30 @@
+\question{
+    ({\bf Continuous mapping}) Show that a
+    mapping $T: X\to Y$ is continuous
+    if and only if the inverse image of any closed
+    set $M\subset Y$ is a closed
+    set in $X$.
+}
+
+\begin{solution}
+    We first note that for any set $A\subset Y$,
+    $f^{-1}(A)=\{x\in X:\ f(x)\in A\}$ and
+    $f^{-1}(Y\char`\\A)=\{x\in X:\ f(x) \notin A\}$.
+    Then clearly, $f^{-1}(A)$ and $f^{-1}(Y\char`\\A)$
+    are disjoint sets of $X$. Particularly,
+    $$f^{-1}(Y\char`\\A)=X\char`\\f^{-1}(A).$$
+
+    \vspace*{3mm}
+    ($\Longleftarrow$)
+    Let $V$ be a closed set of $Y$. Then there exists
+    a closed set $f^{-1}(V)$ in  $X$. Since all open
+    sets can be written as a complement of closed set,
+    we see that for any open set $Y\char`\\V$ in $Y$
+    there exists an open set $X\char`\\f^{-1}(V)$ in
+    $X$. Since $X\char`\\f^{-1}(V)=f^{-1}(Y\char`\\A)$,
+    the preimage of any open set of $Y$ is open in
+    $X$. Hence $f$ is continuous.
+
+    \vspace*{3mm}
+    ($\Longrightarrow$)
+\end{solution}

@@ -1,0 +1,24 @@
+\question{
+    Show that any nonempty set $A\subset (X, d)$
+    is open if and only if it is a
+    union of open balls.
+}
+
+\begin{solution}
+    If $A$ is open in $X$ then for all $x\in A$ we exists
+    an open ball $B_{\delta_x}(x)$ such that
+    $x\in B_{\delta_x}(x)\subset A$.
+    Let $$B=\bigcup_{x\in A}{B_{\delta_x}(x)}.$$
+    Clearly, $B\subset A$ since each $B_{\delta_x}(x)$
+    is contained in $A$. Also, since $B$ contains all the
+    points of $A$, we have $A=B$. So, $A$ is a union
+    of open balls.
+    
+    \vspace*{3mm}
+    Now, if $A=\bigcup{B_\alpha}$ is a union of open
+    balls $B_\alpha$ then
+    for each $x\in A$, we have $x \in B_\alpha$ for some
+    $B_\alpha$. That means that for every $x\in A$ we have
+    some open ball $B_\alpha$ such that
+    $x\in B_\alpha\subset A$. Hence $A$ is open in $X$.
+\end{solution}

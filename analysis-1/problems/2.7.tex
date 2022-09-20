@@ -1,0 +1,31 @@
+\question{
+    Let $\{x_n\}_{n \geq 1}$ be a sequence in a m.s.
+    $(X, d)$ which converges to $x$. Show that
+    $\{x_n\}_{n \geq 1}$ is a bounded sequence.
+    Then let $\{y_n\}_{n \geq 1}$ be a sequence in
+    $(X, d)$ which converges to $y$. Show that
+    $\lim_{n \to \infty} d(x_n, y_n) = d(x,y)$.
+}
+
+\begin{solution}
+    Since the sequence $\{x_n\}_{n \geq 1}$ is converges
+    to x,
+    for every $\varepsilon>0$, we can find a $N$ such that
+    $d(x_n,x)<\varepsilon$ for all $n\geq N$. If we take
+    $\varepsilon=1$, we see $x_n\leq|x|+1$ for all
+    $n\geq N$. Let $M=\max\{x_1,\ldots,x_{N-1}\}$. Then
+    $$x_n\leq \max\{M,|x|+1\}\ \ \text{for all }n\in
+    \mathbb{Z}.$$
+    Hence, $\{x_n\}_{n \geq 1}$ is bounded.
+
+    \vspace*{3mm}
+    If $\{x_n\}_{n \geq 1}$ converges to $x$ and
+    $\{y_n\}_{n \geq 1}$ converges to $y$, then for every
+    $\varepsilon>0$, there exists $N_1$ and $N_2$ such
+    that $d(x,x_n)<\varepsilon/2$ for $n>N_1$ and
+    $d(y,y_n)<\varepsilon/2$ for $n>N_2$. Then
+    for $n>\max\{N_1, N_2\}$,
+    $$d(x_n,y_n)\leq d(x,x_n)+d(x,y_n)\leq
+    d(x,x_n)+d(y,y_n)+d(x,y)\leq\varepsilon+d(x,y).$$
+    As $n\to\infty$, $d(x_n,y_n)\to d(x,y)$.
+\end{solution}

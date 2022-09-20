@@ -1,0 +1,24 @@
+\question{
+    Assume that $f : (\mR^2, d_1 =  \
+    \text{Euclidean metric}) \to \mR$ is continuous at
+    $x \in \mR^2$. Show that
+    $f : (\mR^2, d_2 =  \ \text{taxicab metric})
+    \to \mR$ is also continuous at $x$.
+}
+
+\begin{solution}
+    Since $f : (\mR^2, d_1 =  \
+    \text{Euclidean metric}) \to \mR$ is continuous,
+    we know that $f^{-1}(V)$ is open in $\rl^2$, for all
+    $V$ open in $\rl$. Our proof will be complete if we
+    can show that every open set $U$ in $(\rl^2,d_1)$
+    is also
+    open with respect to the taxicab metric.
+
+    \vspace*{3mm}
+    Let $V$ be open in $(\mR^2, d_1)$. Then for
+    every point $(p,q)\in X$ there exists an open ball
+    $B_\delta((p,q))\subset V$ containing $(p,q)$.
+    $$B_\delta((p,q))=\{(x,y)\in\mR^2:
+    \ (x-p)^2+(y-q)^2<\delta^2\}$$
+\end{solution}

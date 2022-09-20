@@ -1,0 +1,17 @@
+\question{
+    Determine whether or not the discrete metric
+    space is complete. Justify your answer.
+}
+
+\begin{solution}
+    Let $\{x_i\}_{i=0}^\infty$ be a Cauchy
+    sequence in the discrete metric space. Then
+    for every $\varepsilon>0$ there exists an $N$
+    such that for all $m$, $n>N$, we have
+    $$d(x_m,x_n)<\varepsilon.$$
+    If we take $\varepsilon<1$ then we see that
+    $x_m=x_n=x$ for all $m$, $n>N$ for some $N$.
+    So the sequence $\{x_i\}_{i=0}^\infty$
+    converges to $x$ and the space is
+    complete.
+\end{solution}

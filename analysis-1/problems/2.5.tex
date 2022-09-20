@@ -1,0 +1,43 @@
+\question{
+    Show that $l^p$, with $1 \leq p <
+    \infty$ is separable.
+}
+
+\begin{solution}
+    We will show that the set $M$ of sequences in $l^p$
+    with finite non-zero rational terms is
+    the countable dense
+    subset of $l^p$ with $1\leq p<\infty$. That is
+    $M$ has all the sequences $x$ of the form
+    $$(x_1,x_2,\ldots,x_n,0,0,\ldots)$$
+    with each $x_i\in\mQ$.
+    First, we show
+    that $M$ is countable. Note that for a fixed $n$, the
+    set of sequences in $l^p$ with rational terms
+    and all but the first $n$
+    terms zero is countable. Then $M$ is the countable
+    union of countable sets and, hence, is countable.
+
+    \vspace*{3mm}
+    Now, we show that the set $M$ is dense in $l^p$
+    with $1 \leq p <\infty$. Let $x=\{x_i\}_1^\infty
+    \in l^p$. Then $\sum_1^\infty{|x_i|^p}$ is
+    convergent and so for every
+    $\varepsilon>0$, there exists $N\in\mathbb{N}$ such
+    that,
+    $$\sum_{N+1}^\infty{|x_i|^p}<\varepsilon^p/2.$$
+    Then, for the first $N$ terms, since rational numbers
+    are dense in $\mR$, we can choose rational numbers
+    $y_i$ such that $|x_i-y_i|^p<\varepsilon^p/2N$.
+    So $(y_1,\ldots,y_N,0,0,\ldots)$ is a point in $M$ and
+    we see that
+    $$d(x,y)=\left(\sum_{i=1}^\infty{|x_i-y_i|^p}\right)
+    ^{1/p}=\left(\sum_{i=1}^N{|x_i-y_i|^p}
+    +\sum_{i=N+1}^\infty{|x_i-y_i|^p}\right)
+    ^{1/p}<(\varepsilon^p/2+\varepsilon^p/2)^{1/p}
+    =\varepsilon$$
+    So, for every $\varepsilon>0$, we can find a point
+    of $M$ in the $\varepsilon$-neighborhood of every
+    point $x\in l^p$. Hence $l^p$ with
+    $1 \leq p <\infty$ is separable.
+\end{solution}

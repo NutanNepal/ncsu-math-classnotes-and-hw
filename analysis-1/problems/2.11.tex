@@ -1,0 +1,42 @@
+\question{
+    Show that $l^p$, with $1 \leq p < \infty$ is
+    complete.
+}
+
+\begin{solution}
+    Let $\{\{x_i^n\}_{i=1}^\infty\}_{n=1}^\infty$
+    be a Cauchy sequence in
+    the space $l^p$ where for each $n$,
+    $\{x_i^n\}_{i=1}^\infty$ is a convergent
+    sequence in $\rl$. Then for every $\varepsilon>0$,
+    there exists an $N$ such that
+    $$d(x_i^m,x_i^n)
+    =\left(\sum_{i=1}^\infty{
+        |x_i^m-x_i^n|^p
+    }\right)^{1/p}<\varepsilon$$
+    for all $m$, $n>N$. Then for each fixed $i$,
+    the term
+    $|x_i^m-x_i^n|^p<\varepsilon^p\implies
+    |x_i^m-x_i^n|<\varepsilon$. So 
+    $\{x_i^j\}_1^\infty$ is a Cauchy
+    sequence of real
+    numbers for each fixed $i$ and it converges
+    to some number that we can call $x_i$.
+    We define $x=\{x_i\}_{i=1}^\infty$ and show that
+    this is the limit of our sequence
+    $\{\{x_i^n\}_{i=1}^\infty\}_{n=1}^\infty$ in
+    $l^p$.
+
+    From above, we have
+    $$\sum_{i=1}^k{
+        |x_i^m-x_i^n|^p
+    }<\varepsilon^p$$ for all $m$, $n>N$. Then as 
+    $n\to \infty$, we have (by definition) for $m>N$
+    $$\sum_{i=1}^k{
+        |x_i^m-x_i|^p
+    }\leq\varepsilon^p.$$
+    Then as $k\to \infty$, we have
+    $$\sum_{i=1}^\infty{
+        |x_i^m-x_i^n|^p
+    }\leq\varepsilon^p$$
+\end{solution}

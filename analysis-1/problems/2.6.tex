@@ -1,0 +1,40 @@
+\question{
+    Show that $l^{\infty}$ is not separable.
+}
+
+\begin{solution}
+    Let $x=\{x_i\}_{i=0}^\infty$ be the sequence
+    of zeros and ones. Then since the sequence
+    is bounded, it is in $l^\infty$. Now we
+    will show that the set of such sequences $x$
+    are uncountably many and have disjoint
+    open neighborhoods for some radius.
+
+    \vspace*{3mm}
+    For each sequence $x$ we associate a real
+    number $y$ whose binary
+    representation is
+    $$\sum_1^{\infty}{\frac{x_i}{2^i}}.$$
+    Then for each $y\in [0,1]$, there exists
+    a unique sequence of zeros and ones as each
+    $y$ has a unique binary representation. Since
+    there are uncountably many $y$, the sequences
+    associated with them are also uncountable.
+    The metric on $l^\infty$ given by
+    $$d(x,y)=\sup_{i\in \mathbb{N}}{|x_i-y_i|}$$
+    implies that any two distict binary sequences
+    $\{x_i\}_{i=0}^\infty$ must be 1 distance
+    apart. Then we can take $r=1/2$ to get the
+    disjoint neighborhoods in $l^\infty$
+    associated with each sequence
+    $\{x_i\}_{i=0}^\infty$.
+
+    \vspace*{3mm}
+    Now, if $M$ is any dense set in $l^\infty$,
+    then every open set in $l^\infty$ must contain
+    a point of $M$. So, for each disjoint
+    open neighborhood constructed above, $M$
+    contains a point in the neighborhood. Hence,
+    any dense set $M$ is uncountable in $l^\infty$
+    and $l^\infty$ is not separable.
+\end{solution}

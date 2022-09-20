@@ -1,10 +1,20 @@
 \question{
-\textbf{Jensen's inequality for sums :}
-$$\left(\sum_{1}^{\infty}{|x_i|^{p_{2}}}\right)
-^\frac{1}{p_{2}}\leq
-\left(\sum_{1}^{\infty}{|x_i|^{p_{1}}}\right)
-^\frac{1}{p_{1}}
-\hspace*{8mm}\text{for all } 1\leq p_{1}< p_{2}
-<\infty.$$
-
+    For $p >1$, let $q$ be its conjugate,
+    i.e. $\ds \frac{1}{p} + \frac{1}{q} = 1$.
+    Prove the \textbf{Young's Inequality}:
+    $$\ds u \cdot v \leq \frac{1}{p} u^p +
+    \frac{1}{q} v^q, \ \ \forall u, v \geq 0$$
 }
+
+\begin{solution}
+    If either $u$ or $v$ equals $0$, then the inequality
+    follows immediately. Suppose $u>0$, $v>0$ and let
+    $f(x) = e^x$. Since $f$ is a $convex$ function,
+    \begin{align*}
+        u\cdot v &= \exp\left({\log{u}+\log{v}}\right)\\
+        &= f\left(\frac{1}{p}\log{u^p} +\frac{1}{q}
+        \log{v^q}\right)\\
+        &\leq \frac{1}{p}f(\log{u^p})+\frac{1}{q}f(\log{v^q})\\
+        &= \frac{u^p}{p}+\frac{v^q}{q}.\qed
+    \end{align*}
+\end{solution}

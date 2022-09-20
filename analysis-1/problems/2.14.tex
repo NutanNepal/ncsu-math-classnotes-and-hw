@@ -1,0 +1,46 @@
+\question{
+    Prove that $\Big(\text{C}[-1,1], d(f,g) =
+    \int_{-1}^1|f(t) - g(t)| \ dt\Big)$ is incomplete.
+}
+
+\begin{solution}
+    We take the sequence $\{f_n\}_1^\infty$
+    of piecewise defined functions in $\text{C}[-1,1]$
+    such that
+    $$f_n(x)=
+    \begin{dcases}
+        1,   & x>\frac{1}{n}\\
+        nx,  & -\frac{1}{n}\leq x\leq \frac{1}{n}\\
+        -1,  & x<\frac{1}{n}
+    \end{dcases}$$
+
+    We  first observe that
+    $d(f_m,f_n)=2 \times$ area of the
+    triangle with base $\left|\frac{1}{m}-
+    \frac{1}{n}\right|$ and height 1
+    =$\left|1/m-1/n\right|$. Then,
+    the sequence is Cauchy
+    since for every $\varepsilon>0$ we have
+    an integer $N>1/\varepsilon$ such that
+    for all $m$, $n>N$,
+    $d(f_m,f_n)<\varepsilon$.
+
+    \vspace*{3mm}
+    Now, for every $g\in C[0,1]$, we have
+    $$d(f_n,g)=\int_{-1}^1{|f_n(t) - g(t)|} dt
+    = \int_{-1}^{-\frac{1}{n}}{|-1-g(t)|dt}
+    + \int_{-\frac{1}{n}}^{\frac{1}{n}}
+    {|f_n(t)-g(t)|dt}
+    + \int_{{\frac{1}{n}}}^1{|1-g(t)|dt}$$
+    Since $d\geq 0$ for all $g\in C[0,1]$,
+    $d(f_n,g)\to 0$ implies that each
+    integral on the right should also approach
+    0. Then we should have
+    $$g(t)=-1\ \ \text{ for }t\in [-1,0)
+    \ \ \text{ and }\ \
+    g(t)=1\ \ \text{ for }t\in (0,1].$$
+    But then $g$ cannot be continuous so we have
+    a contradiction. So, the Cauchy sequence
+    $\{f_n\}_1^\infty$ does not converge in
+    $C[0,1]$ and the space is not complete.
+\end{solution}

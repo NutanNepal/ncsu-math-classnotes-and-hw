@@ -1,0 +1,25 @@
+\question{
+    Let $(X, \rho)$ and $(Y, \sigma)$ be metric spaces,
+    and let $f: (X, \rho) \to (Y, \sigma)$ be a map
+    such that $f^{-1}(V)$ is open in $X$, for all
+    $V$ open in $Y$. Show that $f$ is continuous on $X$. 
+}
+
+\begin{solution}
+    Let $V$ be the open set around the image $f(x)$ of a
+    point $x\in X$. Then there exists an open set $f^{-1}
+    (V)\in X$ such that $x\in f^{-1}(V)$.
+    Let $V$ be the open ball
+    $B_{x,\varepsilon}(f(x))$ around the point $f(x)$
+    for some given $\varepsilon>0$.
+    Then $f^{-1}(B_{x,\varepsilon}(f(x)))$ is also open in
+    $X$. Since $x$ is in the open set
+    $f^{-1}(B_{x,\varepsilon}(f(x)))$, we can find a
+    $\delta>0$ such that $x\in B_\delta(x)\subset
+    f^{-1}(B_{x,\varepsilon}(f(x)))$. This means that
+    for all $z\in X$ such that
+    $d(z,x)<\delta$ we have $d(f(z),f(x))<\varepsilon$.
+    Hence $f$ is continuous a4 $x$. Since we can
+    do this at every point $x\in X$, we see that $f$ is
+    continuous on $X$.
+\end{solution}

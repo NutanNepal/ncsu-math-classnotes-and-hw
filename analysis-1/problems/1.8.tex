@@ -1,0 +1,32 @@
+\question{
+    For $1 \leq p < \infty$, let $\ds l^p = \{x = \{x_i\}_1^{\infty} \ | \ \sum_1^{\infty}|x_i|^p < \infty \}$. For any $x, y \in l^p$, define 
+  $$d_p(x,y) = \Big( \sum_1^{\infty}|x_i - y_i|^p \Big)^{1/p}$$
+  Prove that $(l^p, d_p)$ is a metric space.
+}
+
+\begin{solution}
+    \begin{enumerate}
+        \item[i.]
+              Since $d_p(x,y)$ is the $pth$ root of a sum of positive
+              numbers, $d_p\geq 0$. Also from Minkowski inequality (a.),
+              we have $d_p<\infty$.
+              
+        \item[ii.]
+              $d_p(x,y)=d_p(y,x)$ since $|x_i-y_i| = |y_i-x_i|$
+              for all $i$.
+        \item[iii.] 
+              $d_p(x,x)=0$ since $|x_i-x_i|=0$ for all $i$.
+        \item[iv.]
+              The triangle inequality for $d_p$ follows from the Minkowski
+              inequality (b.)
+              \begin{align*}
+                \left(\sum_{1}^{\infty}{|x_{i} - z_{i}|^p}\right)^
+              \frac{1}{p}&\leq
+              \left(\sum_{1}^{\infty}{|x_{i}-y_i|^{p}}\right)^{\frac{1}{p}}
+              +
+              \left(\sum_{1}^{\infty}{|y_{i}-z_i|^{p}}\right)^{\frac{1}{p}}\\
+              \text{or, }\ \ d_p(x,z)&\leq d_p(x,y)+d_p(y,z)
+              \end{align*}\qed
+    \end{enumerate}
+    
+\end{solution}

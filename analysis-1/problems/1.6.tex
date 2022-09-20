@@ -1,9 +1,56 @@
 \question{
-    Define $l^p$ as the set of all sequences $x=\{x_i\}_{1}
-    ^{\infty}$ such that $\left(\sum_{1}^{\infty}
-    |x_i|^{p}\right)^{\frac{1}{p}}<\infty$ and define the
-    metric $d$ in $l^p$ by
-    $$d_{p}(x,y)=\left(\sum_{1}^{\infty}{|x_i-y_i|^{p}}\right)
-    ^{\frac{1}{p}}\hspace{10mm}x,y\in l^p.$$
-    Prove that $l^p$ is a metric space.
+    Prove Holder's Inequality for Sums.
 }
+
+\begin{solution}
+    
+    \textbf{Holder's inequality:}
+    Let $p,q \geq 1$ be conjugate exponents. Let
+    $x=\{x_{i}\}_{1}^{\infty}\in l^{p}$
+    and $y=\{y_{i}\}_{1}^{\infty}\in l^{q}$. Then
+    \begin{enumerate}
+      \item[a.]
+            $xy=\{x_{i}y_{i}\}_{1}^{\infty} \in l^{1}$ and
+      \item[b.]
+            $\sum_{1}^{\infty}{|x_{i}y_{i}|}\leq
+            (\sum_{1}^{\infty}{|x_{i}|^{p}})^{\frac{1}{p}}
+            \cdot
+            (\sum_{1}^{\infty}{|y_{i}|^{q}})^{\frac{1}{q}}.$
+  \end{enumerate}
+    Let $u_i=\frac{x_i}{\left(\sum_{1}^{\infty}
+    {|x_i|^{p}}\right)^{1/p}}$ and 
+    $v_i=\frac{y_i}{\left(\sum_{1}^{\infty}
+    {|y_i|^{q}}\right)^{1/q}}$. Then by Young's inequality,
+    \begin{align*}
+        u_{i}\cdot v_{i} &= \frac{x_i}{
+            \left(\sum_{1}^{\infty}
+            {|x_i|^{p}}\right)^{1/p}
+            }
+            \cdot \frac{y_i}{\left(\sum_{1}^{\infty}
+            {|y_i|^{q}}\right)^{1/q}}\\
+            &\leq \frac{x_i^p}{
+            p\sum_{1}^{\infty}
+            {|x_i|^{p}}
+            } +
+            \frac{y_i^q}{q\sum_{1}^{\infty}
+            {|y_i|^{q}}}
+    \end{align*}
+    Let $m = \left(\sum_{1}^{\infty}{|x_i|^{p}}\right)^{1/p}$
+    and $n = \left(\sum_{1}^{\infty}{|y_i|^{q}}\right)^{1/q}$.
+    Then from above we have
+    \begin{align*}
+        \sum_{1}^{\infty}{|x_{i}y_{i}|} = 
+    mn\sum_{1}^{\infty}{|u_{i}v_{i}|} \leq
+    mn\sum_1^\infty{\left|\frac{1}{pm^p}x_i^p +
+    \frac{1}{qn^q}\cdot y_i^q\right|}&\leq mn\left(\frac{1}{pm^p}
+    \cdot\sum_1^\infty\left|x_i^p\right|+\frac{1}{qn^q}
+    \sum_1^\infty\left|y_i^q\right|\right)\\
+    &=mn\left(\frac{1}{pm^p}\cdot m^p +\frac{1}{qn^q}\cdot n^q
+    \right) = mn
+    \end{align*}
+    Hence $\sum_{1}^{\infty}{|x_{i}y_{i}|}\leq mn = 
+    \left(\sum_{1}^{\infty}{|x_i|^{p}}\right)^{1/p}\cdot
+    \left(\sum_{1}^{\infty}{|y_i|^{q}}\right)^{1/q}$ which proves
+    (b). Since $0\leq\sum_{1}^{\infty}{|x_{i}y_{i}|}<\infty$, we also
+    have (a) by definition.\qed
+\end{solution}

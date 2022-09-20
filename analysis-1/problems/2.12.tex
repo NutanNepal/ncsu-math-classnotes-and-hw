@@ -1,0 +1,44 @@
+\question{
+    Prove that $(\mR, d(x,y) = |x-y|)$ is complete.
+}
+
+\begin{solution}
+    First, we show that every Cauchy sequence in 
+    $(\rl,d)$ is bounded.
+    Let $\{x_n\}_1^\infty$ be a Cauchy sequence
+    in $(\rl,d)$, then for every $\varepsilon>0$,
+    we can find an integer $N$ such that
+    $d(x_m,x_n)=|x_m-x_n|<\varepsilon$ 
+    for all $m$, $n>N$. Then when $m=N+1$
+    and $\varepsilon=1$, we see
+    that $|x_m|-|x_{N+1}|\leq|x_m-x_{N+1}|
+    <\varepsilon$. So $|x_m|\leq |x_{N+1}| +1$
+    for all $m>N$. Hence the sequence
+    $\{x_n\}_1^\infty$ is bounded by $M$ where
+    $M=\max\{|x_1|,\ldots,|x_N|, |x_{N+1}|+1\}$.
+    Then, since $\{x_n\}_1^\infty$ is bounded,
+    by Bolzano-Weierstrass Theorem, we know that
+    $\{x_n\}_1^\infty$ has a convergent
+    subsequence $\{x_{n_i}\}_{i=1}^\infty$.
+    Let $\{x_{n_i}\}_{i=1}^\infty\to x$ in $\rl$.
+
+    \vspace*{3mm}
+    Now, we show that our sequence
+    $\{x_n\}_1^\infty$ itself converges to the
+    point $x\in \rl$. In the Cauchy sequence
+    $\{x_n\}_1^\infty$, we have, for all
+    $\varepsilon>0$, there exists
+    $N\in \mathbb{N}$ such that
+    $|x_m-x_n|<\varepsilon/2$ for all $m$, $n>N$.
+    Similarly, in the convergent subsequence
+    $\{x_{n_i}\}_{i=1}^\infty$, there exists
+    $N'\in \mathbb{N}$ such that
+    $|x_{n_i}-x|<\varepsilon/2$ for all
+    $i>N'$. Then for all $\varepsilon>0$, there
+    exists $N,N'\in \mathbb{N}$ such that,
+    for all $n>N$ and $i>N'$ with $n_i>N$, we have
+    $$|x_n-x|\leq |x_n-x_{n_i}|+|x_{n_i}-x|
+    <\varepsilon/2+\varepsilon/2=\varepsilon.$$
+    Hence $\{x_{n}\}_{n=1}^\infty$ converges in
+    $(\rl,d)$ and $\rl$ is complete.
+\end{solution}

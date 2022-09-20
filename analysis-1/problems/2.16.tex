@@ -1,0 +1,204 @@
+\question{
+    Prove the Completion of a Metric Space Theorem. 
+}
+
+\begin{solution}
+    \begin{thm}[Completion of a Metric Space]
+
+        For a metric space $X = (X, d)$ there
+        exists a complete metric space $X^\prime
+        =(X^\prime, d^\prime)$
+        which has a subspace $W$ that is
+        isometric with $X$ and is dense in $X^\prime$.
+        This space $X^\prime$ is unique except for
+        isometries, that is, if $\tilde{X}$ is
+        any complete metric space having a dense
+        subspace $\tilde{W}$ isometric with $X$,
+        then $X^\prime$ and
+        $\tilde{X}$ are isometric.
+    \end{thm}
+    
+    \begin{proof}
+        We prove the theorem in the following steps.
+        
+        \vspace*{2mm}
+        \begin{enumerate}
+            \item[(a)] We first define a relation $\sim$ on Cauchy
+                sequences of $X$ and show that it is a
+                well-defined equivalence relation. For 
+                the Cauchy sequences
+                $x= \{x_i\}_1^\infty$,
+                $y= \{y_i\}_1^\infty$ in $X$, we
+                say that $x \sim y$ if
+                $$\lim_{n\to\infty}{d(x_n,y_n)}=0.$$
+                Clearly, this relation is symmetric and
+                reflexive. For transitivity we see that
+                if $x\sim y$ and $y\sim z$ then
+                $$0\leq\lim_{n\to\infty}{d(x_n,z_n)}\leq
+                \lim_{n\to\infty}{d(x_n,z_n) +d(y_n,z_n)}
+                =0.$$
+                Hence $\sim$ is an equivalence relation on the
+                Cauchy sequences of $X$. Now, let $\xprime$ be the
+                set of all equivalence classes of Cauchy
+                sequences on $X$ and define the function
+                $d^\prime:\xprime\to \rl$ by 
+                $$d^\prime(x^\prime,y^\prime)=
+                \lim_{n\to\infty}{d(x_n,y_n)}$$
+                    where $x^\prime$ and $y^\prime$ are the equivalence
+                    classes of $x$ and $y$ respectively. We show that this
+                    limit exists and the function $d^\prime$ is well
+                    defined. We have,
+                    \begin{align*}
+                        d(x_n,y_n)&\leq d(x_n,x_m)+d(x_m,y_m)
+                        +d(y_n,y_m)\\
+                        \text{or, }\ |d(x_n,y_n)-d(x_m,y_m)|
+                        &\leq d(x_n,x_m)+d(y_n,y_m).
+                    \end{align*}
+                    Taking limit as $m$, $n$ go to $\infty$
+                    on both sides we obtain,
+                    $$\lim_{n\to\infty}{|d(x_n,y_n)-d(x_m,y_m)|}
+                    \leq \lim_{n\to\infty}{\left[d(x_n,x_m)+
+                    d(y_n,y_m)\right]}=0$$
+                    Hence the limit $d^\prime(x^\prime,y^\prime)=
+                    \lim_{n\to\infty}{d(x_n,y_n)}$ exists.
+            
+                    \vspace*{3mm}
+                    Now, if $x\sim x^\prime$ and $y\sim y^\prime$, then
+                    $$d(x_n,y_n)\leq d(x_n,x^\prime_n)+
+                    d(x_n^\prime,y_n^\prime)
+                    +d(y_n,y_n^\prime)$$
+                    And as before,
+                    $$0\leq \lim_{n\to\infty}{|d(x_n,y_n)-
+                    d(x_n^\prime,y_n^\prime)|}
+                    \leq \lim_{n\to\infty}{\left[d(x_n,x^\prime_n)+
+                    (y_n,y_n^\prime)\right]}=0$$
+                    which implies that $\lim_{n\to\infty}{d(x_n,y_n)}
+                    =\lim_{n\to\infty}{d(x_n^\prime,y_n^\prime)}$.
+                    Hence $d^\prime$ is a well-defined function on
+                    $\xprime$.
+            
+                    \vspace*{3mm}
+                    We now show that $d^\prime$ is a metric on
+                    $\xprime$. Clearly $0\leq d^\prime<\infty$ since
+                    the limit exists and $d^\prime(x^\prime,
+                    x^\prime)=0$. Furthermore,
+                    $$d^\prime(x^\prime,
+                    y^\prime)=0\implies x\sim y\implies x^\prime
+                    \sim y^\prime.$$
+                    And,
+                    $$d^\prime(x^\prime,z^\prime)=
+                    \lim_{n\to\infty}{d(x_n,z_n)}\leq
+                    \lim_{n\to\infty}{d(x_n,y_n)}+
+                    \lim_{n\to\infty}{d(y_n,z_n)}
+                    =d^\prime(x^\prime,y^\prime)+
+                    d^\prime(y^\prime,z^\prime).$$
+                    So, $d^\prime$ satisfies the definition of a metric.
+            
+                    \vspace*{3mm}
+                    \item[(b)] Now, we construct an isometry
+                    $T:X\to W$ where $W$ is a dense subset of
+                    $\xprime$. Let $T$ be a function that takes
+                    each element to the
+                    equivalence
+                    class $x^\prime$ in $\xprime$ of the
+                    Cauchy sequence $\{x\}_1^\infty=
+                    (x,x,x,\ldots)$ associated with that element.
+                    Then $T$ is an isometry since for each
+                    $x$, $y\in X$,
+                    $$d^\prime(T(x),T(y))=\lim_{n\to\infty}
+                    {d(x_n,y_n)}=d(x,y).$$
+                    We note that isometry is injective map and
+                    if $W=T(X)$, then $T:X\to W$ is surjective. So,
+                    $W$ and $X$ are isometric.
+            
+                    \vspace*{3mm}
+                    We need to show that $W$ is dense in $\xprime$.
+                    Let $x^\prime\in \xprime$ be the equivalence
+                    class of the Cauchy sequence $\{y_i\}_1^\infty$.
+                    Then for every $\varepsilon>0$, there exists $N
+                    \in \mathbb{N}$ such that
+                    $d(y_n,y_m)<\varepsilon$ for all $m$, $n>N$.
+                    Let $z=y_{N+1}$. Then, if $z^\prime$ is the image
+                    of $z$ under $T$,
+                    $$d^\prime(y^\prime,z^\prime)=
+                    \lim_{n\to\infty}{d(y_n-z)}<\varepsilon.$$
+                    Thus we see that every open neighborhood
+                    around the point $x^\prime$ in $\xprime$
+                    contains a point $z^\prime$ of $W$ and so,
+                    $W$ is dense in $\xprime$.
+        
+                    \vspace*{3mm}
+                    \item[(c)] We now show that $\xprime$ is a complete
+                    metric space. Let $\{x_i^\prime\}_1^\infty$
+                    be a Cauchy sequence in $\xprime$. Since
+                    $W$ is dense in $\xprime$, every open
+                    neighborhood in $\xprime$ contains a point of $W$.
+                    So, for each $i$,
+                    there exists $z_i^\prime\in W$ such that
+                    $$d^\prime(x_i^\prime,z_i^\prime)<1/n$$
+                    Then
+                    $$d^\prime(z_j^\prime,z_i^\prime)\leq
+                    d^\prime(z_j^\prime,x_j^\prime)+
+                    d^\prime(x_j^\prime,x_i^\prime)+
+                    d^\prime(x_i^\prime,z_i^\prime)<
+                    1/j+1/i+
+                    d^\prime(x_j^\prime,x_i^\prime)$$
+                    So, since $\{x_i^\prime\}_1^\infty$
+                    is Cauchy, as $i$, $j\to \infty$,
+                    $d^\prime(z_j^\prime,z_i^\prime)\to
+                    0$. So the sequence
+                    $\{z_i^\prime\}_1^\infty$ is Cauchy in $\xprime$.
+                    Since $T$ is an isometry,
+                    we see that the sequence
+                    $T^{-1}(\{z_i^\prime\}_1^\infty)=(
+                        T^{-1}(z_1^\prime),T^{-1}(z_2^\prime),
+                        T^{-1}(z_3^\prime),
+                        \ldots
+                    )=(z_1,z_2,z_3,\ldots)$ is Cauchy in $X$.
+                    Let $x^\prime$ be the equivalence class of
+                    the Cauchy sequence $(z_1,z_2,z_3,\ldots)$.
+                    We now show that $x^\prime$ is the limit
+                    of our Cauchy sequence
+                    $\{x_i^\prime\}_1^\infty$ in $\xprime$.
+                    We have
+                    $$d^\prime(x_i^\prime,x^\prime)
+                    \leq d^\prime(x_i^\prime,z_i^\prime)+
+                    d^\prime(x^\prime,z_i^\prime)
+                    <1/n+d^\prime(x^\prime,z_i^\prime)$$
+                    for $z_i^\prime\in W$. Then, since
+                    $x^\prime$ is the equivalence class of
+                    the Cauchy sequence $(z_1,z_2,z_3,\ldots)$
+                    and $z_i^\prime$ is the equivalence
+                    class of $(z_i,z_i,z_i,\ldots)$,
+                    $d^\prime(x^\prime,z_i^\prime)=
+                    \lim_{n\to\infty}{d(z_n,z_i)}$. Then
+        
+                    $$d^\prime(x_i^\prime,x^\prime)<
+                    1/n+\lim_{n\to\infty}{d(z_n,z_i)}.$$
+                    The right hand side goes to zero as $n,i\to
+                    \infty$. So the Cauchy sequence
+                    $\{x_i^\prime\}_1^\infty$ is convergent in
+                    $\xprime$ and $\xprime$ is complete.
+        
+                    \vspace*{3mm}
+                    \item[(d)] Now, we show that the space $\xprime$ is
+                    unique upto isometry. If $(\tilde{X},\tilde{d})$
+                    is another space that contains a dense
+                    subset $\tilde{W}$ isometric to $X$, then
+                    for any $\tilde{x}$, $\tilde{y}\in
+                    \tilde{X}$, we have sequences $\{\tilde{x}_n\}
+                    _1^\infty$
+                    and $\{\tilde{y}_n\}
+                    _1^\infty$ in $\tilde{W}$ such that
+                    $\tilde{x}_n\to \tilde{x}$ and 
+                    $\tilde{y}_n\to \tilde{y}$ with
+                    $$\tilde{d}(\tilde{x},\tilde{y})=
+                    \lim_{n\to\infty}
+                    {\tilde{d}(\tilde{x}_n,\tilde{y}_n)}.$$
+                    Since $W$ and $\tilde{W}$ are isometric
+        and the closure of $W$ in $\xprime$ is
+        $\xprime$ itself, $\xprime$ and $\tilde{X}$
+        must be isometric.
+        \end{enumerate}
+    \end{proof}
+\end{solution}

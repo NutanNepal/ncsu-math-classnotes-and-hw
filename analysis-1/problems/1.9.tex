@@ -1,0 +1,43 @@
+\question{
+    Prove Jensen's Inequality for Sums.
+}
+
+\begin{solution}
+    $$\left(\sum_{i=1}^{\infty}{|x_i|^{p_2}}\right)^{1/{p_2}}
+    \leq\left(\sum_{i=1}^{\infty}{|x_i|^{p_1}}\right)^
+    {1/{p_1}}\hspace*{10mm}\forall 1\leq p_1<p_2<\infty$$
+  
+    
+    Let $|y_i|=|x_i|^{p_1}$. Then we need to show that
+    $\left(\sum_{i=1}^{\infty}{|y_i|^{p_2/p_1}}\right)
+    ^{{p_1/p_2}}
+    \leq\sum_{i=1}^{\infty}{|y_i|}$. First we show that
+    this is true for a finite sequence $\{x_i\}_1^{n}$
+    using induction on $n$. Then we take the limit as
+    $n\to \infty$ to prove Jensen's inequality.
+
+    \setlength{\parskip}{3mm}
+    When $n=1$, $(|y_1|^{p_2/p_1})^{p_1/p_2}=y_1$.
+    (True)
+
+    \setlength{\parskip}{3mm}
+    Let $H(k):\left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}\right)^{p_1/{p_2}}
+    \leq\sum_{i=1}^{k}{|y_i|}$ be true for some integer
+    $k>1$. Then
+    \begin{align*}
+      \left(\sum_{i=1}^{k+1}{|y_i|^{p_2/p_1}}\right)^{p_1/{p_2}}
+      &=\left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}
+      +|y_{k+1}|^{p_2/p_1}\right)^{p_1/{p_2}}&\\
+      &\leq \left(\sum_{i=1}^{k}{|y_i|^{p_2/p_1}}\right)
+      ^{p_1/p_2}
+      +\left(|y_{k+1}|^{p_2/p_1}\right)^{p_1/{p_2}}
+      &\text{[by Minkowski inequality]}\\
+      &\leq \sum_{i=1}^{k}{|y_i|}+|y_{k+1}|
+      &\text{[by induction hypothesis]}\\
+      &=\sum_{i=1}^{k+1}{|y_i|}
+    \end{align*}
+    Hence $H(k)\implies H(k+1)$ which proves that $H(n)$ is
+    true for all $n\in \mathbb{Z}$. Taking the limit
+    as $n\to\infty$ we get the required Jensen's inequality.
+  \qed
+\end{solution}

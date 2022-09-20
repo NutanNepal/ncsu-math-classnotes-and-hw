@@ -1,0 +1,26 @@
+\question{
+    Show that $l^1 \subset l^2$ without using Jensen's
+    inequality. Then show that inclusion is strict,
+    i.e., find an element in $l^2$ that is not in $l^1$.
+}
+
+\begin{solution}
+    Let $x\in l^1$ then $0\leq\sum_1^\infty{|x_1|}<\infty$
+    which implies that the sequence $x$ converges to $0$. Let $N\in\mathbb{Z}$
+    such that $x_i<1$ for all $i>N$. Then for $i>N$, we have
+    $|x_i|^2<|x_i|$. Hence,
+    $$0\leq \sum_{i=1}^{\infty}{|x_i|^2}
+    \leq \sum_{i=1}^{N}{|x_i|^2}+
+    \sum_{i=N+1}^{\infty}{|x_i|^2}<\sum_{i=1}^{N}{|x_i|^2}+
+    \sum_{i=N+1}^{\infty}{|x_i|}<\infty.$$
+    So, $l^1\subset l^2$.
+
+    \setlength{\parskip}{3mm}
+    The harmonic series given by the sequence
+    $x=\{x_i=\frac{1}{i}\}_1^{\infty}$ does not converge.
+    However $$\sum_{i=1}^{\infty}{\frac{1}{i^2}}
+    =\frac{\pi^2}{6}<\infty.$$
+    Here we see that $x\notin l^1$ but $x\in l^2$. Hence,
+    the inclusion is strict.
+    \qed
+\end{solution}

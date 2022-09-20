@@ -1,21 +1,26 @@
 \question{
-    Prove the following inequality:
-    $$(a+b)^p \leq 2^{p-1}(a^p+b^p) \hspace{10mm}
-    \forall a,b \geq 0,\hspace{2mm} p\geq 1$$
+    Choose either $d_1$ or $d_2$ below and show that it is a metric on $\mathbb{R}^n$. 
+ $$d_1(x,y) = max\{|x_i-y_i|\} \ \ \text{and} \ \ d_2(x,y) = \sum_{i=1}^n |x_i - y_i| \ \ \text{(taxicab metric)}.$$
 }
-\begin{proof}
-    Let $f(x)=x^p$, $f:[0, \infty)\to \rl$ and
-    $p\geq 1$. Since $f$ is a $convex$ function, we have
-    $$f(\alpha x +(1-\alpha)y)\leq\alpha f(x)+(1-\alpha)
-    f(y)\hspace{8mm}\text{for } \alpha\in [0,1].$$
-    For $\alpha=1/2$, we have
-    \begin{align*}
-        f\left(\frac{a}{2}+\frac{b}{2}\right)
-        &\leq \frac{f(a)}{2}+\frac{f(b)}{2}\\
-        \text{or, }\hspace{3mm}
-        \frac{1}{2^p}f\left(a+b\right)
-        &\leq \frac{1}{2}\left(f(a)+f(b)\right)\\
-        \text{or, }\hspace{9.5mm} a^p +b^p
-        &\leq 2^{p-1}\left(a^p+b^p\right).
-    \end{align*}
-\end{proof}
+\begin{solution}
+    \begin{enumerate}
+        \item[i.]
+          Since $d_2$ is a finite sum of positive numbers,
+          $0\leq d_2(x,y)<\infty$.
+        \item[ii.]
+          $d_2(x,y)=d_2(y,x)$ since $|x_i-y_i|=|y_i-x_i|$
+          for all $i$.
+        \item[iii.]
+          $d_2(x,x)=0$ since it is the sum of zeros.
+        \item[iv.]
+          Since we have $|x_i-z_i|=|(x_i-y_i)+(y_i-z_i)|
+          \leq |x_i-y_i|+|y_i-z_i|$ (using triangle inequality
+          for each $x_i, y_i, z_i \in \mathbf{R}$), we get
+          $$d_2(x,z)=\sum_{i=1}^n |x_i - z_i|\leq
+          \sum_{i=1}^n{\left(|x_i - y_i|+|y_i-z_i|\right)}
+          =d_2(x,y)+d_2(y,z).$$
+          Hence, $d_2$ also satisfies the triangle inequality
+          for $x,y,z\in \mathbb{R}^n$.   
+      \end{enumerate}
+      Thus, $d_2$ is a metric in $\mathbb{R}^n$.\qed
+\end{solution}
