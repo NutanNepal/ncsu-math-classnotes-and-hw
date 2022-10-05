@@ -1,0 +1,74 @@
+\question{
+    Check that Definition 3.6 gives an
+    equivalence relation (a binary relation
+    that is reflexive, symmetric,
+    and transitive) on the set of smooth
+    atlases on a given topological manifold
+    $X$.
+}
+
+\begin{solution}
+    Let $\mathcal{A}=\{(U_\alpha,\varphi_\alpha):
+    \alpha\in A\}$ and 
+    $\mathcal{B}=\{(V_\beta,\psi_\beta):
+    \beta\in B\}$ be smooth atlases on the
+    topological manifold $X$ for some indexed
+    set $A$ and $B$. We say that $\mathcal{A}
+    \sim\mathcal{B}$ if their union is a smooth
+    atlas on $X$. The reflexive ($\mathcal{A}
+    \sim\mathcal{A}$) and symmetric
+    ($\mathcal{A}
+    \sim\mathcal{B}\implies\mathcal{B}
+    \sim\mathcal{A}$) properties are obvious.
+    We now prove for the transitivity of the
+    relation $\sim$.
+
+    \vspace*{3mm}
+    If $\mathcal{A}\sim\mathcal{B}$ and $\mathcal{B}
+    \sim\mathcal{C}$, with
+    $\mathcal{C}=\{(W_\gamma,\zeta_\gamma):
+    \gamma\in C\}$ for some indexed set $C$, then
+    for all $\alpha\in A$ and $\beta
+        \in B$ such that $U_\alpha\cap V_\beta$
+        is non-empty, the map
+        \begin{equation}
+            \psi_\beta\circ\varphi_\alpha^{-1}:
+            \varphi_\alpha(U_\alpha\cap V_\beta)
+            \to \psi_\beta(
+                U_\alpha\cap V_\beta
+            )
+        \end{equation} is smooth, and
+        for all $\gamma\in C$ and $\beta
+        \in B$ such that $W_\gamma\cap V_\beta$
+        is non-empty, the map
+        \begin{equation}
+            \zeta_\gamma\circ\psi_\beta^{-1}:
+            \psi_\beta(W_\gamma\cap V_\beta)
+            \to \zeta_\gamma(
+                W_\gamma\cap V_\beta
+            )
+        \end{equation} is smooth.
+        Then, we take all $\alpha\in A$ and
+        $\gamma\in C$ such that $U_\alpha\cap
+        W_\gamma$ is non-empty.
+        For each $x\in U_\alpha\cap
+        W_\gamma$, we take a chart $(V,\psi)\in
+        \mathcal{B}$ that contains $x\in X$.
+        Then from (3) and (4), we get the composition
+        of smooth maps
+        $$\zeta_\gamma\circ\psi^{-1}
+        \circ \psi\circ\varphi_\alpha^{-1}
+        =\zeta_\gamma\circ\varphi_\alpha^{-1}$$
+        from $\varphi_\alpha(U_\alpha\cap
+        W_\gamma)\to \zeta_\gamma(U_\alpha\cap
+        W_\gamma)$ which is smooth. Analogously,
+        we can show that the inverse map
+        $$\varphi_\alpha\circ\zeta_\gamma^{-1}:
+        \zeta_\gamma(U_\alpha\cap
+        W_\gamma)
+        \to \varphi_\alpha(
+            U_\alpha\cap W_\gamma
+        )$$ is also smooth. Hence, this proves
+        transitivity and that $\sim$ is an
+        equivalence relation.
+\end{solution}

@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{%
+  \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{170mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-3mm}
+
+\title{Algebra I\\
+\large Homework 2 - All Questions
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{190mm}{.5pt}}
+\vspace{0mm}
+\begin{enumerate}
+
+\item[(3.3 - 3)] Prove that if $H$ is a normal subgroup
+    of $G$ of prime index $p$ then for all $K\leq G$
+    either
+    \begin{enumerate}
+        \item $K\leq H$ or
+        \item $G=HK$ and $|K:K\cap H|=p$.
+    \end{enumerate}
+\begin{mybox}
+       
+    Since, $H$ is normal in $G$, i.e. $N_G(H)=G$,
+    we can apply second isomorphism theorem.
+    So we have, $H$ normal in $KH$, $K\cap H$
+    normal in $K$ and
+    $$KH/H\simeq K/(K\cap H).$$
+    $H$ is normal, so we have $KH=HK$.
+    We also have that for subgroup $B$,
+    $C$ of $A$,
+    $|A:C|=|A:B|\cdot|B:C|$. So, in our case,
+    $$|G:H|=|G:HK|\cdot|HK:H|$$
+    Since $|G:H|$ is prime $p$, $|G:HK|$ is either
+    $1$ or $p$.
+    If $|G:HK|=p$, then $|HK:H|=1\implies
+    H=HK\implies K\leq H$.
+
+    \vspace*{3mm}
+    If $|G:HK|=1$, then $G=HK$ and
+    $$|K:K\cap H|=|KH:H|=|G:H|=p.$$
+\end{mybox}
+
+\item[(3.4 - 5)] Prove that subgroups and quotient
+    groups of a solvable group are solvable.
+
+\begin{mybox}
+
+    Let the chain of normal subgroups of $G$
+    be
+    $$1=G_0\trianglelefteq G_1
+    \trianglelefteq \cdots 
+    \trianglelefteq G_{n-1}
+    \trianglelefteq G_n=G$$
+    with each $G_i/G_{i-1}$ solvable. Then for any
+    subgroup $H$ of $G$, we take the chain
+    $$1=H_0\leq G_1 \cap H
+    \leq \cdots 
+    \leq G_{n-1} \cap H
+    \leq G_n\cap H=H.$$
+    Relabelling each $G_i\cap H_i$ as $H_i$, we write,
+    $$1=H_0\leq H_1
+    \leq \cdots 
+    \leq H_{n-1}
+    \leq H_n=H.$$
+    We first show that $H_i$ is normal
+    in $H_{i+1}$. Let $x\in H_{i+1}=G_{i+1}\cap
+    H$, then for any $y\in H_i=G_i\cap H$, we have
+    $xyx^{-1}\in G_i$ since $G_i$ is normal in
+    $G_{i+1}$. Also $xyx^{-1}\in H$ since both $x$,
+    $y\in H$. Hence $xyx^{-1}\in H_i\implies
+    H_i\trianglelefteq H_{i+1}$.
+    Now, to show that $H_{i+1}/H_i$ is abelian,
+    we note that
+    $$H_{i+1}/H_i=\frac
+    {G_{i+1}\cap H}{G_i\cap H}
+    =\frac
+    {G_{i+1}\cap H}{G_i\cap(G_{i+1}\cap H)}.$$
+    By second isomorphism theorem, we have 
+    $$H_{i+1}/H_i= \frac
+    {G_{i+1}\cap H}{G_i\cap(G_{i+1}\cap H)}
+    \simeq \frac
+    {(G_{i+1}\cap H)G_i}{G_i}
+    \leq G_{i+1}/G_i.$$
+    Hence $H_{i+1}/H_i$ is abelian since it is the
+    subgroup of an abelian group and so the
+    subgroup $H$ is solvable.
+
+    \vspace*{3mm}
+    Now for any normal subgroup $N$ of $G$, we
+    consider the chain of quotient groups
+    $$1=G_0N/N\leq G_1N/N
+    \leq \cdots 
+    \leq G_{n-1}N/N
+    \leq G_nN/N=GN/N.$$
+    We first show that $G_iN\trianglelefteq
+    G_{i+1}N$ which implies that 
+    $G_iN/N\trianglelefteq
+    G_{i+1}N/N.$ If $x=gn_1\in G_{i}N$
+    and $y=hn_2\in G_{i+1}N$ with 
+    $g\in G_i$, $h\in
+    G_{i+1}$ and $n\in N$, then
+    $$yxy^{-1}=hn_2gn_1n_2^{-1}h^{-1}=hgn_3h^{-1}
+    =hgh^{-1}n_4\in G_iN$$
+    for some $n_3$ and $n_4$ in $N$. The third and
+    fourth equalities come from the facr that $N$ is
+    normal in $G$ and the fourth equality comes from
+    $G_{i}\trianglelefteq G_{i+1}$. So,
+    $G_iN/N\trianglelefteq
+    G_{i+1}N/N$ by Lattice isomorphism theorem.
+    Now, we note that
+    $(G_iN/N)/(G_{i+1}N/N)\simeq
+    G_iN/G_{i+1}N.$
+    Let $x$, $y\in G_iN/G_{i+1}N$. Then
+    $x=g_1n_1(G_{i+1}N)$ and $y=g_2n_2(G_{i+1}N)$
+    for some $g_1,\ g_2\in G_i$ and 
+    $n_1,\ n_2\in N$. So,
+    \begin{align*}
+        xyx^{-1}y^{-1}=&g_1n_1g_2n_2n_1^{-1}
+        g_1^{-1}n_2^{-1}g_2^{-1}(G_{i+1}N)\\
+        =&g_1g_2
+        g_1^{-1}g_2^{-1}n_3(NG_{i+1})\\
+        =&g_1g_2
+        g_1^{-1}g_2^{-1}(G_{i+1}N)\\
+        =&G_{i+1}N
+    \end{align*}
+    Hence $xyx^{-1}y^{-1}=1\implies xy=yx$.
+    So $G_iN/G_{i+1}N$ is abelian and the quotient
+    group $G/N$ is solvable.
+\end{mybox}
+
+
+\item[(3.5 - 3)] Prove that $S_n$ is generated by
+    $\{(i\ \ i+1): 1\leq i\leq n-1\}$. [Consider conjugates,
+    viz. $(2\ 3)(1\ 2)(2\ 3)^{-1}$.]
+
+\begin{mybox}
+    
+    Let $G=\{(i\ \ i+1): 1\leq i\leq n-1\}.$
+    We first note that
+    $$(i+1\ \ i+2)(i\ \ i+1)(i+1\ \ i+2)^{-1}=
+    (i+1\ \ i+2)(i\ \ i+1)(i+1\ \ i+2)=
+    (i\ \ i+2).$$
+
+    Then for any transposition $(i\ \ i+k)$, we can
+    write it as
+    $$(i+k-1\ \ i+k)\cdots(i+1\ \ i+2)(i\ \ i+1)
+    (i+1\ \ i+2)\cdots(i+k-1\ \ i+k).$$
+    Hence, any transposition in $S_n$
+    can be generated by
+    the consecutive transposition and is in $G$.
+    Since every element of $S_n$ can be written as
+    the product of transposition, we see that
+    every element is generated by the transpositions
+    $(i\ \ i+1)$.
+\end{mybox}
+
+\item[(4.1 - 2)] Let G be a permutation group on the
+    set $A$ (i.e., $G\leq S_A$), let $\sigma\in G$ and
+    let $a\in A$. Prove that $\sigma G_a \sigma^{-1}
+    = G_{\sigma(a)}$·
+    Deduce that if $G$ acts transitively on $A$ then
+    $$\bigcap_{\sigma\in G}{\sigma G_a \sigma^{-1}}=1.$$
+\begin{mybox}
+     
+    We first note that
+    $$\sigma G_a \sigma^{-1}
+    = \{\sigma g\sigma^{-1}:\ g\in G,\ g(a)=a\}
+    \ \text{ and,}$$
+    $$G_{\sigma(a)}
+    = \{g\in G:\ g(\sigma(a))=\sigma(a)\}.$$
+    If $f\in \sigma G_a \sigma^{-1}$, then
+    $f=\sigma g \sigma^{-1}$ for some $g\in G$ and
+    $f(a)=\sigma g \sigma^{-1}(a)=a.$
+    So, $f(\sigma(a))=\sigma g \sigma^{-1}
+    (\sigma(a))=\sigma g(a)=\sigma(a)
+    \implies f\in G_{\sigma(a)}$.
+
+    \vspace*{3mm}
+    Now if $f\in G_{\sigma(a)}$, then
+    $f(\sigma(a))=\sigma(a)\implies \sigma g
+    \sigma^{-1} (\sigma(a))=\sigma(a)$ for some
+    $g=\sigma f
+    \sigma^{-1}$. Hence, $f\in \sigma G_a \sigma^{-1}$.
+    So, $\sigma G_a \sigma^{-1}
+    = G_{\sigma(a)}$.
+
+    \vspace*{3mm}
+    Now, if $G$ acts transitively on $A$, then
+    $$\bigcap_{\sigma\in G}{\sigma G_a \sigma^{-1}}
+    =\bigcap_{\sigma\in G}{G_{\sigma(a)}}
+    $$
+    But since $\sigma{(A)}=A$, $\bigcap_{\sigma\in G}{G_{\sigma(a)}}
+    $ contains elements of $G$ that fixes all $a\in A$
+    which is just the identity element.
+    Hence 
+    $$\bigcap_{\sigma\in G}{\sigma G_a \sigma^{-1}}
+    =\bigcap_{\sigma\in G}{G_{\sigma(a)}}=1.
+    $$
+\end{mybox}
+
+\item[(4.2 - 8)] Prove that if $H$ has finite index $n$
+    then there is a normal subgroup $K$ of $G$ with
+    $K\leq H$ and $|G:K|\leq n!$.
+\begin{mybox}
+
+    Let $P$ be the set of left cosets of $H$ in $G$.
+    Then we define a map $\varphi:
+    G\to P$ by $\varphi(g)=gxH$ for some $xH\in P$.
+    We know that this defines a homomorphism from
+    $G$ to the symmetry of $n$ elements of $P$.
+    So we have a homomorphism $\alpha:G\to
+    S_n$, whose kernel $K$
+    is normal in $G$. Furthermore,
+    $|G|=|K|\cdot|S_n|\implies |G:K|\leq n!.$
+
+\end{mybox}
+
+\item[(4.3 - 5)] If the center of $G$ is of index $n$,
+    prove that every conjugacy class has at most $n$
+    elements.
+\begin{mybox}
+
+    By Proposition 6 (Chapter 4), we note that
+    the number of conjugates of an element $s$
+    equals the index of the centralizer of $s$ in
+    $G$. So for every conjugacy class $H$ in $G$,
+    if $s\in H$, then $|H|=|G:C_G(s|$.
+    We know that $Z(G)\subset C_G(s)$ for all elements
+    $s$, so $|H|=|G:C_G(s|\leq|G:Z(G)|=n$.
+    Hence, each conjugacy class has at most $n$
+    elements.
+\end{mybox}
+
+\item[(4.4 - 2)] Prove that if $G$ is abelian and of order
+    $pq$, where $p\neq q$ are primes. Show that G is cyclic.
+\begin{mybox}
+    
+    Since $G$ is an abelian group of
+    order $pq$, it has two distinct elements $x$, $y$
+    with $x^p=y^q=1$. We note that the order of
+    $xy$ divides $pq$ and if $(xy)^n=1$ then
+    $$1=(xy)^n=x^n\cdot y^n.$$
+    Since the order of $x$ is $p$ and the order of
+    $y$ is $q$, $p$ and $q$ both must divide $n$
+    $\implies$ $pq|n$. So the order of the element
+    $xy$ is $pq$ and $\langle xy\rangle=G$. Hence,
+    $G$ is cyclic.
+
+\end{mybox}
+
+\item[(4.4 - 12)] Let $G$ be a group of order 3825.
+    Prove that if $H$ is a normal subgroup of order
+    17 in $G$ then $H\leq Z(G)$.
+\begin{mybox}
+
+    $3825=3^2\cdot 5^2\cdot 17$. If $H$ is normal in
+    $G$, then $G$ acts on $H$ by conjugation as
+    automorphisms and we
+    have the permutation representation
+    $\varphi:G\to Aut(H)$ which has $C_G(H)$ as its
+    kernel.
+    Then for some subgroup $K$ of $Aut(H)$,
+    we have $$G/C_G(H)\simeq K.$$
+    For the normal subgroup $H$ of $G$ of order 17,
+    since $H$ is cyclic, we have
+    $|Aut(H)|=\varphi(17)=16$. Then, since $K$ is
+    the subgroup of $Aut(H)$, $|K|$ must divide
+    16. So $|K|$ must be 1, 2, 4, 8 or 16.
+    But we also have
+    $|G|=|C_G(H)|\cdot|K|$, so $|K|=1\implies K=1$.
+
+    \vspace*{2mm}
+    Now, since $G/C_G(H)\simeq K=\{1\}$, we have
+    $G=C_G(H)\implies H\leq Z(G)$. 
+\end{mybox}
+
+\item[(4.5 - 13)] Prove that a group of order 56 has
+    a normal Sylow $p$-subgroup for
+    some prime dividing its order.
+\begin{mybox}
+
+    Let $G$ be a group of order $56=2^3\cdot 7$.
+    Then $G$ has at least one subgroup of order
+    8 and 7 each. Then the number of
+    Sylow $p$-groups given by $n_p$ for
+    each 2 and 7 satisfy
+    \begin{align*}
+        n_2\equiv 1\mod{2}&,\ n_2|7
+        \implies n_2=1\ or\ 7\\
+        n_{7}\equiv 1\mod{7}&,\ n_{7}|8
+        \implies n_{7}=1\ or\ 8.
+    \end{align*}
+    If $n_p=1$ then the unique subgroup is normal
+    Sylow p-subgroup with prime dividing the order.
+    But if $n_7=8$, then the remaining 8 elements
+    must form the unique Sylow 2-subgroup of order 8.
+    Since this group is unique, it must be normal.
+    Hence, the group $G$ has a normal Sylow
+    $p$-subgroup for some prime dividing its order.
+\end{mybox}
+
+\item[(4.5 - 22)] Prove that if $|G| = 132$ then G is
+    not simple.
+\begin{mybox}
+    
+    Since
+    $|G| = 132=2^2\cdot3\cdot 11$, the number of
+    Sylow
+    $p$-groups given by $n_p$ for each $p$ satisfy
+    \begin{align*}
+        n_2\equiv 1\mod{2}&,\ n_2|33
+        \implies n_2=1,3\ or\ 11\\
+        n_3\equiv 1\mod{3}&,\ n_3|44
+        \implies n_3=1,4\ or\ 22\\
+        n_{11}\equiv 1\mod{11}&,\ n_{11}|12
+        \implies n_{11}=1\ or\ 12.
+    \end{align*}
+    Assume that $G$ is not simple so $n_p\neq 1$
+    for any $p$. Then $n_{11}=12\implies$ 120 
+    unique elements
+    in $G$ have order 11. If $n_3=4$, then 8 unique
+    elements in $G$ have order 3. We have 132-120-8=4
+    elements remaining which must be inside the unique
+    Sylow 2-subgroup of order 4. This subgroup is
+    normal since it's unique and hence we have a
+    contradiction. So, $G$ is not simple.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

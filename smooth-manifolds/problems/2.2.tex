@@ -1,0 +1,36 @@
+\question{
+    Do Exercise 2.7 (show that the product topology
+    and the usual topology on $\mathbb{R}^n$ agree).
+}
+
+\begin{solution}
+    Suppose $\mathscr{P}$ be the product topology and
+    $\mathscr{T}$ be the usual topology in $\mathbb{R}^n$.
+    Let $U$ be open in the product topology, then
+    for all $x=(x_1,\ldots,x_n) \in U$ there exists 
+    open neighborhoods $U_i\in \mathbb{R}$ such that
+    $x_i\in U_i$ and $U_1\times \cdots 
+    \times U_n \subset U$. Then for all $x_i$, there
+    exists an open interval $(x_i-\delta_i,x_i+\delta_i)$
+    for some $\delta_i>0$.
+    Let $\delta=\min\{\delta_i\}$ taken over
+    all $i$ from 1 to $n$. Clearly, $\delta>0$  and 
+    $x\in B_\delta(x)\subset U_1\times \cdots 
+    \times U_n \subset U$. This shows that
+    $\mathscr{P}\subset \mathscr{T}$.
+
+    \vspace*{2mm}
+    Now let $U$ be open with respect to the usual
+    topology. Then for all $x\in U$, there exists an
+    open ball $B_\delta(x)$ containing $x$ such that
+    $B_\delta(x)\subset U$ for some $\delta>0$.
+    Let $\delta_i = \delta/\sqrt{2}$. Then each $x_i$
+    is contained in the interval
+    $U_i= (x_i-\delta_i,x_i+\delta_i)$ and we see that
+    $B_\delta(x) \supset U_1\times \cdots 
+    \times U_n$. Then $x\in U_1\times \cdots 
+    \times U_n \subset B_\delta(x) \subset U$. Hence
+    $U$ is open in the product topology and
+     $\mathscr{P}\supset \mathscr{T}$. So we see that the
+     two topologies agree.
+\end{solution}

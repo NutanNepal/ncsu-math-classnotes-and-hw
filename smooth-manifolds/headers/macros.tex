@@ -1,18 +1,21 @@
-%% \union - Example: \union{j \in J}{A_j}
 \newcommand{\union}[2]{\underset{#1}\bigcup #2}
-
-%% \inter - like \union, but with \bigcap
 \newcommand{\inter}[2]{\underset{#1}\bigcap #2}
-\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{
+    \mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
-\newcommand{\rad}{\text{rad }}
-\newcommand{\maxm}{\mathfrak{m}}
-\newcommand{\rom}{\mathbf{R}^m}
-\newcommand{\rl}{\mathbf{R}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
 
 \newtheorem{notes}{Notes}[section]
 \newtheorem{prob}[notes]{Problems}
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}[]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{defn}[notes]{Definition}

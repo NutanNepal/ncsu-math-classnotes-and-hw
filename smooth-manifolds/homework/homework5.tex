@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Introduction to Manifold Theory \\
+\large Homework 5
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 3.6: for part 1, for each of
+    the six types of quadric surfaces listed in
+    the problem, say which you expect to be
+    regular level sets and thus have a smooth
+    manifold structure. For part 2, give an
+    equation defining an example of each of these
+    types of quadric surfaces, view the defining
+    equation as the level set of a function 
+    \[f \colon \rl^3 \to \rl,\]
+    and determine algebraically whether the
+    level set is regular.
+
+\begin{mybox}
+
+\end{mybox}
+
+
+\item Do Exercise 3.5: let $\xi$ be the function
+    from $n \times n$-matrix-space $\rl^{n^2}$ to
+    itself sending a matrix $A$ to $AA^T$. Show that
+    the Jacobian of $\xi$ at a point
+    $A \in \rl^{n^2}$, viewed as a linear
+    transformation from $\rl^{n^2}$ to $\rl^{n^2}$,
+    sends a matrix $a \in \rl^{n^2}$ to
+    \[(J\xi)_A(a) = a A^T + A a^T.\]
+Exercise 3.4 may be useful.
+ 
+\begin{mybox}
+
+
+    \begin{align*}
+        \lim_{t\to 0}
+        {\frac{\|\mu(a+tA)-\mu(a)-T(tA)\|}
+        {\|(tA)\|}}
+        =&\lim_{t\to 0}
+        {\frac{\|(a+tA)(a^T+tA^T)-aa^T
+        -tT(A)\|}
+        {\|(tA,tB)\|}}\\
+        =&\lim_{t\to 0}
+        {\frac{\|aa^T+tAa^T+taA^T+t^2AA^T-aa^T
+        -tT(A)\|}
+        {\|(tA,tB)\|}}\\
+        =&\lim_{t\to 0}
+        {\frac{|t|\|Aa^T+aA^T+tAA^T-T(A)\|}
+        {|t|\|A\|}}\\
+        =&\lim_{t\to 0}
+        {\frac{\|Aa^T+aA^T+tAA^T-T(A)\|}
+        {\|A\|}}\\
+        =&\frac{\|Aa^T+aA^T-T(A)\|}
+        {\|A\|}
+    \end{align*}
+    The above limit is 0 and hence the numerator
+    \[\|Aa^T+aA^T-T(A)\|=0\implies
+    Aa^T+aA^T=T(A)\]
+    So $T(A)$ evaluated at the point $a$ is
+    given by
+    \[(J\xi)_A(a) = a A^T + A a^T.\]
+\end{mybox}
+
+\end{enumerate}
+\end{document}

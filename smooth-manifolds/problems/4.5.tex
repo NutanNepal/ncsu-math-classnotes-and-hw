@@ -1,0 +1,51 @@
+\question{
+    Do Exercise 3.4: establish the given formula for
+the Jacobian of the “matrix multiplication” map
+$$\mu:\rl^{km}\times\rl^{mn}\to\rl^{kn}.$$
+}
+
+\begin{solution}
+    Let $T$ be the Jacobian of the map
+    $\mu:\rl^{km}\times\rl^{mn}\to\rl^{kn}$ at
+    $(a,b)$. Then $T$
+    is given by
+    $$\lim_{(A,B)\to 0}
+    {\frac{\mu(a+A,b+B)-\mu(a,b)-T(A,B)}{\|(A,B)\|}}=0.$$
+    Here $\mu$ is the matrix multiplication map that
+    takes $k\times m$ matrix and $m\times n$ matrix.
+
+    Furthermore,
+    \begin{align*}
+        &\lim_{(A,B)\to 0}
+        {\frac{\mu(a+A,b+B)-\mu(a,b)-T(A,B)}
+        {\|(A,B)\|}}=0
+        \\
+        \implies &\lim_{(A,B)\to 0}
+        {\frac{\|\mu(a+A,b+B)-\mu(a,b)-T(A,B)\|}
+        {\|(A,B)\|}}=0.
+    \end{align*}
+    Since $tA\to 0$ as $t\to 0$ and $tB\to 0$ as $t\to 0$,
+    when $(A,B)\neq 0$, we can write the
+    above limit as
+
+    \begin{align*}
+        \lim_{t\to 0}
+        {\frac{\|\mu(a+tA,b+tB)-\mu(a,b)-T(tA,tB)\|}
+        {\|(tA,tB)\|}}
+        =&\lim_{t\to 0}
+        {\frac{\|ab+tAb+taB+t^2AB-ab-tT(A,B)\|}
+        {\|(tA,tB)\|}}\\
+        =&\lim_{t\to 0}
+        {\frac{|t|\|Ab+aB+tAB-T(A,B)\|}
+        {|t|\|(A,B)\|}}\\
+        =&\lim_{t\to 0}
+        {\frac{\|Ab+aB+tAB-T(A,B)\|}
+        {\|(A,B)\|}}\\
+        =&\frac{\|Ab+aB-T(A,B)\|}
+        {\|(A,B)\|}
+    \end{align*}
+    Since above limit equals 0, we see that
+    the Jacobian
+    $T(A,B)$ evaluated at $(a,b)$ equals $Ab+aB$.
+
+\end{solution}

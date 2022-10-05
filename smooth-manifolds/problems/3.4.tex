@@ -1,0 +1,19 @@
+\question{
+    Define $f:\rl^2\to\rl^3$ by
+$$f(u,v) =\left(\cos(u^2v)-e^{u-v},\ 
+    \frac{u^2-3}{u^2+v^2},\ e^{e^{uv}}\right)$$
+Compute the Jacobian matrix of $f$.
+}
+
+\begin{solution}
+    $$(Jf)_{(u,v)}=\left[
+        \begin{array}{cc}
+            -2uv\sin(u^2v)-e^{u-v}
+            &u^2\sin(u^2v)+e^{u-v}\\
+            \frac{2uv^2-6u}{(u^2+v^2)^2}
+            &\frac{2v(3-u^2)}{u^2+v^2}\\
+            ve^{e^{uv}+uv}
+            &ue^{e^{uv}+uv} 
+        \end{array}
+    \right].$$
+\end{solution}

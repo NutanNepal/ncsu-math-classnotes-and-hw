@@ -1,0 +1,111 @@
+\question{
+    Do Exercise 3.2 (Let $X$ and $Y$ be
+topological manifolds equipped with smooth
+atlases $\mathcal{A}$ and $\mathcal{B}$
+respectively.
+Show that $\{U\times V: U\in \mathcal{A},
+V\in\mathcal{B}\}$ is a smooth
+atlas on the topological manifold
+$X\times Y$).
+}
+
+\begin{solution}
+    Let $\mathcal{A}=\{(U_\alpha,\varphi_\alpha):
+    \alpha\in A\}$ and 
+    $\mathcal{B}=\{(V_\beta,\psi_\beta):
+    \beta\in B\}$ be smooth atlases on the
+    topological
+    manifolds $X$ and $Y$ respectively
+    for some indexed set
+    $A$ and $B$. Then the product of the smooth
+    atlases is defined by
+    $$\mathcal{A\times B}=\{(U_\alpha\times
+    V_\beta,\varphi_\alpha\times \psi_\beta):
+    \alpha\in A, \ \beta\in B\}.$$
+    
+    \begin{enumerate}
+        \item If $X$ is $m$-manifold and $Y$ is $n$-manifold,
+        then $\varphi_\alpha\times \psi_\beta:
+        U_\alpha\times V_\beta\to \rl^{m+n}$ is
+        given by $$(\varphi_\alpha\times \psi_\beta)
+        (x,y)=(\varphi_\alpha^1(x),\ldots,
+        \varphi_\alpha^m(x),
+        \psi_\beta^1(y),\ldots,\psi_\beta^n(y))$$
+        for all $x\in U_\alpha$ and $y\in V_\beta$.
+        Since, each component functions are smooth,
+        we see that $\varphi_\alpha\times \psi_\beta$
+        is a smooth function on the product
+        topology.
+
+        \vspace*{3mm}
+        \item Each $\varphi_\alpha$ is a
+        homeomorphism from $U_\alpha$ to an open
+        disk $D_\alpha\subset\rl^m$ and 
+        $\psi_\beta$ is a
+        homeomorphism from $V_\beta$ to an open
+        disk $D_\beta\subset\rl^n$. Clearly,
+        $D_\alpha\times D_\beta$ is an open
+        disk in $\rl^{m+n}$. We define
+        $\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1}:D_\alpha\times D_\beta\to
+        U_\alpha\times V_\beta$ by
+        $$(\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1})(z_1,\ldots,z_m,z_{m+1},\ldots,z_{m+n})
+        =(\varphi^{-1}(z_1,\ldots,z_m,z_{m+1}),
+        \psi_\beta^{-1}(z_{m+1},\ldots,z_{m+n}))$$
+        Since each component functions are
+        continuous, we see that
+        $\varphi_\alpha^{-1}\times \psi_\beta
+        ^{-1}$ is the continuous inverse of the
+        map $\varphi_\alpha\times \psi_\beta$.
+        Hence $\varphi_\alpha\times \psi_\beta$
+        is a homeomorphism from
+        $U_\alpha\times V_\beta$ to an open
+        disk in $\rl^{m+n}$.
+
+        \vspace*{3mm}
+        \item Since every point of $X$ is in
+        at least one $U_\alpha$ and every point
+        of $Y$ is in $V_\beta$, every point of
+        $X\times Y$ is in some $U_\alpha\times
+        V_\beta$ (by defnition of the product
+        topology).
+
+        \vspace*{3mm}
+        \item If $(U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime})$ is non-empty,
+        then the transition map
+        $(\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        \circ(\varphi_\alpha\times\psi_\beta)
+        ^{-1}:(\varphi_\alpha\times\psi_\beta)
+        ((U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime}))\to 
+        (\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        ((U_\alpha\times V_\beta)
+        \cap (U_{\alpha^\prime}\times V_{\beta
+        ^\prime}))$ is given by
+        $(\varphi_{\alpha^\prime}
+        \times\psi_{\beta^\prime})
+        \circ(\varphi_\alpha\times\psi_\beta)
+        ^{-1}(z_1,\ldots,z_m,z_{m+1},\ldots,
+        z_{m+n})=$ 
+        
+        $$(\varphi_{\alpha^\prime}\circ
+        \varphi_\alpha^{-1}(z_1),\ldots,
+        \varphi_{\alpha^\prime}\circ
+        \varphi_\alpha^{-1}(z_{m}),
+        \psi_{\beta^\prime}\circ
+        \psi_\beta^{-1}(z_{m+1}),\ldots
+        \psi_{\beta^\prime}\circ
+        \psi_\beta^{-1}(z_{m+n}))$$
+        Since each component functions are smooth,
+        we see that the transition map is smooth.
+        
+    \end{enumerate}
+    Hence the product of atlases is an atlas
+    in the product of topological manifolds.
+\end{solution}

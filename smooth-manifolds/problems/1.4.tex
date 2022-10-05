@@ -1,7 +1,32 @@
 \question{
-    Let $A$ be an integral domain. Then $A$ is a UFD iff every irreducible
-    element is prime and the principal ideals of $A$ satisfy the ascending
-    chain condition. (Equivalently, every non-empty family of principal
-    ideals has a maximal element.)
+    Show that a function $f : X \to Y$ between sets is
+invertible if and only if it is bijective.
 
 }
+
+\begin{solution}
+    A function $f:X\to Y$ is invertible if there exists a
+  function $g:Y\to X$ such that $f\circ g= \id_Y$ and
+  $g\circ f=\id_X$.
+  \begin{enumerate}
+    \item[i.]
+      $f$ invertible $\implies$ $f$ bijective\\
+      Note that since $\id_Y$ is surjective, $f$ must be
+      surjective. Now for injectivity, we observe that
+      if $f(x) =f(y)$ then $$x=(g\circ f)(x)
+      =g(f(x))=g(f(y))=(g\circ f)(y)=y.$$
+      Hence, $f$ is bijective.
+    \item[ii.]
+      $f$ bijective $\implies$ $f$ invertible\\
+      Since $f$ is both injective and surjective,
+      we define a function $g:Y\to X$ by
+      $g(y)=x$ for $y\in Y$
+      whenever $f(x)=y$. Note that $g$ is 
+      well-defined since there exists only one $y$ for
+      each $x$. Then, for all
+      $x\in X$,
+      $g(f(x)) = g(y)=x \implies g\circ f=\id_X$.
+      Similarly, for all $y\in Y$, $f(g(y))=f(x)=y
+      \implies f\circ g=\id_Y$. So, $f$ is invertible.
+  \end{enumerate}
+\end{solution}

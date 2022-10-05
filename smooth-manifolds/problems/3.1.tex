@@ -1,0 +1,55 @@
+\question{
+    Do Exercise 3.1 (show that if
+    $U\subset \rl^n$ and $V\subset \rl^m$
+    are open, then a function $f:U\to V$
+    is smooth if
+    and only if each of its component
+    functions $f^i : U\to R$ are smooth).
+}
+
+\begin{solution}
+    If $f(x_1,\ldots,x_n)=
+    (f^1(x_1,\ldots,x_n),\ldots,f^m(x_1,\ldots,x_n))$
+    then for $i\in \{1,2,\ldots,n\}$, the first-order
+    partial derivative at $p$ is given by the limit
+    \begin{equation}
+        \lim_{t\to 0}{\frac{f(p+te_i)-f(p)}{t}}
+        =\lim_{t\to 0}{\frac{
+            (f^1(p+te_i)-f^1(p),\ldots,f^j(p+te_i)-f^j(p)
+            ,\ldots,f^m(p+te_i)-f^m(p))
+        }{t}}
+    \end{equation}
+    Then for each $i\in \{1,2,\ldots,n\}$
+    and $j\in \{1,2,\ldots,m\}$,
+    the partial derivative exists at
+    $p\in U$ iff the
+    limit
+    \begin{equation}
+        \lim_{t\to 0}{\frac{
+            f^j(p_1,\ldots,p_i+t,\ldots,p_n)
+            -f^j(p_1,\ldots,p_n)
+        }{t}}
+    \end{equation}
+    exists at $p$. But the limit on equation (2)
+    is the partial derivative of the component
+    function
+    $f^j$ at $x_i$. Hence, the derivative of $f$ exists at
+    $p$ iff each of its component functions
+    are differentiable. The partial derivative at
+    a point $p$, again, is a function $g:U\to \rl^m$.
+    Then, as above, we see that the partial
+    derivatives of $g$ exist iff each of its
+    component functions are differentiable.
+
+    \vspace*{3mm}
+    If $f:U\to V$ is smooth then all $k^{th}$-order
+    partial derivatives exist on $U$ for all $k$.
+    Then, inductively, from above,
+    all $k^{th}$-order
+    partial derivatives of each component functions
+    also exist on $U$ for all $k$.
+    Similarly, if all $k^{th}$-order
+    partial derivatives of each component functions
+     exist on $U$ for all $k$,
+    then $f$ is also smooth.
+\end{solution}

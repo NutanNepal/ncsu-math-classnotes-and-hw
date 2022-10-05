@@ -1,8 +1,9 @@
 \documentclass[answers]{exam}
 
-\title{Commutative Algebra}
+\title{Smooth Manifolds}
 \author{Nutan Nepal}
 
+\usepackage[letterpaper, total{216mm, 279mm}]{}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -10,15 +11,29 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
-\usepackage[breakable]{tcolorbox}
+\usepackage[breakable, skins]{tcolorbox}
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage{tikz-cd}
-%\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
 %\renewcommand{\qedsymbol}{$\filledbox$}
 
 \newtcolorbox{mybox}[2][]{
     breakable,
-    colback=white,colbacktitle=white,coltitle=black,leftrule=2mm,arc=0mm,
+    colback=white,colbacktitle=white,coltitle=black,
+    leftrule=2mm,arc=0mm,
     title=\begin{center}{#2}\end{center}
 }
+\newtcolorbox{mybox2}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{185mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-10mm}
+
+\newcommand{\partition}{\vspace*{10mm}
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{-5mm}}

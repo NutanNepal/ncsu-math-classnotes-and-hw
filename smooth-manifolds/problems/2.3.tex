@@ -1,0 +1,96 @@
+\question{
+    The following exercises are about the
+“line with two origins” of Example 2.44, which we will
+call $X$.
+\begin{enumerate}
+    \item[(a)] Show that the construction in Example 2.44
+        defines a topology on $X$.
+    \item[(b)] Show that with this topology, $X$ is locally
+        homeomorphic to $R$.
+    \item[(c)] Show that $X$ is not Hausdorff.
+\end{enumerate}
+}
+
+\begin{solution}
+    The construction in Example 2.44 is reproduced
+            below:
+
+            \vspace*{2mm}
+            Let $\mathscr{B}$ be the set of subsets of $X$
+            that have one of the following two forms:
+        \begin{enumerate}
+            \item[i.] open intervals $(a, b)
+                \subset \mathbb{R}$ (with $a$ and $b$
+                finite and $a < b$);
+            \item[ii.] sets of the form $((a, b)
+                \char`\\{0})\cup {\overline{0}}$
+                whenever $a < 0 < b$.
+        \end{enumerate}
+    \begin{enumerate}
+    \item[(a)] We declare a subset $U$ of $X$ to be open
+        if, for all $x\in U$, there exists a
+        subset $B$ of $\mathscr{B}$ with $x \in B$
+        and $B \subset U$.
+
+        \vspace*{2mm}
+        Let $\mathscr{T}$ be the collection of open sets
+        as defined above. We now show that it is a topology.
+
+        \begin{enumerate}
+            \item[a.] Clearly, $\phi \in \mathscr{T}$ and
+                also $X\in \mathscr{T}$.
+            \item[b.] Let $A=\bigcup_i{U_i}$ be the union
+                of arbitrary collection of indexed open sets.
+                For all $x\in A$ then there exists a $U_i$ such
+                that $x\in U_i$. So, there exists a
+                subset $B$ of $\mathscr{B}$ with $x \in B$
+                and $B \subset U_i\subset A$. Hence, A is open.
+            \item[c.] Let $A=U_1\cap U_2$ be the finite
+                intersection of open sets of $X$. For any
+                $x\in A$ we see that $x\in U_1$ and 
+                $x\in U_2$. Then
+                there exists a
+            subset $B_1$ of $\mathscr{B}$ with $x \in B_1$
+            and $B_1 \subset U_1$ and there exists a
+            subset $B_2$ of $\mathscr{B}$ with $x \in B_2$
+            and $B_2 \subset U_2$. If $x\neq \bar{0}$
+            then the problem reduces to $\mathbb{R}$ which implies
+            that $A$ is open. If $x=\bar{0}$ then we see that
+            $B_1\cap B_2$ is the intersection of open intervals and
+            $\bar{0}$ which is again open in $X$.
+        \end{enumerate}
+
+        Thus $X$ is a topological space with the topology
+        $\mathscr{T}$.
+
+    \item[(b)] For any point $x\neq \overline{0}$ in $X$,
+            we observe that
+            there is an open ball $(x-\delta,x+\delta)$
+            around $x$ for some $\delta>0$.
+            Since any open intervals of
+            $\mathbb{R}$ are homeomorphic to $\mathbb{R}$
+            itself, we see that $X$ is locally
+            homeomorphic
+            $\mathbb{R}$ for every point
+            $x\neq \overline{0}$.
+
+            \vspace*{2mm}
+            Now, when $x=\overline{0}$ we take
+            $Y=(-\delta,0)\cup(0,\delta)\cup
+            \{\overline{0}\}$ and define a function
+            $f:Y\to \mathbb{R}$ by $f(\overline{0})
+            =0$ and $f(y)=\tan{(\pi y/2\delta)}$.
+            We see that $f$ is invertible, continuous
+            and has a continuous inverse and hence is a
+            homeomorphism. Thus, $X$ is locally
+            homeomorphic to $\mathbb{R}$.
+
+    \item[(c)] 
+    For every $\epsilon>0$, the neighborhood
+    $N_\epsilon(0)$
+    of the point 0 intersects with the neighborhood
+    around the point $\overline{0}$
+    non-trivially. So, $X$ is
+    not Hausdorff.
+    \end{enumerate}
+\end{solution}

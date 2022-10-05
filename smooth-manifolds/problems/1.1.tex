@@ -1,7 +1,22 @@
 \question{
-    Let $A$ be a ring, and $I\subset \text{ nil}(A)$
-    an ideal made up of nilpotent elements. If $a\in A$
-    maps to a unit of $A/I$ then $a$ is a unit of $A$.\\
+    Prove that the open disks $D_r(p)$ are 
+open subsets of $\rl^n$.
 }
-\hspace*{10mm} - There exists $a'\in A$ such that
-$a\cdot a' +I\equiv 1$. So, $(a.a'-1)^n=0$ for some $n$.
+
+\begin{solution}
+    To prove that the open disks $D_r(p)$
+  are open subsets of $\rl^n$, we show that
+  for every point $x\in D_r(p)$ we have another
+  open disk $D_{\epsilon}(x)$, $\epsilon>0$ such that
+  $D_{\epsilon}(x)\subset D_r(p)$.
+
+  \setlength{\parskip}{3mm}
+  For any $x\in D_r(p)$, \underline{we have} $\delta=d(x,p)<r$,
+  we take $0<\epsilon<r-\delta$. Then we see that
+  for all $y\in D_{\epsilon}(x)$
+  $$d(p,y)\leq d(p,x)+d(x,y)<\delta+\epsilon<
+  \delta+r-\delta=r.$$
+  Hence, $y\in D_r(p)$ for all $y\in D_{\epsilon}(x)$
+  which implies that $D_{\epsilon}(x)\subset D_r(p)$.
+  So, $D_r(p)$ is an open subset.
+\end{solution}

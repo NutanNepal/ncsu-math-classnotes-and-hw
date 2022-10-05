@@ -1,0 +1,27 @@
+\question{
+    Do Exercise 2.6 (show that for topological spaces
+    $X$, $Y$, $Z$, the “rearrange-the-parentheses” map
+    from $(X\times Y)\times Z$ to $X\times(Y\times Z)$
+    is a homeomorphism).
+}
+
+\begin{solution}
+    Let the function $f:(X\times Y)\times Z \to 
+X\times(Y\times Z)$ be defined as
+$$f((x,y),z)=f(x,(y,z))$$
+where $x$, $y$ and $z$ are respective points of
+the topological spaces. We see that the map is
+clearly bijective and hence invertible.
+
+\vspace*{2mm}
+Now, for each open set $U_x\times (U_y\times U_z)$,
+the preimage of $f$
+is given by $(U_x\times U_y)\times U_z$
+which is open in $(X\times Y)\times Z$. Similarly,
+for each open set $(U_x\times U_y)\times U_z$,
+the preimage of $f^{-1}$
+is given by $U_x\times (U_y\times U_z)$
+which is open in $X\times (Y\times Z)$.
+Hence $f$ and $f^{-1}$ are both continuous and the
+"rearrange the parentheses" map is homeomorphism.
+\end{solution}

@@ -1,8 +1,8 @@
-PWD /Users/nnepal2/Documents/GitHub/ncsu-math-classnotes-and-hw/smooth-manifolds
+PWD /Users/nnepal2/Documents/GitHub/ncsu-math-classnotes-and-hw/smooth-manifolds/homework
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/nnepal2/Documents/GitHub/ncsu-math-classnotes-and-hw/smooth-manifolds/homework3.tex
+INPUT /Users/nnepal2/Documents/GitHub/ncsu-math-classnotes-and-hw/smooth-manifolds/homework/homework3.tex
 OUTPUT homework3.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls

@@ -1,12 +1,49 @@
 \question{
-    Let $A_1,...,A_n$ be rings; then the prime ideals
-    of $A=A_1\times\cdots\times A_n$ are of the form
-    $$P=A_1\times\cdots\times A_{i-1}\times P_i \times
-        A_{i+1}\times\cdots\times A_n,$$where $P_i$ is a
-    prime ideal of $A_i$.\\
+    Prove the second part of Proposition 2.17
+ (a function $f : \rl^n\to \rl^m$ is continuous
+ everywhere if and only if for all open subsets
+ $V$ of $\rl^m$, the preimage $f^{-1}(V)$ of $V$
+ under $f$ is open in $\rl^n$).
 }
-\hspace*{10mm} - For $A_1\times A_2$, let $P=I_1\times I_2$ be a
-prime ideal.Then, since the product of integral domains is not
-itself an integral domain, only one from $I_1$ or $I_2$ is prime.
-$(A_1\times A_2)/(I_1\times I_2)\simeq A_1/I_1 \times A_2/I_2$.
-This can be extended to $n$ ideals in a similar fashion.
+
+\begin{solution}
+  The Proposition 2.17 is reproduced below:
+
+  Let $f:\rl^n\to\rl^m$ be a function and let $p\in\rl^n$.
+  Let $q = f (p)$.
+\begin{enumerate}
+  \item[i.] $f$ is continuous at $p$ if and only if
+    for any open neighborhood $V$ of $q$ in
+    $\rl^m$, the preimage of $V$ under $f$
+    (i.e. $f^{-1}(V )$) contains an open subset
+    $U$ of $\rl^n$ which in turn contains $p$,
+    i.e. there is some open neighborhood
+    $U$ of $p\in\rl^n$ such that $f$ sends $U$ inside $V$ .
+
+  \item[ii.] $f$ is continuous (everywhere) if and
+    only if for any open subset $V$ of
+    $\rl^m$, the preimage of V under f
+    (i.e. $f^{-1}(V )$) is an open subset of $\rl^n$.
+    
+\end{enumerate}
+
+  For $\Leftarrow$ : If for all open subsets
+  $V$ of $\rl^m$ the preimage $f^{-1}(V)$ of $V$
+  under $f$ is open in $\rl^n$, then $f$ is continuous.
+
+  \setlength{\parskip}{3mm}
+  Let $V\subset \rl^m$ be an open subset such that
+  $f(x)\in V$. Then we have an open disk
+  $D_{\epsilon}(f(x)) \subset V$.
+  As the disk $D_{\epsilon}(f(x))$ is open
+  in $\rl^m$, we have the preimage
+  $f^{-1}(D_{\epsilon}(f(x)))
+  \subset \rl^n$ which is open and
+  contains $x$. Then we can find
+  a $\delta>0$ such that
+  $D_{\delta}(x)\subset f^{-1}(D_{\epsilon}(f(x)))$.
+  That is, for every $\epsilon$-ball around $f(x)$,
+  we can find a $\delta$-ball around $x$ such that
+  $$y\in D_{\delta}(x)\implies f(y)\in D_{\epsilon}(f(x))$$
+  for some $y$. Hence $f$ is continuous.
+\end{solution}

@@ -1,6 +1,46 @@
 \question{
-    Let $A$ be a ring, $I,P_1,\ldots,P_r$ ideals of $A$, and
-    suppose that $P_3,\ldots,P_r$ are prime, and that $I$ is not
-    contained in any of the $P_i$; then there exists an element
-    $x\in I$ not contained on any $P_i$.
+    Verify the three basic properties of closed sets
+that correspond to the three axioms for open sets.
 }
+\begin{solution}
+    We define a set $V\subset X$ to be closed if its
+  complement $V^c$ is open in $X$.
+
+  \setlength{\parskip}{2mm}
+  \begin{enumerate}
+    \item[i.] The null set $\phi$ and the whole set
+      $X$ are closed.
+
+      \setlength{\parskip}{2mm}
+      $\phi^c=X$ and $X^c=\phi$ which are open in $X$.
+    \item[ii.] Arbitrary intersection $\bigcap{V_\alpha}$
+      of closed sets is closed.
+
+      \setlength{\parskip}{2mm}
+      Here we use the set-theoretic fact that
+      \begin{equation}
+        \left(\bigcup U_\beta\right)^c=
+      \bigcap U_\beta^c \label{setfact}
+      \end{equation}
+      where $\{U_\beta\}$ is the collection of
+      indexed sets. Since each sets $V_\alpha$
+      are closed, we write $V_\alpha$ as $U_\alpha^c$
+      where $U_\alpha$ is an open set of $X$.
+      Then from \ref{setfact} we have
+      \begin{equation}
+        \bigcap V_\alpha=\bigcap U_\alpha^c=
+        \left(\bigcup U_\alpha\right)^c
+      \end{equation}
+      Hence, since $\bigcup U_\alpha$ is open in $X$,
+      $\bigcap V_\alpha$ must be closed.
+
+      \item[iii.] Finite union $V_i\cup V_j$ of closed sets
+        is closed.
+
+        \setlength{\parskip}{3mm}
+         We have $V_i\cup V_j=U_i^c\cup U_j^c=(U_i\cap U_j)
+         ^c$. Since finite intersection of open sets are
+         open, we observe that $V_i\cup V_j$ is the complement
+         of an open set. Hence $V_i\cup V_j$ is closed.
+  \end{enumerate}
+\end{solution}

@@ -1,0 +1,38 @@
+\question{
+    Show that if we have
+$X^{\prime\prime}\subset X^{\prime}\subset X$,
+then the “subspace of a subspace” topology on
+$X^{\prime\prime}$ is the same as the “subspace
+of the biggest space”
+topology on $X^{\prime\prime}$.
+}
+
+\begin{solution}
+    Suppose $(X,\tau)$ is a topological space.
+The subspace topology on $X^{\prime}$ is given by
+$$\tau^{\prime}=\{U^{\prime}\subset X^{\prime}:
+U^\prime = U\cap X^\prime\text{ for some }U\in\tau\}$$
+and the subspace topology on $X^{\prime\prime}$
+induced by $\tau^\prime$ is given by
+$$\tau^{\prime\prime}=\{U^{\prime\prime}\subset
+X^{\prime\prime}:U^{\prime\prime} = U^\prime\cap
+X^{\prime\prime}\text{ for some }U^\prime\in\tau^\prime\}.$$
+We need to show that $\tau^{\prime\prime}$ is equal to the
+the subspace topology on $X^{\prime\prime}$ induced by
+$\tau$
+$$T=\{U^{\prime\prime}\subset
+X^{\prime\prime}:U^{\prime\prime} = U\cap
+X^{\prime\prime}\text{ for some }U\in\tau\}.$$
+
+Let $A\in \tau^{\prime\prime}$, then $A=U^\prime\cap
+X^{\dprime}$ for some $U^\prime\in\tau^\prime$. Since
+$U^\prime=U\cap X^\prime$ for some $U\in\tau$ we have,
+$A=U\cap X^\prime\cap X^\dprime=U\cap X^\dprime
+\in T$. Hence $\tau^\dprime\subset T$. Similarly,
+let $B\in T$, then $B=U\cap X^\dprime$ for some $U\in
+\tau$. Since we can write $X^\dprime$ as $X^\prime\cap
+X^\dprime$ we have $B=U\cap X^\prime\cap X^\dprime=
+U^\prime\cap X^\dprime\in \tau^\dprime$ for some $U^\prime
+$ in $\tau^\prime$. Hence $T\subset \tau^\dprime$ which
+gives $T=\tau^\dprime$ ending our proof.
+\end{solution}

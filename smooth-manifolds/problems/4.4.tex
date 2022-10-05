@@ -1,0 +1,34 @@
+\question{
+    Do Exercise 3.3: check that the total derivative
+$T$ of a function $f:\rl^n\to\rl^m$ at a point $p$ of
+$\rl^n$ (if it exists) is unique.
+}
+
+\begin{solution}
+    Let $T$ and $T^\prime$ both be the derivative
+    of a function $f:\rl^n\to\rl^m$ at the point $p$.
+    Then for
+    the total derivative $T$,
+    $$\lim_{q\to p}{\frac{f(q)-f(p)-T(q-p)}{\|q-p\|}}=0.$$
+    Let $h=q-p$, so we have,
+    $$\lim_{h\to 0}{\frac{f(p+h)-f(p)-T(h)}{\|h\|}}=0.$$
+    Now, for $T$ and $T^\prime$,
+    \begin{align*}
+        0\leq \lim_{h\to 0}{\frac{\|T(h)-T^\prime(h)\|}{\|h\|}}
+        =&\lim_{h\to 0}{\frac{\|f(p+h)-f(p)-T^\prime(h)-
+        (f(p+h)-f(p)-T(h))\|}{\|h\|}}\\
+        \leq
+        &\lim_{h\to 0}{\frac{\|f(p+h)-f(p)-T^\prime(h)\|+
+        \|(f(p+h)-f(p)-T(h))\|}{\|h\|}}\\
+        &=0
+    \end{align*}
+    Then, since $tx\to 0$ as $t\to 0$, we can say that,
+    for $x\neq 0$ and $h=tx$ we have, (by linearity of
+    $T$ and $T^\prime$)
+    $$0=\lim_{h\to 0}{\frac{\|T(h)-T^\prime(h)\|}{\|h\|}}
+    =\lim_{t\to 0}{\frac{\|T(tx)-T^\prime(tx)\|}{\|tx\|}}
+    =\lim_{t\to 0}{\frac{|t|\|T(x)-T^\prime(x)\|}{\|tx\|}}
+    =\frac{\|T(x)-T^\prime(x)\|}{\|x\|}.$$
+    Hence $\|T(x)-T^\prime(x)\|\implies T=T^\prime$.
+    So, the total derivative $T$ is unique.
+\end{solution}

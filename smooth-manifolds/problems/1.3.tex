@@ -1,12 +1,14 @@
 \question{
-    Let $A$ and $B$ be rings and $f:A\to B$ a surjective homomorphism.
-    \begin{enumerate}
-        \item[a.]
-              Prove that $f(\rad A)\subset \rad B$, and construct
-              an example where the inclusion is strict.\\
-              \hspace*{10mm} - If $x\in\rad A$, then $f(1+Ax)=1+Bf(x)$ should
-              be a set of units of B.
-        \item[b.]
-              Prove that if $A$ is a semilocal ring then $f(\rad A)= \rad B$.
-    \end{enumerate}
+    Show that a composition of continuous functions
+$\rl^n\xrightarrow{f}\rl^m\xrightarrow{g}\rl^k$ is continuous.
 }
+
+\begin{solution}
+    Since $g$ is continuous, we have $g^{-1}(V)$ open for
+  all open set $V\subset \rl^k$. Similarly we have $f$
+  continuous, so $f^{-1}(U)$ is open for all open sets
+  $U\subset \rl^m$. Then, $f^{-1}(g^{-1}(V))=
+  (g\circ f)^{-1}(V)$ is open for all open sets $V$ in
+  $\rl^k$. Hence the composition is continuous.
+
+\end{solution}

@@ -1,7 +1,54 @@
 \question{
-Let $\{P_\lambda\}_{\lambda\in \Lambda}$ be a non-empty family of prime ideals,
-and suppose that the $P_\lambda$ are totally ordered by inclusion; then
-$\bigcap{P_\lambda}$ is a prime ideal. Also, if $I$ is any proper ideal,
-the set of prime ideals containing $I$ has a minimal element.
+    Show that the product topology on a product
+$X \times Y$ of topological spaces is a valid
+topology.
 
 }
+\begin{solution}
+    $X$ and $Y$ are topological spaces.
+  We define a set $U\subset X\times Y$ to be open if
+  for all $(x,y)\in U$ we have open neighborhoods $U_x
+  \subset X$ and $U_y\subset Y$ such that
+  $U_x\times U_y\subset U$.
+
+  \setlength{\parskip}{3mm}
+  \begin{enumerate}
+    \item[i.] Clearly the null set $\phi$ and the whole set
+      $X\times Y$ are open since $X$ is open in $X$ and
+      $Y$ is open in $Y$.
+
+    \item[ii.] Arbitrary union $\bigcup
+    {U_\alpha}$ of open sets is open.
+    
+    \setlength{\parskip}{2mm}
+    Let $(x,y)$ be an
+    arbitrary point in $\bigcup{U_\alpha}$, then
+    $(x,y)\in U_i$ for some $i$. Then, by definition,
+    there are open neighborhoods $U_x
+    \subset X$ and $U_y\subset Y$ such that
+    $U_x\times U_y\subset U_i \subset \bigcup{U_\alpha}$.
+
+    \item[iii.] Finite intersection $U_i\cap U_j$ of
+      open sets is open.
+      
+      \setlength{\parskip}{2mm}
+      Let $(x,y)$ be an arbitrary
+      point of $U_i\cap U_j$, then $(x,y)\in U_i$ and
+      $(x,y)\in U_j$. Then, by definition,
+      there are open neighborhoods $U_{ix}, U_{jx}
+      \subset X$ and $U_{iy}, U_{jy}\subset Y$ such that
+      $U_{ix}\times U_{iy}\subset U_i$ and
+      $U_{jx}\times U_{jy}\subset U_j$. Then
+      $$U_i\cap U_j
+      \supset \left(U_{ix}\times U_{iy}\right)
+      \cap\left(U_{jx}\times U_{jy}\right)
+      =\left(U_{ix}\cap U_{jx}\right)
+      \times\left(U_{iy}\cap U_{jy}\right)
+      \ni (x,y).$$
+      Since $\left(U_{ix}\times U_{jx}\right)$
+      and $\left(U_{iy}\times U_{jy}\right)$ are open
+      in $X$ and $Y$ respectively, we see that
+      $U_i \cap U_j$ is open.
+
+  \end{enumerate}
+\end{solution}
