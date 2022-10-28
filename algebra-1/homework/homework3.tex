@@ -1,0 +1,148 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\bz}{\mathbb{Z}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{%
+  \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{170mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-3mm}
+
+\title{Algebra I\\
+\large Homework 3
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{190mm}{.5pt}}
+\vspace{0mm}
+\begin{enumerate}
+
+\item[(5.4 - 8)] Assume that $x$, $y$ both commute with
+    $[x, y]$. Show that $(xy)^n = x^ny^n[y, x]^{n\choose 2}$
+    for any positive integer $n$.
+\begin{mybox}
+    
+    We first note that $yx=xy[y,x]=x[y,x]y=[y,x]xy$.
+    Assume that the statement
+    $$P(k):\hspace*{5mm}(xy)^k = x^ky^k[y, x]^{k\choose 2}$$
+    is true for some integer $k>1$. Then,
+    
+\end{mybox}
+
+\item[(5.5 - 11)] Classify groups of order 28.
+
+\begin{mybox}
+
+\end{mybox}
+
+
+\item[(6.1 - 6)] Show that if $G/Z(G)$ is nilpotent then
+    $G$ is nilpotent.
+
+\begin{mybox}
+    
+\end{mybox}
+
+\item[(6.3 - 7)] Show that the quaternion group
+    $\mathcal{Q}_8$ can be presented by $\{a, b|\ a^2 =
+    b^2, a^{-1}ba = b^{-1}\}.$
+\begin{mybox}
+    
+\end{mybox}
+
+\item[(7.1 - 8)] Find the center of the real Hamiltonian
+    Quaternions $\mathbb{H}$. Prove that
+    $\{a + bi|a, b\in R\}$ is a subring of $\mathbb{H}$
+    which is a field but is not contained in the
+    center of $\mathbb{H}$.
+\begin{mybox}
+
+\end{mybox}
+
+\item[(7.1 - 13)] An element $a\in R$ is called
+    nilpotent if $x^m = 0$ for some $m \in\mathbb{Z}^+$.
+    \begin{enumerate}
+        \item Show that if $n = a^kb$ for some integers
+        $a$, $b$, then $ab$ is nilpotent in $\bz/n\bz$.
+
+        \item If $a\in\bz$, show that the element
+        $\overline{a}\in\bz/n\bz$ iff every prime divisor of $n$ is
+        also a divisor
+        of $a$. In particular, find all nilpotent elements
+        of $\bz/72\bz$.
+
+        \item Let $R$ be the ring of functions from a
+        nonempty set $X$ to a field $F$ . Prove that $R$
+        contains no nilpotent elements.
+    \end{enumerate}
+\begin{mybox}
+
+\end{mybox}
+
+\item[(7.2 - 7)] Show that the center of the ring $M_n(R)$
+    is $R\cdot I$, where $I = diag(1,\ldots,1)$.
+\begin{mybox}
+    
+\end{mybox}
+
+\item[(7.3 - 4)] Find all ring homomorphisms from
+    $\bz$ to $\bz/30\bz$. In each case, describe
+    the kernel and the image.
+\begin{mybox}
+
+\end{mybox}
+
+\item[(7.3 - 18)] Prove that the intersection $I\cap J$
+    of ideals $I$, $J$ of a ring $R$ is also an ideal of
+    $R$. Let $\{I_\alpha\}_{\alpha\in S}$ be a collection
+    of ideals of $R$. Show that $\bigcap_{\alpha\in S}
+    {I_\alpha}$ is an ideal of $R$.
+\begin{mybox}
+
+\end{mybox}
+
+\item[(7.3 - 29)] Let $R$ be a commutative ring. Prove that
+    the set of nilpotent elements of
+    $R$ form an ideal—called the nilradical $\mathfrak{N}(R)$.
+\begin{mybox}
+    
+\end{mybox}
+
+\end{enumerate}
+\end{document}

@@ -67,6 +67,101 @@
 
 \begin{mybox}
 
+    We expect ellipsoids, elliptic paraboloids,
+    hyperbolic paraboloids, hyperboloids of one
+    sheet and hyperboloids of two sheets to be
+    regular level sets and thus a smooth manifolds.
+
+    \begin{enumerate}
+        \item Ellipsoid:
+            $$\frac{x^2}{4}+\frac{y^2}{1}+\frac{z^2}{9}
+            =1$$
+            This is an example of an ellipsoid in
+            $\rl^3$ and we can view this as a
+            level set of the function
+            $f:\rl^3\to\rl$ defined by
+            $$f(x,y,z)=
+            \frac{x^2}{4}+\frac{y^2}{1}+\frac{z^2}{9}-1$$
+            at level 0. The Jacobian given by
+            $$\left[\begin{array}{ccc}
+                2x/4 &2y &2z/9 
+            \end{array}\right]$$
+            is 0 only when $(x,y,z)=(0,0,0)$ but
+            this point is not our set. So, the Jacobian
+            always has rank $\geq 1$ and hence, every point
+            is regular and the ellipsoid is has a
+            smooth manifold structure.
+
+        \vspace*{3mm}
+        \item Elliptic paraboloids:
+        $$z=x^2+y^2$$ is a level set of the function
+        $f:\rl^3\to\rl$ defined by
+        $$f(x,y,z)=
+        x^2+y^2-z$$
+        at level 0. The Jacobian given by
+        $$\left[\begin{array}{ccc}
+            2x &2y &1
+        \end{array}\right]$$
+        always more than 0. Hence this is a regular level
+        set.
+
+        \vspace*{3mm}
+        \item Hyperbolic paraboloids:
+        $$z=x^2-y^2$$ is a level set of the function
+        $f:\rl^3\to\rl$ defined by
+        $$f(x,y,z)=
+        x^2-y^2-z$$
+        at level 0. The Jacobian given by
+        $$\left[\begin{array}{ccc}
+            2x &-2y &-1
+        \end{array}\right]$$
+        always more than 0. Hence this is a regular level
+        set.
+
+        \vspace*{3mm}
+        \item Hyperboloids of one sheet:
+        $$1=x^2+y^2-z^2$$ is a level set of the function
+        $f:\rl^3\to\rl$ defined by
+        $$f(x,y,z)=
+        x^2+y^2-z^2-1$$
+        at level 0. The Jacobian given by
+        $$\left[\begin{array}{ccc}
+            2x &2y &-2z
+        \end{array}\right]$$
+        always more than 0 since the critical point
+        $(0,0,0)$ is not in our level set.
+        Hence this is a regular level
+        set.
+
+        \vspace*{3mm}
+        \item Hyperboloids of two sheet:
+        $$1=-x^2-y^2+z^2$$ is a level set of the function
+        $f:\rl^3\to\rl$ defined by
+        $$f(x,y,z)=
+        -x^2-y^2+z^2-1$$
+        at level 0. The Jacobian given by
+        $$\left[\begin{array}{ccc}
+            -2x &-2y &2z
+        \end{array}\right]$$
+        always more than 0 since the critical point
+        $(0,0,0)$ is not in our level set.
+        Hence this is a regular level
+        set.
+
+        \vspace*{3mm}
+        \item Double cone:
+        $$0=x^2+y^2-z^2$$ is a level set of the function
+        $f:\rl^3\to\rl$ defined by
+        $$f(x,y,z)=
+        x^2+y^2-z^2$$
+        at level 0. The Jacobian given by
+        $$\left[\begin{array}{ccc}
+            2x &2y &-2z
+        \end{array}\right]$$
+        is 0 when $(x,y,z)=(0,0,0)$. This point is in our
+        set and hence the Jacobian has rank 0 at $(0,0,0)$.
+        So, this is not a regular level set.
+    \end{enumerate}
 \end{mybox}
 
 
@@ -82,9 +177,17 @@ Exercise 3.4 may be useful.
  
 \begin{mybox}
 
+    We first note that the transpose of the
+    sum of matrices is the sum of transposes of
+    the matrices. That is
+    $$(a+A)^T=a^T+A^T.$$
+    Now, if $\mu:\rl^{n^2}\to\rl^{n^2}$ is the function
+    taking a matrix to its transpose, then
+    denoting the Jacobian at a point $a\in rl^{n^2}$
+    by $T$ we have,
 
     \begin{align*}
-        \lim_{t\to 0}
+        0=\lim_{t\to 0}
         {\frac{\|\mu(a+tA)-\mu(a)-T(tA)\|}
         {\|(tA)\|}}
         =&\lim_{t\to 0}

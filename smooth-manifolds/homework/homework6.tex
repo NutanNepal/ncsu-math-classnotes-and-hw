@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\germs}{C_x^\infty}
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Introduction to Manifold Theory \\
+\large Homework 6
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 3.7: show that if $X$ is a smooth
+    manifold and $f \colon X \to \rl$ is a smooth
+    function, then \textbf{any} coordinate representation
+    of $f$ is smooth.
+
+\begin{mybox}
+
+    Since $X$ is a smooth $n$-manifold, it is equipped with
+    a maximal atlas, say, $\mathcal{A}$ and since $f$ is
+    smooth, for all $p\in X$, there exists some chart
+    $(U,\varphi)$ with $p\in U$ in some smooth
+    atlas $\mathcal{B}$
+    representing the smooth structure on $X$,
+    such that the composite function
+    $$f\circ\varphi^{-1}:D_\varphi^\circ \to \rl $$
+    from an open neighborhood $D_\varphi^\circ\subset\rl^n$
+    of $\varphi(p)$ to $\rl$ is smooth. We need to show
+    that, if $\mathcal{C}$ is any smooth atlas on $X$, then
+    for all $(U,\alpha)\in\mathcal{C}$ and $p\in X$ with
+    $p\in U$, the map $f\circ \alpha^{-1}:\rl^n\to\rl$ is
+    smooth.
+
+    \vspace*{3mm}
+    We have $\mathcal{A}\supset \mathcal{B}$ and
+    $\mathcal{A}\supset\mathcal{C}$ since $\mathcal{A}$ is
+    the maximal atlas of the equivalence class of the
+    atlases that $X$ is equipped with.
+    Then, for every point $p\in X$,
+    there exists $(U,\varphi)\in\mathcal{B}$ and
+    $(V,\alpha)\in \mathcal{C}$ with $p\in U, V$
+    such that the transition maps $\alpha\circ\varphi^{-1}$
+    and $\varphi\circ\alpha^{-1}$ are smooth. Then, the
+    function
+    $f\circ\alpha^{-1}=(f\circ\varphi^{-1})\circ
+    (\varphi\circ\alpha^{-1})$ is the composite of smooth
+    functions and hence, is smooth itself. So, any
+    coordinate representation of $f$ is smooth.
+\end{mybox}
+
+\item Do Exercise 3.8: define the standard vector space
+    structure on the stalk of smooth functions
+    $C^{\infty}_x$ at a point $x$ of a smooth manifold
+    $X$, define the usual product of elements of
+    $C^{\infty}_x$ (i.e. of germs of smooth functions
+    at $x$), and prove that this product is compatible
+    with the vector space structure.
+ 
+\begin{mybox}
+
+    We consider the functions $f_{[p]}, g_{[p]}:
+    \germs\to\germs$ by $f_{[p]}([q])=[p\cdot q]$ and
+    $g_{[p]}([q])=[q\cdot p]$ and show that they are
+    linear maps between the $\rl$-vector spaces.
+    Since the product of functions are commutative, we
+    see that $f_{[p]}=g_{[p]}$ and it is enough to show
+    that one of them, say $f_{[p]}$, is linear.
+
+    \vspace*{3mm}
+    We first note that for $q\in[q]$, $r\in[r]$,
+    $\alpha\in\rl$ and $x\in X$,
+    $$(q+r)(x)=q(x)+r(x)\hspace*{10mm}\text{and}
+    \hspace*{10mm}(\alpha q)(x)=\alpha q(x)$$
+    and hence, $q+r\in [q+r]=[q]+[r]$ and
+    $\alpha q\in [\alpha q]=\alpha[q]$.
+    Now,
+    \begin{equation*}
+        \begin{split}
+            f_{[p]}(\alpha[q]+[r])&=f_{[p]}([\alpha q+r])\\
+            &=[p(\alpha q +r)]\\
+            &=[\alpha p\cdot q+p\cdot r]\\
+            &=\alpha[p\cdot q]+[p\cdot r]=
+            \alpha f_{[p]}([q])+f_{[p]}([r])
+        \end{split}
+    \end{equation*}
+    Hence, the given functions are linear maps.
+\end{mybox}
+
+\item Do Exercise 3.9: for a point $x$ in a smooth
+    manifold $X$, show that the set $\mathfrak{m}$ of
+    ``germs vanishing at $x$'' gives a maximal ideal of
+    $C^{\infty}_x$ and that any other ideal of
+    $C^{\infty}_x$ is either equal to all of $C^{\infty}_x$
+    or contained in $\mathfrak{m}$.
+
+\begin{mybox}
+    
+    For any smooth function $f:V\to \rl$ defined on some
+    open neighborhood of $x$, if $f(x)\neq 0$ then we
+    know that, since $f$ is continuous, there exists some
+    open neighborhood $U\ni x$ such that $f(y)\neq 0$ for
+    all $y\in U$. Then, the function $1/f:U\to\rl$ defined
+    by $(1/f)(x)=1/f(x)$ exists. We note that $1/f$
+    is a smooth function and belongs to some germ $[1/f]$
+    at $x$. We call such germs $[f]$ as \textbf{unit}
+    elements of $C_x^\infty$.
+    Then if $I$ is an ideal of the ring $C_x^\infty$
+    containing $[f]$, then $[1/f][f]=[1]$ is in the ideal
+    $I$. So, $I$ must be the whole ring $C_x^\infty$.
+
+    \vspace*{3mm}
+    Now, we take the set $I$ of all germs $[g]$ such that
+    $g(x)=0$ and show that it is an ideal.
+    For any element $[f]\in C_x^\infty$
+    and $[g]\in I$, we have $[f][g]=[f\cdot g]$. Since,
+    $(f\cdot g)(x)=f(x)\cdot g(x)=f(x)\cdot 0=0$, we see
+    that $[f][g]\in I$. Hence, $I$ is an ideal of
+    $C_x^\infty$. Furthermore, since $I$ contains
+    \textbf{all} the non-unit elements of $C_x^\infty$,
+    $I$ is the unique maximal ideal of $C_x^{\infty}$.
+    Hence, $C_x^{\infty}$ is a local ring with the unique
+    maximal ideal $I$ as defined above.
+    
+\end{mybox}
+
+\end{enumerate}
+\end{document}

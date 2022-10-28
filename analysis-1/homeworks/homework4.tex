@@ -1,0 +1,479 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis I \\
+\large Homework 4
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Let $X$ and $Y$ be vector space.
+    Let $T: \cD(T) \subseteq X
+    \to Y$ be a linear operator. Prove that 
+    \begin{enumerate}
+    \item The inverse $T^{-1}: \cR(T) \to \cD(T)$ exists
+    iff $\cN(T) = \{0\}$. 
+    \item If $T^{-1}$ exists, then $T^{-1}$ is linear. 
+    \item If $\text{dim}(\cD(T)) = n < \infty$ and $T^{-1}$
+    exists, then $\text{dim}(\cR(T)) =\text{dim}(\cD(T))$. 
+    \end{enumerate}
+
+\begin{mybox}
+
+    \begin{enumerate}
+        \item If $\cN=\{0\}$ then for $x,y\in X$ we have
+            $T(x)=T(y)\iff T(x-y)=0\iff x-y=0\iff x=y$.
+            Hence, $T$ is injective. Since
+            $T:\cD(Y)\to\cR(T)$ is a surjective map
+            (by definition), $T^{-1}:\cR(T)\to\cD(T)$
+            exists.
+
+            \vspace*{1mm}
+            Now, if $T^{-1}$ exists, then $T$ must be
+            injective. So, $T(x)=T(y)\iff x=y$. But, by
+            linearity of $T$, we have $T(x-y)=0\iff x=y$.
+            Hence, the null space $\cN(T)=\{0\}$.
+
+        \vspace*{3mm}
+        \item If $T^{-1}$ exists, then every element of
+            $\cR(T)$ can be written as $T(x)$ for some $x\in
+            X$. Then, for two elements $T(x)$ and $T(y)$ in
+            the range and $\alpha\in\rl$, we have
+            $$T^{-1}(\alpha T(x)+T(y))=T^{-1}T(\alpha x+y)
+            =\alpha x+y=\alpha T^{-1}(T(x))
+            +T^{-1}(T(y)).$$
+            Hence, $T^{-1}$ is linear.
+        
+        \vspace*{3mm}
+        \item It suffices to show that if $\{e_1,\ldots
+        ,e_n\}$ is the basis of the domain, then $\{Te_1,
+        \ldots, Te_n\}$ is a linearly independent set.
+        We show that if
+        $$\lambda_1Te_1+\cdots+\lambda_nTe_n=0$$
+        then each $\lambda_i=0$. Suppose, otherwise that
+        some $\lambda_i$ are non-zero in the above equation.
+        Without loss of generality, we can assume that
+        $\lambda_1,\ldots,\lambda_m$ are non-zero
+        when $\lambda_1Te_1+\cdots+\lambda_nTe_n=0$.
+        Then we have, $\lambda_1Te_1+\cdots+\lambda_mTe_m=0$
+        and $T(\lambda_1e_1+\cdots+\lambda_me_m)=0$.
+        This means that $\lambda_1e_1+\cdots+\lambda_me_m
+        \in \cN(T)$, but $\lambda_1e_1+\cdots+\lambda_me_m
+        \neq 0$ in $X$. This contradicts our assumption that
+        $T^{-1}$ exists. Hence dimension of the range is
+        equal to the dimension of the domain.
+    \end{enumerate}
+\end{mybox}
+
+
+\item Let $X$, $Y$ and $Z$ be vector space.
+    Let $T: X \to Y$ and
+    $S: Y \to Z$ be bijective. Then $(ST)^{-1}: Z \to X $
+    exists and $(ST)^{-1} = T^{-1} S^{-1}$. 
+\begin{mybox}
+
+    Since $S$ and $T$ are bijective, they are both injective.
+    So $\cN(ST)=\{0\}$ and $ST:X\to Z$ is a surjective map,
+    hence the inverse $(ST)^{-1}:Z\to X$ exists.
+    We see that for every
+    $z\in Z$ there exists a $y\in Y$ such that $S(y)=z$
+    and for the same $y\in Y$ there exists an $x\in X$
+    such that $T(x)=y$. Then for each such $z\in Z$,
+    we define $(ST)^{-1}(z)=x$. By the procedure of
+    defining this map we see that $x=T^{-1}(S^{-1}(z))$.
+    Hence $(ST)^{-1}=T^{-1}S^{-1}$.
+\end{mybox}
+ 
+ 
+\item Let $X$ be a finite dimensional normed space and
+    $Y$ a normed space.
+    Let $T: X \to Y$ be linear. Show that $T$ is bounded. 
+\begin{mybox}
+
+    Let the dimension of $X$ be $n$ and the basis is
+    given by $\{e_1,\ldots,e_n\}$. Then for any $x=
+    \sum_{i=1}^n{\lambda_ie_i}\in X$,
+    we have $T(x)=T\left(\sum_{i=1}^n{\lambda_ie_i}\right)
+    =\sum_{i=1}^n{\lambda_iT(e_i)}.$ We see that
+    $$\left\|T(x)\right\|=\left\|\sum_{i=1}^n{\lambda_iT(e_i)}
+    \right\|\leq \left|\sum_{i=1}^n{\lambda_i}\right|\cdot
+    \max_{i=\overline{1,n}}\ T(e_i).$$
+    We also know that for any $x\in X$, $\|x\|\geq c
+    \cdot \left|\sum_{i=1}^n{\lambda_i}\right|$ for some
+    positive $c$. Thus $\|T(x)\|\leq k\cdot\|x\|$ for
+    $k=(\max_{i=\overline{1,n}}\ T(e_i))/c$ and $T$ is
+    bounded.
+\end{mybox}
+
+\item Let $X$ and $Y$ be normed spaces.
+    Let $T: \cD(T) \subseteq X \to Y$ be a bounded linear
+    operator. Show that $T$ is continuous.
+\begin{mybox}
+
+    If $T$ is bounded and linear then for all $x\in X$ we have,
+    $\|T(x)\|\leq c\|x\|$ for some $c>0$ in $\rl$. Then,
+    for an arbitrary $x\in X$,
+    for every $\varepsilon>0$ we have
+    $0<\delta<\varepsilon/c$ such that
+    $\|x-y\|<\delta$ implies
+    $\|T(x)-T(y)\|=\|T(x-y)\|\leq c\|x-y\|<\varepsilon$.
+    Hence $T$ is continuous.
+\end{mybox}
+ 
+\item Let $X$ be a normed space, and $Y$ be a Banach space.
+    Let $T: \cD(T) \subseteq X \to Y$ be a bounded linear
+    operator. Show that $T$ has an extension 
+    $$\widetilde T:  \overline{\cD(T)}  \to Y$$ which is a
+    bounded linear operator such that
+    $\|\widetilde T\| = \|T\|$.
+\begin{mybox}
+
+    For any $x\in \overline{\cD(T)}$, we take a sequence
+    $\{x_i\}_1^\infty$ in $\overline{\cD(T)}$ such that
+    $x_i\longrightarrow x$. Then we have
+    $$\|Tx_n-Tx_m\|=\|T(x_n-x_m)\|\leq\|T\|\|x_n-x_m\|.$$
+    Since $\{x_i\}_1^\infty$ is a convergent sequence
+    in $\overline{\cD(T)}$, we see that $\{Tx_i\}_1^\infty$
+    is Cauchy and hence (because $Y$ is Banach),
+    convergent in $Y$. We can call this
+    limit $y$ and define a function $\widetilde{T}:
+    \overline{\cD(T)}  \to Y$ by $Tx=y$. We now show that
+    this is a well-defined function, that is, the value of
+    $Tx$ does not depend on our choice of the sequence
+    $\{x_i\}_1^\infty$ converging to $x$. Suppose
+    $\{x_i\}_1^\infty$ and $\{z_i\}_1^\infty$ both converge
+    to $x$. Then the sequence $\{v_i\}_1^\infty$ given by
+    $$x_1,z_1,x_2,z_2,\ldots\ldots$$
+    also converges to $x$. With similar argument as above we
+    say that $\{Tv_i\}_1^\infty$ is a convergent sequence
+    that converges to $y$ since the subsequence
+    $\{Tx_i\}_1^\infty$ converges to $y$. This shows that
+    $\{Tz_i\}_1^\infty$ also converges to the same point and
+    the function is well-defined. $\widetilde{T}$ is linear
+    and $\widetilde{T}(x)=T(x)$ for all $x\in\cD(T)$, so
+    $\widetilde{T}$ is an extension of $T$.
+
+    \vspace*{2mm}
+    Now, since $T$ is bounded, we have
+    $$\|Tx_n\|\leq\|T\|\|x_n\|.$$ As $n\to\infty$, we have
+    $Tx_n\to\widetilde{T}x$ and $x_n\to x$. Since $\|\cdot\|$
+    is a continuous function, we obtain
+    $$\|\widetilde{T}x\|\leq\|T\|\|x\|.$$
+    Hence, $\widetilde{T}$ is bounded with $\|\widetilde{T}\|
+    \leq\|T\|$. But $\|\widetilde{T}\|\leq\|T\|$ because the
+    supremum cannot decrease in an extension.
+    Hence $\|\widetilde{T}\|=\|T\|$.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.102 / Problem 10.}
+    On $C[0,1]$ define $S$ and $T$ by
+    $$y(s) = s\int_0^1{x(t)\ dt},\hspace{10mm} y(s)=sx(s),$$
+    respectively. Do $S$ and $T$ commute? Find $\|S\|$,
+    $\|T\|$, $\|ST\|$ and $\|TS\|$·
+\begin{mybox}
+
+    We have, 
+    $$ST(x)=S(sx(s))=s\int_0^1{(sx(s))(t)\ dt}
+    =s\int_0^1{tx(t)\ dt}$$
+    and
+    $$TS(x)=T\left(s\int_0^1{x(t)\ dt}\right)
+    =s^2\int_0^1{x(t)\ dt}.$$
+    For the constant function $x=1$ we see that,
+    $ST(x)=s\int_0^1{t\cdot 1\ dt}=s/2$ and $TS(x)=
+    s^2(\int_0^1{1\ dt})=s^2$ and
+    so $S$ and $T$ do not commute.
+    
+    \vspace*{3mm}
+    Now,
+    $$\left\|S(x)\right\|=\left\|s\int_0^1{x(t)\ dt}
+    \right\|\leq \|s\|\int_0^1{\|x(t)\|\ dt}=
+    \|s\|\|x\|=\|x\|,$$
+    So, $\|S\|\leq 1$. But, for $x=1$ we get
+    $S(1)=\|s\cdot 1\|=1$, so $\|S\|=1$.
+
+    \vspace*{3mm}
+    Similarly,
+    $$\left\|T(x)\right\|=\left\|sx(s)
+    \right\|\leq \|s\|\|x\|=\|x\|\implies\|T\|=1,$$
+    $$\left\|ST(x)\right\|=\left\|s\int_0^1{tx(t)\ dt}
+    \right\|\leq \|s\|\left\|\int_0^1{tx(t)\ dt}\right\|
+    \leq\|s\|\int_0^1{\|tx(t)\|\ dt}
+    =\int_0^1{t\|x(t)\|\ dt}\leq \|x\|/2.$$
+    With similar argument as above, we obtain $\|ST\|=1/2$.
+    Now,
+    $$\left\|TS(x)\right\|=\left\|s^2\int_0^1{x(t)\ dt}
+    \right\|\leq \|s^2\|\cdot\|x(t)\|= \|x\|.$$
+    So, $\|TS\|\leq 1$ but for $x=1$ we get $\|TS(x)\|=1$.
+    Hence $\|TS\|=1$.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.109 / Problem 2.}
+Show that the functionals defined on $C[a,b]$ by
+    \begin{equation*}
+        f_1(x)=\int_a^b{x(t)y_0(t)\ dt}
+        \hspace*{20mm}
+        (y_0\in C[a,b])
+    \end{equation*}
+    \begin{equation*}
+        f_2(x) = \alpha x(a)+ \beta x(b)
+        \hspace*{20mm}
+        (\alpha, \beta\ \text{fixed})
+    \end{equation*}
+are linear and bounded.
+\begin{mybox}
+
+    For $x$, $y\in C[a,b]$ and $\alpha\in \rl$, we see
+    that $f_1(\alpha x+y)=\int_a^b{(\alpha x+y)(t)y_0(t)\
+    dt}=\int_a^b{(\alpha x(t)+y(t))y_0(t)\
+    dt}=\alpha\int_a^b{ x(t)y_0(t)\ dt}+
+    \int_a^b{y(t)y_0(t)\ dt}=\alpha f_1(x)+f_1(y).$
+    Furthermore,
+    $$\left\|f_1(x)\right\|=\left\|\int_a^b{x(t)y_0(t)\ dt}
+    \right\|\leq \int_a^b{\left\|x(t)y_0(t)\right\|\ dt}
+    \leq (b-a)\left\|x(t)y_0(t)\right\|=(b-a)\|y_0\|
+    \|x\|.$$
+    Hence, $f_1$ is linear and bounded.
+
+    \vspace*{2mm}
+    Similarly, for $x$, $y\in C[a,b]$ and $\gamma\in \rl$,
+    $f_2(\gamma x+y)=\alpha (\gamma x+y)(a)+\beta(\gamma x+y)
+    (b)=\alpha\gamma x(a)+\alpha y(a)+\beta\gamma x(b)+
+    \beta y(b)=\gamma(\alpha x(a)+\beta x(b))+\alpha y(a)
+    +\beta y(b)=\gamma f_2(x)+f_2(y).$ And,
+
+    $$\left\|f_2(x)\right\|=\left\| \alpha x(a)+ \beta x(b)
+    \right\|\leq \|\alpha x(a)\|+ \|\beta x(b)\|
+    \leq \alpha\|x\| +\beta\|x\|=(\alpha+\beta)\|x\|.$$
+    Hence, $f_2$ is also linear and bounded.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.109 / Problem 6.}
+    \textbf{(Space $C'[a,b]$)}
+    The space $C^1[a,b]$ or $C'[a,b]$ is the normed space
+    of all continuously differentiable functions on
+    $J = [a, b]$ with norm defined by
+    $$\|x\| = \max_{t\in J}|x(t)|+\max_{t\in J}|x'(t)|.$$
+    Show that the axioms of a norm are satisfied. Show that
+    $f(x) = x'(c)$, $c=(a+b)/2$, defines a bounded linear
+    functional on $C'[a,b]$. Show that $f$ is not bounded,
+    considered as a functional on the subspace of $C[a,b]$
+    which consists of all continuously differentiable
+    functions.
+\begin{mybox}
+
+    We first check that the axioms for the norms are
+    satisfied.
+
+    \vspace*{2mm}
+    \begin{enumerate}
+        \item $\|x\|=\max_{t\in J}|x(t)|+\max_{t\in J}|x'(t)|
+            \geq \max_{t\in J}|x(t)|\geq 0$ and since
+            $x\in C[a,b]$ is continuous on a bounded set,
+            we have $\|x\|\leq \max_{t\in J}|x(t)|
+            <\infty$.
+
+            \vspace*{2mm}
+        \item If $x=0$, then clearly $\|x\|=0$ and if
+            $\|x\|=0$, we have
+            $\max_{t\in J}|x(t)|+\max_{t\in J}|x'(t)|=0
+            \implies \max_{t\in J}|x(t)|=0
+            \implies x=0$.
+
+            \vspace*{2mm}
+        \item If $\alpha\in\rl$, then
+            $\|\alpha x\|= \max_{t\in J}|\alpha x(t)|+
+            \max_{t\in J}|(\alpha x)'(t)|=\alpha
+            \max_{t\in J}|x(t)|+\max_{t\in J}|\alpha x'(t)|$.
+            So we have $\|\alpha x\|=
+            \alpha(\max_{t\in J}|x(t)|+\max_{t\in J}|x'(t)|)
+            =\alpha\|x\|$.
+
+            \vspace*{2mm}
+        \item (Triangle Inequality)
+            $\|x+y\|=\max_{t\in J}|x(t)+y(t)|
+            +\max_{t\in J}|(x+y)'(t)|$. Since we have
+            $(x+y)'=x'+y'$ and $\max_{t\in J}|x(t)+y(t)|
+            \leq \max_{t\in J}|x(t)|+\max_{t\in J}|y(t)|$,
+            we get
+            $$\|x+y\|\leq \max_{t\in J}|x(t)|
+            +\max_{t\in J}|x'(t)|+ \max_{t\in J}|y(t)|
+            +\max_{t\in J}|y'(t)|
+            =\|x\|+\|y\|.$$
+    \end{enumerate}
+
+    We now check that $f$ is a linear bounded functional.
+    We see that $f(x+y)=(x+y)'(c)=x'(c)+y'(c)=f(x)+f(y)$
+    and hence $f$ is linear. Now,
+    $|f(x)|=|x'(c)|\leq\max_{t\in J}|x'(t)|\leq
+    \max_{t\in J}|x(t)|+\max_{t\in J}|x'(t)|
+            =\|x\|$ and so $f$ is also bounded.
+
+    \vspace*{3mm}
+    To show that $f$ is not bounded as a functional on the
+    subspace of $C[a,b]$ we define a sequence of functions
+    in $C[a,b]$ such that the derivative of the limit at
+    $c$ is unbounded. Since the space $C[a,b]$ is complete,
+    the limit should also exist in the space but will have
+    unbounded derivative at $c$,
+\end{mybox}
+
+
+\item \textbf{Kreyszig p.116 / Problem 2.}
+    Let $T: \rl^3\to\rl^3$ be defined by
+    $(\xi_1,\xi_2,\xi_3)\to(\xi_1,\xi_2,-\xi_1-\xi_2)$.
+    Find $\cR(T)$, $\cN(T)$ and a matrix which represents
+    $T$.
+\begin{mybox}
+
+    For any $(x,y,z)\in\rl^3$, we see that every element of
+    $\cR(T)$ can be represented as $(x,y,-x-y)=
+    x(1,0,-1)+y(0,1,-1)$. Hence, every element of $\cR(T)$
+    can is a linear combination of $(1,0,-1)$ and $(0,1,-1)$.
+    So, $\cR(T)=\text{Span}\left\{(1,0,-1),(0,1,-1)\right\}$.
+    
+    \vspace*{2mm}
+    We see that an element in $\cR(T)$ is $(0,0,0)$ whenever
+    $x=0$ and $y=0$. So $T$ maps every element $(0,0,z)$ to
+    $(0,0,0)\in \cR(T)$. Hence $\cN(T)=\text{Span}\{
+    (0,0,1)\}$.
+    We have
+    $$T=\left[\begin{array}{ccc}
+        1   &0  &0\\
+        0   &1  &0\\
+        -1  &-1 &0
+    \end{array}\right]$$
+    that takes an input $x\in\rl^3$ as a column vector.
+\end{mybox}
+
+ 
+\item \textbf{Kreyszig p.116 / Problem 4.}
+    Let $\{f_1,f_2,f_3\}$ be the dual basis of $\{e_1,
+    e_2, e_3\}$ for $\rl^3$, where $e_1 = (1,1,1)$,
+    $e_2 = (1,1, -1)$, $e_3 = (1, -1, -1)$.
+    Find $f_1(x)$, $f_2(x)$, $f_3(x)$, where
+    $x =(1, 0, 0)$.
+\begin{mybox}
+
+   First we write $x=(1,0,0)$ as $x=\lambda_1 e_1+
+   \lambda_2 e_2 +\lambda_3 e_3$ for some
+   $\lambda_i\in\rl^3$. To find the values of $\lambda_i$,
+   we solve the system of equations,
+
+   $$\left(\begin{array}{c}
+    1\\
+    0\\
+    0\end{array}
+    \right)=\left[\begin{array}{ccc}
+    1   &1  &1\\
+    1   &1  &-1\\
+    1  &-1 &-1
+\end{array}\right]\left(\begin{array}{c}
+    \lambda_1\\
+    \lambda_2\\
+    \lambda_3
+\end{array}\right).$$
+Solving the system of equations, we obtain
+$\lambda_1=1/2$, $\lambda_2=0$ and $\lambda_3=1/2$. Then,
+\begin{align*}
+    f_1(x) &= \lambda_1 f_1(e_1)=1/2\\
+    f_2(x) &= \lambda_2 f_2(e_2)=0\\
+    f_3(x) &= \lambda_3 f_3(e_3)=1/2.\\
+\end{align*}
+\end{mybox}
+ 
+\item Show that if $Y$ is a Banach space,
+    then $B(X, Y)$ is a Banach space.  
+\begin{mybox}
+    
+    The vector space $B(X, Y)$ of all bounded linear
+    operators from a normed space $X$ into a normed space
+    $Y$ is itself a normed space with the operator norm.
+
+    \vspace*{2mm}
+    We take a Cauchy sequence $\{T_i\}_1^\infty$ of
+    bounded linear operators from $X$ to $Y$ and show that
+    it is convergent in $B(X,Y)$ to show that this is a
+    Banach space. Since $\{T_i\}_1^\infty$ is Cauchy, for
+    every $\varepsilon>0$ we have $N\in\mathbf{N}$ such
+    that for all $m,n>N$ we have $\|T_n-T_m\|<\varepsilon$.
+    Then for all $x\in X$ and $m,n>N$ we have,
+    $\|T_nx-T_mx\|\leq \|T_n-T_m\|\|x\|<\varepsilon\|x\|$.
+    Then for any fixed $x\in X$, since $\|x\|$ is a fixed
+    number, we see that $\{T_ix\}_1^\infty$ is a Cauchy
+    sequence in $Y$. Since $Y$ is complete,
+    $\{T_ix\}_1^\infty$ converges to a point (say $y$)
+    in $Y$. This limit point depends on the choice of
+    $x$ and defines an operator $T:X\to Y$ where $T(x)=y$.
+    $T$ is linear since
+    $$\lim_{n\to\infty} T_n(\alpha x+z)=\lim_{n\to\infty}
+    (\alpha T_nx+T_nz)
+    =\alpha\lim_{n\to\infty}T_nx+\lim_{n\to\infty} T_nz.$$
+    Using the continuity of norm, we obtain
+    $$\left\|T_nx-Tx\right\|=
+    \left\|T_nx-\lim_{m\to\infty}{T_mx}\right\|
+    =\lim_{m\to\infty}{\|T_nx-T_mx\|}<\varepsilon\|x\|.$$
+    This shows that $(T_n-T)$ with $n>N$ is a bounded linear
+    operator. Since $T_n$ is bounded, we see that $T$ is also
+    bounded. Furthermore, taking supremum over all $x\in X$
+    of norm 1, we obtain, $\|T_n-T\|<\varepsilon.$
+    Hence $T_n$ converges to $T$ in $B(X,Y)$ and it is a
+    Banach space.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

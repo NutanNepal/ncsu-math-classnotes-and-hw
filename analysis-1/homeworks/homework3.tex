@@ -1,0 +1,599 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis I \\
+\large Homework 3
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item \textbf{Kreyszig p.303 / Problem 4.}
+    It is important that in Banach's theorem 5.1-2
+    the condition (1) cannot be replaced by $d(Tx,Ty)
+    < d(x,y)$ when $x \neq y$. To see this, consider
+    $X = \{x \mid 1 \leq x < \infty \}$, taken with
+    the usual metric of the real line, and $T: X \to X$
+    defined by $x \to x + x^{-1}$. Show that $|Tx-Ty| <
+    |x-y|$ when $x \neq y$ but the mapping has
+    no fixed points.
+
+\begin{mybox}
+
+    For the given map, we see that $$|Tx-Ty|=
+    |x+x^{-1}-y-y^{-1}|=\left|x-y+\frac{y-x}{xy}\right|.$$
+    Since $(x-y)$ and $(y-x)/xy$ have different signs,
+    $\left|x-y+(y-x)/xy\right|<|x-y|$ and we
+    see that $|Tx-Ty|<|x-y|$.
+    
+    \vspace*{3mm}
+    Now, taking $T(x)=x$, we have $1/x=0$. But no point
+    $x\in X$ satisfies this. Thus, $T$ has no fixed point
+    in $X$.
+\end{mybox}
+
+
+\item {\bf Kreyszig p.303 / Problem 6.}
+    If $T$ is a contraction, show that $T^n$,
+    $(n \in \mathbb{N})$ is a contraction. If $T^n$ is a
+    contraction for an $n > 1$, show that $T$
+    need not be a contraction. 
+\begin{mybox}
+
+    If $T$ is a contraction on a metric space $X$,
+    then there is a positive
+    real number $\alpha<1$ such that
+    $$d(Tx,Ty)\leq \alpha d(x,y)$$
+    for all $x$, $y\in X$. Then, for $n\in \mathbb{N}$,
+    $$d(T^nx,T^ny)=d(T\cdot T^{n-1}x, T\cdot T^{n-1}y)
+    \leq \alpha d(T^{n-1}x, T^{n-1}y)$$
+    Continuing this process, we get
+    $$d(T^nx,T^ny)<\alpha^n d(x,y).$$
+    Since, $0<\alpha^n<1$, $T^n$ is a contraction.
+    To show that $T^n$ being a contraction does
+    not imply that $T$ is a contraction, we define $T:\rl
+    \to \rl$ and by
+    $$T(x)=
+    \begin{dcases}
+        -2x,   & x<0\\
+        x/4,  & x\geq 0
+    \end{dcases}$$
+    We see that $T$ increases the distance when $x<0$, so
+    it is not a contraction. But $T(X)=[0,\infty)$, so
+    $T^2$ decreases the distance by $1/4$. Hence $T^2$
+    is a contraction.
+\end{mybox}
+ 
+ 
+\item {\bf Kreyszig p.32 / Problem 2.}
+    If $(x_n)$ is Cauchy and has a convergent
+    subsequence, say, $x_{n_k} \to x$, show that
+    $(x_n)$ is convergent with the limit $x$. 
+\begin{mybox}
+
+    If $\{x_{n_k}\}_{n_k=1}^\infty$ is the convergent
+    subsequence of the sequence $\{x_n\}_1^\infty$
+    in the metric space $X$, then as $x_{n_k}\to x$,
+    for every $\varepsilon>0$ there exists $N_1\in\mathbb{Z}$
+    such that for all $n_k>N_1$, we have 
+    $$d(x_{n_k},x)<\varepsilon/2.$$
+    Also, as $\{x_n\}_1^\infty$ is Cauchy in $X$, for
+    $\varepsilon>0$ (same as above), there exists $N$ such
+    that for all $m$, $n>N$ we have, 
+    $$d(x_n,x_m)<\varepsilon/2.$$
+    Since there are infinitely many terms in the
+    subsequence, we have $M$ such that $n_k>N$ for all $k>M$.
+    Then, for all $k>M$ and $n>N$ we have,
+    $$d(x_n,x)\leq d(x_n,x_{n_k})+d(x_{n_k},x)=\varepsilon
+    /2+\varepsilon/2=\varepsilon.$$
+    Since, this is true for any arbitrary $\varepsilon>0$,
+    we have $x_n\to x$.
+\end{mybox}
+
+\item \textbf{Kreyszig p.56 / Problem 5.}
+    Show that $\{x_1, \cdots, x_n \}$, where
+    $x_j(t) = t^j$, is a linearly independent set
+    in the space $C[a,b]$.
+\begin{mybox}
+
+    We note that if the linear combinations of
+    $x_j(t) = t^j$ is identically 0, that is
+    $$\alpha_1 t+\alpha_2 t^2+\cdots +\alpha_n
+    t^n=0$$
+    then equating the corresponding coefficients, we
+    must have each $\alpha_i=0$. Hence the set
+    $\{x_1, \cdots, x_n \}$ must be linearly independent.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.56 / Problem 10.}
+    If $Y$ and $Z$ are subspaces of a vector space
+    $X$, show that $Y \cap Z$ is a subspace of $X$.
+\begin{mybox}
+    
+    For $x$, $y\in Y\cap Z$, we see that $x+y\in Y$
+    and $x+y\in Z$ since $Y$ and $Z$ are both subspaces
+    of $X$. So, $x+y\in Y\cap Z$ and similarly, for
+    $\alpha\in \rl$, $\alpha \cdot x\in Y$ and
+    $\alpha\cdot x\in Z$. So, $\alpha\cdot x\in Y\cap Z$.
+    Since, $Y\cap Z$ is closed under addition and scalar
+    multiplication, it is a subspace of $X$. (Since
+    $Y$ and $Z$ are subset of $X$, they satisfy the
+    linearity property.)
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.66 / Problem 11.}
+    Show that the closed unit ball
+    $$B(0,1)=\{ x\in X :\|x\|=1\}$$
+    in a normed space $X$ is convex.
+\begin{mybox}
+
+    We need to show that if $x$, $y\in B(0,1)$
+    then any point $z$ given by $z=\alpha x+(1-\alpha)y$
+    for some $\alpha\in [0,1]$ is also
+    in $B(0,1)$. Since $x$, $y\in B(0,1)$,
+    we see that
+    $$\|z\|=\|\alpha x+(1-\alpha)y\|\leq
+    |\alpha|\|x\|+|1-\alpha|\|y\|\leq \alpha+1-\alpha=1.$$
+    So, $z\in B(0,1)$ and hence $B(0,1)$ is convex.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.70 / Problem 2.}
+    Show that $c_0$ in Prob. 1 (the space of all sequences
+    of scalars converging to zero) is a closed
+    subspace of $l^{\infty}$, so that $c_0$ is
+    complete by 1.5-2 and 1.4-7.
+\begin{mybox}
+
+    To show that $c_0$ is closed, we show that
+    every sequence $\{x_i^k\}$ in $c_0$ has a
+    limit point in $c_0$. Here, each $x_i$ is a
+    sequence of scalars that converge to 0. Since
+    $l^\infty$ is complete, let $y\in l^\infty$ be
+    the limit point of the sequence
+    $\{x_i^k\}$ in $c_0$. Then for all $\varepsilon>0$,
+    we have $N$ such that
+    $$\sup_{1\leq i<\infty} |x_i^k-y_i|<\varepsilon/2$$
+    for all $k>N$. Since for each $k$, $x_i^k\to 0$,
+    we have for each $k$, there exists $N_1\in \mathbb{N}$
+    such that 
+    $$|x_i^k|=|x_i^k-0|<\varepsilon/2$$
+    for all $i>N_1$. Then
+    $$|y_i-0|=|y_i|\leq|x_i^k-y_i|+|x_i^k|<\varepsilon$$
+    for all $i>N_1$ and $k>N$. This means that $y_i\to 0$
+    and thus $\{y_i\}_1^\infty\in c_0$. Thus, $c_0$ is
+    closed.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.70 / Problem 4.}
+    \textbf{(Continuity of vector space operations)}
+    Show that in a normed space $X$, vector addition and
+    multiplication by scalars are continuous operations with
+    respect to the norm; that is, the mappings defined by
+    $(x,y) \to x+y$ and $(\alpha, x) \to \alpha x$ are
+    continuous.
+\begin{mybox}
+
+    We define the norm in $X\times X$ to be
+    $$\|(x,y)\|_{X\times X}=\max\ \{\|x\|_X,\|y\|_X\}$$
+    and we define the norm in $\rl\times X$ to be
+    $$\|(\alpha,y)\|_{\rl\times X}=
+    \max\ \{|\alpha|,\|y\|_X\}.$$
+    Then, for an arbitrary point $(x_0,y_0)\in X\times X$,
+    for every $\varepsilon>0$, we have $\delta=\varepsilon
+    /2$ such that
+    $$\|(x,y)-(x_0,y_0)\|_{X\times X}=
+    \|(x-x_0,y-y_0)\|_{X\times X}=\max\ \{\|x-x_0\|_X,
+    \|y-y_0\|_X\}<\delta$$
+    implies
+    $$\|T(x,y)-T(x_0,y_0)\|_X=
+    \|x-x_0+y-y_0\|_X\leq \|x-x_0\|+
+    \|y-y_0\|_X<\delta+\delta= \varepsilon.$$
+    Hence, the map $T(x,y)=x+y$ is continuous.
+
+    \vspace*{3mm}
+    Now, for the map $T:\rl\times X\to X$ given by
+    $T(\alpha, x)=\alpha x$, for every $\varepsilon>0$,
+    we take $\delta=\min\{\varepsilon/2(|\alpha_0|+1),
+    \varepsilon/2(\|x_0\|_X+1), 1\}$, we get
+    $$\|(\alpha,x)-(\alpha_0,x_0)\|=
+    \|(\alpha-\alpha_0,x-x_0)\|=
+    \max\{|\alpha-\alpha_0|, \|x-x_0\|_X\}<\delta$$
+    implies
+    \begin{align*}
+        \|T(\alpha,x)-T(\alpha_0,x_0)\|_X=
+    \|\alpha x-\alpha_0x_0\|_X\leq &|\alpha_0|\|x-x_0\|+
+    |\alpha-\alpha_0|\|x\|_X\\
+    \leq&|\alpha_0|\|x-x_0\|+|\alpha-\alpha_0|(\|x-x_0\|_X
+    +\|x_0\|_X)\\
+    <&\delta|\alpha_0|+\delta(\delta + \|x_0\|_X)\\
+    \leq&\frac{\varepsilon|\alpha_0|}{2(|\alpha_0|+1)}+
+    \frac{\varepsilon}{2(\|x_0\|_X+1)}(\|x_0\|_X+1)
+    <\varepsilon.
+    \end{align*}
+    Hence, $T$ is continuous.
+\end{mybox}
+
+
+\item \textbf{Kreyszig p.70 / Problem 5.}
+    Show that $x_n \to x$ and $y_n \to y$ implies
+    $x_n + y_n \to x + y$. Show that $\alpha_n \to \alpha$
+    and $x_n \to x$ implies $\alpha_n x_n \to \alpha x$.
+\begin{mybox}
+
+    If $x_n \to x$, $y_n \to y$ and $\alpha_n\to\alpha$,
+    then for every
+    $\varepsilon>0$ we have $N\in \mathbb{Z}$
+    such that for all $n>N$,
+    $$\|x_n-x\|<\varepsilon/2, \ \
+    \|y_n-y\|<\varepsilon/2\ \ \text{ and }
+    \ \ \|\alpha_n-\alpha\|<\varepsilon/2.$$
+    Then for the same $N$, $$\|(x_n+y_n)-(x+y)\|=
+    \|(x_n-x)-(y_n-y)\|\leq\|x_n-x\|+\|y_n-y\|<\varepsilon.
+    $$
+    Hence, $x_n+y_n \to x+y$ and similarly,
+    $$\|\alpha_n x_n-\alpha x\|=
+    \|\alpha_n x_n-\alpha_n x +\alpha_n x-\alpha x\|=
+    \|\alpha_n(x_n-x) +x(\alpha_n-\alpha)\|
+    \leq|\alpha_n|\|x_n-x\|+\|y\||\alpha_n-\alpha|<\varepsilon.
+    $$
+    Hence $\alpha_n x_n\to\alpha x$.
+\end{mybox}
+
+ 
+\item \textbf{Kreyszig p.71 / Problem 9.}
+    Show that in a Banach space, an absolutely
+    convergent series is convergent.
+\begin{mybox}
+
+    If a series $\sum_1^\infty{x_i}$ in $X$
+    absolutely converges, then
+    the sequence of partial sums $\{y_i\}_1^\infty$
+    given by
+    $$y_k=\sum_{i=1}^k{\|x_i\|}$$ converges to some
+    point $y\in \rl$. Hence, $\{y_i\}_1^\infty$ is Cauchy
+    and for every $\varepsilon>0$, we have $N\in \mathbb{Z}
+    $ such that for all $m>n>N$,
+    $$|y_m-y_n|=\sum_{i=n+1}^m{\|x_i\|}<\varepsilon.$$
+    Now, if $\{s_i\}_1^\infty$ is the sequence of
+    partial sums of the sequence $\{x_i\}_1^\infty$
+    given by $s_k=\sum_{i=1}^k{x_i}$, then
+    for the same $\varepsilon>0$ and $m>n>N$ as above,
+    we have
+    $$\left\|s_m-s_n\right\|=\left\|\sum_{i=n+1}^m{x_i}
+    \right\|\leq \sum_{i=n+1}^m{\|x_i\|}<\varepsilon.$$
+    Hence, the sequence $\{s_i\}_1^\infty$ is Cauchy in
+    $X$ and since $X$ is complete, the sequence converges
+    in $X$. Hence, the absolutely convergent series is
+    convergent.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.71 / Problem 12.}
+    A seminorm on a vector space $X$ is a mapping
+    $p : X \to \mathbb{R}$ satisfying (N1),
+    (N3), (N4) in Sec. 2.2 (Some authors call this
+    a pseudonorm.) Show that $$p(0) = 0,$$ $$|p(y)-p(x)|
+    \leq p(y-x).$$ (Hence if $p(x) = 0$ implies $x = 0$
+    then $p$ is a norm.)
+\begin{mybox}
+
+    From (N3), we have $p({\bf 0})=p(0\cdot{\bf 0})
+    =0\cdot p({\bf 0})=0$.
+    
+    \vspace*{3mm}
+    Again, from (N4), we have $p(x+z)\leq p(x)+p(z)$
+    for all $x$, $z\in X$. Then, taking $z=y-x$, we get
+    $p(y)\leq p(x)+p(y-x)\implies p(y)-p(x)\leq p(y-x)$.
+    Similarly, we have $p(x)=p(x-y+y)\leq p(x-y)+p(y)
+    \implies p(x)-p(y)\leq p(x-y)=p(y-x)$.
+    Combining these two inequalities, we get
+    $$|p(y)-p(x)|
+    \leq p(y-x).$$
+    
+\end{mybox}
+
+\item \textbf{Kreyszig p.76 / Problem 9.}
+    If two norms $\| \cdot \|$ and $\| \cdot \|_0$
+    on a vector space $X$ are equivalent,
+    show that $(i)$ $\|x_n - x \| \to 0$ implies
+    $(ii)$ $\|x_n -x \|_0 \to 0$ (and vice versa,
+    of course).
+\begin{mybox}
+    
+    If the two norms $\| \cdot \|$ and $\| \cdot \|_0$
+    on a vector space $X$ are equivalent, then
+    for some $c>0$, we have
+    $$0\leq \|x_n-x\|_0\leq c\|x_n-x\|.$$
+    Taking limit as $n\to\infty$, we see that, by squeeze
+    theorem $\|x_n-x\|\to 0 \implies |x_n-x\|_0\to 0.$
+    Similarly for some $c_1>0$, we have
+    $$0\leq \|x_n-x\|\leq c_1\|x_n-x\|_0$$
+    which after taking limit as $n\to\infty$
+    proves the converse statement.
+\end{mybox}
+
+\item Let $X$ be a finite dimensional v.s. over
+    $\mR$, with basis $\{e_1, ..., e_n\}$.
+\begin{enumerate}
+    \item Show that for any $1 \leq p \leq \infty$,
+    the map $\| \cdot \|_{p} $ defined by
+    $$ x = \sum_1^n x_i e_i \ \to \|x\|_p =
+    \Big(\sum_1^n|x_i|^p \Big)^{1/p} , \ \ \text{for}
+    \ \ 1 \leq p < \infty$$
+    $$ x = \sum_1^n x_i e_i \ \to \|x\|_{\infty} =
+    \max_{1 \leq i \leq n} |x_i| \ \ \text{for} \ \ p =
+    \infty$$
+    is a norm on $X$.
+    \begin{mybox}
+
+        \begin{enumerate}
+            \item For $p<\infty$, $\|x\|_p=
+            \left(\sum_1^n|x_i|^p\right)^{1/p}$ and each
+            $|x|\geq 0$, so we have $\|x\|\geq 0$ for all
+            $x\in X$. Similarly, for $p=\infty$, since
+            $|x_i|\geq 0$, $\|x\|_\infty\geq 0$.
+
+            \vspace*{2mm}
+            \item If $\|x\|_p=
+            \left(\sum_1^n|x_i|^p\right)^{1/p}=0$, then
+            each $|x_i|=0\implies x_i=0\implies x=0$.
+            And, if $x=0$ then each $|x_i|=0$ and so
+            $\|x\|=0$.
+
+            \vspace*{2mm}
+            Similarly, for if $\|x\|_p=
+            \max_{1\leq i\leq n}|x_i|=0$,
+            then each $|x_i|$ must be 0 and so
+            $x=0$.
+            And, if $x=0$ then each $|x_i|=0$ and so
+            $\|x\|_\infty=0$.
+
+            \vspace*{2mm}
+            \item For $\alpha\in \rl$, $$\|\alpha x\|_p
+            =\left(\sum_1^n|\alpha x_i|^p\right)^{1/p}
+            =\left(\alpha^p\sum_1^n|x_i|^p\right)^{1/p}
+            =|\alpha|\|x\|.$$
+            $$\|\alpha x\|_\infty=\max_{1\leq i\leq n}
+            |\alpha x_i|=|\alpha|\max_{1\leq i\leq n}|x_i|
+            =|\alpha|\|x\|_\infty.$$
+
+            \vspace*{2mm}
+            \item If another element $y\in X$ is given
+            by $y=\sum_{i=1}^n{y_ie_i}$, then we take
+            sequences $x'=\{x_i'\}_1^\infty$ and
+            $y'=\{y_i'\}_1^\infty$ in $l^p$ such that
+            $x_i'=x_i$ and $y_i'=y_i$ for $i=1,\ldots,n$
+            and $x_i'=y_i'=0$ for $i>n$. Then, we have
+            $$\left(\sum_{i=1}^n{|x_i|^p}\right)^{1/p}=
+            \left(\sum_{i=1}^n{|x_i+y_i|^p}\right)^{1/p}$$
+            and by Minkowski's inequality, we have
+            $$\|x+y\|_p=
+            \left(\sum_{i=1}^n{|x_i+y_i|^p}\right)^{1/p}
+            =\left(\sum_{i=1}^\infty{|x_i'+y_i'|^p}\right)^{1/p}
+            \leq \left(\sum_{i=1}^\infty{|x_i|^p}\right)^{1/p}
+            +\left(\sum_{i=1}^\infty{|y_i|^p}\right)^{1/p}$$
+            Hence $\|x+y\|_p\leq \|x\|_p+\|y\|_p$ for
+            $1\leq p<\infty$.
+
+            \vspace*{2mm}
+            For $p=\infty$, we have $$\|x+y\|_p=
+            \max\{|x_1|,\ldots,|x_n|,|y_1|,\ldots,|y_n|\}
+            \leq \max\{|x_1|,\ldots,|x_n|\} +
+            \max\{|y_1|,\ldots,|y_n|\}$$
+            So, $\|x+y\|_p\leq \|x\|_p+\|y\|_p$ for
+            $p=\infty$.
+        \end{enumerate}
+        
+    \end{mybox}
+
+    \item Show that for $1 \leq p \leq  \infty$,
+    $(X, \| \cdot\|)$ is separable.
+    \begin{mybox}
+
+        We take the set $M$ consisting of elements of $X$
+    with rational coordinates given by
+        $$M=\left\{x\in X:\ x= \sum_{i=1}^n{\lambda_ie_i
+        ,\ \lambda_i\in \mathbb{Q}}\right\}.$$
+        $M$ is countable since $M$ is a countable
+        union of countable sets. To show that $M$ is dense
+        in $X$, we show that every open neighborhood of
+        an arbitrary point contains a point of $M$.
+        For a point $y=\sum_{i=1}^n{y_ie_i}$ we note that
+        its $\varepsilon$-neighborhood is given by
+        $$N_\varepsilon(y)=\left\{x\in X: \ 
+        \|y-x\|<\varepsilon\right\}.$$
+        For $1\leq p<\infty$,
+        $$N_\varepsilon(y)=\left\{x\in X: \ 
+        \sum_{i=1}^n{|y_i-x_i|^p}
+        <\varepsilon^p\right\}.$$
+        Then since rational numbers are dense in $\rl$,
+        we can choose rational numbers $x_i$ such that
+        $|y_i-x_i|<\varepsilon/n^{1/p}$. Then clearly,
+        $x=\sum_{i=1}^n{x_ie_i}\in N_\varepsilon(y)$.
+        Hence, $X$ is separable.
+
+        \vspace*{2mm}
+        Now, or $p=\infty$,
+        $$N_\varepsilon(y)=\left\{x\in X: \ 
+        \max_{i=\overline{1,\ldots,n}}\{|y_i-x_i|\}
+        <\varepsilon\right\}.$$
+        Then, we can choose each rational number
+        $x_i$ such that
+        $x_i\in (y_i, y_i+\varepsilon)$. Then
+        $x\in N_\varepsilon(y)$ and hence $M$ is dense in
+        $X$. So, $X$ is separable.
+    \end{mybox}
+\end{enumerate}
+
+ 
+\item Prove that any vector space can be normed.
+\begin{mybox}
+
+    We note that every vector space $V$ has a Hamel basis
+    $B$ such that every element $x$ of the vector space
+    $V$ can be written as a linear combination of finitely
+    many elements of $B$ with non-zero scalars
+    as coefficients. Then, if for an element $x\in V$,
+    $b_1,\ldots, b_k$ are the finitely many elements
+    of $B$ with non-zero coefficients, then
+    $$x=\lambda_1 b_1+\cdots+\lambda_k b_k$$
+    and we define the norm of $x$ to be
+    $$\|x\|=\max_{i=\overline{1, k}}\ |\lambda_i|.$$
+    Clearly, $\|x\|\geq 0$ and if $\|x\|=0$ then
+    $x=0$. Also, $x=0\implies \|x\|=0$ and $\|\alpha x\|
+    =\max_{i=\overline{1, k}}\ |\alpha\lambda_i|
+    =|\alpha|\|x\|$. Furthermore, if $y=\beta_1 c_1+
+    \cdots +\beta_n c_n$ is another element of $V$,
+    then $x+y=\lambda_1 b_1+\cdots+\lambda_k b_k+
+    \beta_1 c_1+\cdots +\beta_n c_n$. And
+    $$\|x+y\|=\max\{\lambda_1,\ldots,\lambda_k,\beta_1,
+    \ldots,\beta_n\}\leq \max\{\lambda_1,\ldots,\lambda_k\}
+    +\max\{\beta_1,\ldots,\beta_n\}=\|x\|+\|y\|.$$
+    We see that $\|\cdot\|$ satisfies all the conditions
+    of a norm on the vector space $V$.
+\end{mybox}
+ 
+\item Let $X$ be a finite dimensional normed space.
+    Prove that any closed and bounded subset is compact.
+\begin{mybox}
+
+    Let $M$ be a closed and bounded subset of the
+    finite dimensional vector space $X$ with dim $X=n$
+    and basis $\{e_1,\ldots,e_n\}$. Let $\{x_i\}_1^\infty$
+    be a sequence in $M$, then each $x_i$ has a unique
+    linear representation
+    $$x_i=\lambda_i^1 e_1+\cdots+\lambda_i^n e_n.$$
+    By the lower bound theorem, we have
+    $\|x_i\|\geq c\sum_{k=1}^n{|\lambda_i^k|}$ for some
+    $c>0$ and since
+    $M$ is a bounded set we have, for some real positive
+    number $c_2$, $\|x_i\|\leq c_2$. Taking
+    $c_1=\sum_{k=1}^n{|\lambda_i^k|}$, we get
+    $$c_1\leq\|x_i\|\leq c_2.$$
+    Then for each $k$, we have
+    $c_1\leq\|\lambda_i^k\|\leq c_2$
+    and for a fixed $k$, we have the sequence
+    $\{\lambda_i^k\}_1^\infty$ of real numbers
+    which is bounded. By Bolzano-Weierstrass theorem,
+    we know that this sequence has a convergent
+    subsequence which converges to a point $\beta^k$ in
+    $\rl$. And hence, we have a corresponding
+    convergent subsequence $\{x_{i_k}\}$ of $\{x_i\}$
+    which converges to $z=\sum{\beta_i e_i}$. Since, $M$
+    is closed, this limit point is in $M$. So, $M$ is compact.
+
+\end{mybox}
+ 
+\item Prove Riesz's Lemma.
+\begin{mybox}
+
+    \begin{thm}[Riesz's Lemma]
+
+        Let $Y$ and $Z$ be subspaces of a normed space
+        $X$ (of any dimension), and suppose that $Y$ is
+        closed and is a proper subset of $Z$. Then for
+        every real number $\theta$ in the interval
+        $(0,1)$ there is a $z\in Z$ such that
+        $$\|z\|=1, \hspace*{10mm} \|z-y\|\geq \theta
+        \text{ for all } y\in Y.$$
+    \end{thm}
+    \begin{proof}
+        For $v\in Z-Y$, we denote the distance between
+        $v$ and the subspace $Y$ by
+        $a=\inf_{y\in Y}{\|v-y\|}$. Since $v\notin Y$,
+        $a>0$ and for some $\theta\in (0,1)$, there
+        exists a $y_0\in Y$ such that
+        $$a\leq \|v-y_0\|\leq a/\theta.$$
+        Let $z=c(v-y_0)$ where $c=1/\|v-y_0\|$. Then
+        $\|z\|=1$ and
+        $$\|z-y\|=\|c(v-y_0)-y\|=c\|v-y_0-c^{-1}y\|
+        =c\|v-y_1\|$$
+        where $y_1=y_0+c^{-1}y$ which is in $Y$ (since
+        $Y$ is a subspace). Hence $\|v-y_1\|\geq a$ and
+        $$\|z-y\|=c\|v-y_1\|\geq \frac{a}{\|v-y_0\|}
+        \geq a/(a/\theta)=\theta.$$
+    \end{proof}
+        
+\end{mybox}
+ 
+\item If a normed space $X$ has the property that the
+    closed unit ball $\overline{B}(0,1)$ is compact,
+    then $X$ is finite dimensional.
+\begin{mybox}
+
+    We show that if the closed unit ball $\overline{B}$
+    is compact, and
+    $X$ is of infinite dimension, then we get a
+    contraction. Let $x_1\in X$ such that $\|x\|=1$
+    for some norm $\|\cdot\|$. Then the span of $x_1$
+    is a subspace $M_1$ of dimension 1 and hence,
+    is closed and
+    proper subspace of $X$. Then, by Riesz's Lemma,
+    taking $\theta=1/2$, there exists $x_2\in X$ of norm
+    1 such that $\|x_2-x_1\|\geq 1/2$. The elements
+    $x_1$ and $x_2$ now generate a 2 dimensional
+    closed and proper subspace $M_2$ of $X$ and again,
+    by Riesz's lemma, there exists an $x_3$ of norm 1 such
+    that $\|x_3-x_1\|\geq 1/2$ and $\|x_3-x_2\|\geq 1/2$.
+    Then inductively, we obtain a sequence
+    $\{x_n\}_1^\infty$ in $\overline{B}$
+    such that for all integers $m\neq n$, we have
+    $$\|x_m-x_n\|\geq \frac{1}{2}.$$
+    But this sequence cannot have a convergent subsequence
+    even though $\overline{B}$ is compact. Hence, our
+    assumption that the dimension of $X$ is infinite
+    cannot be true.\qed
+\end{mybox}
+
+\end{enumerate}
+\end{document}

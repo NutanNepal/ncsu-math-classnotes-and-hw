@@ -1,0 +1,25 @@
+\question{
+    If $M \neq \emptyset$ is any subset of a
+    vector space $X$, show that span $M$ is a
+    subspace of $X$.
+}
+\begin{solution}
+    
+    The span of a nonempty subset $M$ of $X$ is
+    given by
+    $$\text{Span }(M)=\left\{\sum_{x_i\in M}{\lambda_ix_i\ :
+    \ \lambda_i\in\rl}\right\}$$
+    the set of all linear combinations of elements of $M$.
+    To show that the span of $M$ is a subspace, we just
+    need to show that it is closed under addition and
+    scalar multiplication. We see that if
+    $y=\sum_{y_j\in M}{\alpha_jy_j}$ and
+    $z=\sum_{z_i\in M}{\beta_iz_i}$ are two elements
+    in the span, then $y+z=\sum_{y_j, z_i\in M}
+    {(\alpha_jy_j+\beta_iz_i)}$ is also in the span.
+    Similarly for $\lambda\in\rl$, $\lambda\cdot y=
+    \lambda\cdot \sum_{y_j\in M}{\alpha_jy_j}=
+    \sum_{y_j\in M}{\lambda\alpha_jy_j}$ is also in the
+    span. Hence, the span of $M$ is a subspace of $X$.
+
+\end{solution}
