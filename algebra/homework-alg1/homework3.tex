@@ -1,0 +1,360 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{tikz-cd}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\bz}{\mathbb{Z}}
+\newcommand{\id}{\text{id}}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{%
+  \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{170mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-3mm}
+
+\title{Algebra I\\
+\large Homework 3
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\nil}{\mathfrak{N}(R)}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{190mm}{.5pt}}
+\vspace{0mm}
+\begin{enumerate}
+
+\item[(5.4 - 8)] Assume that $x$, $y$ both commute with
+    $[x, y]$. Show that $(xy)^n = x^ny^n[y, x]^{n\choose 2}$
+    for any positive integer $n$.
+\begin{mybox}
+    
+    We first note that $yx=xy[y,x]=x[y,x]y=[y,x]xy$.
+    Assume that the statement
+    $$P(k):\hspace*{5mm}(xy)^k = x^ky^k[y, x]^{k\choose 2}$$
+    is true for some integer $k>1$. Then, when $k=2$
+    $$P(2):\hspace*{5mm}(xy)^2=xyxy=xxy[y,x]y=x^2y^2[y,x]$$
+    Now, for $k+1$,
+    \begin{align*}
+       P(k+1):\hspace*{5mm}
+       (xy)^{k+1}=xy(xy)^k=xyx^ky^k[y, x]^{k\choose 2}
+    &=xxy[y,x]x^{k-1}y^k[y,x]^{k\choose 2}\\
+    &=x^2y[y,x]x^{k-1}y^k[y,x]^{{k\choose 2}+1}
+    \end{align*}
+    Repeating the above process $k$ times, we obtain,
+    $$P(k+1):\hspace*{5mm}
+    (xy)^{k+1}=
+    x^ky^k[y,x]^{{k\choose 2}+k}=x^ky^k[y,x]^
+    {{k+1\choose 2}}.$$
+    Hence, the given statement is true by mathematical
+    induction.
+\end{mybox}
+
+\item[(5.5 - 11)] Classify groups of order 28.
+
+\begin{mybox}
+
+    If $G$ has order 28 then it contains Sylow
+    7-subgroups such that $n_7\equiv 1\mod{7}$ and
+    $n_7\mid 4$. So $n_7=1$ and $G$ contains a unique
+    normal subgroup $H$ of order 7. Let $K\in
+    \text{Syl}_2(G)$ be a
+    subgroup of order 4 in $G$, so $H\cap K=1$. Then
+    $G=H\rtimes K$. Now we find the possible semidirect
+    products between $H$ and $K$.
+
+    \vspace*{3mm}
+    Since the order of $K$ is 4, $K\simeq \mz_2\times
+    \mz_2$ or $K\simeq\mz_4$. Furthermore Aut$(H)
+    \simeq \mz_6$. When $K=\mz_4$ we have two homomorphisms
+    from $K$ to Aut$(H)=\mz_6$ given by
+    $$\varphi_1(1)=\overline{0},\hspace*{20mm}
+    \text{and}\hspace*{20mm}
+    \varphi_2(1)=\overline{3}.$$
+    Each of these homomorphisms give us 2 distict groups
+    ($\varphi_1$ gives us the regular direct product).
+    Now, when $K=\mz_2\times\mz_2=
+    \langle a,b\mid a^2=b^2=(ab)^2=1\rangle$, the possible
+    homomorphisms are
+    \begin{align*}
+    &\varphi_3(a)=0,\varphi_3(b)=0,
+    &\varphi_4(a)=0,\varphi_4(b)=3,\\
+    &\varphi_5(a)=3,\varphi_5(b)=0
+    &\varphi_6(a)=3,\varphi_6(b)=3.
+    \end{align*}
+    $\varphi_4$ gives the usual direct product as above.
+    The last 3 homomorphisms are isomorphic and hence
+    give another semidirect product $H\rtimes K$.
+\end{mybox}
+
+
+\item[(6.1 - 6)] Show that if $G/Z(G)$ is nilpotent then
+    $G$ is nilpotent.
+
+\begin{mybox}
+    
+    We consider the upper central series of $G$ and
+    $G/Z(G)$
+    $$1=Z_0(G)\trianglelefteq Z_1(G)\trianglelefteq \cdots
+    \trianglelefteq G,$$
+    $$1=Z_0(G/Z(G))\trianglelefteq Z_1(G/Z(G))
+    \trianglelefteq\cdots
+    \trianglelefteq Z_k(G/Z(G))=G/Z(G).$$
+    We know that the subgroups of $G/Z(G)$ are in
+    bijection with the subgroups of $G$ containing $Z(G)$.
+    Then given above upper central series for $G/Z(G)$
+    we take the corresponding series 
+    taken by taking the preimage of each $Z_i(G/Z(G))$,
+    $$1=Z_0(G)\trianglelefteq Z_1(G)\trianglelefteq \cdots
+    \trianglelefteq Z_k=G,$$
+    Then,
+    \begin{align*}
+        Z_{i+1}(G)/Z_i(G)=&(Z_{i+1}(G)/Z(G))/
+    (Z_i(G)/Z(G))\\
+    =&Z_{i+1}(G/Z(G))/Z_i(G/Z(G))\\
+    =&Z((G/Z(G))/Z_i(G/Z(G)))
+    \end{align*}
+    But, $Z_i(G/Z(G))=Z_i(G)/Z(G)$. Hence, 
+    $Z_{i+1}(G)/Z_i(G)=Z(G/Z_i(G))$ and $G$ is nilpotent.
+\end{mybox}
+
+\item[(6.3 - 7)] Show that the quaternion group
+    $\mathcal{Q}_8$ can be presented by $\langle
+        a, b|\ a^2 =
+    b^2, a^{-1}ba = b^{-1}\rangle.$
+\begin{mybox}
+    
+    Let $G=\langle a, b|a^2=b^2,a^{-1}ba = b^{-1}\rangle$.
+    
+    \vspace*{2mm}
+    We see that $
+    a^{-1}ba=b^{-1}\implies a^{-1}b^2a=b^{-2}$. Hence,
+    $a^2=b^{-2}$ and $a^4=b^4=1$. Thus we see that $G$
+    has at least 2 subgroups of order 4 and 1 subgroup
+    $\{1, a^2\}$ of order 2. The quaternion group
+    $\mathcal{Q}_8$ is $\{1,i,j,k,-1,-i,-j,-k\}$ and
+    satisfies the relation $i^2=j^2=-1$ and $i^{-1}ji
+    =j^{-1}$. Thus we have a homomorphism $\varphi:G
+    \to \mathcal{Q}_8$ defined as
+    $\varphi(a)=i$ and $\varphi(b)=j$. But, since 
+    $a^4=1$ and $a^2=b^2$, the free group generated by
+    $a$ and $b$ with the given relations have at most 8
+    elements. Thus, the group $G$ is actually the
+    quaternion group itself.
+\end{mybox}
+
+\item[(7.1 - 8)] Find the center of the real Hamiltonian
+    Quaternions $\mathbb{H}$. Prove that
+    $\{a + bi|a, b\in \rl\}$ is a subring of $\mathbb{H}$
+    which is a field but is not contained in the
+    center of $\mathbb{H}$.
+\begin{mybox}
+
+    An element $y=a+bi+cj+dk\in\mathbb{H}$ is in the
+    center iff $xy-yx$ is the identity
+    element $0$ for all $x\in\mathbb{H}$. When
+    $x=i$, $$xy-yx=ia+ibi+icj+idk-ai-bii-cji-dki
+    =2ck-2dj.$$
+    Then $xy=yx\iff c=d=0$. Similarly, when $x=j$,
+    $$xy-yx=ja+jbi+jcj+jdk-aj-bij-cjj-dkj
+    =-2bk+2di.$$
+    So, $xy=yx\iff b=d=0$. We see that
+    when $b=c=d=0$, $y\in\mathbb{R}$ and hence the center
+    $Z(\mathbb{H})\subset\mathbb{R}$. But every real
+    number commutes with quaternions. Hence the center is
+    the set $\mathbb{R}$.
+
+    \vspace*{3mm}
+    For two elements $x, y\in R=\{a + bi|a, b\in \rl\}$,
+    we have $x\cdot y=(a_1+b_1i)(a_2+b_2i)
+    =(a_1a_2-b_1b_2)+(a_1b_2+b_1a_2)i\in R$. $R$ is clearly
+    a group under addition and hence it is a subring of
+    $\mathbb{H}$. We also see that for $a$ and $b$ not
+    equal to zero, the inverse of an element $x=a+bi$
+    for the product operation is given by
+    $\frac{a}{a^2+b^2}-\frac{bi}{a^2+b^2}$.
+    Hence $R$ is a field but is not contained in the
+    center.
+\end{mybox}
+
+\item[(7.1 - 13)] An element $a\in R$ is called
+    nilpotent if $x^m = 0$ for some $m \in\mathbb{Z}^+$.
+    \begin{enumerate}
+        \item Show that if $n = a^kb$ for some integers
+        $a$, $b$, then $ab$ is nilpotent in $\bz/n\bz$.
+
+        \item If $a\in\bz$, show that the element
+        $\overline{a}\in\bz/n\bz$ is nilpotent
+        iff every prime divisor of $n$ is
+        also a divisor
+        of $a$. In particular, find all nilpotent elements
+        of $\bz/72\bz$.
+
+        \item Let $R$ be the ring of functions from a
+        nonempty set $X$ to a field $F$ . Prove that $R$
+        contains no nonzero nilpotent elements.
+    \end{enumerate}
+\begin{mybox}
+
+    \begin{enumerate}
+        \item We have, $(ab)^k=a^kb^k=nb^{k-1}\equiv 0$.
+        Hence $ab$ is nilpotent in $\mz/n\mz$.
+        \item If $a$ is nilpotent, then $a^k\equiv 0$
+        for some $k\in\mz$. Let $p_1,\ldots,p_m$ be the
+        prime divisors of $n$. But,
+        we know that $n\mid a^k$ and thus each $p_i$ must
+        divide $a^k$. This implies that $p_i\mid a$.
+
+        \vspace*{2mm}
+        Now, if every prime divisors $p_1,\ldots,p_m$ of
+        $n$ divides $a$, then $a=q\cdot p_1^{i_1}\cdots 
+        p_m^{i_m}$ for some integer $q$. And we have,
+        $n=p_1^{j_1}\cdots 
+        p_m^{j_m}$ and $a^k=q^k\cdot p_1^{ki_1}\cdots 
+        p_m^{ki_m}$. We see that, for an integer $k$ such
+        that $ki_\alpha\geq j_i$ for each $\alpha$,
+        $n\mid a^k$. Hence, $a$ is nilpotent.
+
+        \item If $R$ did contain a nilpotent element
+        $f\neq 0$, then $f^k$ is a 0 function for some
+        integer $k$.
+    \end{enumerate}
+\end{mybox}
+
+\item[(7.2 - 7)] Show that the center of the ring $M_n(R)$
+    is $R\cdot I$, where $I = diag(1,\ldots,1)$.
+\begin{mybox}
+    
+    Clealy $R\cdot I$ is contained in the center since
+    for $A\in M_n(R)$ and $B=pI\in R\cdot I$, we have
+    $AB=BA=pA$. We now prove that the center is contained
+    in $R\cdot I$.
+
+    \vspace*{3mm}
+    If $B\in Z(M_n(R))$, then $AB-BA=0$ for all elements
+    $A$ of $M_n(R)$. We take $A$ to be the matrices
+    of the form $E_{ij}$ whose $ij$ entry is 1 and all
+    other entries are 0. Then the $i$th row of
+    $E_{ij}B$ is the $j$th row of $B$ and the
+    $j$th column of
+    $BE_{ij}$ is the $i$th column row of $B$
+    and all other entries are 0. Then $E_{ij}B
+    =BE_{ij}$ implies that $b_{ii}=b_{jj}$ for all
+    $i$ and $j<n$. Also, $E_{ii}B=BE_{ii}$ implies that
+    the matrix $B$ is diagonal. Hence the center is
+    contained in $R\cdot I$.
+\end{mybox}
+
+\item[(7.3 - 4)] Find all ring homomorphisms from
+    $\bz$ to $\bz/30\bz$. In each case, describe
+    the kernel and the image.
+\begin{mybox}
+
+    Since $30=2\cdot3\cdot5$, $\mz/30\mz$ has elements
+    of order 2, 3, 5, 10, 15 and 30. For each case we
+    have homomorphisms $\varphi_i:\mz\to\mz/30\mz$ given
+    by
+    \begin{align}
+        &\varphi_1(1)=\overline{15},\hspace*{10mm}
+        &\text{Im}(\varphi_1)=\overline{15\mz},
+        \hspace*{10mm} 
+        &\text{ker}(\varphi_1)=2\mz\\
+        &\varphi_2(1)=\overline{10},\hspace*{10mm}
+        &\text{Im}(\varphi_2)=\overline{10\mz},
+        \hspace*{10mm} 
+        &\text{ker}(\varphi_1)=3\mz\\
+        &\varphi_3(1)=\overline{3},\hspace*{10mm}
+        &\text{Im}(\varphi_1)=\overline{3\mz},
+        \hspace*{10mm} 
+        &\text{ker}(\varphi_1)=10\mz\\
+        &\varphi_4(1)=\overline{2},\hspace*{10mm}
+        &\text{Im}(\varphi_1)=\overline{2\mz},
+        \hspace*{10mm} 
+        &\text{ker}(\varphi_1)=15\mz\\
+        &\varphi_5(1)=\overline{1},\hspace*{10mm}
+        &\text{Im}(\varphi_1)=\overline{\mz},
+        \hspace*{10mm} 
+        &\text{ker}(\varphi_1)=30\mz
+    \end{align}
+\end{mybox}
+
+\item[(7.3 - 18)] Prove that the intersection $I\cap J$
+    of ideals $I$, $J$ of a ring $R$ is also an ideal of
+    $R$. Let $\{I_\alpha\}_{\alpha\in S}$ be a collection
+    of ideals of $R$. Show that $\bigcap_{\alpha\in S}
+    {I_\alpha}$ is an ideal of $R$.
+\begin{mybox}
+
+    Clearly $0\in I\cap J$ and hence it is non-empty.
+    $I\cap J$ is also closed under addition and contains
+    the additive inverse of elements.
+    For $x,y\in I\cap J$, we see that $xy\in I$ and
+    $xy\in J$ and so $I\cap J$ is a subring of $R$.
+    Now, if $x\in I\cap J$ and $y\in R$, we see that
+    $xy\in I$ and $xy\in J$. Hence, $I\cap J$ is an
+    ideal of $R$.
+
+    \vspace*{3mm}
+    If $\{I_\alpha\}_{\alpha\in S}$ be a collection
+    of ideals of $R$, then $0\in J=\bigcap_{\alpha\in S}
+    {I_\alpha}$. So, $J$ is nonempty. And as above, we see
+    that $J$ is closed under addition, contains additive
+    inverses and is closed under multiplication.
+    Now, if $x\in J$, then $x\in I_\al$ for each $\al$.
+    If $y\in R$ is any element then $xy\in I_\al$ for
+    all $\al$. Hence, $xy\in J$ and $J$ is an ideal.
+\end{mybox}
+
+\item[(7.3 - 29)] Let $R$ be a commutative ring. Prove that
+    the set of nilpotent elements of
+    $R$ form an ideal—called the nilradical $\mathfrak{N}(R)$.
+\begin{mybox}
+    
+    For $x,y\in\nil$, if $x^p=y^q=0$ for some
+    integers $p$ and $q$, then
+    clearly $(-x)^p=0$ and 
+    $$(x+y)^{p+q}=\sum_{i=0}^{p+q}{{p+q\choose i}
+    x^i\cdot y^{p+q-i}}=0$$
+    since each term in the sum is a multiple of
+    $x^p$ or $y^q$. Hence $x+y\in \nil$ and $-x\in\nil$.
+    Similarly, $(xy)^{pq}=x^{pq}y^{pq}=0$. Thus,
+    $\nil$ forms a subring of $R$. Now we show that for
+    $x\in\nil$ and any $y\in R$, $xy\in \nil$.
+    We have
+    $$(xy)^{p}=x^py^p=0\cdot y^p=0.$$
+    Hence $\nil$ is an ideal of $R$.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

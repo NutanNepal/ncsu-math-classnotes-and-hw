@@ -115,8 +115,16 @@
     in $\rl^n$. Here, $\varphi$ is a bijection and hence has
     an inverse $\varphi^{-1}$. Now we show that this is a
     homeomorphism by showing that both $\varphi$ and
-    $\varphi^{-1}$ are continuous. Clealy for every open sets
-    $V$ in $X$, i
+    $\varphi^{-1}$ are continuous. Clealy for every open set
+    $V$ in $\varphi(X)$ and a chart $(U,\psi)$ of $X$,
+    $\psi\circ\varphi^{-1}$ is a transition map and is smooth.
+    Hence $\varphi^{-1}(V)$ is open in $X$, Thus, $\varphi$
+    is continuous. Similarly, For open set $V\subset
+    \varphi^{-1}(X)$ and chart $(U,\psi)$, $\psi(V\cap U)$
+    is open in $\rl^n$. Thus $\varphi\circ\psi^{-1}$
+    being a transition function is smooth and thus,
+    $\varphi(V)$ is open in $\rl^n$. So $\varphi^{-1}$ is
+    also continuous.
 
 \end{mybox}
  
@@ -143,7 +151,8 @@
     $\psi\circ\varphi:X\to\rl^n$ such that the image of
     some open set $U$ of $X$ in $\rl^n$
     an open disk. Thus, $X$ is locally homeomorphic to
-    $\rl^n$.
+    $\rl^n$. (I could not prove for smoothness of transition
+    functions.)
 
     %\vspace*{2mm}
     %We also note that for another pair
@@ -162,6 +171,26 @@
 
 \begin{mybox}
 
+    We note that this topology is the same as the topology
+    in problem 3.12 with the modification that
+    $rl^n$ is replaced by a general $n$-manifold. The proof
+    follows similarly.
+
+    \vspace*{2mm}
+    We now check that for every given pair $(U,\varphi)$,
+    $U$ is open in $X$ and $\varphi$ is a homeomorphism
+    from $U$ to $X_{U,\varphi}$. Clearly, $U$ is open
+    since $\varphi(U\cap U)=\varphi(U)$ is open
+    in $X_{U,\varphi}$. Now, for every open set
+    $V$ in $\varphi(X)$ and a chart $(U,\psi)$ of $X$,
+    $\psi\circ\varphi^{-1}$ is a transition map and is smooth.
+    Hence $\varphi^{-1}(V)$ is open in $X$, Thus, $\varphi$
+    is continuous. Similarly, For open set $V\subset
+    \varphi^{-1}(X)$ and chart $(U,\psi)$, $\psi(V\cap U)$
+    is open in $X_{U,\varphi}$. Thus $\varphi\circ\psi^{-1}$
+    being a transition function is smooth and thus,
+    $\varphi(V)$ is open in $X_{U,\varphi}$.
+    So $\varphi^{-1}$ is also continuous.
 \end{mybox}
 
 \end{enumerate}

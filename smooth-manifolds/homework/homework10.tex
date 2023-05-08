@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{\textbf{Introduction to Manifold Theory} \\
+\large Homework 8
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\atlasA}{\mathcal{A}}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 6.9: show that the matrix representative
+of a total derivative $Df_p$ of a smooth map $f : X\to Y$,
+in the coordinate bases for $TX_p$ and $TY_{f(p)}$
+arising from charts $\varphi$ near $p$ and $\psi$ near
+$f(p)$, is the Jacobian matrix of
+$\psi\circ f\circ\varphi^{-1}$ at $\varphi(p)$.
+
+\begin{mybox}
+
+
+\end{mybox}
+
+\item Do Exercise 6.11: show that the usual identification
+of a finite-dimensional vector
+space $V$ with its double dual $V^{**}$ is an isomorphism.
+\begin{mybox}
+    
+    The usual identification is given by the map $T:V\to
+    V^{**}$ that takes $v\in V$ to the linear functional
+    $T(v)\in V^{**}$ defined by
+    $$(T(v))(\alpha)=\alpha(v)$$
+    for all $\alpha\in V^*$. We now check that the map
+    $T$ is linear and bijective to show that it is an
+    isomorphism of vector spaces.
+    \begin{enumerate}
+        \item For $p\in\rl$ and $x$, $y\in V$, we have
+            $(T(px+y))(\al)=\al(px+y)=p(T(x))(\al)+(T(y))
+            (\al)$ for all $\al\in V^*$. Thus, $T$ is linear.
+
+        \item $(T(v))(\al)=\al(v)=0$ for all $\al\in V^*$
+            implies that $v=0$. Thus the kernel of $T$
+            is trivial and hence $T$ is injective.
+
+        \item The dimension of $V$, $V^*$ and $V^{**}$ are
+            all same and since $T$ is injective, it follows
+            that it is also surjective.
+    \end{enumerate}
+    Hence, $T$ is an isomorphism of vector spaces.
+\end{mybox}
+
+\item Do Exercise 6.12: show that, given a basis for a
+finite-dimensional vector space $V$ ,
+the corresponding “dual basis” as defined in this
+exercise is a basis for the dual space $V^*$.
+
+\begin{mybox}
+    
+    If $\beta=\{e_1, e_2,\ldots, e_n\}$ is a basis for the
+    finite dimensional vector space $V$, then we show
+    that the set $\beta^*=\{e_1^*,\ldots,e_n^*\}$ with
+    $e_i^*$ defined by
+    $$e_i^*(a^1e_1+\cdots+a^ne_n)=a^i$$
+    is a dual basis for the dual space $V^*$.
+
+    \vspace*{2mm}
+    First we show that the given set is linearly
+    independent. Indeed if $\sum_{i=1}^n{a^ie_i^*}=0$,
+    then for each $k\in\{1,\ldots, n\}$, we see that
+    $(\sum_{i=1}^n{a^ie_i^*})(e_k)=a^k=0.$ Thus the
+    set $\beta^*$ is linearly independent. Furthermore,
+    since the dimension of the dual space $V^*$ is
+    equal to $n$ we see that the set $\beta^*$
+    containing $n$ linearly independent element is
+    a basis for $V^*$.
+\end{mybox}
+
+\item Do Exercise 6.14: roughly, show that the “transforms
+like a covector” condition makes
+the definition of an abstract element $\alpha\in T^* X_p$
+given in the exercise well-defined.
+
+\begin{mybox}
+    
+\end{mybox}
+\end{enumerate}
+
+I could not wrap my head around ques. 1 and 4. Sorry for the
+incomplete submission.
+\end{document}

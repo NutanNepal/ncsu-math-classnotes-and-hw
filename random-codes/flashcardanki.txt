@@ -1,0 +1,2 @@
+apple;banana;grape(\\sigma)\
+some text;other text;yet more text

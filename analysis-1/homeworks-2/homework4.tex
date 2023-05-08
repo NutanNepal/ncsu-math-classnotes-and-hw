@@ -1,0 +1,295 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, xcolor}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 4
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\dmu}{\ d\mu}
+\newcommand{\ix}{\int_X}
+\newcommand{\cL}{\mathcal{L}(\mathbb{R})}
+\newcommand{\soi}{\sum_{i=1}^{\infty}}
+\newcommand{\son}{\sum_{i=1}^{n}}
+\newcommand{\la}{\lambda}
+\newcommand{\Lp}{L^p(\mu)}
+\newcommand{\Lq}{L^q(\mu)}
+\newcommand{\Lr}{L^r(\mu)}
+\newcommand{\ms}{(X, \mM, \mu)}
+\newcommand{\outm}{\mu^*}
+
+\begin{enumerate}
+
+
+    \item Let $A \subseteq \mR$ s.t. $m^*(A) = 0$. Show that for any $B \subseteq \mR$, we have that $m^*(B) = m^*(A \cup B) = m^*(B \setminus A)$. 
+    \begin{mybox}
+        Since $A$ has outer measure 0, it is measurable.
+        Then we have $m^*(B)=m^*(B\cap A)+m^*(B\cap A^c)$.
+        Since $m^*(A\cap B)\leq m^*(A)=0$, we have
+        $m^*(B)=m^*(B\cap A^c)=m^*(B\setminus A)$.
+        Furthermore, $m^*(A\cup B)\leq m^*(A)+m^*(B)
+        =m^*(B)$ and $m^*(B)=m^*(B\setminus A)\leq
+        m^*(A\cup B)$. Thus, we have
+
+        $$m^*(B) = m^*(A \cup B) = m^*(B \setminus A).$$
+    \end{mybox}
+    \item Let $A \subseteq \mR$ non-measurable. Let $ E \in \mathcal{L}(\mR)$ s.t. $A \subseteq E$. Prove that $m^*(E \setminus A) > 0$. 
+    \begin{mybox}
+        If we assume that $m^*(E\setminus A)=0$,
+        then we see that $E\setminus A$ is a measurable
+        set and since $E$ is measurable and the difference
+        is measurable, $A$ must also
+        be measurable. We have a contradiction and thus
+        we must have $m^*(E\setminus A)>0$.
+    \end{mybox}
+    \item A set function $\mu^*: \cP(X) \to [0,\infty]$ is called an outer measure if $\outm(\emptyset) = 0$ and $\outm$ is countably monotone, i.e., if $\ds E \subseteq \bigcup_1^{\infty} E_n$, then  $\ds \mu^*(E) \leq \sum_1^{\infty} \mu^*(E_n)$.
+    
+    We say that a subset $E \subset X$ is measurable if $\forall \ T \subset X$, we have
+    $$\outm(T) = \outm(T \cap E) + \outm(T \cap E^c).$$
+    
+    Let $\mM$ be the collection of measurable sets in $X$. Show that $\mM$ is a $\sigma$-algebra.
+    
+    Define $\mu = \outm \ |_{\mM}$. Show that $(X, \mM, \mu)$ is a complete measure space. 
+    \begin{mybox}
+        $\mM$ is a $\sigma$-algebra:
+        \begin{enumerate}
+            \item \ldots
+        \end{enumerate}
+        
+        \vspace*{2mm}
+        $\mu$ is a complete measure: We only need to show
+        that if a set $E$ has outer measure 0, then it is
+        measurable. We have, for any set $T$, since
+        $T\supset T\cap E^c$ and $\outm(T\cap E)\leq\outm(E)=0$,
+
+        $$\outm(T)\geq \outm(T\cap E^c)=\outm(T\cap E^c)
+        +\outm(T\cap E).$$
+        The converse inequality holds by the property of
+        outer measure and thus we see that $E$ is measurable.
+    \end{mybox}
+    \item Let $S$ be a collection of subsets of $X$. Let $\mu$ be a set function $\mu: S \to [0,\infty]$, with $\mu(\emptyset) = 0$. Define $\bar \mu(\emptyset) = 0$, and for all $E \subset X$, $ E \neq \emptyset$, define 
+    
+    $$\bar \mu (E)= \inf \left\{ \left.\sum_j \mu(E_j) \ \right| \ E \subseteq \bigcup_j E_j, \  E_j \in S \right\}$$
+    
+    Show that $\bar \mu$ is an outer measure on $X$ (it is called the outer measure induced by $\mu$). 
+    \begin{mybox}
+        We only need to show that $\bar\mu$ is countably subadditive.
+        For $F \subseteq \bigcup_i F_i$, we have $\bar\mu(F_i)
+        =\inf \left\{\sum_j \mu(E_j^i) |\ \ F_i \subseteq \bigcup_i E_j^i, \  E_j^i \in S \right\}$.
+        Then the set $\bigcup_{i,j} E_j^i$ also covers
+        $F$. Then we have,
+        $$\bar\mu(F)=\inf\sum_{i,j}{\mu(E^i_j)}=
+        \sum_j{\bar\mu(F_j)}.$$
+        Hence $\bar\mu$ is an outer measure.
+    \end{mybox}
+    
+    
+    
+    \item Let $E \in \cL$. Show that $\ds E + \la = \{e + \la \ | \ e \in E\} \in \cL$ and $m(E) = m(E+\la)$.  
+    
+    \begin{mybox}
+        We first note that the outer measure is
+        translation invariant. Now, for any set $A\subset \rl$,
+        we have $m^*(A)=m^*(A-\lambda)= m^*([A-\lambda]
+        \cap E)+m^*([A-\lambda]\cap E^c)$ since $E$ is
+        a measurable set. We have $[A-\lambda]\cap E=
+        \{x:\ x\in A-\lambda, x\in E\}=
+        \{y+\lambda:\ y\in A, y\in E+\lambda\}
+        =A\cap [E+\lambda]$ and similarly
+        for $[A-\lambda]\cap E^c$,
+        $[A-\lambda]\cap E^c=
+        \{x:\ x\in A-\lambda, x\in E^c\}=
+        \{y+\lambda:\ y\in A, y\in[] E+\lambda]^c\}
+        =A\cap [E+\lambda]^c$. Thus, we have
+        $m^*(A)=m^*(A-\lambda)= m^*(A
+        \cap [E+\lambda])+m^*(A\cap [E+\lambda]^c)$.
+        Hence $E+\lambda$ is measurable. Since this
+        set is measurable, the measure is equal to
+        the outer measure which is translation invariant
+        and thus the Lebesgue measure is also translation
+        invariant here.
+    \end{mybox}
+    
+    
+    
+    \item Let $E \in \cL$ and let $\ep > 0$. Show that there exist an open set $G$ and a closed set $F$ with $F \subset E \subset G$ so that $m(G \setminus F) < \ep$. Then show that every Lebesgue measurable set is a union of a Borel set and a set of Lebesgue measure 0. 
+    \begin{mybox}
+        Since $E$ and $E^c$ are measurable, there are
+        countable collection of open intervals $\{I_k\}$
+        and $\{J_k\}$ that cover $E$ and $E^c$
+        respectively. Then there exist the open set
+        $G=\bigcup_k{I_k}$ and the closed set $F=\left(
+        \bigcup_k{J_k}\right)^c$ such that $m^*(G-E)
+        <\varepsilon/2$ and $m^*(E-F)<\varepsilon/2$
+        for some $\varepsilon>0$.
+        Since all these sets are measurable, we have
+        $m(G\setminus F)<\varepsilon$.
+    \end{mybox}
+    
+    \item \textbf{Royden p. 43/ Problem 19}
+    Let $E$ have finite outer measure. Show that if $E$ is not measurable, then there is an open set
+    $O$ containing $E$ that has finite outer measure and for which
+    $$m^*(O\setminus E)>m^*(O)-m^*(E).$$
+    \begin{mybox}
+        For some $O \supset E$, we have
+        $O=(O\setminus E)\cup E$ and thus
+        $m^*(O)\leq m^*(O\setminus E)+m^*(E)$. But
+        $E$ is non-measurable and so we have strict
+        inequality for at least one open set $O$ containing
+        $E$. We subtract $m^*(E)$ from both sides
+        (as the outer measure is finite) to get the
+        required inequality.
+    \end{mybox}
+
+    \item \textbf{Royden p. 47/ Problem 26}
+    Let $\{E_k\}_k$ be a countable disjoint collection of measurable sets. Prove that for any set $A$,
+    $$m^*\left(A\cap \bigcup_{k=1}^\infty{E_k}\right)
+    =\sum_{k=1}^{\infty}{m^*(A\cap E_k)}.$$
+    \begin{mybox}
+        We see that $A\cap \bigcup_{k=1}^\infty{E_k}=\bigcup_k{A\cap E_k}$
+        and $\{A\cap E_k\}_k$ is a countable
+        collection of disjoint sets. Clearly,
+        $m^*\left(A\cap \bigcup_{k=1}^\infty{E_k}\right)
+        \leq\sum_{k=1}^{\infty}{m^*(A\cap E_k)}$ by the
+        countably subadditivity of the outer measure.
+        Conversely, we have
+        $$m^*\left(A\cap \bigcup_{k=1}^\infty{E_k}\right)
+        \geq m^*\left(A\cap \bigcup_{k=1}^n{E_k}\right)
+        =\sum_{k=1}^{n}m^*\left(A\cap {E_k}\right)$$
+        for all $n$. The last equality follows from proposition 6
+        in Royden by induction on $n$. Thus, since
+        the inequality is true for all $n$ we have
+        $m^*\left(A\cap \bigcup_{k=1}^\infty{E_k}\right)
+        \geq\sum_{k=1}^{\infty}{m^*(A\cap E_k)}$ and 
+        thus we obtain
+        the required equality.
+    \end{mybox}
+    
+    \item Let $0 < \ep < 1$. Show how to construct an open set in $[0,1]$ which is dense in $[0,1]$ and which has Lebesgue measure $\ep$. 
+    \begin{mybox}
+        We take the countable sequence $(a_n)$ of rational
+        numbers in $I_1=[0,1]$ and choose a subsequence $(b_k)$
+        as follows: Take $b_1$ such that $(b_1-\varepsilon
+        /2^2,b_1+\varepsilon/2^2)\subset I_1$. Now we
+        consider $I_2=I_1\setminus(b_1-\varepsilon/2^2,
+        b_1+\varepsilon/2^2)$ and choose $b_2$ such that
+        $(b_2-\varepsilon
+        /2^3,b_2+\varepsilon/2^3)\subset I_2$ and now we take
+        $I_3=I_2\setminus(b_2-\varepsilon
+        /2^3,b_2+\varepsilon/2^3)$ so on.
+        Thus we take $b_k$ such that $(b_k-\varepsilon
+        /2^{k+1},b_k+\varepsilon/2^{k+1})\subset I_k$.
+        Now we consider all the sets $J_k=I_{k+1}\setminus
+        I_k$. This construction is possible since the total
+        length of the intervals is just $\varepsilon$ which
+        is less than 1. Thus we take the set
+        $\ds\left(\mQ\cup \bigcup_k{J_k}\right)
+        \cap I_1$. The measure of the collection is clearly
+        $\varepsilon$ since $J_k$ are disjoint and countable
+        and $\mQ\cap I$ has measure 0.
+
+    \end{mybox}
+    
+    \item With the same notation that we used in class for the Cantor set $C$, let $O_k =[0,1] \setminus C_k$. Define $O = \cup_1^{\infty} O_k$ (i.e. $[0,1] = C \cup O$). Note that for each $k$, $O_k$ is a union of $2^k -1$ open intervals. Define a function $\phi$ on $[0, 1]$ in the following way:
+    \begin{itemize}
+    \item On each $O_k$, $\phi$ takes the values $\frac{1}{2^k}$, $\frac{2}{2^k}$, $\frac{3}{2^k}$, ..., $\frac{2^k-1}{2^k}$ (i.e. on the 1st subinterval of $O_k$, it takes the value $\frac{1}{2^k}$, and so on...)
+    \item On $C$: $\phi(0) = 0$ and $\phi(x) = \sup\{\phi(t) \ | \ t \in O \cap [0, x)\}$ if $x \in C \setminus \{0\}$.
+    \end{itemize}
+    
+    $\phi$ is called the Cantor-Lebesgue function. Show that $\phi$ is an increasing continuous function that maps $[0,1]$ into $[0,1]$. Moreover, its derivative exists on the open set $O$, $\phi' = 0$ on $O$, and $M(O) = 1$. 
+    \begin{mybox}
+        We note that, for each $nth$ subinterval of $O_k$
+        it becomes the $2nth$ subinterval of $O_{k+1}$.
+        Then for each $x$ in this interval, we have
+        $\phi(x)=n/2^k=2n/2^{k+1}$. Thus $\phi$ is
+        constant on each open subintevals of $O_k$ and
+        and it is continuous there. $phi$ is also
+        increasing on $O$ and because it is defined in
+        terms of supremum in the interval $[0,x)$, it
+        is increasing on $[0,1]$. If $x$ is not in
+        any subintervals of any $O_k$ then,
+        we consider the $nth$ and $(n+1)th$ subintervals
+        of $O_k$ and note that $|\phi(y)-\phi(z)|<1/2^k$
+        for all $y$ and $z$ in a sufficiently small
+        neighborhood of $x$. Thus $\phi$ is indeed
+        continuous. We have $\phi(0)=0$ and $\phi(1)=
+        1$ for all $O_k$ and it is continuous and so $\phi$ maps $[0,1]$ to
+        itself.
+
+        \vspace*{2mm}
+        For each subintervals of $O_k$, the function is
+        constant and thus the derivative exists and
+        equals 0 on each subintervals. So the derivative
+        exists on $O$ and since $M(C)=0$ we have $M(O)=1$.
+    \end{mybox}
+    
+\end{enumerate}
+
+\end{document}

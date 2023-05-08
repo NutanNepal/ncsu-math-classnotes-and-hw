@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 1
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\eq}{\Leftrightarrow}
+
+\begin{enumerate}
+
+\item \begin{enumerate}
+\item Show that if $P$ is any partitions of $[a,b]$, and
+$Q$ is a refinement of $P$ (i.e. $P \subseteq Q$), then 
+$$L(f,P) \leq L(f,Q) \leq U(f,Q) \leq U(f,P).$$
+\item Let $P$ and $Q$ be any partitions of $[a,b]$.
+Show that $L(f, P) \leq U(f, Q)$.
+\end{enumerate}
+
+\begin{mybox}
+
+\begin{enumerate}
+  \item Let $P=\{x_0,x_1,\ldots,x_n\}$ and $Q=\{y_0,y_1,\ldots,
+  y_m\}$ be the given partitions. Then, each interval $I_i=
+  [x_i,x_{i+1}]$ of $P$ contains subintervals $J_1
+  =[x_i=y_\alpha,y_{\alpha+1}],\ldots,
+  J_k=[y_{\alpha+k-1},y_{\alpha+k}=x_{i+1}]$ of $Q$ and the
+  length of the intervals $J_k$ add up to the length of $I$.
+  Furthermore,
+  $m_I=\inf_{x\in I}
+  {f(x)}\leq m_{J_\beta}$ and $M_I=\sup_{x\in I}
+  {f(x)}\geq M_{J_\beta}$ for each $\beta=1,\ldots,
+  k$. Then for each $i=0,\ldots,n-1$,
+  $$m_I\cdot(x_{i+1}-x_i)\leq \sum_{p=1}^k{m_{J_p}\cdot(x_{i+1}
+  -x_i)}=\sum_{p=1}^k{m_{J_p}\cdot(y_{\alpha+p-1}
+  -y_{\alpha+p})}.$$
+  $$L(f,P)=\sum_{i=0}^n{m_I\cdot(x_{i+1}-x_i)}\leq L(f,Q).$$
+  For upper sums, we obtain similar result with
+  $U(f,Q) \leq U(f,P)$ and we have $L(f,P) \leq U(f,P)$ because
+  $m_I\leq M_I$ for all intervals $I$. Combining the inequalities,
+  we obtain the required inequality
+  $$L(f,P) \leq L(f,Q) \leq U(f,Q) \leq U(f,P).$$
+
+  \item Either $P$ is a refinement of $Q$ or $Q$ is a refinement
+  of $P$. For both cases we see that $L(f, P) \leq U(f, Q)$
+  from the result in (a).
+\end{enumerate}
+\end{mybox}
+
+ \item Let $f: [a,b] \to \mR$ be continuous.
+ Show that $f$ is Riemann integrable on $[a,b]$.
+
+\begin{mybox}
+
+Since $f$ is continuous on the closed interval, it is uniformly
+continuous on $[a,b]$.
+For any given $\varepsilon>0$ we have $\delta>0$ such that
+$|x-y|<\delta$ implies $|f(x)-f(y)|<\varepsilon/(b-a)$
+at all points $x,y\in [a,b]$. Then, let $P=\{x_0,x_1,
+\ldots,x_n\}$ be a partition on $[a,b]$ such that $x_{i+1}
+-x_i<\delta$. Then, if $m_i$ and $M_i$ denote the infinimum
+and supremum of $f(x)$ on the partition $[x_i,x_i+1]$, we have
+$M_i-m_i<\varepsilon/(b-a)$. Multiplying by $(x_{i+1}-x_i)$ and
+summing over all $i$ we get
+$$U(f,P)-L(f,P)<(\varepsilon/(b-a))\sum_{i=0}^{n-1}
+{(x_{i+1}-x_i)}=\varepsilon.$$
+Since, $\varepsilon$ was arbitrary, we see that $f$ is
+Riemann integrable.
+
+\end{mybox}
+  
+\item Show that if $f: [a,b] \to \mR$ is monotone
+(without loss of generality, assume that f is increasing),
+then $f$ is Riemann integrable on $[a,b]$.
+\begin{mybox}
+
+Let $P_n=\{x_0,x_1,\ldots,x_{n}\}$ be the partition of $[a,b]$
+into $n$ equal intervals of length $(b-a)/n$. Let $m_i$ and
+$M_i$ denote the infinimum and supremum of the function
+$f$ on the interval $[x_i,x_{i+1}]$. Then since $f$ is monotonic,
+$m_i=f(x_i)$ and $M_i=f(x_{i+1})$. So,
+$$L(f,P_n)=\sum_{i=0}^{n-1}{f(x_i)(x_{i+1}-x_i)},
+\hspace*{5mm}\text{and}\hspace*{5mm}
+U(f,P_n)=\sum_{i=0}^{n-1}{f(x_{i+1})(x_{i+1}-x_i)}.$$
+Since $x_{i+1}-x_i=(b-a)/n$, we have
+$$U(f,P_n)-L(f,P_n)=\frac{b-a}{n}\sum_{i=0}^{n-1}{f(x_{i+1})
+-f(x_i)}=\frac{b-a}{n}(f(b)-f(a)).$$
+We see that the difference goes to 0 as $n\longrightarrow 0$.
+Hence $f$ is Riemann integrable.
+
+\end{mybox}
+ 
+ 
+\item If $f$ and $g$ are Riemann-integrable on $[a,b]$ and
+ $f(x) \leq g(x)$ for all $x \in [a,b]$, show that
+ $$\int_a^b f(x) dx \leq \int_a^b g(x) dx.$$
+
+\begin{mybox}
+
+  Let $P=\{x_0,x_1,\ldots,x_n\}$ be a partition for $[a,b]$.
+  We define a function $h(x)=g(x)-f(x)$ and see that
+  $h(x)\geq 0$ for all $x$ in the interval $[a,b]$.
+  Let $m_i$ and $M_i$ denote
+  the infinimum and supremum of $h(x)$ on the interval
+  $(x_i,x_{i+1})$. Then $0\leq m_i\leq M_i$ for all $i$ and
+  since $g$ and $f$ are Riemann integrable, so is $h$. Hence
+  $$\int_a^b h(x) dx = \int_a^b g(x) dx-
+  \int_a^b f(x) dx \geq 0$$
+  which gives the required result.
+\end{mybox}
+
+\item Let $f:[0,1]\to\mR$, \ $f(x) = \begin{cases}
+  1, & x \in \mQ\\
+  0, & x \notin \mQ
+  \end{cases}
+  $ (the Dirichlet function). 
+  \begin{enumerate}
+  \item Show that $f$ is discontinuous everywhere on $[0,1]$
+  \item Show that $f$ is not Riemann integrable. 
+  \end{enumerate}
+\begin{mybox}
+
+  \begin{enumerate}
+    \item Let $x_0\in\mQ$. Then, for $\varepsilon=1$, we see
+    that there exists no $\delta>0$ such that $f(x)\in (0,2)$
+    for all $x\in (x_0-\delta,x_0+\delta)$ since every interval
+    $(x_0-\delta,x_0+\delta)$ contains another irrational
+    point. Hence, $f$ is not continuous on rational points.
+    Similarly, $f$ is not continuous on irrational points in
+    $[0,1]$ either.
+    \item For any partition $P=\{x_0,x_1,\ldots,x_n\}$ of
+    $[0,1]$, since every intervals contain rational as well as
+    irrational points, $\inf{f(x)}=0$ and $\sup{f(x)}=1$ for
+    each interval. Then $L(f,P)=0$ and $U(f,P)=1$ for every
+    partition. For $\varepsilon=1$ we see that no such partition
+    satifying $U(f,P)-L(f,P)$ exists. Hence, $f$ is not
+    Riemann-integrable.
+    \end{enumerate}
+\end{mybox}
+
+    
+\item Let $f: [a,b] \to \mR$ be bounded and Riemann integrable.
+Suppose that $F: [a,b] \to \mR$ is continuous and 
+$$F'(x) = f(x),   \ \ \text{for all} \ x \in (a,b)$$
+Show that 
+$$F(b) - F(a) = \int_a^b f(x) dx $$
+
+\begin{mybox}
+    
+Let $P=\{x_0,x_1,\ldots,x_n\}$ be a partition for $[a,b]$.
+Then for any interval $I=[x_i,x_{i+1}]$, by mean value theorem,
+we have $$F(x_{i+1})-F(x_i)=F'(x_{i_k})(x_{i+1}-x_i)=
+f(x_{i_k})(x_{i+1}-x_i)$$
+for some $x_{i_k}\in (x_i,x_{i+1})$. Let $m_i$ and $M_i$ denote
+the infinimum and supremum of $f(x)$ on the interval
+$(x_i,x_{i+1})$. Then $m_i\leq f(x_{i_k})\leq M_i$ and taking
+sum over all $i$ from 0 to $n-1$, we obtain
+$$L(f,P)\leq \sum_{i=0}^{n-1}{F(x_{i+1})-F(x_i)}\leq U(f,P).$$
+However, since $P$ was an arbitrary partition and $f$ is
+integrable, we have
+$$\int_a^b f(x) dx =\sum_{i=0}^{n-1}{F(x_{i+1})-F(x_i)}
+=F(b) - F(a).$$
+\end{mybox}
+
+\item Recall the Fundamental Theorem of Calculus:
+If $f$ is continuous on $[a,b]$ and $F(x) = \int_a^x
+f(t) dt$, then $F \in C^1[a,b]$ and $F'(x) = f(x)$.
+
+\vspace*{1mm}
+Now assume that $f$ is Riemann integrable on $[a,b]$ (and
+implicitly on each subinterval of $[a,b]$) and $F(x) =
+\int_a^x f(t) dt$. True or false: $F$ is differentiable.
+Justify your answer. 
+  
+\begin{mybox}
+    
+  We define $f$ piecewise as follows:
+  $f:[a,b]\to\mR$, \ $f(x) = \begin{cases}
+    1, & x \in [a, a+(b-a)/2]\\
+    0, & x \in (a+(b-a)/2,b]\mQ
+  \end{cases}$
+  $f$ is Riemann integrable and the function $F$ is increasing
+  for the first half interval. However, it stays constant for
+  the second half and thus it is not differentiable at
+  $x=a+(b-a)/2$.
+\end{mybox}
+  
+\item Show that a countable set of real numbers has
+measure 0. 
+\begin{mybox}
+    
+  Given a countable set $\{x_1,x_2,\ldots\}$
+  and an arbitrary $\varepsilon>0$,
+  we choose open covers $(x_i-\varepsilon/2^{i+2},
+  x_i+\varepsilon/2^{i+2})$ for $x_i$. The open covers
+  are each of length $\varepsilon/2^{i+1}$.
+  We have, $\sum_{i=1}^\infty{\varepsilon/2^{i+1}}=\varepsilon/2
+  <\varepsilon$. Since, the epsilon was arbitrary, we see that
+  the countable set has measure 0.
+\end{mybox}
+
+\item Suppose that $f: X \to Y$ is a function and suppose
+that $A_{\al}$, $A$, and $B$ are subsets of $Y$. Show that
+\begin{enumerate}
+
+\item $ f^{-1}\left(\bigcup_{\al} A_{\al}\right)
+= \bigcup_{\al}
+f^{-1}(A_{\al})$
+\item $ f^{-1}\left(\bigcap_{\al} A_{\al}\right)
+= \bigcap_{\al}
+f^{-1}(A_{\al})$
+\item $ f^{-1}(A^c) = (f^{-1}(A))^c$
+\item $ f^{-1}(A \setminus B) = f^{-1}(A)
+\setminus f^{-1}(B)$
+\end{enumerate}
+
+Which of these remain true when $f^{-1}$ is replaced by $f$
+(and the sets are now subsets of $X$)?
+
+\begin{mybox}
+
+\begin{enumerate}
+  \item Let $x\in f^{-1}\left(\bigcup_{\al} A_{\al}\right)$.
+  Then, there is $y\in \bigcup_{\al} A_{\al}$ such that
+  $f(x)=y$. So $y$ is in some $A_{\al}$. Thus $x\in
+  \bigcup_{\al}f^{-1}(A_{\al})$. Now, let $x\in \bigcup_{\al}
+  f^{-1}(A_{\al})$, then $x$ is in some $f^{-1}(A_{\al})$.
+  So there exists some $y\in A_{\al}$ such that $f(x)=y$.
+  Since $y\in \bigcup_{\al} A_{\al}$, we have
+  $x\in f^{-1}\left(\bigcup_{\al} A_{\al}\right)$.
+
+  \vspace*{2mm}
+  \item Let $x\in f^{-1}\left(\bigcap_{\al} A_{\al}\right)$.
+  Then, there is $y\in \bigcap_{\al} A_{\al}$ such that
+  $f(x)=y$. So $y$ is in all $A_{\al}$ and $x$ belongs to all
+  $f^{-1}(A_{\al})$. Thus $x\in
+  \bigcap_{\al}f^{-1}(A_{\al})$. Now, let $x\in \bigcap_{\al}
+  f^{-1}(A_{\al})$, then $x$ is in all $f^{-1}(A_{\al})$
+  and there exists $y$ in every $A_{\al}$ such that $f(x)=y$.
+  Since $y\in \bigcap_{\al} A_{\al}$, we have
+  $x\in f^{-1}\left(\bigcap_{\al} A_{\al}\right)$.
+
+  \vspace*{2mm}
+  \item Let $x\in f^{-1}(A^c)$. Then there is some $y\notin A$
+  such that $f(x)=y$. So $x\notin f^{-1}(A)$ and hence
+  $x\in (f^{-1}(A))^c$. Now, let $x\in (f^{-1}(A))^c$. Then
+  $f(x)\notin A$ and hence $f(x)\in A^c\implies x\in f^{-1}
+  (A^c)$.
+
+  \vspace*{2mm}
+  \item Let $x\in f^{-1}(A\setminus B)$.
+  Then there is some $y\in A$ and $y\notin B$
+  such that $f(x)=y$. So $x\notin f^{-1}(B)$ and hence
+  $x\in f^{-1}(A)\setminus f^{-1}(B)$.
+  Now, let $x\in f^{-1}(A)\setminus f^{-1}(B)$. Then
+  $f(x)\notin B$ and hence $f(x)\in A\setminus B
+  \implies x\in f^{-1}
+  (A\setminus B)$.
+\end{enumerate}
+\end{mybox}
+
+
+\item
+\begin{enumerate}
+\item If $I$ and $J$ are open intervals in $\mR$ and
+if $f: X \to \mR^2$ is any function with $f(x) = (u(x), v(x))$,
+show that $$f^{-1}(I \times J) = u^{-1}(I) \cap v^{-1}(J).$$
+\begin{mybox}
+
+If $x\in f^{-1}(I\times J)$, then there exists $(y,z)
+\in I\times J$ such that $y=u(x)$ and $z=v(x)$. Hence
+$x\in u^{-1}(I)$ and $v^{-1}(J)$. Now, let $x\in
+u^{-1}(I) \cap v^{-1}(J)$. Then $x\in u^{-1}(I)$ and there exists
+$y\in I$ such that $y=f(x)$. Also $x\in v^{-1}(J)$ and so there
+exists $z\in J$ such that $z=f(x)$. Thus $x$ is in the preimage
+of $(y,z)$ and so in $f^{-1}(I\times J)$. Hence we have the
+required result:
+$$f^{-1}(I \times J) = u^{-1}(I) \cap v^{-1}(J).$$ 
+\end{mybox}
+
+\item Show that if $u: X \to \mR$ and  $v: X \to \mR$
+are measurable functions, then so is $f = (u,v): X \to \mR^2$.
+[You can assume that any open set in $\mR^2$ can be written
+as countable union of open rectangles $R_k = I_k \times J_k$,
+where $I_k$ and $J_k$ are open intervals in $\mR$.]
+\end{enumerate} 
+\begin{mybox}
+  
+Since any open set in $\rl^2$ can be witten as countable union
+of open rectangles $R_k = I_k \times J_k$, we have, for
+open set $U\subset \rl^2$,
+
+$$U=\bigcup_{k=1}^\infty{I_k\times J_k}.$$
+From (a), we see that
+$f^{-1}(I \times J) = u^{-1}(I) \cap v^{-1}(J)$. Since $u$
+and $v$ are measurable, $u^{-1}(I)$ and $v^{-1}(J)$ are
+measurable sets and so is their intersection. Hence $f$ is
+a measurable function.
+
+\end{mybox}
+
+\end{enumerate}
+
+\end{document}

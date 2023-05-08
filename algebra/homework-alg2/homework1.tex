@@ -1,0 +1,487 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{tikz, graphicx}
+\usepackage{verbatim}
+\usepackage{tikz-cd}
+\usepackage[]{geometry, titling}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\bz}{\mathbb{Z}}
+\newcommand{\id}{\text{id}}
+\newtcolorbox{mybox}[1][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\tikzcdset{
+    bigcd/.style={
+    arrows = {line width=0.8pt},
+    cells = {sep=45pt,
+    inner xsep=1ex, inner ysep=1ex},
+    nodes = {font=\large},
+    labels = {font=\normalsize}
+    }
+}
+\NewEnviron{myequation}{%
+    \begin{equation}
+    \scalebox{3}{$\BODY$}
+    \end{equation}
+    }
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{%
+  \kern\nindent\overline
+  {\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+%\setlength{\topmargin}{-.65in}
+%\setlength{\textwidth}{190mm} 
+%\setlength{\textheight}{240mm}
+%\setlength{\oddsidemargin}{-13mm}
+\geometry{top=20mm, left=15mm, right=15mm, bottom=20mm}
+\pretitle{\begingroup\centering\huge}
+\posttitle{\par\endgroup}
+\title{Algebra II\\
+\large Homework 1
+}
+\author{Nutan Nepal}
+\newcommand{\mr}{\mathbb{R}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\nil}{\mathfrak{N}(R)}
+\renewcommand{\hom}[1]{\text{Hom}_{#1}}
+\newcommand{\tor}{\text{Tor}}
+\newcommand{\im}{\text{im}}
+%\newcommand{\ker}{\text{ker}}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{190mm}{.5pt}}
+\vspace{0mm}
+\begin{enumerate}
+
+\item (10.1 - 5) For any left ideal $I$ of $R$ define
+$$IM=\left\{\sum_{\text{finite}}
+{a_im_i\ |\ a_i\in I,\ m_i\in M}\right\}$$
+to be the collection of all finite sums of elements of
+the form $am$ where $a\in I$ and $m\in M$. Prove that
+$IM$ is a submodule of $M$.
+\begin{mybox}
+    We show that $IM$ is a submodule of $M$ and is closed
+    under the action of the ring elements:
+
+    \vspace*{2mm}
+    Clearly, $0\in IM$.
+    If $p=\alpha_1f_1+\cdots+\alpha_n f_n$ and
+    $q=\beta_1 g_1+\cdots+\alpha_m g_m$ in $IM$ with
+    $\alpha$, $\beta\in I$ and $f_i$, $g_i\in M$, then
+    $p+q=\alpha_1f_1+\cdots+\alpha_n f_n+\cdots+
+    \beta_1 g_1+\cdots+\alpha_m g_m$ is a finite sum with
+    coefficients in the ideal and
+    hence belongs to the set $IM$. For any finite sum
+    $p=\alpha_1f_1+\cdots+\alpha_n f_n\in IM$, its
+    inverse $-p$ is also a finite sum with coefficients
+    in the ideal and hence belongs to $IM$.
+    So, $IM$ is a subgroup. Now, for any ring element
+    $r\in R$ and $p=\alpha_1f_1+\cdots+\alpha_n f_n \in
+    IM$, we have $rp=r(\alpha_1f_1+\cdots+\alpha_n f_n)=
+    r\alpha_1f_1+\cdots+r\alpha_n f_n$. Since $rI\subset
+    I$, we see that $IM$ is closed under the ring action
+    and hence is a submodule of $M$.
+\end{mybox}
+
+\item (10.1 - 6) Show that the intersection of any
+nonempty collection of submodules of an $R$-module is
+a submodule.
+
+\begin{mybox}
+Let $N=\bigcap_{\lambda\in \Lambda}{N_\lambda}$ be the
+intersection of the nonempty collection of submodules
+$N_\lambda$ of $M$ indexed by the set $\Lambda$. Clearly,
+$0\in N$, so $N$ is nonempty. Now, for any $p$, $q\in N$,
+$p+q\in N_\lambda$ for every $\lambda\in\Lambda$ since
+each $N_\lambda$ is a submodule and thus $p+q\in N$. Also,
+$p\in N\implies p\in N_\lambda\implies -p\in N_\lambda$
+for all $\lambda$ which implies that $-p\in N$. Thus,
+$N$ is a subgroup of $M$. Now, for $p\in N$ and $r\in R$,
+we note that $rp\in N_\lambda$ for all $\lambda$. So
+$rp\in N$ and $N$ is closed under the action of ring
+elements. Thus $N$ is a submodule.
+\end{mybox}
+
+
+\item (10.2 - 6) Prove that $\hom{\mz}(\mz/n\mz, \mz/m\mz)
+\simeq \mz/(n, m)\mz$.
+
+\begin{mybox}
+    We first note that if
+    $\alpha\in\hom{\mz}(\mz/n\mz, \mz/m\mz)$ with $\alpha(1)
+    =p$, then $0=\alpha(n)=pn$. Since $m\mid pn$ we have,
+    $m/(m,n)\mid p$. Thus all elements $\alpha\in 
+    \hom{\mz}(\mz/n\mz, \mz/m\mz)$ are given by:
+
+    $$\alpha(1)=\frac{mx}{(m,n)}$$
+
+    for $x\in \mz/n\mz$.
+    
+    Clearly, any map defined as above
+    is a homomorphism in $\hom{\mz}(\mz/n\mz, \mz/m\mz)$.
+
+    \vspace*{2mm}
+    We define a map $\varphi:\mz/(n, m)\mz
+    \longrightarrow \hom{\mz}(\mz/n\mz, \mz/m\mz)$
+    defined by $\varphi(x)=\alpha_x$ where $\alpha_x(1)
+    =mx/(m,n)$. Since these are all the unique
+    homomorphisms in $\hom{\mz}(\mz/n\mz, \mz/m\mz)$,
+    $\varphi$ is surjective. If $\varphi(x)=\varphi(y)$,
+    then $mx/(m,n)=my/(m,n)\implies x=y$. Thus $\varphi$
+    is injective. $\varphi$ is a homomorphism since
+    $\varphi(x+y)(1)=m(x+y)/(m,n)=\varphi(x)(1)
+    +\varphi(y)(1)$ and $\varphi(ry)(1)=mry/(m,n)
+    =r\varphi(y)(1)$.
+    Thus, this is an isomorphism of
+    $\mz$-modules.
+\end{mybox}
+
+\item (10.2 - 10) Let $R$ be a commutative ring. Prove
+that $\hom{R}(R, R)$ and $R$ are isomorphic as rings.
+\begin{mybox}
+    We first note that if $\varphi\in\hom{R}(R,R)$ then
+    for any $x\in R$, $\varphi(x)=\varphi(x\cdot 1)=r\cdot
+    \varphi(1)$. Since, $\varphi(1)$ can be any element of
+    $R$ we have $\varphi(x)=x\cdot r$ for some $r\in R$.
+    Hence $\varphi$ is completely determined
+    by its value on the identity of $R$.
+
+    \vspace*{2mm}
+    Now, if $\alpha:R\to R$ is any map such that $\alpha
+    (x)=x\cdot r$ for some $r\in R$ then we have
+    $\alpha(p x+q y)=(px+qy)\cdot r=p\alpha(x)+q\alpha(y).$
+    Thus, $\alpha\in\hom{R}(R,R)$ and we see that every
+    $\varphi\in\hom{R}(R,R)$ is of this form. Hence we can
+    define a map $\psi:\hom{R}(R,R)\to R$ by $\psi(\varphi)
+    =\varphi(1)$ which is surjective as we saw above.
+    Furthermore, if $\psi(\varphi)=\varphi(1)=0$ then
+    $\varphi$ is a 0 map and hence $\psi$ is injective.
+    We now show that $\psi$ is a ring homomorphism:
+
+    \vspace*{2mm}
+    \begin{enumerate}
+        \item $\psi(\alpha+\beta)=(\alpha+\beta)(1)=
+            \psi(\alpha)+\psi(\beta)$
+        \item $\psi(\alpha\circ\beta)=(\alpha\circ\beta)(1)
+            =\alpha(\beta(1))=\alpha(1\cdot\beta(1))=
+            \alpha(1)\cdot\beta(1)=
+            \psi(\alpha)\cdot\psi(\beta)$
+        \item $\psi(e)=e(1)=1$
+    \end{enumerate}
+    where $e\in\hom{R}(R,R)$ is the identity map. Thus,
+    $\psi$ is a ring isomorphism.
+\end{mybox}
+
+\item (10.3 - 4) An $R$-module $M$ is called a torsion
+module if for each $m\in M$ there is a nonzero element
+$r\in R$ such that $rm = 0$, where $r$ may depend on $m$
+(i.e., $M = \tor(M)$ in the notation of Exercise 8 of
+Section 1). Prove that every finite abelian group is a
+torsion $\mz$-module. Give an example of an infinite
+abelian group that is a torsion $\mz$-module.
+\begin{mybox}
+
+    If $p\neq 0$ is the order of the any given finite
+    abelian group then $p\cdot m=0$ for every element
+    $m\in M$. Thus every finite abelian group is a
+    torsion $\mz$-module.
+    
+    \vspace*{2mm}
+    We take $M=\mathbb{F}_2[x]$, the group of polynomials
+    over the finite field $\mathbb{F}_2$ to be the our
+    abelian group. Clearly, it's infinite as it has
+    elements of every degree. Considered as a $\mz$-module,
+    we see that $2\cdot f(x)=0$ for all $f(x)\in M$.
+    Thus it is an infinite abelian torsion $\mz$-module.
+
+\end{mybox}
+
+\item (10.3 - 9) An $R$-module $M$ is called
+\emph{irreducible} if $M\neq 0$ and if 0 and $M$ are the
+only submodules of $M$. Show that $M$ is irreducible if
+and only if $M\neq 0$ and $M$ is a cyclic module with any
+nonzero element as generator. Determine all
+the irreducible $\mz$-modules.
+\begin{mybox}
+    We first prove that if $M$ is irreducible then $M\neq
+    0$ and $M$ is a cyclic module with any nonzero
+    element as generator. Assume that $M\neq 0$ is
+    irreducible and $m\in M$ is any element.
+    Then since $Rm\subset M$ is a submodule of $M$ and $M$
+    contains no non-trivial submodule, $Rm=M$ and $m$ is
+    the nonzero generator. Now, assume that $M\neq 0$ is
+    a cyclic module with any nonzero generator. Then if
+    $m\neq 0$, $Rm\subset M$. But $M$ is generated by any
+    nonzero element of $M$ so $M\subset Rm$. Thus $M=Rm$,
+    meaning that $M$ and 0 are the only submodules of $M$.
+    Hence $M$ is irreducible.
+
+    \vspace*{2mm}
+    From above, we see that the only irreducible
+    $\mz$-modules are cyclic groups of prime order.
+\end{mybox}
+
+\item (10.4 - 2) Show that the element $``2\otimes 1"$ is
+0 in $\mz\otimes_\mz \mz/2\mz$ but is nonzero in
+$2\mz\otimes_\mz \mz/2\mz$.
+\begin{mybox}
+
+    We note that in $\mz\otimes_\mz \mz/2\mz$,
+    $2\otimes 1=2\cdot1\otimes 1=1\otimes 2\cdot 1$.
+    But since $2\equiv 0$ in $\mz/2\mz$, we have,
+    $2\otimes 1=1\otimes 2=1\otimes 0=0$.
+
+    To show that it is nonzero in $2\mz\otimes_\mz \mz/2\mz$,
+    we consider the map $\alpha:2\mz\times \mz/2\mz
+    \to \mz/2\mz$ defined by $\alpha(2m, n)=mn \mod 2$
+    for $2m\in2\mz$ and $n\in \mz/2\mz$. Clearly, the
+    following holds:
+
+    \vspace*{2mm}
+    \begin{enumerate}
+        \item $\alpha(r_1\cdot 2m+r_2\cdot 2p,n)=
+        r_1\cdot \alpha(2m,n)+r_2\cdot \alpha(2p,n)
+        =r_1mn+r_2pn \mod 2.$
+        \item $\alpha(2m, r_1\cdot n+r_2\cdot q)=
+        r_1\cdot \alpha(2m,n)+r_2\cdot \alpha(2m,q)
+        =r_1mn+r_2mq \mod 2.$
+    \end{enumerate}
+    for $m$, $p\in 2\mz$ and $n$, $q\in \mz/2\mz$. Then,
+    $\alpha$ is a $\mz$-bilinear map and induces a
+    $\mz$-linear map $\beta:2\mz\otimes_\mz \mz/2\mz
+    \to \mz/2\mz$ such that $\beta(2m\otimes n)=
+    mn\mod 2$.
+    \[
+    \begin{tikzcd}[bigcd]
+        2\mz \times \mz/2\mz \ar[r,] \ar[dr, "\alpha"]
+        & 2\mz\otimes_\mz \mz/2\mz \ar[d, "\beta"]\\
+        & \mz/2\mz
+        \end{tikzcd}
+    \]
+    Since $\beta(2\otimes 1)=1\cdot 1\mod 2=1\neq 0$ in
+    $\mz/2\mz$, we see that $2\otimes 1\neq 0$ in
+    $2\mz\otimes_\mz \mz/2\mz$ since $\beta$ is an $R$-linear
+    map.
+\end{mybox}
+
+\item (10.4 - 4) Show that $\mq\otimes_\mz \mq$ and
+$\mq\otimes_\mq \mq$ are isomorphic left $\mq$-modules.
+[Show they are both 1-dimensional vector spaces over $\mq$.]
+\begin{mybox}
+    By Theorem 8, letting $\iota:\mq\to\mq\otimes_\mq \mq$
+    be the ring homomorphism defined by $\iota(q)=1\otimes q$,
+    we have the commutative diagram:
+    \[
+    \begin{tikzcd}[bigcd]
+        \mq \ar[r,"\iota"] \ar[dr, "\varphi"]
+        & \mq\otimes_\mq \mq \ar[d, "\varPhi"]\\
+        & \mq
+        \end{tikzcd}
+    \]
+    If we let $\varphi$ to be the identity map then we get
+    $\varPhi\circ\iota$ to be the identity map. Then $\iota$ is
+    an isomorphism of $\mq$-modules. To show that
+    $\mq\otimes_\mz \mq\simeq\mq$ we define a map
+    $\beta:\mq\to\mq\otimes_\mz \mq$ by
+    $\beta(q)=1\otimes q$. We can prove that this is
+    a $\mq$-linear map by
+    $$\beta\left(\frac{a}{b}q\right)=1\otimes\frac{a}{b}q
+    =a\otimes \frac{q}{b}=\frac{ab}{b}\otimes\frac{q}{b}
+    =\frac{a}{b}\otimes q=\frac{a}{b}(1\otimes q)
+    =\frac{a}{b}\beta(q).$$
+    Now, we can define a map
+    $\alpha:\mq\otimes_\mz \mq\to\mq$ by $\alpha(p\otimes
+    q)=pq$. It is a well-defined map and we have
+    $\alpha\circ\beta(q)=q$ and
+    $$\beta\circ\alpha(p\otimes q)=\beta(pq)=1\otimes pq
+    =p\otimes q.$$
+    Thus, since the maps are inverse of each other, we see
+    that $\beta$ is an isomorphism of $\mq$-modules. Since,
+    both  $\mq\otimes_\mz \mq$ and
+    $\mq\otimes_\mq \mq$ are isomorphic to $\mq$ as a
+    bimodule, we see that they are isomorphic to each other
+    as a left $\mq$-module.
+\end{mybox}
+
+\item (10.5 - 1) Suppose that
+    \[
+        \begin{tikzcd}[bigcd]
+              A \ar[r, "\psi"] \ar[d, "\alpha"]
+              & B \ar[d, "\beta"] \ar[r,"\varphi"]
+              & C \ar[d, "\gamma"]\\
+              A' \ar[r, "\psi'"]
+              & B' \arrow[r,"\varphi'"]
+              & C'
+        \end{tikzcd}
+    \]
+
+is a commutative diagram of groups and that the rows are
+exact. Prove that
+\begin{enumerate}
+    \item if $\varphi$ and $\alpha$ are surjective, and
+    $\beta$ is injective then $\gamma$ is injective. [If
+    $c\in \ker(\gamma)$, show there is a $b\in B$ with
+    $\varphi(b) = c$. Show that $\varphi'(\beta(b)) = 0$
+    and deduce that $\beta(b) = \psi'(a')$ for some $a'
+    \in A'$. Show there is an $a\in A$ with $\alpha(a)=a'$
+    and that $\beta(\psi(a))=\beta(b)$. Conclude that
+    $b = \psi(a)$ and hence $c = \varphi(b) = 0.$]
+
+    \begin{mybox}
+        Let $c\in\ker(\gamma)$. Since $\varphi$ is surjective,
+        there exists $b\in B$ with $\varphi(b)=c$. The
+        given diagram is commutative and hence we have
+        $\varphi'\circ \beta(b)=\gamma\circ\varphi(b)=0$.
+        Hence $\beta(b)\in\ker(\varphi')=\im(\psi')$ and we
+        have $\beta(b)=\psi'(a')$ for some $a'\in A'$. Since
+        $\alpha$ is surjective, there exists $a\in A$ such that
+        $\alpha(a)=a'$. Thus $\psi'(\alpha(a))=\beta(\psi(a))
+        =\beta(b) \implies b=\psi(a).$ Hence $c=\varphi(b)
+        =\varphi\circ\psi(a)=0$. So, $\gamma$ is injective.
+    \end{mybox}
+
+    \item if $\psi'$, $\al$, and $\gamma$ are
+    injective, then $\beta$ is injective,
+
+    \begin{mybox}
+        Since $\psi'\circ\alpha$
+        is injective, we see that $\beta\circ\psi$ is
+        injective and so $\psi$ is injective.
+        Let $b\in\ker(\beta)$. Then $\varphi'\circ\beta
+        (b)=0=\gamma\circ\varphi(b)$. Since, $\gamma$ is
+        injective and $\varphi(b)\in\ker(\gamma)$,
+        $\varphi(b)=0\implies b\in \im(\psi)$. Thus there
+        exists $a\in A$ with $b=\psi(a)$. But $\psi$ is
+        injective and $\beta(b)=\beta\circ\psi(a)=0$.
+        So $a=0$ and $b=\psi(a)=0$. $\beta$ is injective.
+
+    \end{mybox}
+    
+    \item if $\varphi$, $\al$, and $\gamma$ are
+    surjective, then $\beta$ is surjective,
+
+    \begin{mybox}
+        Let $b'\in B'$ be any element. We want to show that
+        there exists a $p\in B$ with $\beta(p)=b'$.
+
+        \vspace*{2mm}
+        Since $\gamma\circ\varphi$
+        is surjective, there exists a $b\in B$ such that
+        $\gamma\circ\varphi(b)=\varphi'(b')=\varphi'\circ
+        \beta(b)$. Then $\varphi'(\beta(b)-b')=0\implies
+        b'-\beta(b)\in \im(\psi')$. So there exists $a'\in A'$
+        with $\psi'(a')=\beta(b)-b'$. Since $\alpha$ is
+        surjective, we have $a\in A$ such that $\psi'\circ
+        \alpha(a)=\beta(b)-b'$. So, $\beta\circ\psi(a)
+        =\psi'\circ\alpha(a)=\beta(b)-b'\implies\varphi'(\beta
+        \circ\psi(a))=\varphi'(\beta(b)-b')$. If we let
+        $p=\psi(a)+b$, 
+        $$\beta(\psi(a)+b)=\beta\circ\psi(a)+\beta(b)
+        =b'=\beta(b)+\beta(b)=b'.$$
+        So, $\beta$ is surjective.
+    \end{mybox}
+
+    \item if $\beta$ is injective, $\al$ and $\varphi$ are
+    surjective, then $\gamma$ is injective,
+
+    \begin{mybox}
+        Let $c\in\ker(\gamma)$. Then since $\varphi$ is
+        surjective, there exists $b\in B$ with
+        $c=\varphi(b)$. Then $\varphi'\circ\beta(b)
+        =\gamma\circ\varphi(b)=0$. Then $b'=\beta(b)
+        \in\ker(\varphi')=\im(\psi')$. So we have,
+        $a'\in A$ with $\psi'(a)=b'$. Since $\alpha$ is
+        surjective, we have $a\in A$ with $\alpha(a)=a'$
+        and $\psi'\circ\alpha(a)=\beta\circ\psi(a)=b'
+        =\beta(b)$. Since $\beta$ is injective, we have
+        $\psi(a)=b\implies b\in\im(\psi)\implies
+        c=\varphi(b)=0$. Thus $\gamma$ is injective.
+
+    \end{mybox}
+
+    \item if $\beta$ is surjective, $\gamma$ and $\psi'$
+    are injective, then $\al$ is surjective.
+    \begin{mybox}
+        Let $a'\in A'$ be any element. We want to show that
+        there exists a $a\in A$ with $\alpha(a)=a'$.
+
+        \vspace*{2mm}
+        Since $\beta$ is surjective, there exists $b\in B$
+        with $\beta(b)=\psi'(a')=b'$ where $b'\in B'$ is
+        some element of $B'$. Then $\gamma\circ\varphi(b)=
+        \varphi'\circ\beta(b)=\varphi'\circ\psi'(a')=0$
+        follows from the exactness of the lower row.
+        Since $\gamma$ is injective, $\gamma\circ\varphi
+        (b)=0\implies\varphi(b)=0\implies b\in\im(\psi)$.
+        So there exists $a\in A$ such that $b=\psi(a)$.
+        Then $\beta\circ\psi(a)=\psi'\circ\alpha(a)=
+        \psi'(a')$. But since $\psi'$ is injective, we have
+        $\alpha(a)=a'$ as required.
+    \end{mybox}
+
+\end{enumerate}
+
+\item (10.5 - 4) Let $Q_1$ and $Q_2$ be $R$-modules.
+Prove that $Q_1\oplus Q_2$ is an injective $R$-module
+if and only if both $Q_1$ and $Q_2$ are injective.
+\begin{mybox}
+    If $Q_1\oplus Q_2$ is injective, then for any
+    $R$-modules $L$, $M$, if $0\to L\xlongrightarrow{\psi}
+    M$ is exact, then every $R$-module homomorphism $f$ from
+    $L$ to $Q_1\oplus Q_2$ lifts to an $R$-module homomorphism
+    $F$ of $M$ into $Q_1\oplus Q_2$. Now, if $g:L\to Q_1$
+    is any $R$-module homomorphism, then $g$ factors through
+    $Q_1\oplus Q_2$ with $g=\pi_1\circ f$ for some
+    $f\in\hom{R}(L,Q_1\oplus Q_2)$. If $F$ is the lift of
+    $f$, then $\pi_1\circ F\in \hom{R}(M,Q_1)$
+    is the lift of $g$. Hence, $Q_1$ is injective. We see that
+    $Q_2$ is also injective similarly.
+    \[
+    \begin{tikzcd}[bigcd]
+        0 \ar[r]
+        & L \ar[d, "f"] \ar[r, "\psi"]
+        & M \ar[dl, dashed, "F"]
+        \ar[ddll, dashed, out=260, in=10, "G"]
+        \\
+        & Q_1 \oplus Q_2 \ar[dl, "\pi_1"]
+        & \\
+        Q_1 \ar[from=uur, out=220, in=90 , "g"]
+    \end{tikzcd}
+    \]
+
+    Now, if $Q_1$ and $Q_2$ are injective modules and $f:L\to
+    Q_1\oplus Q_2$ is any module homomorphism, then
+    $\pi_1\circ f$ and $\pi_2\circ f$ are homomorphisms from $L$
+    to $Q_1$ and $Q_2$ respectively. If $F_1$ and $F_2$ are the lift
+    of these homomorphisms to $\hom{R}(M,Q_1)$ and $\hom{R}(M,Q_2)$
+    respectively, then we define $F:M\to Q_1\oplus Q_2$ by
+    $F(m)=(F_1(m),F_2(m))$. Then this is a lift of the map $f$ and
+    hence the direct sum is injective.
+\end{mybox}
+\end{enumerate}
+\end{document}

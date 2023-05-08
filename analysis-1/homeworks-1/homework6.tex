@@ -1,0 +1,422 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}[]{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\inn}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\real}{\mathfrak{Re}}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis I \\
+\large Homework 6
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Let $M \subset X$ be a  closed subspace in an inner
+product space such that $M  \neq M^{\perp \perp}$.
+(Note that this would not be possible in a
+Hilbert space.) Let $x \in 
+M^{\perp \perp} - M$. Show that there is no best
+approximation to $x$ in M.
+
+\begin{mybox}
+
+    $M$ and $M^{\perp\perp}$ are both closed subspaces of
+    $X$. If $x \in M^{\perp \perp} - M$,
+    suppose there is a best approximation to $x$ in $M$
+    given by $s=\sum_{i=1}^\infty{\inn{x}{e_i}e_i}$ where
+    $\{e_i\}_1^\infty$ is an orthonormal sequence of $M$.
+    Then for the sequence $\{x_i\}_1^\infty$
+    in $M^{\perp\perp}$ converging to $x$, we take $y\in
+    M^\perp=M^{\perp\perp\perp}$. Then
+
+    $${\inn{s}{y}}=\inn{\lim_{n\to \infty}{\sum_{i=1}
+    ^\infty{\inn{x_n}{e_i}e_i}}}{y}=0.$$
+    But this means that $s\in M^{\perp\perp}$ which cannot
+    be true. Thus, $x$ doesn't have a best approximation.
+    
+\end{mybox}
+
+\item Show that $\{\sin nx\}_{n \geq 1}$ and
+$\{\cos nx\}_{n \geq 1}$ are orthogonal in
+$L^2[-\pi,\pi]$. Build two orthonormal sequences in
+$L^2[-\pi,\pi]$.
+\begin{mybox}
+
+    For $n\neq 0$ and $m\neq 0$, we have
+    $$
+    \int_{-\pi}^{\pi}{\cos nx \cdot\cos mx\ dx}=
+    \int_{-\pi}^{\pi}{\frac{1}{2}(\cos (n-m)x+
+    \cos (n+m)x)\ dx}$$
+    So when $n\neq m$,
+    \begin{align*}
+    \int_{-\pi}^{\pi}{\cos nx \cdot\cos mx\ dx}=&
+    \left. \frac{1}{2}(\frac{1}{n-m}\sin (n-m)x+
+    \frac{1}{n+m}\sin (n+m)x)\right|_{x=-\pi}^{x=\pi}\\
+    =&\frac{1}{n-m}\sin (n-m)\pi+
+    \frac{1}{n+m}\sin (n+m)\pi=0
+    \end{align*}
+    And when $n=m$,
+    $$\int_{-\pi}^{\pi}{\cos nx \cdot\cos mx\ dx}=
+    \left. \frac{x}{2}+
+    \frac{1}{4n}\sin 2nx\right|_{x=-\pi}^{x=\pi}=\pi$$
+    Thus we obtain,
+    $$\inn{\cos nx}{\cos mx}=\int_{-\pi}^{\pi}{
+        \cos nx \cdot\cos mx\ dx
+    }=\begin{dcases}
+        0 & m\neq n,\\
+        \pi & m=n.
+    \end{dcases}$$
+    Thus $\{\cos (nx)/\sqrt{\pi}\}_{n\geq 1}$ is an
+    orthonormal sequence in $L^2[-\pi,\pi]$. Similarly,
+
+    $$\inn{\sin nx}{\sin mx}=\int_{-\pi}^{\pi}{
+        \sin nx \cdot\sin mx\ dx
+    }=\begin{dcases}
+        0 & m\neq n,\\
+        \pi & m=n.
+    \end{dcases}$$
+    Hence $\{\sin (nx)/\sqrt{\pi}\}_{n\geq 1}$ is another
+    orthonormal sequence in $L^2[-\pi,\pi]$.
+\end{mybox}
+ 
+ 
+\item Determine whether or not the following is true in
+a Hilbert space H: 
+$$[x \perp y ]\ \  \iff\ \  [\|x+y\|^2 = \|x\|^2 +
+\|y\|^2].$$
+\begin{mybox}
+
+    We know that $\|x+y\|^2=\inn{x+y}{x+y}=\|x\|^2
+    +2\real\inn{x}{y}+\|y\|^2$ and
+    $\|x-y\|^2=\inn{x-y}{x-y}=\|x\|^2
+    +\inn{x}{-y}+\inn{-y}{x}+\|y\|^2
+    =\|x\|^2
+    +\mathfrak{Im}\inn{x}{-y}+\|y\|^2$.
+
+    \vspace*{3mm}
+    If $x\perp y$, then $\inn{x}{y}=0$ and hence
+    $\|x+y\|^2 = \|x\|^2 +\|y\|^2$.
+    
+    \vspace*{3mm}
+    Similarly, if
+    $\|x+y\|^2 = \|x\|^2 +\|y\|^2$, we have
+    $\real\inn{x}{y}=0$. Also by parallelogram law,
+    $\|x-y\|^2 = \|x\|^2 +\|y\|^2$, which gives
+    $\mathfrak{Im}\inn{x}{-y}=-\mathfrak{Im}\inn{x}{y}
+    =0$. Hence, $x\perp y$.
+\end{mybox}
+
+\item Let $X$ be a normed space, $Y$ a subspace in $X$,
+and $x
+\in X$. Show that the set $M$ of best approximations to
+$x$ out of $Y$ is convex, i.e., $\al x + (1-\al)y \in  M$,
+for all $x,y \in M$ and $\al \in [0,1]$.
+
+\begin{mybox}
+
+    If $M$ has more than one point and
+    $\delta$ is the distance from $x$ to $Y$, then 
+    for $y$, $z\in M$ we have
+    $$\|x-y\|=\|x-z\|=\delta.$$
+    Let $w=\alpha y+(1-\alpha)z$ for some
+    $\alpha\in [0,1]$. Then
+    $$\|x-w\|=\|x-\alpha y+(1-\alpha)z\|=
+    \|\alpha(x-y)+(1-\alpha)(x-z)\|\leq \alpha\delta
+    +(1-\alpha)\delta=\delta.$$
+    But we know that $\|x-w\|\geq \delta$ since $w\in Y$.
+    Hence $\|x-w\|=\delta$ and $w\in M$. So, $M$ is convex.
+\end{mybox}
+ 
+\item Show that a Hilbert space $H$ is strictly convex,
+i.e. for any $x,y \in H$ with $\|x \| = \|y\| = 1$, we
+have $\|x+y\| < 2$.
+\begin{mybox}
+
+    In a Hilbert space $H$, we have by parallelogram
+    law
+    $$\|x+y\|^2+\|x-y\|^2=2(\|x\|^2+\|y\|^2).$$
+    For $x$ and $y\neq x$ of norm 1 in $H$, if $\|x-y\|
+    =a$ then,
+    $$\|x+y\|^2=4-a^2<4.$$
+    Hence $\|x+y\|<2$.
+\end{mybox}
+ 
+\item Find the best approximation to $\sin(x)$ in
+$L^2[0,1]$ by a polynomial of degree $\leq 3$. 
+(You can use software to help with the calculations
+if necessary; or you can leave coefficients as inner
+products when applicable).  
+\begin{mybox}
+
+    Let $M=$ Span $\{1, x, x^2, x^3\}$ be the subspace
+    generated by the polynomials of degree $\leq 3$. We
+    need to find the projection of $\sin x$ onto the
+    subspace $M$. First we find the orthonormal basis of
+    $M$ by Gram-Schmidt process:
+    $e_1=1$, $e_2=v_2/\|v_2\|$ where
+    $$v_2 = x-\int_0^1{x\ dx}=x-1/2 \implies \|v_2\|=1/12.$$
+    Similarly $e_3=v_3/\|v_3\|$ where
+    $$v_3=x^2-e_2\int_0^1{x^2e_2\ dx}-
+    \int_0^1{x^2\ dx}$$ and $e_4=v_4/\|v_4\|$ where
+    $$v_4=x^3-e_3\int_0^1{x^3e_3\ dx}
+    - e_2\int_0^1{x^2e_2\ dx}-
+    \int_0^1{x^3e_1\ dx}.$$
+
+    Then the best approximation to $\sin x$ in $M$ is
+    given by $y=\inn{e_1}{sin x}e_1+\inn{e_2}{sin x}e_2
+    +\inn{e_3}{sin x}e_3+\inn{e_4}{sin x}e_4$.
+\end{mybox}
+ 
+\item Let $H$ be a Hilbert space and  $M \subset H$.
+Prove that
+$$M \ \ \text{is total iff} \ \ [x \perp M \Rightarrow
+\ x = 0] $$
+\begin{mybox}
+
+    If $M$ is total, Span $M$ is dense in $H$. So,
+    (Span $M)^\perp=0\implies [x\perp M\implies x=0]$.
+
+    \vspace*{3mm}
+    Similarly, if $M$ satisfies the given condition, then
+    span of $M$ is dense in $H$ (since $H$ is a Hilbert
+    space). Thus $M$ is total.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.159 / Problem 7.}
+Let $(e_k)$ be any orthonormal sequence in an inner product
+space $X$. Show that for any $x$, $y\in X$,
+$$\sum_{k=1}^\infty{|\inn{x}{e_k}\inn{y}{e_k}|}
+\leq \|x\|\|y\|.$$ 
+\begin{mybox}
+
+    By Cauchy-Schwarz, we have
+    $$\left(\sum_{k=1}^\infty{|\inn{x}{e_k}\inn{y}{e_k}|}
+    \right)^2
+    =\left(\sum_{k=1}^\infty{|\inn{x}{e_k}|^2}\right)\cdot
+    \left(\sum_{k=1}^\infty{|\inn{y}{e_k}|^2}\right).$$
+    By Bessel's inequality, we have $\sum_{k=1}^\infty
+    {|\inn{x}{e_k}|^2}\leq\|x\|^2$ for all $x\in X$.
+    Thus, 
+    $$\left(\sum_{k=1}^\infty{|\inn{x}{e_k}\inn{y}{e_k}|}
+    \right)^2\leq \|x\|^2\|y\|^2.$$
+    Taking square root on both sides yields the required
+    inequality.
+\end{mybox}
+
+
+\item \textbf{Kreyszig p.159 / Problem 10.}
+Let $x_1(t) =t^2$, $x_2(t) =t$ and $x_3(t) =1$.
+Orthonormalize $x_1$, $x_2$, $x_3$, in this order,
+on the interval $[-1, 1]$ with respect to the inner
+product given in Prob. 9.
+\begin{mybox}
+
+    The given inner product is
+    $$\inn{x}{y}=\int_{-1}^1{x(t)y(t)\ dt}.$$
+    We use Gram-Schmidt process to orthonormalize the
+    given elements.
+    Here, $\|x_1(t)\|^2=\int_{-1}^1{t^4\ dt}=2/5$, so
+    $e_1=t^2/\sqrt{2/5}$. Now,
+    $e_2=v_2/\|v_2\|$ where $v_2=x_2(t)-\inn{x_2}{e_1}e_1$.
+    $$v_2=t-t^2/\sqrt{2/5}\int_{-1}^1{t^3/\sqrt{2/5}\ dt}
+    =t \hspace*{10mm} \text{and,}$$
+    $$\|v\|^2=\int_{-1}^1{t^2\ dt}=2/3.$$
+    Thus $e_2=t/\sqrt{2/3}$. Finally, $e_3=v_3/\|v_3\|$
+    where $v_3=x_3-\inn{x_3}{e_1}e_1-\inn{x_3}{e_2}e_2$.
+
+    $$v_3=1-e_1\int_{-1}^1{t^2/\sqrt{2/5}\ dt}-
+    e_2\int_{-1}^1{t/\sqrt{2/3}\ dt}=1-(5t^2/2)(2/3)-0
+    =1-5t^2/3.$$
+    $$\|v_3\|^2=\int_{-1}^1{(1-5t^2/3)^2\ dt}
+    = \left. t-\frac{10t^3}{9}+\frac{5t^5}{9}\right|
+    _{t=-1}^{t=1}=8/9.$$
+    Thus $e_3=(1-5t^2/3)/\sqrt{8/9}$.
+\end{mybox}
+
+ 
+\item \textbf{Kreyszig p.175 / Problem 9.}
+Let $M$ be a total set in an inner product space $X$.
+If $\inn{v}{x}=\inn{w}{x}$ for all $x\in M$,
+show that $v = w$.
+\begin{mybox}
+
+    Here $\inn{v}{x}=\inn{w}{x}\implies
+    \inn{v-w}{x}=0$ for all $x\in M$. Thus
+    $v-w\in M^\perp$. Since $M$ is total,
+    there does not exist any nonzero $y\in X$ such that
+    $y\perp M$.
+    So, $v-w=0\implies v=w$.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.175 / Problem 10.}
+
+Let $M$ be a subset of a Hilbert space $H$, and
+let $v$, $w\in H$. Suppose that $\inn{v}{x}=\inn{w}{x}$
+for all $x\in M$ implies $v = w$. If this holds for all
+$v$, $w\in H$, show that $M$ is total in $H$.
+\begin{mybox}
+
+    If $\inn{v}{x}=\inn{w}{x}$
+    for all $x\in M$ implies $v = w$ then
+    $\inn{v-w}{x}=0$ for all $x\in M$ implies that $v = w$.
+    Hence, for $y\in H$, $\inn{y}{x}=0$
+    for all $x\in M$ implies $y=0$. Thus $M^\perp =0$ in
+    the Hilbert space $H$. By exercise 7, we have that $M$
+    is total in $H$.
+\end{mybox}
+
+\item Prove that every vector space $X\neq \{0\}$
+has a Hamel basis.
+\begin{mybox}
+
+    Let $M$ be the set of all linearly independent
+    subsets of $X$. For $x\in X$, we have $\{x\}\in M$
+    and hence $M\neq\emptyset$. We define a partial
+    ordering in $M$ by set inclusion. Then every chain
+    $C\subset M$ has an upper bound which is the union
+    of all sets of $C$. By Zorn's lemma, $M$ has a maximal
+    element which we call $B$. Let $Y=\text{Span} B$.
+    Then $Y=X$ since otherwise $B\cup \{z\}$ for $z\notin
+    Y$ would be a linearly independent set of $X$ which
+    contradicts the maximality of $B$. Hence $Y$ is the
+    Hamel basis of $X$.
+\end{mybox}
+
+\item Prove Hahn-Banach Theorem (Real Version). Use the
+ideas discussed in class. 
+\begin{mybox}
+
+    \begin{thm}[Hahn-Banach Theorem (Real)]
+        Let $X$ be a real vector space and $Z$ be a
+        subspace of $X$. Let $p:X\longrightarrow \mR$ be
+        a sublinear functional on $X$ and $f:Z
+        \longrightarrow \mR$ a linear functional satisfying
+        $f(x)\leq p(x)$ for all $x\in Z$. Then $f$ has a
+        linear extension $\tilde{f}:X\longrightarrow\mR$
+        such that $\tilde{f}(x)\leq p(x)$ for all
+        $x\in X$.
+    \end{thm}
+    \begin{proof}
+        We consider the set $P$ of all linear extensions
+        $g:\cD(g)\longrightarrow\mR$ of $f$ which satisfy
+        $g(x)\leq p(x)$. Since $f\in P$, $P\neq \emptyset$
+        and thus we can define a partial order on $P$.
+        For $g_1$ and $g_2$ in $P$, we say that
+        $g_1\leq g_2$ if and only if $\cD(g_1)\subset
+        \cD(g_2)$ and $\left. g_2\right|_{\cD(g_1)}=g_1$
+        (i.e. $g_2$ is an extension of $g_1$).
+
+        \vspace*{3mm}
+        For any chain $C\subset P$ and $g\in C$ we define
+        $\tilde{g}$ by $\tilde{g}(x)=g(x)$ if
+        $x\in \cD(g)$. Then $\tilde{g}$ is a linear
+        functional whose domain is $\bigcup_{g\in C}{
+        \cD(g)}$ which is a vector space since $C$ is a
+        chain. Here $g\leq \tilde{g}$ for all $g\in C$ and
+        so $\tilde{g}$ is an upper bound of $C$. Then,
+        since $C$ was arbitrary, by Zorn's lemma $P$ has
+        a maximal element $\tilde{f}$ such that
+        $\tilde{f}\leq p(x)$ for $x\in\cD(\tilde{f})$.
+
+        \vspace*{3mm}
+        Now we show that $\cD(\tilde{f})=X$. Suppose that
+        this is false and there exists
+        $y\in X-\cD(\tilde{f})$. Then we consider the subspace
+        $Y$ spanned by $\cD(\tilde{f})$ and $y$. Any $z\in Y$
+        can be uniquely represented as $z=x+\al y$ where
+        $x\in \cD(\tilde{f})$ and we can define a linear
+        functional $g$ by
+        \begin{equation}
+            g(x+\al y)=\tilde{f}(x)+\al c
+        \end{equation}
+        where $c$ is any real constant. Since $g$ is a linear
+        extension of $\tilde{f}$ if we can show that $g(x)
+        \leq p(x)$ then this would contradicts the maximality
+        of $\tilde{f}$ and show that the domain of $\tilde{f}
+        =X$.
+
+        \vspace*{3mm}
+        Now we show that $g(x)\leq p(x)$ with a suitable $c$.
+        For $y$, $z\in \cD(\tilde{f})$ we have,
+        $$\tilde{f}(y)-\tilde{f}(z)\leq p(y-z)=p(y+y_1-y_1-z)
+        \leq p(y+y_1)+p(-y_1-z)$$
+        which gives $-p(-y_1-z)-\tilde{f}(z)\leq p(y+y_1)
+        -\tilde{f}(y)$ where $y_1$ is fixed. Since the left
+        side doesn't depend on $y$ and the right doesn't
+        depend on $z$, the inequality continues to hold if we
+        take supremum (call it $m_0$) over $z$ and infinum
+        (call it $m_1$) over $y$ in $\cD(\tilde{f})$. Then
+        $m_0\leq m_1$ and for a $c$ with $m_0\leq c\leq m_1$,
+        we have $-p(-y_1-z)-\tilde{f}(z)\leq c$ and
+        $c\leq p(y+y_1)-\tilde{f}(y)$ for all $y$, $z
+        \in \cD(\tilde{f})$.
+
+        \vspace*{3mm}
+        For $\alpha<0$ in (1), we write $z=\al^{-1}y$
+        and obtain $-p(-y_1-y/\al)-\tilde{f}(y/\al)\leq c$.
+        Multiplying by $-\al>0$ gives,
+        $\al p(-y_1-y/\al)+\tilde{f}(y)\leq -\al c$. Using
+        this in (1), we obtain for $x=y+\al y_1$,
+        $$g(x)=\tilde{f}(y)+\al c\leq -\al p(-y_1-y/\al)
+        =p(x).$$
+        Similarly, we obtain required inequality
+        $g(x)\leq p(x)$ for $\al=0$ and $\al>0$.
+
+
+    \end{proof}
+\end{mybox}
+\end{enumerate}
+\end{document}

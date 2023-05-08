@@ -1,0 +1,484 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}[]{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\inn}[2]{\left\langle #1, #2 \right\rangle}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis I \\
+\large Homework 5
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Let $1 < p < \infty$.
+Show that the dual space of $l^p$ is $l^q$. 
+
+\begin{mybox}
+
+    Taking the Schauder basis $(e_k)=(\delta_{kj})$ for
+    the space $l^p$, we see that every $x\in l^p$ has a
+    unique representation $x=\sum_{i=1}^\infty{\xi_i e_i}$.
+    For the linear and bounded operator $f\in (l^p)'$, we
+    have
+    $$f(x)=\sum_{k=1}^\infty{\xi_k \gamma_k}\hspace*{10mm}
+    \text{where }\gamma_k=f(e_k).$$
+    We consider $x_n=(\xi_k^n)$ with
+    $$\xi_k^n=\begin{dcases}
+        |\gamma_k|^q/\gamma_k &\text{ if }k\leq n
+        \text{ and } \gamma_k\neq 0\\
+        0 &\text{if } k>n \text{ or } \gamma_k=0
+    \end{dcases}$$
+    where $q$ is the conjugate of $p$. Then we obtain
+    $f(x_n)=\sum_{k=1}^\infty{\xi_k^n\gamma_k}=
+    \sum_{k=1}^n{|\gamma_k|^q}$ and
+    \begin{align*}
+        f(x_n)\leq \|f\|\|x_n\|=&\|f\|\left(\sum_{k=1}
+        ^\infty{|xi_k^n}|^p\right)^{1/p}\\
+        =&\|f\|\left(\sum_{k=1}^n{|\gamma_k|^{(q-1)p
+        }}\right)^{1/p}\\
+        =&\|f\|\left(\sum_{k=1}^n{|\gamma_k|^q}\right)
+        ^{1/p}.
+    \end{align*}
+    So we have, $\sum_{k=1}^n{|\gamma_k|^q}\leq
+    \|f\|\left(\sum_{k=1}^n{|\gamma_k|^q}\right)^{1/p}
+    \implies \left(\sum_{k=1}^n{|\gamma_k|^q}\right)^{1/q}
+    \leq\|f\|$. Letting $n\longrightarrow \infty$, we see
+    that $(\gamma_k)=(f(e_k))\in l^q$ since the infinite
+    sum is bounded. Now, conversely, for any sequence
+    $b=(\beta_k)\in l^q$, we define the correspondinf
+    bounded linear functional $g\in l^p$ by $g(x)
+    =\sum_{k=1}^\infty{\xi_k\beta_k}$ where $x=(\xi_k)
+    \in l^p$. $g$ is linear and bounded by Holder's
+    inequality. Thus $g\in (l^p)'$.
+
+    \vspace*{3mm}
+    Now, we show that the norm of the functional $f$ is
+    the norm on the space $l^q$. We have
+    $$|f(x)|=\left|\sum_{k=1}^\infty{\xi_k\gamma_k}
+    \right|\leq\left(\sum_{k=1}^\infty{|\xi_k\|^p}
+    \right)^{1/p}\left(\sum_{k=1}^\infty{|\gamma_k\|^q}
+    \right)^{1/q}=\|x\|\left(\sum_{k=1}^\infty
+    {|\gamma_k\|^q}\right)^{1/q}.$$
+    Taking sup over all $x$ of norm 1 we obtain $\|f\|
+    \leq \left(\sum_{k=1}^\infty
+    {|\gamma_k\|^q}\right)^{1/q}$. But we also have 
+    $\left(\sum_{k=1}^n{|\gamma_k|^q}\right)^{1/q}
+    \leq\|f\|$ so $\left(\sum_{k=1}^n
+    {|\gamma_k|^q}\right)^{1/q}=\|f\|$. Thus we see that
+    the mapping of $(l^p)'$ to $l^q$ is linear and
+    bijective and also norm preserving.
+\end{mybox}
+
+
+\item Prove the completion theorem for inner
+product spaces.
+\begin{mybox}
+
+    \begin{thm}[Completion]
+        For any inner product space $X$ there exists a
+        Hilbert space
+        $H$ and an isomorphism $A$ from $X$ into a dense
+        subspace $W\subset H$. The space $H$
+        is unique except for isomorphisms.
+
+    \end{thm}
+    \begin{proof}
+        By completion of Banach spaces, there exists
+        a Banach space $H$ and an isometry $A$ from $X$
+        onto a dense subspace $W$ of $H$. For continuity,
+        $A$ preserves sums and scalar multiplications and
+        hence, $A$ is an isomorphism of normed spaces.
+        By continuity of inner product, we can define
+        an inner product on $H$ by
+        $\inn{\hat{x}}{\hat{y}}=\lim_{n\to\infty}
+        {\inn{x_n}{y_n}}$ where $\{x_n\}$ and $\{y_n\}$
+        are sequences in $X$ converging to $x$ and
+        $y$ respectively and they are representatives of
+        $\hat{x}$ and $\hat{y}$ in $H$. Since the inner
+        product is continuous, the
+        parallelogram and polarization identities are
+        also preserved and hence,
+        we see that $A$ is an isomorphism of
+        inner product spaces from $X$ onto $W$.
+
+        The space $H$ is unique except for isomorphisms
+        by the completion of Banach spaces theorem.
+    \end{proof}
+\end{mybox}
+ 
+ 
+\item \textbf{Kreyszig p.135 / Problem 4.}
+If an inner product space $X$ is real, show that the
+condition $\|x\|= \|y\|$ implies $\langle x + y, x - y
+\rangle = 0$.
+What does this mean geometrically if $X = \rl^2$? What
+does the condition imply if $X$ is complex?
+\begin{mybox}
+
+    We have $\langle x + y, x - y \rangle = 
+    \langle x, x \rangle - \langle x, y \rangle+
+    \langle y, x \rangle- \langle y, y \rangle=
+    \|x\|^2-\|y\|^2- \langle x, y \rangle+
+    \langle x, y \rangle=0.$ If $X=\rl^2$, then we see
+    that $x+y$ and $x-y$ are orthogonal for all $x$ and
+    $y$.
+\end{mybox}
+
+\item \textbf{Kreyszig p.135 / Problem 6.}
+Let $x\neq 0$ and $y\neq 0$.
+\begin{enumerate}
+    \item If $x\perp y$, show that $\{x, y\}$ is a
+    linearly independent set.
+    \item Extend the result to mutually
+    orthogonal nonzero
+    vectors $x_1,\ldots, x_m$.
+\end{enumerate}
+
+\begin{mybox}
+
+    \begin{enumerate}
+        \item If $x\perp y$ then for the equation
+        $\lambda_1 x+\lambda_2 y=0$ we have,
+        $$0=\inn{\lambda_1 x+\lambda_2 y}{y}=
+        \inn{\lambda_1 x}{y}+\inn{\lambda_2 y}{y}=
+        \lambda_2\|y\|^2\implies \lambda_2=0
+        \hspace*{10mm}\text{and,}$$
+        $$0=\inn{\lambda_1 x+\lambda_2 y}{x}=
+        \inn{\lambda_1 x}{x}+\inn{\lambda_2 y}{x}=
+        \lambda_1\|x\|^2\implies \lambda_1=0.$$
+        Thus, $x$ and $y$ are linearly independent.
+
+        \vspace*{3mm}
+        \item Using above method, we see that if
+        $\sum_{i=1}^m{\lambda_i x_i}=0$, then for any
+        $i\in \overline{\{1,\ldots, m\}},$
+        $$0=\inn{\sum_{i=1}^m{\lambda_i x_i}}{x_i}
+        =\lambda_i\|x_i\|^2\implies \lambda_i=0.$$
+        Thys the mutually orthogonal vectors $x_1,\ldots
+        ,x_m$ are linearly independent when $x_i\neq 0$
+        for all $i$.
+    \end{enumerate}
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.135 / Problem 10.}
+Let $z_1$ and $z_2$ denote complex numbers.
+Show that $\langle z_1,z_2\rangle = z_1\overline{z}_2$
+defines an inner product, which yields
+the usual metric on
+the complex plane. Under what condition do we have
+orthogonality?
+\begin{mybox}
+
+    $\inn{z_1}{z_2}=z_1\overline{z}_2$. We check that
+    this definition satisfies the axioms:
+    \begin{enumerate}
+        \item $\inn{x+y}{z}=(x+y)\cdot\overline{z}
+        =x\overline{z}+y\overline{z}=\inn{x}{z}+
+        \inn{y}{z}$,
+
+        \item $\inn{\alpha x}{y}=(\alpha x)\overline{y}
+        =\alpha\inn{x}{y}$,
+
+        \item $\inn{x}{y}=x\overline{y}=\overline
+        {y\overline{x}}=\overline{\inn{y}{x}}$,
+
+        \item $\inn{x}{x}=x\overline{x}=\|x\|^2$, where
+        $\|\cdot\|$ denotes the usual metric on the complex
+        plane. So, $\inn{x}{x}\geq 0$ and $\inn{x}{x}=0
+        \iff x=0$.
+    \end{enumerate}
+
+    The inner product yields the usual metric by taking
+    $\|\cdot\|=\inn{\cdot}{\cdot}^{1/2}$. For two complex
+    numbers $z_1=x_1+iy_1$ and $z_2=x_2+iy_2$ where $x_j$
+    and $y_j$ are real numbers, we have
+    $\inn{z_1}{z_2}=(x_1+iy_1)(x_2-iy_2)=
+    (x_1x_2+y_1y_2)+i(y_1x_2-x_1y_2)$. So we have
+    orthogonality where the two equations
+    $x_1x_2+y_1y_2=0$ and $y_1x_2-x_1y_2=0$ satisfy.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.141 / Problem 8.}
+Show that in an inner product space, $x\perp y$ if and
+only if $\|x+ay\|\geq\|x\|$ for all scalars $a$.
+\begin{mybox}
+
+    If $x\perp y$, we have $\|x+ay\|^2=\langle x+ay,
+    x+ay\rangle=\langle x,x \rangle+\langle x,ay\rangle+
+    \langle ay, x \rangle+ \langle ay, ay \rangle$. Thus,
+    $$\|x+ay\|^2=\|x\|^2+2\mathfrak{Re}(\overline{a}
+    \langle x, y
+    \rangle)+a\overline{a}\|y\|^2\geq \|x\|^2.$$
+    Taking square root, we get the required result.
+
+    \vspace*{3mm}
+    Now, if $\|x+ay\|\geq\|x\|$, we have
+    $$\|x+ay\|^2=\|x\|^2+2\mathfrak{Re}(\overline{a}
+    \langle x, y
+    \rangle)+a\overline{a}\|y\|^2\geq \|x\|^2
+    \implies 2\mathfrak{Re}(\overline{a}
+    \langle x, y
+    \rangle)+|a|^2\|y\|^2\geq 0.$$
+    If $\inn{x}{y}=k\neq 0$, we can choose $a=-k$
+    to get $-2k^2+k^2\|y\|^2\geq 0$. This gives rise to
+    a contradiction when $\|y\|<\sqrt{2}$. Hence $\inn{x}
+    {y}=0$.
+\end{mybox}
+ 
+\item
+\textbf{Kreyszig p.141 / Problem 10. (Zero operator)}
+Let $T: X\to X$ be a bounded linear operator on a complex
+inner product space $X$. If $\langle Tx, x\rangle = 0$
+for all $x\in X$, show that $T=0$.
+
+Show that this does not hold in the case of a real inner
+product space. Hint: Consider a rotation of the Euclidean
+plane.
+\begin{mybox}
+
+    Let $x=\alpha p+q$ for some $p,q\in X$ and a
+    scalar $\alpha$, then we get $$\inn{Tx}{x}=
+    \inn{\alpha Tp+Tq}{\alpha p+q}=\alpha\overline{\alpha}
+    \inn{Tp}{p}+
+    \alpha\inn{Tp}{q}+
+    \overline{\alpha}\inn{Tq}{p}+
+    \inn{Tq}{q}=\alpha\inn{Tp}{q}+
+    \overline{\alpha}\inn{Tq}{p}.$$
+    Taking $\alpha=1$, we get $\inn{Tp}{q}+\inn{Tq}{p}=0$
+    and taking $\alpha=i$, we get
+    $\inn{Tp}{q}-\inn{Tq}{p}=0$. Solving these two equations
+    we get $\inn{Tp}{q}=0$ and $\inn{Tq}{p}=0$. Since these
+    are true for all $p$ and $q$ we take $q=Tp$ to get
+    $\|Tp\|^2=\inn{Tp}{q}=0$. Thus $T$ must equal 0.
+
+    \vspace*{3mm}
+    If we take the linear operator on the real inner product
+    space $\rl^2$ defined by the matrix
+    $$T=\left[\begin{array}{cc}
+        0 &-1\\
+        1 &0
+    \end{array}\right],$$
+    we see that $\inn{T(x,y)}{(x,y)}=\inn{(-y,x)}{(x,y)}
+    =-yx+xy=0.$ But $T\neq 0$.
+\end{mybox}
+ 
+\item \textbf{Kreyszig p.150 / Problem 7.}
+Let $A$ and $B\supset A$ be nonempty subsets of an inner
+product space $X$. Show that
+\begin{enumerate}
+    \item $A\subset A^{\perp\perp}$
+    \item $B^{\perp}\subset A^{\perp}$
+    \item $A^{\perp\perp\perp}=A^{\perp}$
+\end{enumerate}
+
+\begin{mybox}
+
+    \begin{enumerate}
+        \item If $x\in A$, then $\inn{x}{y} =0$ for all
+        $y\in A^\perp$ and $x\perp A^\perp$. So $x\in
+        A^{\perp\perp}.$
+
+        \item  If $x\in B^\perp$, $x\perp B$. Since
+        $B\supset A$, $x\in A^\perp$. Thus $B^\perp
+        \subset A^\perp$. 
+
+        \item  From (a), $A^\perp\subset A^{\perp\perp
+        \perp}$. Also from (a) and (b), $A^{\perp\perp}
+        \supset A\implies A^{\perp}\supset
+        A^{\perp\perp\perp}$. Thus,
+        $A^{\perp\perp\perp}=A^{\perp}$.
+    \end{enumerate}
+\end{mybox}
+
+
+\item \textbf{Kreyszig p.150 / Problem 8.}
+Show that the annihilator $M^{\perp}$ of a set
+$M\neq\emptyset$ in an inner product space $X$ is a closed
+subspace of $X$.
+\begin{mybox}
+
+    Let $\{x_n\}$ be a sequence in $M^\perp$ which
+    converges to some $x\in X$. Then for
+    all $n$ and all $y\in M$, $\inn{x_n}{y}=0$. By the
+    continuity of inner product, we have,
+    $$0=\lim_{n\to\infty}{\inn{x_n}{y}}=\inn{x}{y}.$$
+    Thus $x\in M^\perp$ and $M^\perp$ is a closed subspace.
+\end{mybox}
+
+ 
+\item \textbf{Kreyszig p.150 / Problem 10.}
+If $M\neq\emptyset$ is any subset of a Hilbert space $H$,
+show that $M^{\perp\perp}$ is the smallest
+closed subspace
+of $H$ which contains $M$, that is, $M^{\perp\perp}$
+is contained in any closed subspace $Y\subset H$ such
+that $Y\supset M$.
+\begin{mybox}
+
+    Let $Y\supset M$ be a closed subspace of $H$. Then
+    $Y=Y^{\perp\perp}$. By
+    \textbf{Kreyszig p.150 / Problem 7}, $Y^\perp
+    \subset M^\perp$ and $Y^{\perp\perp}\supset
+    M^{\perp\perp}$. Thus, $M^{\perp\perp}$ is contained
+    in the closed subspace $Y$ which contained $M$.
+\end{mybox}
+ 
+\item Let $Y$ be a closed subspace of a Hilbert space
+$H$. Show that the projection operator $P: H \to Y$
+is a bounded linear operator.
+\begin{mybox}
+
+    The projection operator $P$ maps a point $x\in H
+    =Y\bigoplus Y^\perp$
+    to the point $y\in Y$ such that $x=y+z$ for some
+    $z\in Y^\perp$. We note that this representation is
+    unique and hence the map $P$ is well-defined.
+
+    \vspace*{3mm} If $p=y_1+z_1$ and $p_2=y_2+z_2$ are
+    two points in $H$ written as the sum in
+    $Y\bigoplus Y^\perp$ then
+    $\alpha p_1+p_2=\alpha y_1+y_2+z_1+z_2$. Since $z_1
+    +z_2\in Y^\perp$ and $\alpha y_1+y_2\in Y$ we see that
+    $P(\alpha p_1+p_2)=\alpha y_1+y_2=\alpha P(p_1)+
+    P(p_2)$. Hence, $P$ is linear.
+
+    \vspace*{3mm} To show that $P$ is bounded we first
+    note that if $x=y+z$ as above, then
+    $$\|x\|^2=\inn{y+z}{y+z}=\|y\|^2+\|z\|^2.$$
+    Then $\|P(x)\|^2=\|x\|^2-\|z\|^2\leq\|x\|^2$. Hence,
+    $P$ is bounded.
+\end{mybox}
+
+\item For any subset $M \neq \emptyset$ of a Hilbert
+space $H$, $\text{Span}(M)$ is dense in $H$
+if and only if
+$M^{\perp} = \{0\}$.
+\begin{mybox}
+
+    Assume that $\text{Span}(M)$ is dense in $H$ and let
+    $x\in M^\perp$. There exists a sequence $(x_n)$ in
+    $\text{Span}(M)$ such that $x_n\longrightarrow x$.
+    We have $\inn{x_n}{x}=0$ for all $n$ and by continuity
+    of inner product, $\lim_{n\to\infty}{\inn{x_n}{x}}
+    =\inn{x}{x}=0\implies x=0.$ Hence $M^\perp=\{0\}$.
+
+    \vspace*{3mm}
+    Now, if $M^\perp=\{0\}$, then since $M\oplus M^\perp=
+    H$, the subspace $\text{Span}(M)$ is dense in $H$.
+\end{mybox}
+
+\item \textbf{Kreyszig p.194 / Problem 6.}
+Show that Theorem 3.8-1 defines an isometric
+bijection $T: H\to H'$, $z \mapsto f_z = \langle\cdot, z
+\rangle$ which is not linear but conjugate linear,
+that is, $\alpha z +\beta v \mapsto \overline{\alpha}f_z
++\overline{\beta }f_v.$
+\begin{mybox}
+
+    We see that $T(\alpha z +\beta v)(x)=
+    \inn{x}{\alpha z +\beta v}=\inn{x}{\alpha z}
+    +\inn{x}{\beta v}=\overline{\alpha}\inn{x}{z}
+    +\overline{\beta }\inn{x}{v}
+    =\overline{\alpha}T(z)(x)
+    +\overline{\beta }T(v)(x)$. Thus
+    $\alpha z +\beta v \mapsto \overline{\alpha}f_z
+    +\overline{\beta }f_v$ and the map is conjugate
+    linear and isometric. The fact that $T$ is a bijection
+    comes from the statement of Theorem 3.8-1.
+\end{mybox}
+
+\item \textbf{Kreyszig p.194 / Problem 7.}
+Show that the dual space $H'$ of a Hilbert space $H$
+is a Hilbert space with inner product $\langle\cdot,\cdot
+\rangle_1$ defined by
+$$\langle f_z,f_v\rangle_1=\overline{\langle z,v\rangle
+}=\langle v,z\rangle,$$
+where $f_z(x)=\langle x,z\rangle$, etc.
+\begin{mybox}
+
+    By Riesz's Theorem, we know that every linear bounded
+    functional on $H$ can be represented as $f_z$
+    for some $z\in H$. Also, $f_x$ is a linear and bounded
+    functional for all $x\in H$. Here, $f_{x+y}(p)=\inn{p}
+    {x+y}=f_x(p)+f_y(p)$ and $f_{\alpha x}(p)=\inn{p}
+    {\alpha x}=\overline{\alpha}f_x(p)$.
+    Now, we show that the
+    given inner product satisfies the axioms:
+
+    \begin{enumerate}
+        \item $\inn{f_x+f_y}{f_z}_1=\inn{z}{x+y}=
+        \inn{z}{x}+\inn{z}{y}=\inn{f_x}{f_z}_1+
+        \inn{f_y}{f_z}_1$,
+
+        \item $\inn{\alpha f_x}{f_y}_1=\inn{f_{
+        \overline{\alpha} x}}{f_y}
+        =\inn{y}{\overline{\alpha} x}=\alpha\inn{f_x}{f_y}
+        _1$,
+
+        \item $\inn{f_x}{f_y}_1=\inn{y}{x}=\overline{
+        \inn{x}{y}}=\overline{\inn{f_y}{f_x}}_1$,
+
+        \item $\inn{f_x}{f_x}_1=\inn{x}{x}\geq 0$
+        and $\inn{x}{x}=0 \iff x=0$ so $\inn{f_x}{f_x}=0
+        \iff f_x=0.$
+    \end{enumerate}
+
+    Since $x+y\mapsto f_x+f_y$, we also see that the map
+    is isometric.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,355 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, xcolor}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 3
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\eq}{\Leftrightarrow}
+\newcommand{\dmu}{\ d\mu}
+\newcommand{\ix}{\int_X}
+\newcommand{\cL}{\mathcal{L}(\mathbb{R})}
+\newcommand{\soi}{\sum_{i=1}^{\infty}}
+\newcommand{\son}{\sum_{i=1}^{n}}
+
+\begin{enumerate}
+
+    \item Let $(X, \cM)$ be a measurable space.
+    \begin{enumerate}
+    \item Let $f: X \to \mR$, measurable and bounded.
+    Show that for each $\ep > 0$, there are simple functions
+    $\varphi_{\ep}$ and $\psi_{\ep}$ on $X$ such that
+    $$\varphi_{\ep} \leq f \leq \psi_{\ep} \ \ \text{and} \ \ 0 \leq \psi_{\ep} -  \varphi_{\ep}  < \ep \ \text{on} \ X.$$
+    
+    \item Show that $f:X\to [-\infty, \infty]$ is
+    measurable if and only if there exists a sequence
+    $\{s_n\}$ of simple, measurable functions
+    on $X$ such that $s_n \to f$ pointwise as
+    $n \to \infty$, and $|s_n| \leq |f|$ on $X$, for
+    all $n$.
+    
+    \end{enumerate}
+    
+    \begin{mybox}
+        \begin{enumerate}
+            \item Since $f$ is bounded, we note that there exists an open
+            interval $[c,d]$ such that $f(X)\subset [c,d]$. For every
+            $\varepsilon>0$, we can take the partition of the interval
+            $[c,d]$ such that $y_{k}-y_{k-1}<\varepsilon$ and
+            $c=y_0<y_1<\cdots<y_{n-1}<y_n=d$ for some integer $n$. For
+            each $I_k=[y_{k-1},y_k)$, we define $E_k$ to be
+            $f^{-1}(I_k)$ which is measurable since $f$ is measurable.
+
+            \vspace*{2mm}
+            Now we define the functions $\varphi_\varepsilon$ and
+            $\psi_\varepsilon$ by
+            $$\varphi_\varepsilon(x)=\sum_{k=1}^{n}{y_{k-1}\cdot
+            \chi_{E_k}}\hspace*{5mm}\text{and}\hspace*{5mm}
+            \psi_\varepsilon(x)=\sum_{k=1}^{n}{y_k\cdot\chi_{E_k}}.$$
+            For $x\in E$, there is a unique $k\in \overline{1,\ldots,n}$
+            such that $x\in E_k$ and we have $y_{k-1}\leq f(x)<y_k$.
+            But $\varphi_\varepsilon(x)=y_{k-1}$ and $\psi_\varepsilon(x)
+            =y_k$ and hence $\varphi_\varepsilon(x)\leq f(x)<\psi
+            _\varepsilon(x)$ with $\psi_\varepsilon-\varphi_\varepsilon
+            <\varepsilon$ on $X$.
+
+            \vspace*{3mm}
+            \item For a measurable function $f$, we take the sequence of
+            simple functions defined on \textbf{Homework 2 - Problem 11}
+            which we proved to be monotone increasing and pointwise
+            convergent to $f$.
+
+            \vspace*{2mm}
+            Now assume that we have a sequence $\{s_n\}$ of simple,
+            measurable functions that converge to $f$ pointwise
+            and $|s_n|\leq|f|$ on $X$ for all $n$. We first note that
+            for any number $c\in[-\infty,\infty]$,
+            since $\lim_{n\to\infty}{s_n(x)}=f(x)$ for each $x$, we have
+            $f(x)<c$ if and only if there exist $n$, $k\in\mN$ with
+            $f_j(x)<c-1/n$ for all $j\geq k$. Since each set $E_{j,n}
+            =\{x\in E:\ f_j(x)<c-1/n\}$ is measurable (because $f_j$ is
+            measurable), for each $k$, we have $\bigcap_{j=k}^\infty
+            {E_{j,n}}$ is measurable. Hence
+            $$\{x\in E:\ f(x)<c\}=\bigcup_{1\leq k,n<\infty}\left(
+            \bigcap_{j=k}^\infty{E_{j,n}}\right)$$
+            which, in turn, implies that $f$ is a measurable
+            function.
+        \end{enumerate}
+    \end{mybox}
+    \item Let $X = \mN$, $\cM = \cP(\mN)$, and $\mu$ is the counting measure. Show that for every function $f: \mN \to [0, \infty]$, 
+    $$ \int_X f \ d\mu = \sum_{n=1}^{\infty} f(n).$$
+    
+    \begin{mybox}
+        We take the sets $E_k=\{1,2,\ldots,k\}$ and define the sequence
+        $\{f_k\}$ by $f_k=f\cdot\chi_{E_k}$. Then $\{f_k\}$ is a monotone
+        increasing sequence of simple functions
+        that converges pointwise to $f$ and
+        $$\int_X{f_k\dmu}=\int_{E_k}{f_k\dmu}=\sum_{n=1}^{k}{f(n)}.$$
+        By monotone convergence theorem we have the required result as
+        $k\longrightarrow \infty$.
+    \end{mybox}
+
+    \item Let $(X, \cM, \mu)$ be a measure space. Let $f: X  \to [0, \infty]$ be measurable. Show that $\varphi(A) = \int_A f \ d\mu$ is a positive measure on $\cM$.
+    
+    \begin{mybox}
+        \begin{enumerate}
+            \item For any set $A\in\cM$, we see that $\varphi(A)=\int_A
+            {f\ \dmu}\geq 0$ since $f$ is a non-negative function
+            ($\varphi(\emptyset)=0$).
+
+            \item For any countable collection of measurable pairwise
+            disjoint sets $\{A_n\}$, we have
+            $$\varphi\left(\bigcup_{n=1}^\infty{A_n}\right)=
+            \int_{\bigcup_{n=1}^\infty{A_n}}{f\ \dmu}=\sum_{n=1}^\infty
+            {\left(\int_{A_n}{f\ \dmu}\right)}=\sum_{n=1}^\infty{\varphi(A_n)}$$
+            where the second equality follows from the additivity property
+            of integrals over the domain of integration.
+        \end{enumerate}
+        Thus $\varphi$ is a positive measure on $\cM$.
+    \end{mybox}
+    
+    \item Let $f_n: X \to [0, \infty]$ be a monotone decreasing sequence of  functions with $f_n \searrow f$ pointwise. 
+    \begin{enumerate}
+    \item Show by counterexample that $\ds \lim_{n \to \infty}\int_X f_n\ d \mu$ is not necessarily $\int_X f \ d\mu$. 
+    \item Find an additional assumption that would make the statement true. 
+    \end{enumerate}
+    
+    \begin{mybox}
+        \begin{enumerate}
+            \item We define a sequence $\{f_n\}$ of functions
+            $f_n:X=[0,\infty]\to[0,\infty]$ as follows:
+            $$f_n(x)=
+            \begin{dcases}
+                n &x\in [n,\infty]\\
+                0 &x\in[0,n).
+            \end{dcases}$$
+            We see that $\{f_n\}$ is clearly a decreasing sequence of
+            functions and $\int_{X}{f_n\ \dmu}=\infty$ for all $n$, but
+            $\int_X{\lim_{n\to\infty}{f_n}\ \dmu}=\int_X{0\ \dmu}=0$.
+            
+            \vspace*{2mm}
+            \item If $f_1\in L^1(\mu)$ then the statement is true. We first
+            note that if $f_1\geq f_2\geq\cdots \geq f\geq 0$, then
+            $-f_1\leq-f_2\leq\cdots \leq -f\leq 0$ is a monotone increasing
+            sequence. We define $g_n=f_1-f_n$ and take the sequence
+            $\{g_n\}$ which is monotone increasing and converges to $f_1-f$. $f$ is
+            measurable since it is a pointwise limit of measurable
+            functions and by monotone convergence theorem for increasing
+            sequence we have
+            $$\lim_{n\to\infty}{\int_X{f_1-f_n\ \dmu}}=\int_X{f_1-f\ \dmu}
+            \implies
+            \lim_{n\to\infty}{\int_X{f_n\ \dmu}}=\int_X{f\ \dmu}.$$
+        \end{enumerate}
+    \end{mybox}
+    
+    \item Let $(X, \cM, \mu)$ be a measure space with $\mu(X) =1$. Suppose $E_1, E_2, ..., E_n$ are a finite number of measurable sets in $X$, such that each point in $X$ belongs to at least $M$ of these sets (where $M$ is a positive integer with $M \leq n$). Show that there exists $k$ such that $\mu(E_k) \geq \frac{M}{n}$.
+    
+    \begin{mybox}
+        Define a function $g:X\to\mN$ by $g(x)=\sum_{k=1}^{n}{\chi_{E_k}}$.
+        Then $g(x)\geq M$ for all $x\in X$. We have
+        $$M=M\cdot\mu(X)\leq \int_{X}{g(x)\dmu}\leq \sum_{k=1}^{n}
+        {\int_{E_k}{g(x)\dmu}}.$$
+        For each $E_k$, $\int_{E_k}{g(x)\dmu}$ is at most $\mu(E_k)$. Thus,
+        $M\leq n\cdot\mu(E_k)$ for some $k$ and hence we have the required
+        result.
+    \end{mybox}
+
+    \item Prove an analogous result to Fatou's Lemma for $\ds \lsn$. 
+    
+    \begin{mybox}
+        \begin{thm}[Fatou's Lemma, reverse]
+            Let $\{f_n\}$ be a sequence of non-negative 
+            bounded measurable functions
+            on $X$ and $f_n \to f$ pointwise, then
+            $$\lsn{\int_X{f_n\ \dmu}}\leq\int_X{f\ \dmu}.$$
+        \end{thm}
+        \begin{proof}
+            Since $\{f_n\}$ is a bounded
+            sequence and hence there exists a function $g$ such that 
+            $f_n(x)\leq g(x)$ for all $n$. Then $\{g-f_n\}$ is a sequence of
+            non-negative functions that converge to $g-f$. By Fatou's Lemma,
+            we have
+            $$\int_X{g-f\ \dmu}\leq \lin\int_X{g-f_n\ \dmu}.$$
+            Using linearity and multiplying by -1, we have
+            $$\int_X{f\ \dmu}\geq -\lin\int_X{-f_n\ \dmu}=\lsn\int_X{f_n\ \dmu}$$
+            as required.
+        \end{proof}
+    \end{mybox}
+
+    \item Give an example where we have strict inequality in Fatou's Lemma. Then illustrate by example that the assumption ``$f_n$ are non-negative" is necessary in Fatou's Lemma. 
+    
+    \begin{mybox}
+        We define a sequence of functions $\{f_n\}$ by
+        $$f_n(x)=
+        \begin{dcases}
+            1/n &x\in [0,n]\\
+            0 &\text{otherwise.}
+        \end{dcases}$$
+        The sequence $\{f_n\}$ converges to the 0 function which has integral
+        0. However, each function $f_n$ has integral 1. Thus we have the
+        strict inequality.
+
+        \vspace*{2mm}
+        To see the importance of the non-negativity, we define a similar
+        functions as above by
+        $$f_n(x)=
+        \begin{dcases}
+            -1/n &x\in [0,n]\\
+            0 &\text{otherwise.}
+        \end{dcases}$$
+        Each functions $f_n$ has integral -1 but the limit is the 0 function
+        which has integral 0 which is more than the lim inf of the integral.
+    \end{mybox}
+    
+    
+    \item Suppose that $\mu(X)  < \infty$, and $\{f_n\}$ is a sequence of bounded complex measurable functions on $X$, and $f_n \to f$ uniformly on $X$. Prove that 
+    $$\lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu.$$
+    
+    \begin{mybox}
+        We know that each $f_n$ is bounded since $f_n$ converges uniformly to
+        $f$ and thus $f$ is also bounded. Since each $f_n$ are measurable, $f$
+        is also measurable. Now, for each $\varepsilon>0$, we know that
+        there exists $N\in\mN$ such that $|f-f_n|<\varepsilon/\mu(X)$
+        for all $n>N$. Then
+        $$\left|\int_{E}{f}-\int_E{f_n}\right|=\left|\int_E{f-f_n}\right|
+        \leq\int_E{|f-f_n|}\leq \frac{\varepsilon}{\mu(X)}\cdot\mu(X)=
+        \varepsilon.$$
+        Thus, $\lim_{n\to\infty}\int_E{f_n}=\int_E{f}$.
+    \end{mybox}
+    
+    
+    \item Assume that $f \in L^1(\mu)$ and 
+    $\ds \left| \ix f \dmu \right| = \ix |f| \dmu$. 
+    Then there exists $\alpha \in \mC$, with $|\alpha| = 1$ such that $\alpha f = |f|$ a.e. 
+    on X. 
+    \begin{mybox}
+        We define $\ds\beta=\left.\left(\int_X{f\ \dmu}\right)\middle/
+        \left|\int_X{f\ \dmu}\right|\right.$. Clearly, $|\beta|=1$ and we
+        have $\ds\int_X{f\ \dmu}=\beta\left|\int_X{f\ \dmu}\right|=
+        \beta\int_X{|f|\ \dmu}$. Since the integrals are equal, we conclude
+        that $f=\beta|f|$ a.e. on $X$. Taking $\alpha=1/\beta$ gives the
+        required equality.
+    \end{mybox}
+
+    \item Let $(X, \cM, \mu)$ be a measure space and suppose $f$ is a non-negative measurable function on $X$. If $\int_X f\ d\mu = 0$, show that $\mu(\{x \in X \ | \ f(x) \neq 0 \}) = 0$ (i.e. $f=0$ a.e. on $X$).
+    
+    \begin{mybox}
+        Assume that $\mu(\{x \in X \ | \ f(x) \neq 0 \}) > 0$ instead.
+        We take the sets $A_n = \{x \ | \ f(x) > 1/n\}$ and note that
+        $\mu(A_k)>0$ for some $k$. Then,
+        $$\int_X{f\ \dmu}\geq \int_{A_k}{f\ \dmu}>\int_{A_k}{\frac{1}{k}\ \dmu}
+        =\frac{1}{k}\cdot\mu(A_k)>0$$
+        which is a contradiction. Thus $\mu(\{x \in X \ | \ f(x) \neq 0 \}) = 0$.
+    \end{mybox}
+    
+    \item (A small extension of the LDCT) 
+    
+    Let $\{f_n\}$ be a sequence of either complex-valued or extended real-valued functions such that $f_n(x) \to f(x)$ a.e. on $X$ and suppose there is $g \in L^1(\mu)$ such that $|f_n(x)| \leq g(x)$ for a.e. $X$. Show that
+    $$\lim_{n \to \infty} \int_X f_n(x)\ \dmu = \int_X f(x)\ \dmu$$ 
+    
+    \begin{mybox}
+        Let $N$ be the set where $|f_n(x)|>|g(x)|$ or where $f_n$ doesn't converge
+        to $f$. This set is a union of two sets that have measure 0 and hence 
+        itself has measure 0. Then by Lebesgue Dominated Convergence theorem,
+        $$\lim_{n \to \infty} \int_{X-N} f_n(x) \dmu = \int_{X-N} f(x)\ \dmu.$$
+        
+        But, for each $n$, we have $\ds\int_{X}{f_n(x)\ \dmu}=\int_{X-N}
+        {f_n(x)\ \dmu}+\int_{N}{f_n(x)\ \dmu}$. We note that
+        $\ds\int_{N}{f_n(x)\ \dmu}\leq\int_{N}{g(x)\ \dmu}\leq\sup_{x\in N}
+        {g(x)}\cdot\mu(N)=0$. Using this result for each $n$ and also for
+        $f$ itself, we get the required result.
+    \end{mybox}
+    
+    \item (Absolute Continuity of the Integral) Let $f$ be a  non-negative measurable function in $L^1(\mu)$. Show that for each $\ep > 0$ there exists a $\delta>0$ such that for every measurable set $A$ with $\mu(A) < \delta$, we have $\int_A f\ \dmu  < \ep$. 
+    
+    {\bf Hint:} Argue by contradiction: If not, then there is some $\ep_0$ and a sequence of measurable sets $A_n$ with $\mu(A_n) < 2^{-n}$ and 
+    $$ \int_{A_n} f \dmu > \ep_0.$$ 
+    Consider the sequence $g_n = f \cdot \chi_{A_n}$. Show that $g_n$ converges to 0 except at points $x$ in infinitely many of the sets $A_n$. What is the measure of this ``exceptional" set? Now apply a convergence result to the sequence $f_n = f - g_n$ to get a contradiction. 
+    
+    \begin{mybox}
+        We prove the given statement by contradiction. If the statement is
+        false then there is some
+        $\varepsilon_0>0$ and a sequence of measurable sets $A_n$ with
+        $\mu(A_n)<2^{-n}$ and $\int_{A_n}{f \dmu}>\varepsilon_0$. We define a
+        sequence $\{g_n\}$ of functions by $g_n=f\cdot\chi_{A_n}$. For
+        $x\notin A_n$, we have $g_n(x)=0$ and for $x\in A_n$,
+        $g_n(x)=f$ with $\mu(A_n)=2^{-n}$. Then $f_n=f-g_n$ is 0 in the
+        set $A_n$ and is $f$ otherwise.
+        $$
+        0=\int_{A_n}{f-g_n \dmu}=\int_{A_n}{f\dmu}-
+        \int_{A_n}{g_n\dmu}.$$
+        
+        \textbf{Not able to continue. I cannot see how I can make progress on this
+        question.}
+    \end{mybox}
+\end{enumerate}
+
+\end{document}

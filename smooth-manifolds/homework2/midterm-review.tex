@@ -1,0 +1,365 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, pifont}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{tikz, graphicx}
+\usepackage{verbatim}
+\usepackage{tikz-cd}
+\usepackage[]{geometry, titling, titlesec}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\mc}{\mathbb{C}}
+\newcommand{\mz}{\mathbb{Z}}
+\newcommand{\id}{\text{id}}
+\newtcolorbox{mybox}[1][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\tikzcdset{
+    bigcd/.style={
+    arrows = {line width=0.8pt},
+    cells = {sep=45pt,
+    inner xsep=1ex, inner ysep=1ex},
+    nodes = {font=\large},
+    labels = {font=\normalsize}
+    }
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand\nindent{.5pt}
+\newcommand\noverline[1]{
+  \kern\nindent\overline
+  {\kern-\nindent#1\kern-\nindent}\kern\nindent
+}
+\geometry{top=21mm, left=30mm, right=21mm, bottom=21mm}
+\pretitle{\begingroup\centering\huge}
+\posttitle{\par\endgroup}
+\title{Algebraic Topology\\
+\large Midterm Review Sheets
+}
+\author{Nutan Nepal}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{190mm}{.5pt}}
+\vspace{0mm}
+\titleformat{\section}
+{\large\centering}
+{\thesection.}{0.5em}{\underline}
+
+\section{Homotopy and Homotopy Type}
+\begin{itemize}
+\item Definition and basic intuition for homotopy of maps between topological spaces
+    
+
+\vspace*{30mm}
+\item Homotopy of maps is an equivalence relation: statement and proof (can assume
+    “restriction to closed subsets” lemma without proof)
+    
+
+\vspace*{30mm}
+\item Homotopy of maps relative to a subset of their domain: definition and basic intuition
+    
+
+\vspace*{30mm}
+\item Special case of homotopy rel endpoints for paths: homotopy relative to $\{0, 1\}\subset[0, 1]$
+    
+
+\vspace*{30mm}
+\item Definition of homotopy equivalence between topological spaces
+    
+
+\vspace*{30mm}
+\item Intuition for homotopy equivalence vs. homeomorphism, e.g. classifying letters of
+    the alphabet
+    
+
+\vspace*{30mm}
+\item Homotopy of maps is preserved when pre- or post-composing with some other map:
+    statement and proof
+    
+
+\vspace*{30mm}
+\item Homotopy equivalence of topological spaces is an equivalence relation: statement and
+    proof
+    
+
+\vspace*{30mm}
+\item Definitions of contractible topological space and nullhomotopic map
+    
+
+\vspace*{30mm}
+\item Proof that $X$ is contractible iff every map into $X$ is nullhomotopic iff every map out
+    of $X$ is nullhomotopic (HW 1)
+    
+
+\vspace*{30mm}
+\item House with two rooms: basic idea (is it contractible? how would you describe it to a
+    friend?)
+    
+
+\vspace*{30mm}
+\item Definition of retraction of a topological space $X$ onto a subset $A$ (idempotent map $r$
+    from $X$ to itself with image $A$)
+    
+
+\vspace*{30mm}
+\item Definition of deformation retraction of a topological space X onto a subset A (homo-
+    topy rel A from the identity on $X$ to a retraction onto $A$)
+    
+
+\vspace*{30mm}
+\item Pictoral and formulaic descriptions of deformation retractions in examples (HW 1)
+    
+
+\vspace*{30mm}
+\item Example of a retraction from a space $X$ onto a subset $A$ that is not homotopic rel
+    $A$ to the identity map on $X$, i.e. doesn't come as the ending map of a deformation
+    retraction (take $X$ = two-point set and send both points to the same point of $X$)
+    
+
+\vspace*{30mm}
+\item Definition of quotient topology on the set of equivalence classes $X/\sim$ where $X$ is a
+    topological space and $\sim$ is any equivalence relation on $X$
+    
+
+\vspace*{30mm}
+\item Proof that the quotient topology is a valid topology, via the interaction of preimages
+    with unions / intersections
+    
+
+\vspace*{30mm}
+\item Definition of mapping cylinder $M_f$ for a map $f : X\to Y$ of topological spaces
+    
+
+\vspace*{30mm}
+\item Proof that $M_f$ deformation retracts onto $Y$ (HW 1): you won't be asked to reproduce
+    this on the exam, but you should remember that the statement is true.
+    
+
+\vspace*{30mm}
+\item Statement (no proof) that if $f$ is a homotopy equivalence then $M_f$ deformation
+    retracts onto $X$
+    
+
+\vspace*{30mm}
+\item Corollary that two spaces $X$ and $Y$ are homotopy equivalent if and only if there exists
+    a third space $Z$ deformation retracting onto both $X$ and $Y$ ; you should be able to
+    prove this assuming the above statements.
+    
+
+\vspace*{30mm}
+\item Example of a deformation retraction that's not “$M_f$ retracting onto $Y$ :” anything
+    where distinct points of the larger space “collide” at an earlier time than $t = 1$, e.g.
+    thickened letter $X$ deformation retracting onto a point by first deformation retracting
+    onto an ordinary $X$ and then shrinking the legs
+
+
+\vspace*{30mm}
+\end{itemize}
+
+\section{Cell Complexes}
+\begin{itemize}
+\item Definition of CW complex / cell complex, including definitions of $n$-skeleton and
+attaching map $\varphi_\alpha$ for a cell index $\alpha$
+
+
+\vspace*{30mm}
+\item Definitions of finite-dimensionality and finiteness for CW complexes
+
+
+\vspace*{30mm}
+\item Definition of Euler characteristic of a finite CW complex; computing in examples by
+counting vertices, edges, faces, higher cells if they exist
+
+
+\vspace*{30mm}
+\item Topological space associated to a finite-dimensional CW complex
+
+
+\vspace*{30mm}
+\item Topological space associated to an infinite-dimensional CW complex
+
+
+\vspace*{30mm}
+\item Constructing CW decompositions of $S^2$ with any allowable number of vertices, edges,
+and faces (HW 2)
+
+
+\vspace*{30mm}
+\item Constructing standard CW structure on $\rl P^n$, number of cells in each dimension,
+Euler characteristic, definition of $\rl P^\infty$
+
+
+\vspace*{30mm}
+\item Constructing standard CW structure on $\mc P^n$, number of cells in each dimension,
+Euler characteristic, definition of $\mc P$
+
+
+\vspace*{30mm}
+\item CW decompositions of closed oriented surfaces of genus $g$; description of these surfaces
+by identifying sides of $4g$-gon
+
+
+\vspace*{30mm}
+\item Proof that for a CW complex $X$, the natural maps $X^n\to X^{n+1}$ are injective (HW
+2); you won't be asked to reproduce problem 3 on HW 2.
+
+
+\vspace*{30mm}
+\item Understand the statement (no proof) that on the $n$-skeleton $X^n$, the quotient
+topology it began its life with agrees with the topology it acquires as a subspace of $X$ due
+to the injectivity of the map $X^n\to X$
+
+
+\vspace*{30mm}
+\item Definition of characteristic map $\Phi_\alpha$ and cell $e^n_
+\alpha$ for an $n$-cell index $\alpha$
+
+
+\vspace*{30mm}
+\item Statement (no proof) that $\Phi_\alpha$ gives a homeomorphism from int$(D^n)$ to
+$e^n_\alpha\subset X$
+
+
+\vspace*{30mm}
+\item Identifying the cells $e^n_\alpha$ in the usual CW structure on the torus: which cells are closed
+subsets of the torus? Only the vertex!
+
+
+\vspace*{30mm}
+\item If $X$ has a CW structure then every point of $X$ is in a unique cell: statement only
+since that’s all we covered, although the proof isn't so bad.
+
+
+\vspace*{30mm}
+\item Definition of subcomplex of CW complex $X$ as subset $A$ of underlying topological
+space that’s closed and consists of a union of cells
+
+
+\vspace*{30mm}
+\item Proposition enabling us to build a CW structure on a subcomplex $A$: technical, won't
+be asked statement or proof, just know that if a subset $A$ is closed and consists of a
+union of cells then “everything works” when viewing $A$ itself as a CW complex.
+
+
+\vspace*{30mm}
+\item Examples of subcomplexes: $\rl P^k\subset \rl P^n$ in the usual CW structure, same for complex
+case; equators of spheres not subcomplexes in the simplest CW structure but you can
+choose CW structure so that they're subcomplexes
+
+
+\vspace*{30mm}
+\item Example of a CW complex where the closure of some cell is not a subcomplex:
+attaching a closed interval in a sphere to a proper subinterval of a larger closed
+interval
+
+
+\vspace*{30mm}
+\end{itemize}
+\section{Paths and Homotopy}
+\begin{itemize}
+\item Definition of straight line homotopy between any two paths with same endpoints in
+a convex subset $X$ of $\rl^n$
+
+
+\vspace*{30mm}
+\item Definition of reparametrization used in this section, and homotopy between a path
+and any reparametrization
+
+
+\vspace*{30mm}
+\item Definition of composite path $f* g$ (and condition required for $f* g$ to make sense)
+
+
+\vspace*{30mm}
+\item Definition of reverse path $\bar{f}$ (namely: $\bar{f} (s) := f (1- s)$)
+
+
+\vspace*{30mm}
+\item Composition respects homotopy rel endpoints: statement and proof.
+
+
+\vspace*{30mm}
+\item Definition of fundamental group $\pi_1(X, x_0)$ with group operation given by $*$ on
+homotopy classes
+
+
+\vspace*{30mm}
+\item The group axioms hold for $\pi_1(X, x_0)$: statement and proof (but you'll be asked at
+most a proper subset of the proof)
+
+
+\vspace*{30mm}
+\item Using straight-line homotopies to show $\pi_1(X, x_0)$ is trivial when $X$ is a convex subset
+of $\rl^n$ (usual topology)
+
+
+\vspace*{30mm}
+\item Definition of change-of-basepoint isomorphism $\beta_h$ from $\pi_1(X, x_1)$ to $\pi_1(X, x_0)$ given
+a homotopy class $[h]$ of paths from $x_0$ to $x_1$; proof that $\beta_h$ is an isomorphism
+
+
+\vspace*{30mm}
+\item Definition of simply connected
+
+
+\vspace*{30mm}
+\item $X$ is simply connected iff for any $x_0$, $x_1$ in $X$ there is a unique homotopy class of
+paths joining them: statement and proof
+
+
+\vspace*{30mm}
+\item $\pi_1(X)$ is abelian iff all change-of-basepoint isomorphisms $\beta_h$ depend only on the
+endpoints of $h$ (HW 3)
+
+
+\vspace*{30mm}
+\item You won't be asked about problems 2 or 3 on HW 3.
+
+
+\vspace*{30mm}
+\end{itemize}
+\begin{itemize}
+\section{The Fundamental Group of the Circle}
+\item Definition of covering space
+
+
+\vspace*{30mm}
+\item Definition of homotopy lifting property with respect to a space $Y$
+
+
+\vspace*{30mm}
+\item Definition of fibration (homotopy lifting property holds with respect to every space
+$Y$ )
+
+
+\vspace*{30mm}
+\item Statement that covering spaces are fibrations with unique lifts of homotopies (no
+proof)
+
+
+\vspace*{30mm}
+\item Special case: path lifting principle with unique lifts of paths holds for covering spaces
+(take $Y$ to be a single point)
+
+
+\vspace*{30mm}
+\item Corollary about lifting homotopies rel endpoints between paths
+
+
+\vspace*{30mm}
+\item Statement (no proof) that $p(s) := (\cos(2\pi s), \sin(2\pi s))$ gives a covering space $R\xlongrightarrow{p} S^1$
+
+
+\vspace*{30mm}
+\item $\pi_1(S^1)\simeq \mz$: statement and proof assuming all previous lemmas (just the final proof
+itself)
+\end{itemize}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{\textbf{Introduction to Manifold Theory} \\
+\large Homework 8
+}
+\author{Nutan Nepal}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\atlasA}{\mathcal{A}}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item Do Exercise 5.3 Let $X$ and $Y$ be smooth manifolds.
+Show that the identity
+map sending $f\longmapsto f$ is a bijection from the set
+of smooth maps $f : X\to Y$
+to the set of sections of the trivial bundle
+$(X\times Y, X, \text{proj}_1, Y)$ with base $X$
+and fiber $Y$.(loosely: show that the definition
+of “section of a fiber bundle” can
+be viewed as a generalization of the definition of
+“smooth function between smooth manifolds”).
+
+\begin{mybox}
+
+    Let $\mathcal{A}$ be the set of all smooth maps
+    from $X$ to $Y$ and $\mathcal{B}$ be the set of
+    all sections of the trivial bundle
+    $(X\times Y, X, \text{proj}_1, Y)$
+    with base $X$ and fiber $Y$. We note that the set
+    $\mathcal{B}$ consists of the smooth functions
+    $f:X\to X\times Y$ such that $\text{proj}_1
+    \circ f =$ id$_B$. Since proj$_1(x,y)=x$ for the
+    points $(x,y)\in X\times Y$, every $f\in\mathcal{B}$
+    fixes all the points of $x\in X$ meaning that
+    $$f(x)=(x,f'(x))$$ for some $f':X\to Y$. Since,
+    $f$ is smooth, $f'$ is a smooth map from $X$ to
+    $Y$. Then we can define the identity map
+    id $:\mathcal{A}\to\mathcal{B}$ that takes each
+    smooth function $f:X\to Y$ such that $f(x)=y$
+    to the section $f:X\to X\times Y$ such that
+    $f(x)=(x,f'(x))$. Clearly, this is an injective
+    map since
+    $$\text{id}(f)(x)=\text{id}(g)(x)\implies
+    (x,f'(x))=(x,g'(x))\implies f'=g'\implies f=g.$$
+    The map is also surjective since every
+    $f\in\mathcal{B}$ fixes all the points of $x\in X$
+    and for $f\in\mathcal{B}$ such that $f(x)=(x,f'(x))$
+    we have $f\in\mathcal{A}$ such that $f(x)=y$. Thus
+    this identity map is a bijection.
+\end{mybox}
+
+\end{enumerate}
+\end{document}

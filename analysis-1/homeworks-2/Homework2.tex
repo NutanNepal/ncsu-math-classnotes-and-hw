@@ -1,0 +1,361 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, xcolor}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 1
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mq}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\eq}{\Leftrightarrow}
+
+\begin{enumerate}
+
+
+\item Let $f: X \to \mR$, where $X$ is a measurable space.
+Show that if $V_r:=\{ x \ | \ f(x) \geq r \}$ is measurable for every rational number $r$, then $f$ is measurable.
+
+\begin{mybox}
+
+  We note that for the open set $U_r:=(-\infty,r)$, $V_r=f^{-1}
+  (U_r^c)=(f^{-1}(U_r))^c$. Thus, $(f^{-1}(U_r))$ is measurable
+  in $X$. Now, for any open set $W\subset \rl$, we know that
+  $W$ is an arbitrary union or finite intersections
+  of the sets of the form $(a,b)$, so it suffices to show
+  that $f^{-1}(a,b)$ is measurable.
+
+  \vspace*{2mm}
+  If $(a_n)\to a$ is a sequence in $\mq$ that decreases to
+  $a$ then
+  $$(a,b)=(-\infty,b)\cap \bigcup_{n=1}^\infty{(-\infty,
+  a_n)^c}\implies
+  f^{-1}(a,b)=f^{-1}(-\infty,b)\cap \bigcup_{n=1}^\infty{
+  (f^{-1}(-\infty,a_n))^c}.
+  $$
+  Since each of the sets on the right are measurable,
+  $f$ is measurable.
+\end{mybox}
+
+\item Let $f:\mR \to \mR$ such that $f^{-1}(c)$ is
+measurable for each number $c$. Is $f$ necessarily measurable?
+
+\begin{mybox}
+  Let $E$ be a non-measurable set if $\rl$ and define a
+  function $f:\rl\to\rl$ by $f(x)=2^x$ if $x\in E$ and
+  $f(x)=-2^x$ if $x\notin E$. Then $f^{-1}(c)$ is empty if
+  $c=0$ and a singleton set if $c\neq 0$. Thus $f^{-1}(c)$
+  is measurable for each $c$. However, $f$ is not measurable
+  since $f^{-1}(0,\infty)=E$ is not a measurable set.
+\end{mybox}
+
+\item Let $f :\mR \to \mR$ be measurable and $g :\mR \to \mR$ be continuous. Is the composition $f \circ g$ 
+necessarily measurable?
+
+\begin{mybox}
+  For each measurable set $W\subset\rl$,
+  $f^{-1}(W)$ is measurable. However the preimage of the
+  measurable set $f^{-1}(W)$ under the continuous 
+  function $g$ may not be measurable. Thus $f\circ g$
+  is not necessarily measurable.
+\end{mybox}
+
+\item Give an alternate proof that if $f, g: X \to \mR$ are measurable, then so is $f+g$, by showing directly that 
+$$ (f+g)^{-1}(a,\infty) = \{x \ | \ (f+g)(x) > a \}$$ 
+is measurable for every $a \in \mR$. \\
+Hint: Show that $\ds \{x \ | \ (f+g)(x) > a \} = \cup_{b \in \mQ} \big( \{x \ | \ f(x) > b \} \cap \{ x \ | \ g(x) > a-b\} \big)$. 
+
+Similarly show directly that $cf$ (for $c$ constant) is measurable, as is $f^2$. Using these results, show that $fg$ is measurable.
+
+\begin{mybox}
+  Let $A_a=(f+g)^{-1}(a,\infty)=\{x \ | \ (f+g)(x) > a \}$
+  for some $a\in \rl$.
+  Since $(f+g)(x)=f(x)+g(x)$, if $f(x)>b$ for some
+  $b\in \mq$, then
+  $(f+g)(x)>a\implies g(x)>a-b$. Then $A_a=
+  \{x \ | \ f(x) > b\ \text{and}\ g(x)>a-b\}$.
+  So, $A_a =\{x \ | \ (f+g)(x) > a \} =\bigcup_{b \in \mQ}
+  \left(\{x \ | \ f(x) > b \} \cap \{ x \ | \ g(x) > a-b\}
+  \right)$ is a countable union of intersections of
+  measurable sets. Thus, $A_a$ is measurable for every
+  $a\in \rl$ and $f+g$ is measurable.
+
+  \vspace*{2mm}
+  Now, let $A_a=(cf)^{-1}(a,\infty)=\{x \ | \ (cf)(x)>a\}
+  =\{x\ |\ f(x)>a/c\}$. But this is a measurable set since
+  $f^{-1}(a/c,\infty)$ is measurable in $X$ for all
+  $a\in \rl$. Thus $cf$ is measurable.
+
+  \vspace*{2mm}
+  Now, let $A_a=(f^2)^{-1}(a,\infty)=\{x \ | \ (f^2)(x)>a\}
+  =\{x\ |\ f(x)>\sqrt{a}\}\cup \{x\ |\ f(x)>\sqrt{a}\}$.
+  But this is a union measurable sets since
+  $f^{-1}(\sqrt{a},\infty)$  and $f^{-1}(\sqrt{a},\infty)$
+  are measurable in $X$ for all
+  $a>0\in \rl$. For $a<0$, we have $(f^2)^{-1}(a,\infty)
+  =X$. Thus $f^2$ is measurable.
+\end{mybox}
+
+
+\item Let $X$ be an uncountable set. Let 
+$$ M = \{ E \subset X  \ \text{such that either} \ E \ \text{or}\ E^c \ \text{is countable}\}.$$
+Set $\mu(E) = 0$ if $E$ is countable and $\mu(E) = 1$ if $E^c$ is countable. Show that $M$ is a $\sigma$-algebra and that $\mu$ is a measure on $M$. 
+
+\begin{mybox}
+  \begin{enumerate}
+    \item Since the empty set $\emptyset$ is countable,
+      and $X^c=\emptyset$, $\emptyset\in M$ and $X\in M$.
+
+      \vspace*{1mm}
+    \item If $\{E_k\}_{k=1}^\infty$ is a countable collection
+      of sets in $M$ where either $E_k$ is countable or $E_k^c$
+      is countable, then if all $E_k$ are countable, then
+      $E=\bigcup_{k=1}^\infty{E_k}$ is a countable union of
+      countable sets and hence is countable itself. Thus
+      $E\in M$. If there exists one $E_k$ such that
+      $E_k^c$ is countable, then $E^c$ is countable and
+      thus $E\in M$.
+
+      \vspace*{1mm}
+    \item If $\{E_k\}_{k=1}^\infty$ is a countable collection
+      of sets in $M$ where each $E_k^c$ is countable, then
+      $E^c=\left(\bigcap_{k=1}^\infty{E_k}\right)^c$ is a countable intersection
+      of countable sets and hence is countable itself and
+      $E\in M$. If one of the $E_k$ is countable, then $E$ is
+      countable and so $E\in M$.
+  \end{enumerate}
+  All sets $E\in X$ are either countable or uncountable,
+  so image of $\mu=\{0,1\}$. If $\{E_k\}_{k=0}^\infty$ is a
+  countable collection of measurable pairwise disjoint
+  sets then, either
+
+  \vspace*{2mm}
+  \begin{enumerate}
+    \item all $E_k$ are countable and hence
+    $\bigcup_{k=1}^\infty{E_k}$ is countable, or
+    \item one $E_k^c$ is countable and hence
+    $\left(\bigcup_{k=1}^\infty{E_k}\right)^c$ is
+    countable.
+  \end{enumerate}
+
+  We note that two distinct $E_i$ and $E_j$ cannot both
+  have countable complements since $E_i\subset E_j^c$.
+  Then,
+  $$\mu\left(\bigcup_{k=1}^\infty{E_k}\right)=
+  \begin{dcases}
+    0=\sum_{i=1}^\infty{E_k} &\text{all $E_k$ are countable}\\
+    1=0+1=\sum_{i=1}^\infty{E_k}&\text{one $E_k^c$ is countable.}
+  \end{dcases}
+  $$
+  Thus $\mu$ is a measure on $M$.
+\end{mybox}
+
+\item Let $A$ and $B$ be any sets. Show that
+$$\chi_{A\cap B} = \chi_A\cdot\chi_B,\ \ \
+\chi_{A\cup B} = \chi_A + \chi_B - \chi_A\cdot\chi_B,\ \ \
+\chi_{A^c}=1-\chi_A.$$
+\begin{mybox}
+  \begin{enumerate}
+    \item $\chi_{A\cap B}(x)=1\iff x\in A\wedge x\in B\iff
+    (\chi_A(x)=1)\wedge (\chi_B(x)=1).$
+  
+    And, $\chi_A\cdot\chi_B(x)=1\iff
+    (\chi_A(x)=1)\wedge (\chi_B(x)=1).$ Thus
+    $\chi_{A\cap B} = \chi_A\cdot\chi_B$.
+
+    \vspace*{3mm}
+    \item $\chi_{A\cup B}(x)=0\iff (x\notin A)\wedge
+    (x\notin B)$.
+
+    $\chi_A + \chi_B - \chi_A\cdot\chi_B=0\iff
+    (x\notin A)\wedge (x\notin B)$. Thus
+    $\chi_{A\cup B} = \chi_A + \chi_B - \chi_A\cdot\chi_B$.
+
+    \vspace*{3mm}
+    \item Taking $B=A^c$ in the above formula, we have,
+    $\chi_{A\cup A^c}=\chi_A+\chi_{A^c}-\chi_A\cdot\chi_{A^c}.$
+    But $\chi_{A\cup A^c}=1$ and $\chi_A\cdot\chi_{A^c}=0$ in
+    all cases, and hence, $\chi_{A^c}=1-\chi_A$.
+  \end{enumerate}
+\end{mybox}
+
+\item ``Continuity Property of Decreasing Intersections":
+Let $A_n \in \cM$ s.t. $A_1 \supseteq A_2 \supseteq A_3 ... $, and $\mu(A_1) < \infty$.  Show that $\ds \mu(\cap_1^{\infty} A_n ) = \lim_{n \to \infty}\mu(A_n)$.  
+
+\begin{mybox}
+  We define $\{B_k\}_{k=1}^\infty$ collection of measurable
+  sets by $B_k=A_1-A_k$. Then $\{B_k\}_{k=1}^\infty$ is an
+  ascending collection of measurable sets with
+  $$\mu\left(\bigcup_{k=1}^\infty{B_k}\right)=
+  \lim_{k\to\infty}{\mu(B_k)}.$$
+  We have $\bigcup_{k=1}^\infty{B_k}=\bigcup_{k=1}^\infty{
+  (A_1-A_k)}=A_1-\bigcap_{k=1}^\infty{A_k}.$ Since
+  $\mu(A_k)\leq\mu(A_1)<\infty$, we write $\mu(B_k)=
+  \mu(A_1)-\mu(A_k)$. So,
+  $$\mu\left(\bigcup_{k=1}^\infty{B_k}\right)=
+  \mu\left(A_1-\bigcap_{k=1}^\infty{A_k}\right)
+  =\mu(A_1)-\mu\left(\bigcap_{k=1}^\infty{A_k}\right)
+  =\mu(A_1)-\lim_{k\to\infty}{\mu(A_k)}.$$
+  Hence we have, $\ds\mu\left(\bigcap_{k=1}^\infty{A_k}\right)
+  =\lim_{k\to\infty}{\mu(A_k)}$ as required.
+\end{mybox}
+
+\item  Suppose that $(X, \cM, \mu)$ is a measure space. Show that if $A_1, A_2, ... \in \cM$, but not necessarily pairwise disjoint, with $\mu(A_i) = 0$ for each $i$, then $\ds \mu(\cup_j A_j) = 0$.
+
+\begin{mybox}
+  Let $B_i=\bigcup_{j=1}^i{A_j}$, then $\{B_i\}_{i=1}^\infty$
+  is an ascending collection of measurable sets and for
+  each $i\in\mN$,
+  $$\mu(B_i)= \mu\left(\bigcup_{j=1}^i{A_j}\right)
+  \leq\sum_{j=1}^i{\mu(A_j)}=0.$$
+  Then, by the continuity of measure,
+  $$\mu\left(\bigcup_{j=1}^\infty{A_j}\right)
+  =\mu\left(\bigcup_{j=1}^\infty{B_j}\right)
+  =\lim_{j\to\infty}{\mu(B_j)}=0.$$
+\end{mybox}
+
+\item Let $(X, \cM, \mu)$ be a measure space. If $A$ and $B$ are disjoint measurable sets, and $\ds \mu(A \cup B) = \mu(A)$, must $\mu(B) = 0$?
+
+\begin{mybox}
+  Since $A$ and $B$ are disjoint,
+  $\mu(A)=\mu(A\cup B)=\mu(A)+\mu(B)\implies \mu(B)=0$.
+\end{mybox}
+
+\item Let $(X, \cM, \mu)$ be a measure space, and let $B \in \cM$. Define $\nu(A) = \mu(A \cap B)$ for $A \in \cM$. Show that $\nu$ is a measure.
+
+\begin{mybox}
+  Since $\nu(A)=\mu(A\cap B)\leq \mu(A)\leq\infty$ and
+  $\nu(A)\geq 0$.
+
+  \vspace*{2mm}
+  Now if $\{A_k\}_{k=0}^\infty$ is a countable pairwise
+  disjoint collection of sets then $\{B\cap A_k\}_{k=0}
+  ^\infty$ is a countable collection of pairwise disjoint
+  sets. Then
+  $$\nu\left(\bigcup_{n=0}^\infty{A_k}\right)
+  =\mu\left(B\cap\bigcup_{n=0}^\infty{A_k}\right)
+  =\sum_{n=0}^{\infty}{B\cap A_k}=\sum_{n=0}^{\infty}
+  {\nu(A_k)}.$$
+  Thus, $\nu$ is countably additive and is a measure.
+\end{mybox}
+
+\item Let $f: X \to [0, \infty]$ be a measurable function. Let
+  $$s_n(x) =
+  \begin{cases}
+			n, & f(x) \geq n\\
+			\frac{i-1}{2^n}, & \frac{i-1}{2^n} \leq f(x) < \frac{i}{2^n}, i = \overline{1, n\cdot 2^n}
+	\end{cases}$$
+Show that $\{s_n\}$ is a monotone increasing sequence and $s_n \to f$ pointwise as $n \to \infty$. 
+
+\begin{mybox}
+  We see that $s_n(x)\leq f(x)$ for all $x$. Clearly,
+  $s_{n+1}(x)\geq s_n(x)$ for $f(x)\geq n$. Now, if
+  $f(x)<n$, then $s_n=p/2^n$ where $p$ is the greatest
+  number that is less than $2^nf(x)$. Then if $q=s_{n+1}(x)$
+  is the greatest integer less than $2^{n+1}f(x)=2\cdot
+  2^nf(x)$ then $q>p$. Thus $\{s_n\}$ is a monotone
+  increasing sequence.
+
+  \vspace*{2mm}
+  From above, we have $s_n(x)=p/2^n> (2^nf(x)-1)/2^n
+  =f(x)-1/2^n$
+  since $p>2^nf(x)$ for all $x$. Then $f(x)-s_n(x)<1/2^n$
+  and as $n\to \infty$, $s_n\to f$ pointwise.
+\end{mybox}
+
+\item Let $(X, \cM, \mu)$ be a measure space. Let $A \in \cM$.
+Let $s$ and $v$ be non-negative, simple, measurable functions.
+Let $\al, \beta \geq 0$. Show that 
+$$\int_A (\al s + \beta v ) \ d\mu = \al  \int_A s \ d\mu + \beta \int_A v  \ d\mu$$
+Moreover, if $s \leq v$ on $A$, then show that 
+$$ \int_A s \ d\mu \leq \int_A v \ d\mu.$$
+
+\begin{mybox}
+  Now, we note that if $f=\alpha s+\beta v$,
+  we choose a finite disjoint collection of measurable
+  subsets $\{E_i\}_{i=1}^n$ of $A$ such that their union
+  is $A$ and $s$ and $v$ are constant on each
+  $E_i$. Let $p_i$ and $q_i$ be the values taken by $s$
+  and $v$ for each $i$. Then
+  $$\int_A{s\ d\mu}=\sum_{i=1}^n{p_i\cdot\mu(E_i)}
+  \ \ \ \ \text{and}\ \ \ \
+  \int_A{v\ d\mu}=\sum_{i=1}^n{q_i\cdot\mu(E_i)}.$$
+  Then clearly,
+  $$\int_A{\alpha s+\beta v\ d\mu}=
+  \sum_{i=1}^n{(\alpha p_i+\beta q_i)\cdot\mu(E_i)}
+  =\alpha\int_A{s\ d\mu} +\beta \int_A{v\ d\mu}.$$
+  Now, if $s\leq v$ on $A$, then we take $r=v-s$ to be the
+  simple non-negative function and by linearity, we have,
+  $$\int_A{v\ d\mu}-\int_A{s\ d\mu}
+  =\int_A{r\ d\mu}\leq 0$$
+  as required.
+\end{mybox}
+
+\end{enumerate}
+
+\end{document}

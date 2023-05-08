@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, xcolor}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 5
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\dmu}{\ d\mu}
+\newcommand{\ix}{\int_X}
+\newcommand{\cL}{\mathcal{L}(\mathbb{R})}
+\newcommand{\soi}{\sum_{i=1}^{\infty}}
+\newcommand{\son}{\sum_{i=1}^{n}}
+\newcommand{\la}{\lambda}
+\newcommand{\Lp}{L^p(\mu)}
+\newcommand{\Lq}{L^q(\mu)}
+\newcommand{\Lr}{L^r(\mu)}
+\newcommand{\ms}{(X, \mM, \mu)}
+\newcommand{\outm}{\mu^*}
+
+\begin{enumerate}
+
+
+
+\item Lebesgue's Criteria for R-integrability: A bounded $f:[a,b] \to \mR$
+    is R-intb. iff $f$ is continuous a.e. In class, we showed
+    ``LHS $\Rightarrow$ RHS". Prove the converse.
+\begin{mybox}
+
+\end{mybox}
+
+\item Let $f: [a,\infty) \to \mR$ be Riemann integrable on every closed subinterval of $[a, \infty)$. Moreover, assume that $f$ is Lebesgue integrable on $[a, \infty)$. Show that \\
+$\ds \int_a^{\infty} |f(x)| \ dx \ < \ \infty$, and moreover,  $\ds \int_{[a, \infty)}f \ dm = \int_a^{\infty} f(x) \ dx$. 
+\begin{mybox}
+
+\end{mybox}
+
+\item Prove Holder's Inequality: Let $1 \leq p \leq \infty$ and let $q$ be its conjugate exponent. Let $f \in L^p(\Omega)$ and $g \in L^q(\Omega)$. Then $fg \in L^1(\Omega)$ and 
+$$\Big| \int_{\Omega} fg \ d\Omega \Big| \leq \int_{\Omega} |fg| \ d\Omega \leq \|f\|_p \|g\|_q$$
+\begin{mybox}
+
+    If $f\neq 0$ and $g\neq 0$, then the inequality is trivial.
+    For $p=1$, the result follows from the Young's inequality.
+\end{mybox}
+
+\item In any measure space $\ms$, show that if $1 \leq p \leq r \leq  q \leq \infty$, then $$\Lp \cap \Lq \subset \Lr.$$
+\begin{mybox}
+
+\end{mybox}
+
+\item Prove Minkowski's Inequality for Lebesgue spaces.
+\begin{mybox}
+
+    \begin{align*}
+        \|f+g\|_p&=\int_{E}{(f+g)\cdot(f+g)^*}\\
+        &=\int_{E}{f\cdot(f+g)^*}+\int_{E}{g\cdot(f+g)^*}\\
+        &=\|f\|_p\cdot\|(f+g)^*\|_q+\|g\|_p\cdot\|(f+g)^*\|_q\\
+        &=\|f\|_p+\|g\|_p
+    \end{align*}
+\end{mybox}
+
+\item Give explicit examples of measure spaces $(X, \mM, \mu)$ where each of the following are true:
+\begin{enumerate}
+\item $\Lp \subset \Lq$, if $0 < p < q< \infty$
+\begin{mybox}
+
+\end{mybox}
+\item $\Lp \subset \Lq$, if $0 < q < p < \infty$
+\begin{mybox}
+
+\end{mybox}
+\item $\Lp$ does not contain $\Lq$ unless $p=q$.
+\begin{mybox}
+
+\end{mybox}
+
+\end{enumerate}
+
+\item Suppose that $\mu(X) =1$ and let $f$ and $g$ be positive, measurable functions on $X$ s.t. $f, g\in L^1(\mu)$  and $fg \geq 1$. Prove that $(\ix f \dmu)( \ix g \dmu) \geq 1$.
+\begin{mybox}
+
+\end{mybox}
+
+
+\item \textbf{Royden, p. 143/ 13}
+    Show that if $f$ is a bounded function on $E$ that belongs to $L^{p_1}(E)$,
+    then it belongs to $L^{p_2} (E)$ for any $p_2 > p_1$.
+    \begin{mybox}
+        If $f$ is bounded we have $|f(x)|\leq M$ for some
+        constant $M$. Then
+        $$f\in L^{p_1}(E)\implies\int_E{|f|^{p_1}}<\infty$$
+        $$\int_E{|f|^{p_2}}=\int_E{\left(|f|^{p_2/p_1}\right)^{p_1}}<\infty$$
+    \end{mybox}
+
+\item \textbf{Royden, p. 150/ 25}
+    Assume that $E$ has finite measure and $1 \leq p_1 < p_2 < \infty$. Show that if If $\{f_n\}\to f$
+    in $L^{p_2} (E)$, then $\{f_n\} \to f$ in $L^{p_1} (E)$.
+\begin{mybox}
+
+\end{mybox}
+
+\item Let $\{f_n\}_{n \geq 1}$ in $L^p(\mu)$. Assume that $\ds f_n \xrightarrow[n \to \infty]{a.e.} f$. 
+\begin{enumerate}
+\item If $\{f_n\}_{n \geq 1}$ is bounded in $L^p(\mu)$, then $f \in L^p(\mu)$ and $\ds \|f\|_p \leq \liminf_{n \to \inf} \|f_n\|_p$.
+\begin{mybox}
+
+\end{mybox}
+\item If $\exists \ g \in L^p(\mu)$ s.t. $|f_n(x)| \leq g(x)$ a.e. for all $n \geq 1$, then $\ds f_n \xrightarrow[n \to \infty]{L^p} f$.
+\begin{mybox}
+
+\end{mybox}
+\end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flashcards>
+  <flashcard>
+    <question>What is the capital of France?</question>
+    <answer>Paris</answer>
+  </flashcard>
+  <flashcard>
+    <question>What is the tallest mountain in the world?</question>
+    <answer>Mount Everest</answer>
+  </flashcard>
+  ...
+</flashcards>

@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{xkeyval}
+\input{randomlist}
+
+\setlength{\topmargin}{-.8in}
+\setlength{\textwidth}{180mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-8mm}
+\author{Nutan Nepal}
+
+\begin{document}
+\textbf{Topics:}
+\vspace*{2mm}
+\begin{itemize}
+    \item Outer measures, Measurability criteria; Lebesgue outer measure: infimum of the length of enveloping intervals; measures: Pushforward, Counting, Point mass
+    \item Measurable sets and their ``limits": ascending chain, descending chain
+    \item Measurable functions and their pointwise limits
+    \item Every non-negative measurable function induces another measure
+    \item Fundamental approximation theorem: approximation by simple functions
+    \item Integration of non-negative simple functions: monotonicity and linearity
+    \item Integration of non-negative functions: approx. by simple functions
+    \item Convergence Theorems, Monotone Convergence Theorem, Fubini's Theorem
+    \item (requirement of monotonicity in MCT: two reasons)
+    \item Fatou's Lemma; (requirement of non-negativity in Fatou's Lemma)
+
+    \item Integration of measurable functions by decomposition into positive and negative parts
+    \item Lebesgue integrability: finiteness of absolute integrability
+    \item Absolute continuity of Lebesgue integral : for all $\varepsilon>0$ there exists $\delta>0$ such that $\mu(A)<\delta\implies \|f\|<\varepsilon$
+    \item linearity and monotonicity of Lebesgue integration
+    \item Dominated Convergence Theorem
+    \item Countable additivity of the integrals as a consequence of LDCT
+    \item Almost everywhere extensions of the convergence theorems
+    \item Borel-Cantelli Lemma
+    \item Complete measure space: completion theorem
+    \item Caratheodory Extension: Restriction of Lebesgue outer measure to "measurable" sets
+    \item Non-measurable sets: Vitali's Theorem
+    \item Cantor Dust: uncountable set with measure zero; Nested set theorem
+
+    \item Lebesgue integration coincides with Riemann integration of Riemann integrable functions
+    \item Lebesgue-Vitali Theorem (criteria for Riemann integrability)
+    \item Improper Riemann-integration and its relation to Lebesgue integrability
+    \item Lebesgue spaces $L^p$ : equivalence classes of $p$-integrable functions
+    \item Finite essential upper bound in $L^\infty$
+    \item Normed spaces $L^p$ : respective norms
+    \item Young's inequality, Holder's inequality
+    \item Extension of Holder's inequality for $k$ different functions
+    \item Corollary for the extension: $f\in L^r$ for every $r$ in between ...
+    \item Minkowski's inequality: triangle inequality for $L^p$
+    \item In a set of finite measure, every power $>p$ integrable
+    \item Convergence in $L^p$: convergence of norms
+    \item Riesz-Fischer Theorem: $L^p$ are Banach spaces
+    \item Rapidly Cauchy subsequence; Convergence in $L^p$ implies pointwise a.e. convergence of a subsequence
+    \item Modes of convergence
+    \item Convergence in measure : if the functions differ only in a set of measure zero
+    \item Uniform convergence implies $L^p$ convergence in a set of finite measure
+    \item $L^p$ convergence implies convergence in measure
+    \item Convergence in measure implies pointwise a.e. convergence \underline{of a subsequence}
+    \item Pointwise convergence a.e. (finite a.e.) implies convergence in measure in a set of finite measure
+    \item Chebyshev's inequality: attaching a constant to every integrable function
+    \item Reiteration: convergence on finite measure space
+    \item Egoroff's Theorem: pointwise a.e. convergence in fms implies almost uniform convergence
+    \item Almost uniform convergence implies convergence in measure
+    \item Lusin's Theorem: measurable functions have continuous approximations on a complement of arbitralily small closed set
+    \item Littlewood's three principles
+    \item Approximations in $L^p$ spaces
+    \item Simple functions $L^p_s$ in $L^p$ are dense
+    \item Simple approximation lemma : bounded measurable functions are bounded above and below by simple functions
+    \item Step functions in $L^p$ are dense in $L^p_s$ : use of approximation of measurable sets by finite intervals
+    \item Continuous functions with compact support $C_c$ are dense in $L^p;\ p\neq \infty$
+    \item Lusin's property
+    \item Definition of $L^p$ spaces as completion of $C_c$ ($p\neq \infty$) or $L^p_s$
+    \item $C_c$ not dense in $L^\infty$; $C_c^\infty$ dense in $L^p$ ($p\neq\infty$)
+    \item $L^\infty$ completion of $C_c$ is $C_0$, continuous functions that "vanish at infinity"
+    \item Weierstrass approximation theorem : uniform approximation of continuous function on $[a,b]$ by polynomials
+    \item Separability of $L^p$ spaces, ($p\neq\infty$)
+    \item Parallelogram law in Hilbert spaces; strict convexity
+    \item Milman-Pettis Theorem: uniform convexity of norms in Banach spaces implies reflexivity
+    \item Some reflexive spaces admit no uniformly convex norms
+    \item $L^p$-norm ($1<p<\infty)$ is uniformly convex
+    \item Clarkson's first ($2\leq p<\infty$) and second ($1<p<2$) inequality
+    \item Operator in the dual of $L^q$ induced by an element in $L^p$ : bijective isometry
+    \item Norm of this operator equal to the $L^p$-norm of the element
+    \item Closed subspace of a reflexive Banach space is reflexive
+    \item Banach space is reflexive iff the space of its bounded linear functionals is reflexive
+    \item Riesz Representation Theorem for $L^p$ ($1\leq p<\infty$) spaces
+    \item Hahn-Banach Theorem and its corollaries
+    \item Relations between $(L^1)'$ and $L^\infty$
+    \item Weak convergence : uniqueness of weak limit; boundedness of weak sequence
+    \item Uniform Boundedness Principle
+    \item Riesz Lemma: space is finite dimensional iff the unit ball is compact
+    \item Bessel's inequality
+    \item Bolzano-Weierstrass Theorem and its weak analogue for infinite dimensional
+    \item Equivalent definition of weak convergence: boundedness and convergence of $f(x_n)$ for $f$ in a total subset of dual
+    \item Particular applications to the $L^p$ spaces
+    \item Weak convergence in $L^p$ ($p\neq\infty$) space equivalent to convergence in every measurable subset
+    \item Weak convergence in $L^p$ ($1<p<\infty$) space equivalent to convergence of "indefinite integral" in every closed interval
+    \item Riemann-Lebesgue Lemma
+    \item Pointwise convergence implies weak convergence for $1<p<\infty$
+    \item Weak convergence in $1<p<\infty$ implies pointwise convergence iff there is convergence of $L^p$-norm
+\end{itemize}
+
+\newpage
+\textbf{Techniques:}
+\vspace*{2mm}
+\begin{itemize}
+    \item Triangle inequality : $|x-x_n|\leq|x-x_m|+|x_m-x_n|$
+    \item Lebesgue to Riemann integral transitions: if $f=g$ a.e. on $X$ then
+        $$\int_X{f}=\int_X{g}$$
+    \item Weakly convergent sequences are bounded and the limit is unique
+    \item Boundedness and the linear functionals in a total subset of the dual is enough to characterize weakness of a sequence
+    \item $$\text{bounded }f_n\longrightarrow f \iff{\int_X{g\cdot f_n}}\longrightarrow\int_X{g\cdot f}\hspace*{5mm}\forall g\in M \text{ total}$$
+    \item Step functions and simple functions are total in $L^p$ for $1\leq p<\infty$
+    \item If $|f|<1$ on a set of infinite measure and $f\in L^p$ then $f\in L^q$ for all $q>p$
+    \item If $|f|\geq 1$ on a set of infinite measure and $f\in L^q$ then $f\in L^p$ for all $p<q$
+    \item Usual examples and counter examples: shrinking box, box marching to infinity, shrinking box marching in a circle, flattening box
+    \item Countinuous analogue of the above functions
+    \item Convexity of functions $f(tx+(1-t)y)\leq t\cdot f(x)+(1-t)\cdot f(y)$
+    \item Fatou's lemma : integral of lim inf $\leq$ lim inf of integral; flattening box shows strict inequality
+    \item Defining the sequence $f_n(x)=n$ for $f(x)\geq n$ and $f_n(x)=f(x)$ otherwise helps prove absolute continuity of Lebesgue integral
+    \item For positive $f$ this gives a monotone increasing sequence that converges to $f$
+    \item $|f|=\text{sgn}(f)\cdot f$ helps define functions that can be multiplied with $f$ and get $L^p$ norm by integrating the product
+    \item Cauchy-Schwartz inequality for inequalities with product of integrals and integral of products
+    \item $L^p\ni u\mapsto Tu\in (L^q)'$ with $\displaystyle(Tu)(f)=\int_X{u\cdot f}$ for $f\in L^q$
+    \item Functions defined like $\text{sgn}(f)\cdot|f|^{p-2}$ also helps find operator norms
+    \item Defining a complete Lebesgue measure poses a challenge of well definition of the measure: If $A\subset E\subset B$ with $\mu(B\setminus A)=0$
+        and $A'\subset E\subset B'$ with $\mu(B'\setminus A')=0$, then how do we define $\mu(E)$?
+    \item
+\end{itemize}
+\end{document}

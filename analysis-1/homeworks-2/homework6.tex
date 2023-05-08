@@ -1,0 +1,384 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts, xcolor, graphicx}
+\usepackage{mathrsfs}
+
+\newtheorem{notes}{Notes}[section]
+\newtheorem{prob}[notes]{Problems}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[notes]{Definition}
+\newtheorem{rem}[notes]{Remark}
+\newtheorem{prop}[thm]{Proposition}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{190mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Analysis II \\
+\large Homework 6
+}
+\author{Nutan Nepal}
+\newcommand{\packpledge}{
+    $\text{{\bf Pack Pledge:} I have neither given nor
+    received unauthorized aid on this
+    test or assignment.}$}
+
+\begin{document}
+\maketitle
+\packpledge\\
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\li}{l^{\infty}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\linf}{l^{\infty}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cR}{\mathcal{R}} 
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\lsn}{\limsup_{n \to \infty}}
+\newcommand{\lin}{\liminf_{n \to \infty}}
+\newcommand{\dmu}{\ d\mu}
+\newcommand{\ix}{\int_X}
+\newcommand{\soi}{\sum_{i=1}^{\infty}}
+\newcommand{\son}{\sum_{i=1}^{n}}
+\newcommand{\la}{\lambda}
+\newcommand{\Lp}{L^p(\mu)}
+\newcommand{\Lq}{L^q(\mu)}
+\newcommand{\Lr}{L^r(\mu)}
+\newcommand{\ms}{(X, \mM, \mu)}
+\newcommand{\outm}{\mu^*}
+
+\begin{enumerate}
+
+    \item In class, we showed that [If $\mu(X) < \infty$, and $f_n \to f$ pointwise a.e. $[\mu]$, then $f_n \to f$ in measure].  Give an example to show that the hypothesis $\mu(X) < \infty$ cannot be omitted. 
+    \begin{mybox}
+        We take $X=[0,\infty]$ which has Lebesgue measure infinity.
+        Let $f_n:[0,\infty]\to\rl$ be defined as $f_n(x)=\chi_{[n-1,n)}$.
+        If $f$ is the 0 function, then $f_n\to f$ pointwise almost everywhere.
+        However, for all $n\in\mN$ and $\varepsilon=1/2$ we have,
+        $$\mu\{x:|f(x)-f_n(x)|>1/2\}=\mu([n-1,n))=1, \hspace*{10mm}
+        \text{ and thus,}$$
+        $$\lim_{n\to\infty}\left(\mu\{x:|f(x)-f_n(x)|>1/2\}\right)=1.$$
+        This shows that $f_n$ does not converge to $f$ in measure.
+    \end{mybox}
+
+    \item Show that almost uniform convergence implies $\mu$-convergence and
+    piecewise convergence a.e.
+    \begin{mybox}
+        The sequence $\{f_n\}$ almost uniformly converges
+        to $f$ on $X$ if for every $\varepsilon>0$, there exists
+        a measurable set $N_\varepsilon$ with
+        $\mu(N_\varepsilon)<\varepsilon$ and $f_n\to
+        f$ uniformly on $M=X\setminus N_\varepsilon$, that is,
+        given $\varepsilon'>0$, there exists
+        a $p\in\mN$ such that $|f(x)-f_n(x)|<\varepsilon'$ for all
+        $n>p$ and all $x\in M$.
+
+        \vspace*{2mm}
+        Then for every $\varepsilon>0$ and $\varepsilon'>0$
+        we have $p\in \mN$ such that 
+        $$\mu\left(\{x:\ |f-f_n|\geq\varepsilon'
+        \ \text{for $n>p$}\}\right)
+        =\mu(N_\varepsilon)<\varepsilon.$$
+        This implies that $f_n$ converges to $f$ in measure.
+
+        \vspace*{2mm}
+        Now, for each $k\in\mN$, we take the set
+        $N_{1/k}$ as defined above and
+        let $N=\bigcap_{k=1}^\infty{N_{1/k}}$, the intersection
+        of decreasing sets. Each of
+        these sets are measurable and $N_1<1$. We
+        have $\mu(N)<1/k$ for every $k$ and so we have
+        $\mu(N)=0$. For each $x$ in the complement of $N$
+        we have $x\in X\setminus N_{1/k}$ for some
+        $K$ and $f_n\to f$ uniformly and thus $f_n\to f$
+        pointwise.
+    \end{mybox}
+    
+    \item \textbf{(Egoroff's Theorem)} Let $X \in \cL(\mR)$ with  $m(X) < \infty$. Let $\{f_n\}$ be a sequence of measurable functions on $X$ which converges pointwise on $X$ to the real-valued function $f$. Then for each $\ep > 0$, there is a closed set  $F \subset X$ for which 
+    $$ f_n \to f \ \text{uniformly on} \ F \ \text{and}\ \  \mu(X\setminus F) < \ep.$$
+    \begin{mybox}
+        Let $A$ be the set where the sequence
+        $\{f_n\}$ does not converge to $f$. We define
+        the sets
+        $$A^m_k=\{x\in X:\ \left|f(x)-f_n(x)\right|
+        \geq 1/k\ \text{for all $n\geq m$}\}.$$
+        If $\ds B_k=\bigcap_{m=1}^\infty{A^m_k}$ then
+        we see that $\ds A=\bigcup_{k=1}^\infty{B_k}$.
+        
+        $$B_k=\{x\in X:\ \left|f(x)-f_n(x)\right|
+        \geq 1/k\ \text{for infinitely many $n$}\}.$$
+        We then have $\lim_{k\to\infty}$
+    \end{mybox}
+    
+    \item Let $E \subset \mR$ measurable,  with $m(E) < \infty$. Then for all $\ep > 0$, there exists a finite disjoint collection of open intervals $\{I_k\}_1^n$ for which if $ \cO = \cup_1^n I_k$, then 
+    $$ m(E \setminus \cO) + m(\cO \setminus E) < \ep.$$
+    \begin{mybox}
+        Since $E$ is measurable, we see that for every
+        $\varepsilon>0$, there exists an
+        open set $U$ containing $E$ such that
+        $m(U\setminus E)<\varepsilon/2$. Let $U$ be the
+        countable union of disjoint open sets $\{I_k\}$.
+        Then for each natural number $n$, we have,
+        $$\sum_{k=1}^n{m(I_k)}=m\left(\bigcup_{k=1}^n{I_k}
+        \right)\leq m(U)<\infty\implies
+        \sum_{k=1}^\infty{m(I_k)}<\infty.$$
+        Hence we can choose $n\in\mN$ such that
+        $\sum_{k=n+1}^{\infty}{m(I_k)}<\varepsilon/2$ and
+        define $\cO=\bigcup_{k=1}^n{I_k}$. Then
+        $m(\cO\setminus E)\leq m(U\setminus E)<\varepsilon/2$
+        and we have (all these sets are measurable)
+        $$m(E\setminus \cO)\leq 
+        m(U\setminus \cO)=
+        m\left(\bigcup_{k=n+1}^\infty{I_k}\right)
+        <\varepsilon/2.$$
+
+        Thus, we have the required set $\cO$ satisfying
+        the given condition.
+    \end{mybox}
+    
+    \item \textbf{(Lusin's Theorem)}
+    Let $f$ be a measurable function on $X \subset \mR$. Show that for all $\ep> 0$, there exists a continuous function $g$ on $\mR$ and a closed set $F \subset X$ s.t. $f=g$ on $F$ and $m(X \setminus F) < \ep$. 
+    \begin{mybox}
+    Since $f$ is measurable, let $\{f_n\}$ be a sequence
+    of simple functions on $X$ that converges pointwise
+    to $f$. By Proposition 11 (page 66), we choose a
+    continuous function $g_n$ on $\rl$ and a closed set
+    $F_n$ with $f_n=g_n$ on $F_n$ and $m(X\setminus F_n)
+    <\varepsilon/2^{n+1}$. By Egoroff's theorem,
+    there is a closed set $F_0$ in $X$ such that
+    $f_n\to f$ uniformly on $F_0$ and $m(X\setminus F)
+    <\varepsilon/2$.
+    Defining $F=\bigcap_{n=0}^\infty{F_n}$ we have
+    $$m(X\setminus F)=m\left((X\setminus F_0)
+    \cup\bigcup_{n=1}^\infty{(E\setminus F_n)}\right)
+    \leq\varepsilon/2+\varepsilon/2=\varepsilon.$$
+    $F$ is closed and $f_n\to f$ uniformly on $F\subset
+    F_0$. The corresponding functions $g_n$ restricted 
+    to $F$ equals $f$ and is continuous on $\rl$.
+    \end{mybox}
+    
+    \item Let $X \in \cL(\mR)$. Show that $ \overline{L^{\infty}_s(X)} = L^{\infty}(X)$.
+    \begin{mybox}
+        Let $f\in L^{\infty}(X)$. Then $f$ is
+        bounded on the complement $E$ of a set of measure
+        0 in $X$. By simple approximation lemma, for every
+        $\varepsilon>0$, there
+        exists simple functions $\varphi_\varepsilon$ and
+        $\psi_\varepsilon$ on $E$ such that
+        $\varphi_\varepsilon\leq f\leq\psi_\varepsilon$
+        and $0\leq\psi_\varepsilon-\varphi_\varepsilon<
+        \varepsilon$ on $E$. Thus, for any $\varepsilon>0$,
+        we have a simple function $\varphi$
+        such that
+        $$\|f-\varphi\|_\infty=\sup_{x\in E}{|f-\varphi|}
+        < \varepsilon.$$
+        Thus, $L^{\infty}_s(X)$ is dense in $L^\infty(X)$.
+    \end{mybox}
+
+    \item Let $X \in \cL(\mR)$. Let $1 \leq p < \infty$. Show that $L^p(X)$ is separable. 
+    \begin{mybox}
+        For a closed interval $[a,b]$ in $\rl$ we define
+        $S[a,b]$ to be the collection of step functions
+        on $[a,b]$. We also define $S'[a,b]$ to be the
+        step functions $f$ on $[a,b]$ that take rational values
+        and for which there is a partition $P=\{x_0,
+        \ldots,x_n\}$ of $[a,b]$ with $x_i$ rational and
+        $f$ constant on each partition $(x_{i-1},x_i)$.
+        Clearly, $S'[a,b]$ is dense in $S[a,b]$ since
+        rationals are dense in real numbers. Furthermore,
+        the graph of each $f$ in $S'[a,b]$ is a
+        partition of a line in $\mQ^2$ and hence $S'[a,b]$
+        is countable. Since the step functions $S[a,b]$
+        are dense in $L^p[a,b]$, we see that
+        $S'[a,b]$ is also dense in $L^p[a,b]$.
+
+        \vspace*{2mm}
+        Now for each natural number $n$, we define
+        $\mathcal{F}_n$ to be the collection of functions that
+        are 0 on the complement of $[-n,n]$ and restrict to
+        some function in $S'[-n,n]$ in the interval
+        $[-n,n]$. We define $\mathcal{F}=\bigcup_{n\in\mN}
+        {\mathcal{F}_n}$ which, we note, is countable. For
+        each $f\in L^p(\rl)$, we see that, by monotone
+        convergence theorem,
+        $$\lim_{n\to\infty}\int_{[-n,n]}{|f|^p}=
+        \int_{\rl}{|f|^p}$$
+        where each function on the left is an element of
+        $\mathcal{F}$. Thus $\mathcal{F}$ is dense in
+        $L^p(\rl)$. For any measurable set $X$, the restriction
+        of the functions in $\mathcal{F}$ is also countable
+        and dense in $X$ and hence $L^p(X)$ is separable.
+    \end{mybox}
+
+    \item Let $X \in \cL(\mR)$. Show that $L^{\infty}(X)$ is not separable. 
+    \begin{mybox}
+        We show that $L^\infty[a,b]$ is not separable
+        which would imply that $L^\infty(X)$ is not
+        separable for any measurable set $X$.
+
+        \vspace*{2mm}
+        Suppose to the contradiction that there exists
+        a countable set $\{f_n\}$ that is dense in
+        $L^\infty[a,b]$. For each $x\in[a,b]$, we take
+        natural number
+        $\eta(x)$ for which $\|\chi_{[a,x]}-f_{\eta(x)}
+        \|_\infty<1/2.$ We see that
+        $$\|\chi_{[a,x_1]}-\chi_{[a,x_2]}\|_\infty =1
+        \hspace*{10mm}\text{whenever $x_1\neq x_2$}.$$
+        Thus $\eta$ is an injective mapping of $[a,b]$
+        onto the natural numbers which cannot be true.
+        So, $L^\infty[a,b]$ is not separable.
+    \end{mybox}
+    
+    \item Show that $C_c(\mR)$ is not dense in $L^{\infty}(\mR)$. Hint: Take $f = \chi_{(0,1)}$ and suppose there is a function $g \in  C_c(\mR)$ close to it.
+    \begin{mybox}
+        Let $g$ be a function in $C_c(\mR)$ such that $g$
+        is non-zero on a compact set $X$ containing $I=(0,1)$.
+        Then $g$ must necessarily restrict to 1 on the set
+        $I$, otherwise the norm $\|f-g\|_\infty$ would be
+        non-zero on the set $I$. Since $g$ is continuous,
+        it must attain every value in [0,1]on the set $X$. Then we have,
+        $\|f-g\|_\infty>\delta$ for any $0<\delta<1$
+        on the set $X\setminus E$. Thus $C_c(\rl)$
+        is no dense in $L^\infty(\rl)$.
+    \end{mybox}
+    
+    \item Fix $1 \leq p < \infty$ and let $f_n \in L^p([0,1])$ be a sequence of step functions defined as follows:
+    $$f_n (x) = (-1)^k, \ \text{for} \ \  \frac{k}{2^n} \leq x < \frac{k+1}{2^n}, \ \text{and}\ 0 \leq k \leq 2^n -1.$$ 
+    Show that $\{f_n\}$ is bounded in $L^p([0,1])$, but there is no subsequence of $f_n$ that is Cauchy in $L^p([0,1])$. Can $f_n$ have a pointwise a.e. convergent subsequence?
+    \begin{mybox}
+        For any $f_n$ we have, $\|f_n\|^p_p=
+        \int_{[0,1]}{|f_n|}=1$ and hence the sequence is
+        bounded. For $n\neq m$, we have $|f_n-f_m|=2$ on
+        a set of measure 1/2. Hence $\|f_n-f_m\|_p>\geq
+        2^{1-1/p}$ and hence there is no subsequence
+        of $\{f_n\}$ that is Cauchy. There is also no
+        subsequence that converges pointwise since such
+        a sequence need to necessarily converge in
+        $L^p$ itself.
+    \end{mybox}
+    
+    \item Show that $L^p(\mu)$ is not a Hilbert space for $p \neq 2$. Hint: Show that the parallelogram law fails for every $p \neq 2$.
+    \begin{mybox}
+        We know that if $L^p$ with the $p$-norm is a Hilbert Space, it must satisfy
+        the parallelogram law:
+        $$\|x+y\|^2_p+\|x-y\|^2_p=2(\|x\|^2_p+\|y\|^2_p)$$
+        for all $x$, $y\in L^p(\mu)$.
+
+        \vspace*{2mm}
+        We take $x=\chi_{[0,1/2)}$ and $y=\chi_{[1/2,1]}$
+        and note that $xy=0$ and $x$, $y\in L^p(\mu)$
+        for all $p>0$. Furthermore, $\ds \|x\|^2_p=\|y\|^2_p=
+        \left(\int_{[0,1/2)}{1}\right)^{2/p}=(1/2)^{2/p}.$
+        Similarly, $\ds \|x+y\|^2_p=\|x-y\|^2_p=
+        \left(\int_{[0,1]}{1}\right)^{2/p}=1$. Substituting
+        these values in the equality, we have
+        $$2=2((1/2)^{2/p}+(1/2)^{2/p})
+        \implies 1/2=(1/2)^{2/p}.$$
+        This satisfies only when $p=2$. Thus, $L^p(\mu)$ is
+        not a Hilbert space for any $p\neq 2$.
+    \end{mybox}
+
+    \item Prove Clarkson's 1st inequality (for real-valued functions).
+    \begin{mybox}
+        \textbf{Clarkson's first inequality}:
+        $$\|x+y\|^p_p+\|x-y\|^p_p\leq 2^{p-1}(\|x\|^p_p+\|y\|^p_p)
+        \hspace*{20mm}\text{for all $x$, $y\in L^p(\mu)$},\ \ 2\leq p<\infty.$$
+
+        We first note the inequality:
+
+        Let $a, b \geq 0$, and $p \geq 1$, then
+        $(a+b)^p \leq 2^{p-1} (a^p + b^p).$
+
+        \vspace*{2mm}
+        We have, with respect to the $p$-norm,
+        $$\left\|\frac{x+y}{2}\right\|^p=
+        \int{\left|\frac{x+y}{2}\right|^p}\leq
+        \int{\left(\left|\frac{x}{2}\right|+
+        \left|\frac{y}{2}\right|\right)^p}
+        \leq 2^{p-1}\left(\int{\left|\frac{x}{2}\right|^p}+
+        \int{\left|\frac{y}{2}\right|^p}\right)
+        =\frac{1}{2}(\|x\|^p+\|y\|^p).$$
+        The same inequality holds for the other term and
+        by adding the two, we have,
+        $$\left\|\frac{x+y}{2}\right\|^p+
+        \left\|\frac{x-y}{2}\right\|^p
+        \leq \|x\|^p_p+\|y\|^p_p.$$
+    \end{mybox}
+     
+    \item Use Clarkson's 2nd inequality to prove that $L^p$ is uniformly convex, for $1 < p \leq2$.
+    \begin{mybox}
+        \textbf{Clarkson's second inequality}:
+        $$\left\|\frac{x+y}{2}\right\|^q_p+\left\|\frac{x-y}{2}\right\|^q_p\leq
+        \left(\frac{1}{2}\left\|x\right\|^p_p+
+        \frac{1}{2}\left\|y\right\|^p_p\right)^{q/p}
+        \hspace*{20mm}\text{for all $x$, $y\in L^p(\mu)$},\ \ 1< p<2.$$
+
+        Let $\varepsilon>0$; $x$, $y\in L^p(\mu)$ with
+        $\|x\|=\|y\|= 1$ and
+        $\|x-y\|<\varepsilon$. We see that
+        $$\left\|\frac{x+y}{2}\right\|^q_p\leq
+        1-(\varepsilon/2)^q.$$
+        Taking $\delta=(1-(\varepsilon/2)^q)^{1/q}$,
+        we see that $\left\|\frac{x+y}{2}\right\|^q_p
+        <1-\delta$. Hence, $L^p$ is uniformly convex for
+        $1<p<2$.
+    \end{mybox}
+
+    \item  Let $X$ and $Y$ be normed space, and $T \in B(X,Y)$. If $\ds x_n \xrightarrow{w} x$ in $X$, show that $Tx_n \xrightarrow{w} Tx$.
+    \begin{mybox}
+        If $f$ is a continuous (hence, bounded) linear functional on $Y$, then
+        we note that $f\circ T$ must be a continuous
+        (hence, bounded) linear functional on $X$ since
+        the composition of linear (resp. continuous)
+        operators is linear (resp. continuous).
+        
+        \vspace*{2mm}
+        Now, iF $\ds x_n \xrightarrow{w} x$, then for
+        every bounded linear functional $S$ on $X$ we have
+        $Sx_n \longrightarrow Sx$. Then, for every bounded
+        linear functional $f$ on $Y$, since $f\circ T$ is a
+        bounded linear functional on $X$, we have
+        $$(f\circ T)x_n\longrightarrow (f\circ T)x
+        \implies f(Tx_n)\longrightarrow f(Tx).$$
+        Thus $\{Tx_n\}$ converges weakly to $Tx$ by definition.
+    \end{mybox}
+\end{enumerate}
+\end{document}
