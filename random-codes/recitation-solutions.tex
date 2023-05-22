@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newtcolorbox{mybox}[2][]{
+    arc=0mm, enhanced, frame hidden, breakable
+}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\renewcommand{\c}{\cos}
+\newcommand{\s}{\sin}
+
+\setcounter{MaxMatrixCols}{10}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{195mm} 
+\setlength{\textheight}{240mm}
+\setlength{\oddsidemargin}{-15mm} 
+\setlength{\evensidemargin}{-15mm}
+\parindent=0pt
+
+\title{Recitation - 241
+}
+
+\begin{document}
+\maketitle
+\makebox[\linewidth]{\rule{200mm}{1pt}}
+\vspace{1mm}
+
+\begin{enumerate}
+
+\item $\int{\c^7(x)\ dx}$
+
+\begin{mybox}
+
+    \begin{align*}
+        \int{\c^7(x)\ dx}   &=\int{\c^6(x)\cdot\c(x)\ dx}\\
+                            &=\int{\left(1-\s^2(x)\right)^3\cdot\c(x)\ dx}\\
+                            &=\int{\left(1-\s^2(x)\right)^3\cdot\c(x)\ dx}
+    \end{align*}
+    Let $u=\s(x)$, then $du = \c(x)\ dx$.
+    \begin{align*}
+        \int{\c^7(x)\ dx}   &=\int{\c^6(x)\cdot\c(x)\ dx}\\
+                            &=\int{\left(1-\s^2(x)\right)^3\cdot\c(x)\ dx}\\
+                            &=\int{\left(1-\s^2(x)\right)^3\cdot\c(x)\ dx}
+    \end{align*}
+\end{mybox}
+
+\end{enumerate}
+\end{document}
