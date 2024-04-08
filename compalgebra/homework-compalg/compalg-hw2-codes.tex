@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\iv}{\mathbf{I}(V)}
+\newcommand{\is}{\mathbf{I}(S)}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\nindent}{.5pt}
+\newcommand{\mdeg}{\text{multideg}}
+\newcommand{\lt}{\text{LT}}
+\newcommand{\lm}{\text{LM}}
+\newcommand{\lc}{\text{LC}}
+\newcommand{\znz}{\mathbb{Z}^n_{\geq 0}}
+
+\newcommand{\noverline}[1]{
+    \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{174mm} 
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+
+\title{Computer Algebra 522\\
+\large Homework 2
+}
+\author{Nutan Nepal}
+
+\begin{document}
+
+\maketitle
+\makebox[\linewidth]{\rule{180mm}{1pt}}
+\vspace{.1in}
+
+
+Programming Exercise 1
+\begin{mybox}
+    \begin{lstlisting}
+        S.<x,y> = PolynomialRing(QQ,order='deglex')
+        def multidiv(f, listf):
+            listofqs = []
+            p=f
+            for fs in listf:
+                q, r = p.quo_rem(fs)
+                listofqs.append(q)
+                p=r
+            return (listofqs, p)
+
+        def buchbergerAlgorithm(listf):
+            listg = listf
+            while True:
+                gTemp = listg
+                for p in gTemp:
+                    for q in gTemp:
+                        if p != q:
+                            gamma = lcm(p.lt(),q.lt())
+                            s = p*gamma.quo_rem(p.lt())[0] - q*gamma.quo_rem(q.lt())[0]
+                            r = multidiv(s, gTemp)[1]
+                            if r != 0:
+                                listg.append(r)
+                if listg == gTemp:
+                    break
+
+            return listg
+
+        f = x^3-2*x*y
+        g = x^2*y-2*x*y^2+x
+        buchbergerAlgorithm([f,g])
+
+    \end{lstlisting}
+\end{mybox}
+
+Programming Exercise 2
+\begin{mybox}
+    \begin{lstlisting}
+        def minimalizeGB(listg):
+            gTemp = listg
+            for gi in gTemp:
+                gi = gi*(1/gi.lc())
+            for gj in gTemp:
+                for gi in gTemp:
+                    if gi != gj and (gi.lt()).quo_rem(gj.lt())[1]==0:
+                        gTemp.remove(gi)
+
+            return gTemp
+
+
+        def reducedGB(listg):
+            gTemp = minimalizeGB(listg)
+            reducedBasis = []
+            for gi in gTemp:
+                temp = 0
+                while True:
+                    s = gi.lt()
+                    if s == 0: break
+                    flag = 0
+                    for gj in gTemp:
+                        if gi != gj and s.quo_rem(gj.lt())[1] == 0: flag = 1
+                    if not flag: temp = temp + s
+                    gi = gi - s
+                reducedBasis.append(temp)
+                
+            return reducedBasis
+    \end{lstlisting}
+\end{mybox}
+\end{document}

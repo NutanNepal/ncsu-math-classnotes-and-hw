@@ -1,0 +1,351 @@
+\documentclass[12pt]{article}
+\usepackage[]{blindtext}
+\usepackage[letterpaper, total{216mm, 279mm}]{}
+\usepackage{amssymb,amsmath,amsfonts,verbatim}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+\usepackage[english]{babel}
+\usepackage{mathtools, amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\newcommand{\rl}{\mathbb{R}}
+\newcommand{\id}{\text{id}}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\xprime}{X^\prime}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\al}{\alpha}
+\newcommand{\iv}{\mathbf{I}(V)}
+\newcommand{\is}{\mathbf{I}(S)}
+\newcommand{\qedbox}{$\hfill\blacksquare$}
+\newcommand{\nindent}{.5pt}
+\newcommand{\mdeg}{\text{multideg}}
+\newcommand{\lt}{\text{LT}}
+\newcommand{\lm}{\text{LM}}
+\newcommand{\lc}{\text{LC}}
+\newcommand{\znz}{\mathbb{Z}^n_{\geq 0}}
+
+\newcommand{\noverline}[1]{
+    \kern\nindent\overline{\kern-\nindent#1\kern-\nindent}\kern\nindent}
+
+\newtcolorbox{mybox}[0]{
+    arc=0mm, enhanced, frame hidden, breakable,
+}
+
+\setlength{\topmargin}{-.65in}
+\setlength{\textwidth}{174mm} 
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+
+\title{Computer Algebra 522\\
+\large Homework 1
+}
+\author{Nutan Nepal}
+
+\begin{document}
+
+\maketitle
+\makebox[\linewidth]{\rule{180mm}{1pt}}
+\vspace{.1in}
+
+1.3.8
+Consider the curve defined by $y^2=cx^2-x^3$, where $c$ is some constant.
+\begin{enumerate}
+    \item[a.] Show that a line will meet this curve at either 0,1,2, or 3 points. Illustrate your answer with a picture. Let the equation of the line be either $x=a$ or $y=mx+b$.
+    \begin{mybox}
+        \vspace*{45mm}
+    \end{mybox}
+    \item[b.] Show that a non-vertical line through the origin meets the curve at exactly one other point when $m^2\neq c$. Draw a picture to illustrate this, and see if you can come up with an intuitive explanation as to why this happens.
+    \begin{mybox}
+        \vspace{45mm}
+    \end{mybox}
+    \item[c.] Now draw the vertical line $x=1$. Given a point $(1,t)$ on this line, draw the line connecting $(1,t)$ to the origin. This will intersect the curve in a point $(x,y)$. Draw a picture to illustrate this, and argue geometrically that this gives a parameterization of the entire curve.
+    \begin{mybox}
+        \vspace{60mm}
+    \end{mybox}
+    \item[d.] Show that the geometric description from part (c) leads to the parameterization
+    \begin{center}
+        $x = c-t^2$,\\
+        $y = t(c-t^2)$.
+    \end{center}
+    \begin{mybox}
+        \vspace{30mm}
+    \end{mybox}
+\end{enumerate}
+
+1.4.8
+The ideal $\mathbf{I}(V)$ of a variety has a special property not shared by all ideals. Specifically, we define an ideal $I$ to be \textit{radical} if whenever a power $f^m$ of a polynomial $f$ is in $I$, then $f$ itself is in $I$. More succinctly, $I$ is radical when $f\in I$ if and only if $f^m\in I$ for any positive integer $m$.
+\begin{enumerate}
+    \item[a.] Prove that $\mathbf{I}(V)$ is always a radical ideal.
+    \begin{mybox}
+        If $f\in\iv$, then $f^m\in\iv$ for all positive
+        integers $m$ since $\iv$ is an ideal. If
+        $f^m\in\iv$ then $f^m(x)=0$ for all $x\in V$.
+        So since $k[x]$ is an integral domain, we have $f(x)=0$
+        which implies $f\in\iv$. Thus, $\iv$ is radical.
+    \end{mybox}
+    \item[b.] Prove that $\langle x^2,y^2 \rangle$ is not a radical ideal. This implies that $\langle x^2,y^2 \rangle \neq \mathbf{I}(V)$ for any variety $V\subseteq k^2$.
+    \begin{mybox}
+        $x^2 \in\langle x^2,y^2 \rangle$ but $x\notin \langle x^2,y^2 \rangle$.
+        So, by (a) $\langle x^2,y^2 \rangle$ is not radical.
+    \end{mybox}
+\end{enumerate}
+
+1.4.15
+In the text, we defined $\mathbf{I}(V)$ for a variety $V\subseteq k^n$. We can generalize this as follows: if $S\subseteq k^n$ is any subset, then we set $$\mathbf{I}(S):=\{f\in k[x_1,\ldots, x_n] \vert f(a)=0 \ \forall a\in S\}.$$
+\begin{enumerate}
+    \item[a.] Prove that $\mathbf{I}(S)$ is an ideal.
+    \begin{mybox}
+        If $f,g\in \is\subset k[x_1,\ldots,x_n]$, $(f-g)(a)=0$ and
+        $(fg)(a)=f(a)g(a)=0$ for all $a\in S$. So $I(S)$ is
+        a subring of $k[x_1,\ldots,x_n]$. Furthermore, for any $h\in
+        k[x_1,\ldots,x_n]$ and $f\in\is$, we have $(fh)(a)=f(a)h(a)=0$
+        for all $a\in S$. So $fh\in\is$ and $\is$ is an ideal.
+    \end{mybox}
+    \item[b.] Let $X=\{(a,a)\in \mathbb{R}^2 \vert a\neq 1\}$. Determine $\mathbf{I}(X).$
+    \begin{mybox}
+        If $f\in I(X)$, then $f(a,a)=0$ for all $a\in
+        \mathbb{R}$ by exercise 1.2.8. Then, $f$ vanishes
+        precisely on the line $y=x$ in $\mathbb{R}^2$.
+        So, $f\in\langle y-x\rangle$. We also have that
+        $\langle y-x\rangle\subset I(X)$ since $y-x$ vanishes
+        at all points of $X$. Thus $I(X)=\langle y-x\rangle$.
+    \end{mybox}
+    \item[c.] Let $\mathbb{Z}^n$ be the points of $\mathbb{C}^n$ with integer coordinates. Determine $\mathbf{I}(\mathbb{Z}^n)$. [Hint: Exercise 1.1.6].
+    \begin{mybox}
+        By 1.1.6, we must have that if $f$ vanishes at every
+        point in $\mathbb{Z}^n$ then $f=0$. Thus,
+        $I(\mathbb{Z}^n)=0$.
+    \end{mybox}
+\end{enumerate}
+
+1.5.3
+The fact that every ideal of $k[x]$ is principal is special to the case of polynomials in one variable. In this exercise we will see why. Namely, consider the ideal $I=\langle x,y \rangle \subseteq k[x,y]$. Prove that $I$ is not a principal ideal.
+\begin{mybox}
+    If $I$ is a principal ideal then it is generated by
+    some element $f\in k[x,y]$. Since $x\in I$, we have
+    $x=fg$ for some $g\in k[x,y]$ and degree$(f) + $
+    degree$(g)=$ degree$(x)$. So either $f$ or $g$ must be a constant.
+    $f$ cannot be a constant since $I=\langle f \rangle$
+    would then be all of $k[x,y]$. If $g$ is a constant,
+    $f$ would be a polynomial entirely on $x$ and so
+    $y=fh$ for $y\in I$ would have no solution. Thus $I$
+    is not a principal ideal.
+\end{mybox}
+1.5.11
+In this exercise we will study the one-variable case of the \textit{consistency problem} from section 1.2. Given $f_1,\ldots, f_s\in k[x]$, this asks if there is an algorithm to decide whether $\mathbf{V}(f_1,\ldots,f_s)$ is nonempty. we will see that the answer is yes when $k=\mathbb{C}$.
+\begin{enumerate}
+    \item[a.] Let $f\in \mathbb{C}[x]$ be a nonzero polynomial. Then use Theorem 7 of section 1.1 to show that $\mathbf{V}(f)=\emptyset$ if and only if $f$ is constant.
+    \begin{mybox}
+        By theorem 7, every non-constant polynomial in
+        $\mathbb{C}[x]$ has a root. Thus for the
+        forward direction, we see that if $f$ is not
+        constant then it has a root, say, $a$. Hence
+        $a\in V(f)\neq \emptyset$.
+        Now, if $f\neq 0$ is a constant polynomial $f=c$,
+        then $c=0$ is always false. So $V(f)=\emptyset$.
+    \end{mybox}
+    \item[b.] If $f_1,\ldots, f_s\in \mathbb{C}[x]$ Prove $\mathbf{V}(f_1,\ldots, f_s)=\emptyset$ if and only if gcd$(f_1,\ldots, f_s)=1$.
+    \begin{mybox}
+        Since $\mathbb{C}[x]$ is a principal ideal domain,
+        we have $\langle f_1,\ldots,f_s\rangle=\langle f
+        \rangle$ for some $f$. By proposition
+        4 in 1.4, we have $V(f_1,\ldots, f_s)=V(f)$. Thus
+        using $(a)$ on $V(f)$ we have, $V(f)=\emptyset$
+        iff $f$ is a constant polynomial. If $gcd=f=1$,
+        then $V(f_1,\ldots,f_s)$ is clearly empty. If
+        $V(f_1,\ldots,f_s)$ is empty, then $f$ is a
+        constant polynomial $k$ and we have
+        $$\alpha_1f_1+\cdots+\alpha_sf_s=k$$
+        for some polynomials $\alpha_i$.
+        Dividing by $k$, we see that $\sum_{i=1}^{s}{\beta_i
+        f_i}=1$ which implies that the gcd of the polynomials
+        is 1.
+
+    \end{mybox}
+    \item[c.] Describe in words an algorithm for determining whether or not $\mathbf{V}(f_1,\ldots, f_s)$ is nonempty.
+    \begin{mybox}
+        We calculate the gcd of the $f_1,\ldots,f_s$. If
+        the gcd is not constant, then the set $V(f_1,\ldots,
+        f_s)$ is not empty.
+    \end{mybox}
+
+\end{enumerate}
+
+1.5.12
+This exercise will study the one-variable case of the
+\textit{Nullstellensatz} problem from section 1.4
+which asks for the relation between
+$\mathbf{I}(\mathbf{V}(f_1,\ldots,f_s))$ and
+$\langle f_1,\ldots, f_s\rangle$ when
+$f_1,\ldots, f_s\in \mathbb{C}[x]$.
+By using gcd's, we can reduce to the case of a single
+generator. So, in this problem, we will explicitly determine $\mathbf{I}(\mathbf{V}(f))$ when $f\in \mathbb{C}[x]$ is a nonconstant polynomial. Since we are working over the complex numbers, we know by Exercise 1.5.1 that $f$ factors completely, i.e.,
+$$f=c(x-a_1)^{r_1}\cdots (x-a_l)^{r_l},$$ where $a_1,\ldots, a_l\in \mathbb{C}$ are distinct and $c\in \mathbb{C}\backslash \{0\}$. Define the polynomial $$f_{\text{red}}=c(x-a_1)\cdots (x-a_l).$$
+The polynomials $f$ and $f_{\text{red}}$ have the same
+roots, but their multiplicities may differ. In particular,
+all roots of $f_{\text{red}}$ have multiplicity one.
+We call $f_{\text{red}}$ the \textit{reduced} or \textit{square-free}
+part of $f$. The latter name recognizes that
+$f_{\text{red}}$ is the square-free factor of $f$ of largest degree.
+\begin{enumerate}
+    \item[a.] Show that $\mathbf{V}(f)=\{a_1,\ldots, a_l\}.$
+    \begin{mybox}
+        Clearly for each $a_i\in \{a_1,\ldots, a_l\}$,
+        we have $f(a_i)=0$ and so $\{a_i\}_1^n\subset
+        V(f)$.
+        Since $\mathbb{C}[x]$ is an integral domain,
+        we have $f=0\implies (x-a_i)=0$ for some $a_i$
+        and so $V(f)\subset \{a_i\}_1^n$.
+    \end{mybox}
+    \item[b.] Show that  $\mathbf{I}(\mathbf{V}(f))= \langle f_{red} \rangle$.
+    \begin{mybox}
+        If $g\in I(V(f))$, then $g(a_i)=0$ for all $i$. So,
+        all $(x-a_i)$ divides $g$ and hence, $f_{red}$
+        also divides $g \implies g\in \langle f_{red}\rangle$.
+        So $I(V(f))\subset \langle f_{red}\rangle$.
+        Similarly, if $h\in\langle f_{red}\rangle$, $f_{red}
+        \mid h\implies h=k\cdot f_{red}$ for some polynomial
+        $k$. So $h(a_i)=0$ for all i and hence
+        $\langle f_{red}\rangle \subset I(V(f))$.
+    \end{mybox}
+\end{enumerate}
+
+2.2.11
+Let $>$ be a monomial order on $k[x_1,\ldots, x_n].$
+\begin{enumerate}
+    \item[a.] Let $f\in k[x_1,\ldots, x_n]$ and let $m$ be a monomial. Show that $\text{LT}(m\cdot f)= m\cdot \text{LT}(f)$.
+    \begin{mybox}
+        Since $\lm(m\cdot f)=m\cdot\lm(f)$,
+        we have $\lt(m\cdot f)=\lc(m\cdot f)\cdot
+        \lm(m\cdot f)=\lc(f)\cdot m \cdot \lm(f)
+        =m\cdot \lt(f)$.
+    \end{mybox}
+    \item[b.] Let $f,g\in k[x_1,\ldots, x_n]$. Is $\text{LT}(f\cdot g)$ necessarily the same as $\text{LT}(f)\cdot\text{LT}(g)$?
+    \begin{mybox}
+        For each term $c_im_i$ of $g$, we have
+        $\lt(c_im_i\cdot f)= c_im_i\cdot\lt(f)$.
+        If $c_im_i$ is the leading term of $g$ then
+        $c_im_i\cdot\lt(f)$ appears exactly once in the
+        sum $\sum_{i}{c_im_i\cdot f}$ and so does not
+        cancel out or add up with any other terms. Furthermore,
+        $\lt(g)\cdot\lt(f)$ has the maximal multidegree. Thus,
+        $\lt(fg)=\lt(f)\lt(g)$.
+    \end{mybox}
+    \item[c.] If $f_i,g_i\in k[x_1,\ldots,x_n]$, $1\leq i \leq s$, is $\text{LM}(\sum_{i=1}^s f_ig_i)$ necessarily equal to $\text{LM}(f_i)\cdot \text{LM}(g_i)$ for some $i$?
+    \begin{mybox}
+        No. For $f_1=f_2=x_1$, $g_1=x_1$ and $g_2=-x_1$,
+        we have $f_1g_1+f_2g_2=0$. But none of $f_ig_i$
+        have the leading terms equal to 0.
+    \end{mybox}
+\end{enumerate}
+
+2.3.11
+In this exercise, we will characterize completely the expression
+$$f=q_1f_1 + \cdots + q_sf_s+r$$ that is produced by the division algorithm (among all the possible expressions for $f$ of this form). Let $\text{LM}(f_i)=x^{\alpha(i)}$ and define
+\begin{align*}
+    \Delta_1 &=& \alpha(1)+\mathbb{Z}^n_{\geq 0},\\
+    \Delta_2 &=& (\alpha(2)+\mathbb{Z}^n_{\geq 0})\backslash \Delta_1,\\
+     \hspace{1.cm} &\vdots&\\
+    \Delta_s &=&(\alpha(s)+\mathbb{Z}^n_{\geq 0})\backslash \left(\bigcup^{s-1}_{i=1}\Delta_i\right),\\
+    \overline{\Delta} &=& \mathbb{Z}^n_{\geq 0}\backslash \left(\bigcup^{s}_{i=1}\Delta_i\right)
+\end{align*}
+\begin{enumerate}
+    \item[a.] Show that $\beta\in \Delta_i$ iff $x^{\alpha(i)}$ divides $x^{\beta}$ and no $x^{\alpha(j)}$ with $j<i$ divides $x^{\beta}$.
+    \begin{mybox}
+        If $\beta\in\Delta_i$, then $\beta =\alpha(i)+
+        \delta$ for some $\delta\in \znz$ and $\beta\neq
+        \alpha(j)+\delta'$ for $j<1$ and some
+        $\delta'\in\znz$. So, $x^{\alpha(i)}$ divides
+        $x^\beta$ and no $x^{\alpha(j)}$ with $j<i$
+        divides $x^\beta$.
+
+        \vspace*{2mm}
+        Similarly, if $x^{\alpha(i)}$ divides
+        $x^\beta$ and no $x^{\alpha(j)}$ with $j<i$
+        divides $x^\beta$, then $\beta =\alpha(i)+
+        \delta$ for some $\delta\in \znz$ and $\beta\neq
+        \alpha(j)+\delta'$ for $j<1$ and some
+        $\delta'\in\znz$. In other words,
+
+        $$\beta\in(\alpha(i)+\mathbb{Z}^n_{\geq 0})\backslash \left(\bigcup^{i-1}_{j=1}\Delta_j\right)=\Delta_i.$$
+    \end{mybox}
+    \item[b.] Show that $\gamma\in \overline{\Delta}$ iff no $x^{\alpha(i)}$ divides $x^{\gamma}$.
+    \begin{mybox}
+        $\gamma\in \overline{\Delta}$ iff $\gamma\notin \Delta_i$
+        for all $i\leq s$. Thus by (a), $\gamma\in \overline{\Delta}$
+        iff no $x^{\alpha(i)}$ divides $x^\gamma$.
+    \end{mybox}
+    \item[c.] Show that in the expression $f=q_1f_1+\cdots + q_sf_s +r$ computed by the division algorithm, for every $i$, every monomial $x^{\beta}$ in $q_i$ satisfies $\beta +\alpha(i)\in \Delta_i$, and every monomial $x^{\gamma}$ in $r$ satisfies $\gamma\in \overline{\Delta}$.
+    \begin{mybox}
+        \vspace*{10mm}
+    \end{mybox}
+    \item[d.] Show that there is exactly one expression $f=q_1f_1+\cdots +q_sf_s+r$ satisfying the properties given in part $(c)$.
+    \begin{mybox}
+        \vspace*{10mm}
+    \end{mybox}
+\end{enumerate}
+
+Programming Exercise 1
+\begin{mybox}
+    \begin{lstlisting}
+        R.<x> = PolynomialRing(CC)
+        def gcduni(g,f):
+            f1=g; f2=f
+            q, r = g.quo_rem(f)
+            if (q==0):
+                f1 = f; f2 = g
+            h=f1; s=f2
+
+            while s!= 0:
+                q, r = h.quo_rem(s)
+                h = s
+                s = r
+        return h
+    \end{lstlisting}
+\end{mybox}
+
+Programming Exercise 2
+\begin{mybox}
+    \begin{lstlisting}
+        S.<x,y> = PolynomialRing(CC,2,'xy',order='degrevlex')
+        def multidiv(f, listf):
+            listofqs = []
+            p=f
+            for fs in listf:
+                q, r = p.quo_rem(fs)
+                listofqs.append(q)
+                p=r
+        return (listofqs, p)
+    \end{lstlisting}
+\end{mybox}
+\end{document}
